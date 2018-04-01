@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CD19E415-EE3B-41F2-9DDC-3BA534A1180D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mayiboy.Logic</RootNamespace>
+    <AssemblyName>Mayiboy.Logic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Impl\Base\BaseService.cs" />
+    <Compile Include="Impl\UserInfo\UserInfoService.cs" />
+    <Compile Include="Mapper\AutoMapperConfig.cs" />
+    <Compile Include="Mapper\MapperProfile.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Queue\" />
+    <Folder Include="Task\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mayiboy.ConstDefine\Mayiboy.ConstDefine.csproj">
+      <Project>{abe5cd6d-0e4e-41e2-8186-70aa1fa08440}</Project>
+      <Name>Mayiboy.ConstDefine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mayiboy.Contract\Mayiboy.Contract.csproj">
+      <Project>{dbee97cb-bb92-4c5c-940f-c9949117501a}</Project>
+      <Name>Mayiboy.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mayiboy.DataAccess\Mayiboy.DataAccess.csproj">
+      <Project>{338571b3-a66b-4ea6-b2de-e21ac4891e9f}</Project>
+      <Name>Mayiboy.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mayiboy.Model\Mayiboy.Model.csproj">
+      <Project>{36972fa3-7a3f-41f9-8263-e30309054c20}</Project>
+      <Name>Mayiboy.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mayiboy.Utils\Mayiboy.Utils.csproj">
+      <Project>{421410f1-b7d5-44d0-aa46-e6d2ac11e6cb}</Project>
+      <Name>Mayiboy.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
