@@ -43,8 +43,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.1\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Framework.Mayiboy.Caching, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.0\lib\Framework.Mayiboy.Caching.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Framework.Mayiboy.Ioc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Framework.Mayiboy.Ioc.1.0.0\lib\Framework.Mayiboy.Ioc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Framework.Mayiboy.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -129,6 +141,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\MayiboyDb.sql" />
+    <Content Include="Content\Images\close.png" />
+    <Content Include="Content\Images\code.jpg" />
+    <Content Include="Content\Images\face.jpg" />
+    <Content Include="Content\Images\login_bg.jpg" />
     <Content Include="Content\lib\layui\css\layui.css" />
     <Content Include="Content\lib\layui\css\layui.mobile.css" />
     <Content Include="Content\lib\layui\css\modules\code.css" />
@@ -230,17 +247,36 @@
     <Content Include="Content\lib\layui\lay\modules\tree.js" />
     <Content Include="Content\lib\layui\lay\modules\upload.js" />
     <Content Include="Content\lib\layui\lay\modules\util.js" />
+    <Content Include="Content\Scripts\app\login.js" />
+    <Content Include="Content\Scripts\common\ajaxhandler.js" />
+    <Content Include="Content\Scripts\common\jquery.cookie.js" />
+    <Content Include="Content\Scripts\common\jquery.form.js" />
+    <Content Include="Content\Scripts\common\rasall.js" />
+    <Content Include="Content\Scripts\jquery-1.10.1.min.js" />
+    <Content Include="Content\Scripts\common\jquery.extend.js" />
+    <Content Include="Content\Styles\public.css" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Exception\BaseException.cs" />
+    <Compile Include="Exception\LoginException.cs" />
+    <Compile Include="Exception\PermissionException.cs" />
+    <Compile Include="Exception\ViewModelException.cs" />
+    <Compile Include="Filters\ClientIpAuthAttribute.cs" />
+    <Compile Include="Filters\LoginAuthAttribute.cs" />
+    <Compile Include="Filters\ApplicationErrorAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\LoginUserInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -262,6 +298,7 @@
     <Content Include="Content\lib\layui\font\iconfont.eot" />
     <Content Include="Content\lib\layui\font\iconfont.ttf" />
     <Content Include="Content\lib\layui\font\iconfont.woff" />
+    <None Include="Properties\PublishProfiles\发布Local.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -270,12 +307,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
-    <Folder Include="Content\Scripts\" />
-    <Folder Include="Content\Styles\" />
-    <Folder Include="Filters\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

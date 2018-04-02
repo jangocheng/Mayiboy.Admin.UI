@@ -1,6 +1,8 @@
-﻿namespace Mayiboy.DataAccess.Interface
+﻿using Framework.Mayiboy.Ioc;
+
+namespace Mayiboy.DataAccess.Interface
 {
-    public interface IUserInfoRepository : IBaseRepository
+    public interface IUserInfoRepository : IBaseRepository, IDependency
     {
 
     }
