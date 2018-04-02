@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using Framework.Mayiboy.Utility;
 using Mayiboy.Utils;
 
-namespace Mayiboy.Admin.UI
+namespace Mayiboy.UI
 {
     /// <summary>
     /// 应用程序异常处理

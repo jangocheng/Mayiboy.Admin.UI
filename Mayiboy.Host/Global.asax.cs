@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
+using Framework.Mayiboy.Logging;
 using Mayiboy.Logic.Mapper;
 
 namespace Mayiboy.Host
@@ -12,9 +13,10 @@ namespace Mayiboy.Host
     {
         protected void Application_Start()
         {
-            GlobalConfiguration.Configure(WebApiConfig.Register);
+            LoggerGlobal.GlobalInit();
 
-            //AutoMapper 初始化
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+            
             AutoMapperConfig.Configure();
         }
     }
