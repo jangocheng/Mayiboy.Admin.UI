@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using AutoMapper;
+using Mayiboy.Model.Dto;
+using Mayiboy.Model.Model;
+using Mayiboy.Model.Po;
 
 namespace Mayiboy.Logic.Mapper
 {
@@ -43,6 +46,10 @@ namespace Mayiboy.Logic.Mapper
             });
             #endregion
 
+            this.CreateMap<UserInfoPo, UserInfoDto>();
+            this.CreateMap<UserInfoDto, UserInfoPo>();
+            this.CreateMap<UserInfoDto, AccountModel>();
+            this.CreateMap<AccountModel, UserInfoDto>();
 
         }
     }

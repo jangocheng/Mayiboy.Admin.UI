@@ -1,15 +1,12 @@
 ﻿using System;
-using SqlSugar;
 
-namespace Mayiboy.Model.Po
+namespace Mayiboy.Model.Model
 {
-    [SugarTable("UserInfo")]
-    public class UserInfoPo
+    public class AccountModel
     {
         /// <summary>
         /// 主键Id
         /// </summary>
-        [SugarColumn(IsIdentity = true)]
         public int Id { get; set; }
 
         /// <summary>
@@ -58,8 +55,9 @@ namespace Mayiboy.Model.Po
         public string Remark { get; set; }
 
         /// <summary>
-        /// 是否有效
+        /// 客户端指纹
         /// </summary>
-        public int IsValid { get; set; }
+        public string Fingerprint { get; set; }
+
     }
 }

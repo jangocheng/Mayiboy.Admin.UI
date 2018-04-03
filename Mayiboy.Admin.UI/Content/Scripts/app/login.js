@@ -21,9 +21,12 @@ layui.use(['form', 'layer', 'jquery'], function () {
             success: function (res) {
                 loginbtn.text("登录").removeAttr("disabled").removeClass("layui-disabled");
                 if (res.status == 0) {
-                    alert("成功");
+                    location.href = $("#loginbtn").data("tourl");
+                } else if (res.status == 1) {
+                    layer.msg(res.msg);
+                    $("#vcode").click();
                 } else {
-                    alert(res.msg);
+                    layer.msg(res.msg);
                 }
             }
         });

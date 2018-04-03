@@ -1,15 +1,13 @@
 ﻿using System;
 using SqlSugar;
 
-namespace Mayiboy.Model.Po
+namespace Mayiboy.Model.Dto
 {
-    [SugarTable("UserInfo")]
-    public class UserInfoPo
+    public class UserInfoDto
     {
         /// <summary>
         /// 主键Id
         /// </summary>
-        [SugarColumn(IsIdentity = true)]
         public int Id { get; set; }
 
         /// <summary>

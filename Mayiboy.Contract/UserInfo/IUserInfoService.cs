@@ -8,7 +8,7 @@ namespace Mayiboy.Contract
     public interface IUserInfoService : IBaseService, IDependency
     {
         /// <summary>
-        /// 
+        /// 插入用户信息
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>

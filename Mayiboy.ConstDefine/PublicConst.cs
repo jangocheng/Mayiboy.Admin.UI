@@ -16,6 +16,11 @@
         public const string DataModelValidNotThrough = "";
 
         /// <summary>
+        /// 用于身份Cookie对应的Key常量
+        /// </summary>
+        public const string IdentityCookieKey = "mayiboy.Identity";
+
+        /// <summary>
         /// 常用地址
         /// </summary>
         public class Url

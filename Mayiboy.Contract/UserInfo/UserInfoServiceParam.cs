@@ -1,4 +1,6 @@
-﻿namespace Mayiboy.Contract
+﻿using Mayiboy.Model.Dto;
+
+namespace Mayiboy.Contract
 {
 
     /// <summary>
@@ -6,7 +8,10 @@
     /// </summary>
     public class InsertRequest : BaseRequest
     {
-
+        /// <summary>
+        /// 用户信息
+        /// </summary>
+        public UserInfoDto UserInfoEntity { get; set; }
     }
 
     /// <summary>
@@ -14,7 +19,10 @@
     /// </summary>
     public class InsertResponse : BaseResponse
     {
-
+        /// <summary>
+        /// 用户信息
+        /// </summary>
+        public UserInfoDto UserInfoEntity { get; set; }
     }
 
 
@@ -40,6 +48,9 @@
     /// </summary>
     public class LoginQueryResponse : BaseResponse
     {
-        public string Content { get; set; }
+        /// <summary>
+        /// 用户信息
+        /// </summary>
+        public UserInfoDto UserInfoEntity { get; set; }
     }
 }

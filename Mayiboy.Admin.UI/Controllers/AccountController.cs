@@ -7,6 +7,8 @@ using Framework.Mayiboy.Utility;
 using Framework.Mayiboy.Utility.EncryptionHelper;
 using Mayiboy.ConstDefine;
 using Mayiboy.Contract;
+using Mayiboy.Model.Dto;
+using Mayiboy.Model.Model;
 using Mayiboy.Utils;
 
 namespace Mayiboy.Admin.UI.Controllers
@@ -31,11 +33,38 @@ namespace Mayiboy.Admin.UI.Controllers
         {
             try
             {
-                var res = _iuserinfoservice.LoginQuery(new LoginQueryRequest
+                #region 验证验证码
+                var vcode = SessionHelper.Get<string>("vcode");
+                if (vcode.IsNullOrEmpty() || vcode != model.Code)
+                {
+                    return Json(new { status = 1, msg = "验证码错误" });
+                }
+                #endregion
+
+                var request = new LoginQueryRequest
                 {
                     LoginName = model.UserName,
                     Password = model.PassWord
-                });
+                };
+
+                var loginqueryresponse = _iuserinfoservice.LoginQuery(request);
+
+                if (loginqueryresponse.UserInfoEntity == null)
+                {
+                    return Json(new { status = 2, msg = "密码错误" }, JsonRequestBehavior.AllowGet);
+                }
+
+                #region 保存用户登录状态
+                string identityValue = Guid.NewGuid().ToString("N");
+
+                CookieHelper.Set(PublicConst.IdentityCookieKey, identityValue, true);
+
+                var entity = loginqueryresponse.UserInfoEntity.As<AccountModel>();
+
+                entity.Fingerprint = RequestHelper.Fingerprint;
+
+                CacheManager.RedisDefault.Set(identityValue.AddCachePrefix(PublicConst.IdentityCookieKey), entity, PublicConst.Time.Hour1);
+                #endregion
 
                 return Json(new { status = 0 }, JsonRequestBehavior.AllowGet);
             }
@@ -55,18 +84,20 @@ namespace Mayiboy.Admin.UI.Controllers
         }
         #endregion
 
-        #region 解密 js加密
+        #region 验证码
         /// <summary>
-        /// 解密 js加密
+        /// 验证码
         /// </summary>
-        /// <param name="ciphertext">密文</param>
-        private void RsaDecrypt(ref string ciphertext)
+        /// <returns></returns>
+        public ActionResult VerifyCode()
         {
-            if (ciphertext.IsNotNullOrEmpty())
-            {
-                ciphertext = RsaCryption.RsaDecrypt(PublicConst.XmlPrivateKey, ciphertext);
-            }
+            string vcode = CaptchaHelper.CreateRandomCode(4);
+
+            SessionHelper.Set("vcode", vcode);
+
+            return File(CaptchaHelper.DrawImage(vcode), @"image/jpeg");
         }
         #endregion
+
     }
 }
