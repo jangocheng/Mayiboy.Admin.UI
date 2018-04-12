@@ -39,12 +39,13 @@ namespace Mayiboy.Admin.UI.Controllers
                 {
                     return Json(new { status = 1, msg = "验证码错误" });
                 }
+                SessionHelper.RemoveSession("vcode");
                 #endregion
 
                 var request = new LoginQueryRequest
                 {
                     LoginName = model.UserName,
-                    Password = model.PassWord
+                    Password = model.PassWord.GetMd5()
                 };
 
                 var loginqueryresponse = _iuserinfoservice.LoginQuery(request);
@@ -79,7 +80,9 @@ namespace Mayiboy.Admin.UI.Controllers
         #region 注销登录
         public ActionResult Logout()
         {
-
+            SessionHelper.ClearSession();
+            CacheManager.RedisDefault.Del(CookieHelper.Get(PublicConst.IdentityCookieKey).AddCachePrefix(PublicConst.IdentityCookieKey));
+            CookieHelper.Remove(PublicConst.IdentityCookieKey);
             return Redirect("Index");
         }
         #endregion

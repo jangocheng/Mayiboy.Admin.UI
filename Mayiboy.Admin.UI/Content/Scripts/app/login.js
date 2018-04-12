@@ -19,15 +19,17 @@ layui.use(['form', 'layer', 'jquery'], function () {
                 code: $("#code").val()
             },
             success: function (res) {
-                loginbtn.text("登录").removeAttr("disabled").removeClass("layui-disabled");
                 if (res.status == 0) {
                     location.href = $("#loginbtn").data("tourl");
                 } else if (res.status == 1) {
+                    loginbtn.text("登录").removeAttr("disabled").removeClass("layui-disabled");
                     layer.msg(res.msg);
                     $("#vcode").click();
                 } else {
+                    loginbtn.text("登录").removeAttr("disabled").removeClass("layui-disabled");
                     layer.msg(res.msg);
                 }
+               
             }
         });
 

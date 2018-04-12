@@ -30,16 +30,24 @@ namespace Mayiboy.Admin.UI
 
         private bool Unauthorized(HttpContextBase httpContext)
         {
+            bool islogin = true;
+
             var identityvalue = CookieHelper.Get(PublicConst.IdentityCookieKey);
 
             if (identityvalue.IsNullOrEmpty())
             {
-                return false;
+                islogin = false;
             }
 
             var entity = CacheManager.RedisDefault.Get<AccountModel>(identityvalue.AddCachePrefix(PublicConst.IdentityCookieKey));
 
-            return entity.IsNotNull();
+
+            if (entity == null || !RequestHelper.CheckFingerprint(entity.Fingerprint))
+            {
+                islogin = false;
+            }
+
+            return islogin;
         }
     }
 }

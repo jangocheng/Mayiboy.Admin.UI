@@ -145,6 +145,7 @@
     <Content Include="Content\Images\close.png" />
     <Content Include="Content\Images\code.jpg" />
     <Content Include="Content\Images\face.jpg" />
+    <Content Include="Content\Images\headimg.png" />
     <Content Include="Content\Images\login_bg.jpg" />
     <Content Include="Content\lib\layui\css\layui.css" />
     <Content Include="Content\lib\layui\css\layui.mobile.css" />
