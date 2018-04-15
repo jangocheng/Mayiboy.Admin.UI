@@ -16,7 +16,7 @@
     <RootNamespace>Mayiboy.Admin.UI</RootNamespace>
     <AssemblyName>Mayiboy.Admin.UI</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -142,11 +142,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\MayiboyDb.sql" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\weathericons-regular-webfont.svg" />
     <Content Include="Content\Images\close.png" />
     <Content Include="Content\Images\code.jpg" />
     <Content Include="Content\Images\face.jpg" />
     <Content Include="Content\Images\headimg.png" />
     <Content Include="Content\Images\login_bg.jpg" />
+    <Content Include="Content\lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\lib\jquery\jQuery-2.2.0.min.js" />
     <Content Include="Content\lib\layui\css\layui.css" />
     <Content Include="Content\lib\layui\css\layui.mobile.css" />
     <Content Include="Content\lib\layui\css\modules\code.css" />
@@ -248,6 +255,7 @@
     <Content Include="Content\lib\layui\lay\modules\tree.js" />
     <Content Include="Content\lib\layui\lay\modules\upload.js" />
     <Content Include="Content\lib\layui\lay\modules\util.js" />
+    <Content Include="Content\Scripts\app\index.js" />
     <Content Include="Content\Scripts\app\login.js" />
     <Content Include="Content\Scripts\common\ajaxhandler.js" />
     <Content Include="Content\Scripts\common\jquery.cookie.js" />
@@ -255,7 +263,10 @@
     <Content Include="Content\Scripts\common\rasall.js" />
     <Content Include="Content\Scripts\jquery-1.10.1.min.js" />
     <Content Include="Content\Scripts\common\jquery.extend.js" />
+    <Content Include="Content\Styles\font-awesome.min.css" />
+    <Content Include="Content\Styles\index.css" />
     <Content Include="Content\Styles\public.css" />
+    <Content Include="Content\Styles\skins\_all-skins.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -299,6 +310,24 @@
     <Content Include="Content\lib\layui\font\iconfont.eot" />
     <Content Include="Content\lib\layui\font\iconfont.ttf" />
     <Content Include="Content\lib\layui\font\iconfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Content\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="Content\fonts\weathericons-regular-webfont.ttf" />
+    <Content Include="Content\fonts\weathericons-regular-webfont.woff" />
+    <Content Include="Content\fonts\weathericons-regular-webfontd41d.eot" />
+    <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\发布Local.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -308,6 +337,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\lib\charts\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
@@ -347,7 +377,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3218</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:3218/</IISUrl>
+          <IISUrl>http://localhost/Mayiboy.Admin.UI</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
