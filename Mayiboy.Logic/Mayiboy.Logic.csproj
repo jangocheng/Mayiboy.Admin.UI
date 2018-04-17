@@ -82,6 +82,10 @@
       <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.0\lib\ServiceStack.Text.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="SqlSugar, Version=4.6.4.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\sqlSugar.4.6.4.7\lib\SqlSugar.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -94,6 +98,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Impl\Base\BaseService.cs" />
+    <Compile Include="Impl\SystemMenu\SystemMenuService.cs" />
+    <Compile Include="Impl\SystemNavbar\SystemNavbarService.cs" />
     <Compile Include="Impl\UserInfo\UserInfoService.cs" />
     <Compile Include="Mapper\AutoMapperConfig.cs" />
     <Compile Include="Mapper\MapperProfile.cs" />

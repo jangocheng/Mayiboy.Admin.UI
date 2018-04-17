@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using SqlSugar;
 
 namespace Mayiboy.DataAccess.Interface
 {
@@ -87,6 +88,25 @@ namespace Mayiboy.DataAccess.Interface
         /// <param name="expression">查询条件</param>
         /// <returns></returns>
         List<T> FindWhere<T>(Expression<Func<T, bool>> expression) where T : class, new();
+
+        /// <summary>
+        /// 条件查询排序
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="expression">查询条件</param>
+        /// <param name="orderfileds">排序字段</param>
+        /// <returns></returns>
+        List<T> FindWhere<T>(Expression<Func<T, bool>> expression, string orderfileds) where T : class, new();
+
+        /// <summary>
+        /// 条件查询指定排序条件
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="expression">查询条件</param>
+        /// <param name="orderbyexpression">排序字段</param>
+        /// <param name="orderbytype">排序类型</param>
+        /// <returns></returns>
+        List<T> FindWhere<T>(Expression<Func<T, bool>> expression, Expression<Func<T, object>> orderbyexpression, OrderByType orderbytype = OrderByType.Asc) where T : class, new();
 
         /// <summary>
         /// 指定字段求和

@@ -1,0 +1,20 @@
+﻿@using Mayiboy.Model.Model
+@{
+    var list = ViewBag.SysNavbarList as List<SystemNavbarModel>;
+    int num = 0;
+}
+
+<div id="sysnavbar" class="navbar-custom-menu" style="float:left;" data-sysmenu="@Url.Action("GetSystemMenu","Home")">
+    <ul class="nav navbar-nav">
+        @foreach (var item in list)
+        {
+            
+            <li class="dropdown messages-menu @(num==0?"selectnav":"")" data-navid="@item.Id">
+                <a href="javascript:;" class="dropdown-toggle apptxt" data-toggle="dropdown">
+                    @item.Name
+                </a>
+            </li>
+            num++;
+        }
+    </ul>
+</div>

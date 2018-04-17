@@ -13,9 +13,9 @@ namespace Mayiboy.Admin.UI.Controllers
     {
         private readonly IUserInfoService _iuserinfoservice;
 
-        public BaseController(IUserInfoService iuserinfoservice)
+        public BaseController()
         {
-            _iuserinfoservice = iuserinfoservice;
+            _iuserinfoservice = ServiceLocater.GetService<IUserInfoService>();
         }
 
         #region 错误返回

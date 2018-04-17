@@ -26,47 +26,31 @@
                 <a class="sidebar-toggle">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
-                <div class="navbar-custom-menu" style="float:left;">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown messages-menu">
-                            <a href="javascript:;" class="dropdown-toggle apptxt" data-toggle="dropdown">
-                                系统配置
-                            </a>
-                            <ul class="dropdown-menu pull-right" style="display: none;">
-                                <li><a class="menuItem" data-id="userInfo" href="javascript:;">环境变量</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown messages-menu">
-                            <a href="javascript:;" class="dropdown-toggle apptxt" data-toggle="dropdown">
-                                微信平台
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
+                @*系统导航栏*@
+                @Html.Action("SystemNavbar","Home")
 
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <li class="dropdown messages-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-envelope-o "></i>
                                 <span class="label label-success">0</span>
                             </a>
                         </li>
                         <li class="dropdown notifications-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-bell-o"></i>
                                 <span class="label label-warning">0</span>
                             </a>
                         </li>
                         <li class="dropdown tasks-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-flag-o"></i>
                                 <span class="label label-danger">0</span>
                             </a>
                         </li>
                         <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="~/Content/Images/headimg.png" class="user-image" alt="User Image">
                                 <span class="hidden-xs">administrator</span>
                             </a>
@@ -94,7 +78,7 @@
                         <a><i class="fa fa-circle text-success"></i>在线</a>
                     </div>
                 </div>
-                <form action="#" method="get" class="sidebar-form" style="display:none;">
+                <form action="javascript:;" method="get" class="sidebar-form" style="display:none;">
                     <div class="input-group">
                         <input type="text" name="q" class="form-control" placeholder="Search...">
                         <span class="input-group-btn">

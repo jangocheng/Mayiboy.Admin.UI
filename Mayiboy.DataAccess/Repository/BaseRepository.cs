@@ -138,6 +138,35 @@ namespace Mayiboy.DataAccess.Repository
         }
 
         /// <summary>
+        /// 条件查询排序
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="expression"></param>
+        /// <param name="orderfileds"></param>
+        /// <returns></returns>
+        public List<T> FindWhere<T>(Expression<Func<T, bool>> expression, string orderfileds) where T : class, new()
+        {
+            return CurrentDbContext.Queryable<T>().With(SqlWith.NoLock).Where(expression).OrderBy(orderfileds).ToList();
+        }
+
+        /// <summary>
+        /// 条件查询指定排序条件
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="expression"></param>
+        /// <param name="orderbyexpression"></param>
+        /// <param name="orderbytype"></param>
+        /// <returns></returns>
+        public List<T> FindWhere<T>(Expression<Func<T, bool>> expression, Expression<Func<T, object>> orderbyexpression, OrderByType orderbytype = OrderByType.Asc) where T : class, new()
+        {
+            return CurrentDbContext.Queryable<T>()
+                    .With(SqlWith.NoLock)
+                    .Where(expression)
+                    .OrderBy(orderbyexpression, orderbytype)
+                    .ToList();
+        }
+
+        /// <summary>
         /// 指定字段求和
         /// </summary>
         /// <typeparam name="T"></typeparam>

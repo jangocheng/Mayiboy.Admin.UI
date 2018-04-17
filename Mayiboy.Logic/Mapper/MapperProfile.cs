@@ -51,6 +51,10 @@ namespace Mayiboy.Logic.Mapper
             this.CreateMap<UserInfoDto, AccountModel>();
             this.CreateMap<AccountModel, UserInfoDto>();
 
+            this.CreateMap<SystemNavbarPo, SystemNavbarDto>();
+            this.CreateMap<SystemNavbarDto, SystemNavbarPo>();
+            this.CreateMap<SystemNavbarDto, SystemNavbarModel>();
+            this.CreateMap<SystemNavbarModel, SystemNavbarDto>();
         }
     }
 }
