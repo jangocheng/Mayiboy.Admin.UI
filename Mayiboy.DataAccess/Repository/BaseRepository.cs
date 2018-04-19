@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Mayiboy.DataAccess.Interface;
 using Mayiboy.Utils;
 using System.Configuration;
+using System.Data;
 using System.Linq.Expressions;
 using SqlSugar;
 
@@ -401,6 +402,53 @@ namespace Mayiboy.DataAccess.Repository
             return CurrentDbContext.Deleteable<T>().Where(deleteObjs).ExecuteCommand();
         }
 
+        #endregion
+
+        #region UseStoredProcedure
+        /// <summary>
+        /// 使用存储过程
+        /// </summary>
+        /// <typeparam name="T">返回类型</typeparam>
+        /// <param name="procedureName">存储过程名称</param>
+        /// <returns></returns>
+        public List<T> UseStoredProcedure<T>(string procedureName)
+        {
+            return CurrentDbContext.Ado.UseStoredProcedure().SqlQuery<T>(procedureName);
+        }
+
+        /// <summary>
+        /// 使用存储过程
+        /// </summary>
+        /// <typeparam name="T">返回类型</typeparam>
+        /// <param name="procedureName">存储过程名称</param>
+        /// <param name="parameters">参数</param>
+        /// <returns></returns>
+        public List<T> UseStoredProcedure<T>(string procedureName, params SugarParameter[] parameters)
+        {
+            return CurrentDbContext.Ado.UseStoredProcedure().SqlQuery<T>(procedureName);
+        }
+
+        /// <summary>
+        /// 使用存储过程
+        /// </summary>
+        /// <typeparam name="T">返回类型</typeparam>
+        /// <param name="procedureName">存储过程名称</param>
+        /// <param name="parameters">参数</param>
+        /// <returns></returns>
+        public List<T> UseStoredProcedure<T>(string procedureName, object parameters)
+        {
+            return CurrentDbContext.Ado.UseStoredProcedure().SqlQuery<T>(procedureName, parameters);
+        }
+
+        /// <summary>
+        /// 调用存储过程
+        /// </summary>
+        /// <param name="procedureName">存储过程名称</param>
+        /// <param name="parameters">参数</param>
+        public void UseStoredProcedure(string procedureName, params SugarParameter[] parameters)
+        {
+            CurrentDbContext.Ado.UseStoredProcedure().ExecuteCommand(procedureName, parameters);
+        }
         #endregion
     }
 }

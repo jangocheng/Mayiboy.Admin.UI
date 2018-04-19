@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Mayiboy.Model.Model
 {
@@ -8,6 +9,11 @@ namespace Mayiboy.Model.Model
         /// 主键id
         /// </summary>
         public int Id { get; set; }
+
+        /// <summary>
+        /// 父级Id
+        /// </summary>
+        public int Pid { get; set; }
 
         /// <summary>
         /// 导航id
@@ -20,14 +26,24 @@ namespace Mayiboy.Model.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// 菜单地址
+        /// Url地址
         /// </summary>
-        public string MenuAddress { get; set; }
+        public string UrlAddress { get; set; }
 
         /// <summary>
         /// 菜单类型
         /// </summary>
         public int MenuType { get; set; }
+
+        /// <summary>
+        /// 图标
+        /// </summary>
+        public string Icon { get; set; }
+
+        /// <summary>
+        /// 排序字段
+        /// </summary>
+        public int Sort { get; set; }
 
         /// <summary>
         /// 创建人Id
@@ -58,5 +74,10 @@ namespace Mayiboy.Model.Model
         /// 是否有效（0：无效；1：有效）
         /// </summary>
         public int IsValid { get; set; }
+
+        /// <summary>
+        /// 子集
+        /// </summary>
+        public List<SystemMenuModel> ChildNodes { get; set; }
     }
 }

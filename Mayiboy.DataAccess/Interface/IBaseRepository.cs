@@ -11,6 +11,7 @@ namespace Mayiboy.DataAccess.Interface
     public interface IBaseRepository
     {
         #region Insert
+
         /// <summary>
         /// 插入数据
         /// </summary>
@@ -45,6 +46,7 @@ namespace Mayiboy.DataAccess.Interface
         /// <param name="entity"></param>
         /// <returns></returns>
         bool InsertIdentityIntoEntity<T>(T entity) where T : class, new();
+
         #endregion
 
         #region Query
@@ -106,7 +108,8 @@ namespace Mayiboy.DataAccess.Interface
         /// <param name="orderbyexpression">排序字段</param>
         /// <param name="orderbytype">排序类型</param>
         /// <returns></returns>
-        List<T> FindWhere<T>(Expression<Func<T, bool>> expression, Expression<Func<T, object>> orderbyexpression, OrderByType orderbytype = OrderByType.Asc) where T : class, new();
+        List<T> FindWhere<T>(Expression<Func<T, bool>> expression, Expression<Func<T, object>> orderbyexpression,
+            OrderByType orderbytype = OrderByType.Asc) where T : class, new();
 
         /// <summary>
         /// 指定字段求和
@@ -231,7 +234,7 @@ namespace Mayiboy.DataAccess.Interface
         /// <param name="whereexpression">更新条件</param>
         /// <returns></returns>
         int UpdateColumns<T>(T entity, Expression<Func<T, bool>> expression,
-           Expression<Func<T, bool>> whereexpression) where T : class, new();
+            Expression<Func<T, bool>> whereexpression) where T : class, new();
 
 
 
@@ -291,5 +294,39 @@ namespace Mayiboy.DataAccess.Interface
 
         #endregion
 
+        #region UseStoredProcedure
+        /// <summary>
+        /// 使用存储过程
+        /// </summary>
+        /// <typeparam name="T">返回类型</typeparam>
+        /// <param name="procedureName">存储过程名称</param>
+        /// <returns></returns>
+        List<T> UseStoredProcedure<T>(string procedureName);
+
+        /// <summary>
+        /// 使用存储过程
+        /// </summary>
+        /// <typeparam name="T">返回类型</typeparam>
+        /// <param name="procedureName">存储过程名称</param>
+        /// <param name="parameters">参数</param>
+        /// <returns></returns>
+        List<T> UseStoredProcedure<T>(string procedureName, params SugarParameter[] parameters);
+
+        /// <summary>
+        /// 使用存储过程
+        /// </summary>
+        /// <typeparam name="T">返回类型</typeparam>
+        /// <param name="procedureName">存储过程名称</param>
+        /// <param name="parameters">参数</param>
+        /// <returns></returns>
+        List<T> UseStoredProcedure<T>(string procedureName, object parameters);
+
+        /// <summary>
+        /// 调用存储过程
+        /// </summary>
+        /// <param name="procedureName">存储过程名称</param>
+        /// <param name="parameters">参数</param>
+        void UseStoredProcedure(string procedureName, params SugarParameter[] parameters); 
+        #endregion
     }
 }

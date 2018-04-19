@@ -2,7 +2,11 @@
 using Framework.Mayiboy.Utility;
 using Mayiboy.Contract;
 using Mayiboy.DataAccess.Interface;
+using Mayiboy.Model.Po;
 using Mayiboy.Utils;
+using System.Linq;
+using Mayiboy.Model.Dto;
+using SqlSugar;
 
 namespace Mayiboy.Logic.Impl
 {
@@ -34,6 +38,17 @@ namespace Mayiboy.Logic.Impl
             var response = new QueryAllMenuResponse();
             try
             {
+                var sugarparameter = new
+                {
+                    request.NavbarId
+                };
+
+                var list = _systemMenuRepository.UseStoredProcedure<SystemMenuPo>("proc_SystemMenuByNavbarId_select", sugarparameter);
+
+                if (list != null)
+                {
+                    response.SystemMenuList = list.Select(e => e.As<SystemMenuDto>()).ToList();
+                }
 
             }
             catch (Exception ex)

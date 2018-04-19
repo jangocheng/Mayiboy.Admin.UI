@@ -10,6 +10,11 @@ namespace Mayiboy.Model.Dto
         public int Id { get; set; }
 
         /// <summary>
+        /// 父级Id
+        /// </summary>
+        public int Pid { get; set; }
+
+        /// <summary>
         /// 导航id
         /// </summary>
         public int NavbarId { get; set; }
@@ -20,14 +25,24 @@ namespace Mayiboy.Model.Dto
         public string Name { get; set; }
 
         /// <summary>
-        /// 菜单地址
+        /// Url地址
         /// </summary>
-        public string MenuAddress { get; set; }
+        public string UrlAddress { get; set; }
 
         /// <summary>
         /// 菜单类型
         /// </summary>
         public int MenuType { get; set; }
+
+        /// <summary>
+        /// 图标
+        /// </summary>
+        public string Icon { get; set; }
+
+        /// <summary>
+        /// 排序字段
+        /// </summary>
+        public int Sort { get; set; }
 
         /// <summary>
         /// 创建人Id

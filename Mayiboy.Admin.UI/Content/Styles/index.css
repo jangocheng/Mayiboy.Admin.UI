@@ -123,7 +123,8 @@ a:hover,a:active,a:focus{outline:none;text-decoration:none;color:#72afd2}
 .content-wrapper .content-tabs nav.page-tabs{margin-left:40px;width:100000px;height:40px;overflow:hidden}
 .content-wrapper .content-tabs nav.page-tabs .page-tabs-content{float:left}
 .content-wrapper .content-tabs .page-tabs a{display:block;float:left;border-right:solid 0px #ddd;padding:0 15px;padding-right:8px;text-decoration:none;color:#475059;}
-.content-wrapper .content-tabs .page-tabs a:first-child{padding-right:15px;}
+.content-wrapper .content-tabs .page-tabs a:first-child{padding-right:20px;padding-left:20px;}
+.content-wrapper .content-tabs .page-tabs a:nth-child(2){padding-right:20px;padding-left:20px;}
 .content-wrapper .content-tabs .page-tabs a.active{background: #222d32;color: #fff;border-right: solid 1px #2c3e50;}
 .content-wrapper .content-tabs .page-tabs a i{margin-top:-10px;right: 0px;position: relative;color: #999;}
 .content-wrapper .content-tabs .page-tabs a i:hover{color:#c00 !important;}

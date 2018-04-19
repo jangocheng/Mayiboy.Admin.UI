@@ -1,4 +1,7 @@
-﻿namespace Mayiboy.Contract
+﻿using System.Collections.Generic;
+using Mayiboy.Model.Dto;
+
+namespace Mayiboy.Contract
 {
 
     /// <summary>
@@ -17,7 +20,7 @@
     /// </summary>
     public class QueryAllMenuResponse : BaseResponse
     {
-
+        public List<SystemMenuDto> SystemMenuList { get; set; }
     }
 
     /// <summary>
