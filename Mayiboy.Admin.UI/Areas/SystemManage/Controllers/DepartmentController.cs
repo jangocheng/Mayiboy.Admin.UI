@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Mayiboy.Admin.UI.Controllers
+namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
 {
-    public class SysMenuController : Controller
+    public class DepartmentController : Controller
     {
-        // GET: SysMenu
+        // GET: SystemManage/Department
         public ActionResult Index()
         {
             return View();

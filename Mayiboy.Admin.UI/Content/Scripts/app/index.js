@@ -272,6 +272,11 @@
     $.mainindex = {
         Init: function () {
             $("#sysnavbar li").click(function () {
+                if ($(this).data("url").length > 0) {
+                    location.href = $(this).data("url");
+                    return false;
+                }
+
                 $("#sysnavbar li").removeClass("selectnav");
                 $(this).addClass("selectnav");
                 $.mainindex.loadMenu();
@@ -299,7 +304,7 @@
             });
         },
         jsonWhere: function (data, action) {
-            if (action == null) return;
+            if (action == null) return false;
             var reval = new Array();
             $(data).each(function (i, v) {
                 if (action(v)) {

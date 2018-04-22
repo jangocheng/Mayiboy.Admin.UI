@@ -38,7 +38,7 @@
                     dt.setTime(value);
                 }
             }
-            return dt.format("yyyy-MM-dd hh:mm");
+            return dt.format("yyyy-MM-dd hh:mm:ss");
         },
         Extend_formatDate: function (value) {
             if (value == null || value == '') {

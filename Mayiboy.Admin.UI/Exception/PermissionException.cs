@@ -43,7 +43,7 @@ namespace Mayiboy.Admin.UI
         /// <param name="filterContext"></param>
         protected override void ViewHandler(ExceptionContext filterContext)
         {
-            filterContext.HttpContext.Response.Redirect(PublicConst.Url.NoPermission);
+            filterContext.HttpContext.Response.Redirect(PublicConstConfig.Url.NoPermission);
         }
     }
 }

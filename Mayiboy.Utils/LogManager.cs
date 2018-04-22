@@ -17,10 +17,16 @@ namespace Mayiboy.Utils
         /// </summary>
         public static readonly Logger LogicLogger;
 
+        /// <summary>
+        /// 执行Sql脚本出错
+        /// </summary>
+        public static readonly Logger DataAccessLogger;
+
         static LogManager()
         {
             DefaultLogger = LoggerFactory.GetLogger("DefaultLogger");
             LogicLogger = LoggerFactory.GetLogger("LogicLogger");
+            DataAccessLogger = LoggerFactory.GetLogger("DataAccessLogger");
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Mayiboy.Admin.UI
             if (!filterContext.RequestContext.HttpContext.Request.IsAjaxRequest() &&
                 (filterContext.RequestContext.HttpContext.Request.Url != null))
             {
-                filterContext.Result = new RedirectResult(PublicConst.Url.OnLogin);
+                filterContext.Result = new RedirectResult(PublicConstConfig.Url.OnLogin);
             }
             else
             {
@@ -30,24 +30,14 @@ namespace Mayiboy.Admin.UI
 
         private bool Unauthorized(HttpContextBase httpContext)
         {
-            bool islogin = true;
-
-            var identityvalue = CookieHelper.Get(PublicConst.IdentityCookieKey);
-
-            if (identityvalue.IsNullOrEmpty())
-            {
-                islogin = false;
-            }
-
-            var entity = CacheManager.RedisDefault.Get<AccountModel>(identityvalue.AddCachePrefix(PublicConst.IdentityCookieKey));
-
+            var entity = AccountConfig.LoginInfo;
 
             if (entity == null || !RequestHelper.CheckFingerprint(entity.Fingerprint))
             {
-                islogin = false;
+                return false;
             }
 
-            return islogin;
+            return true;
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Mayiboy.Contract
     /// 分页查询基类
     /// </summary>
     [Serializable]
-    public class BasePagerResponse : BaseResponse
+    public class BasePageResponse : BaseResponse
     {
         /// <summary>
         /// 当前页

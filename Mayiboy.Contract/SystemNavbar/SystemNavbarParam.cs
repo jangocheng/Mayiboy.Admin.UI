@@ -3,6 +3,17 @@ using Mayiboy.Model.Dto;
 
 namespace Mayiboy.Contract
 {
+
+    public class GetRequest : BaseRequest
+    {
+        public int Id { get; set; }
+    }
+
+    public class GetResponse : BaseResponse
+    {
+        public SystemNavbarDto Entity { get; set; }
+    }
+
     /// <summary>
     /// 查询所系统所有导航栏参数
     /// </summary>
@@ -40,4 +51,55 @@ namespace Mayiboy.Contract
         /// </summary>
         public List<SystemNavbarDto> SystemNavbarList { get; set; }
     }
+
+
+
+    public class QueryRequest : BasePageRequest
+    {
+        /// <summary>
+        /// 栏目名
+        /// </summary>
+        public string Name { get; set; }
+    }
+
+    public class QueryResponse : BasePageResponse
+    {
+        /// <summary>
+        /// 系统栏目列表
+        /// </summary>
+        public List<SystemNavbarDto> SystemNavbarList { get; set; }
+    }
+
+
+
+    public class SaveRequest : BaseRequest
+    {
+        /// <summary>
+        /// 系统栏目实例
+        /// </summary>
+        public SystemNavbarDto Entity { get; set; }
+    }
+
+    public class SaveResponse : BaseResponse
+    {
+        /// <summary>
+        /// 主键Id
+        /// </summary>
+        public int Id { get; set; }
+    }
+
+    public class DelReqeust : BaseRequest
+    {
+        /// <summary>
+        /// 栏目Id
+        /// </summary>
+        public int Id { get; set; }
+    }
+
+    public class DelResponse : BaseResponse
+    {
+
+    }
+
+
 }

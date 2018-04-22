@@ -31,6 +31,11 @@ namespace Mayiboy.Model.Dto
         public string Name { get; set; }
 
         /// <summary>
+        /// 头像图片地址
+        /// </summary>
+        public string HeadimgUrl { get; set; }
+
+        /// <summary>
         /// 密文手机号
         /// </summary>
         public string MobileX { get; set; }

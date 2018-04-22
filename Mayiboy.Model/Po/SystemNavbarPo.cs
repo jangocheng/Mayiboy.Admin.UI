@@ -9,6 +9,7 @@ namespace Mayiboy.Model.Po
         /// <summary>
         /// 主键id
         /// </summary>
+        [SugarColumn(IsPrimaryKey = true, IsIdentity = true, ColumnName = "Id")]
         public int Id { get; set; }
 
         /// <summary>

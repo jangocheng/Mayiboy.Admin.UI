@@ -26,6 +26,8 @@ namespace Mayiboy.Admin.UI.Controllers
         [LoginAuth]
         public ActionResult Index()
         {
+            ViewBag.LogAccount = AccountConfig.LoginInfo;
+
             return View();
         }
 

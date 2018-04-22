@@ -48,8 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\BasePagerRequest.cs" />
-    <Compile Include="Base\BasePagerResponse.cs" />
+    <Compile Include="Base\BasePageRequest.cs" />
+    <Compile Include="Base\BasePageResponse.cs" />
     <Compile Include="Base\BaseRequest.cs" />
     <Compile Include="Base\BaseResponse.cs" />
     <Compile Include="IBaseService.cs" />

@@ -149,6 +149,7 @@
     <Content Include="Content\Images\close.png" />
     <Content Include="Content\Images\code.jpg" />
     <Content Include="Content\Images\face.jpg" />
+    <Content Include="Content\Images\flag.png" />
     <Content Include="Content\Images\headimg.png" />
     <Content Include="Content\Images\login_bg.jpg" />
     <Content Include="Content\lib\bootstrap\css\bootstrap.min.css" />
@@ -160,6 +161,7 @@
     <Content Include="Content\lib\layui\css\layui.css" />
     <Content Include="Content\lib\layui\css\layui.mobile.css" />
     <Content Include="Content\lib\layui\css\modules\code.css" />
+    <Content Include="Content\lib\layui\css\modules\laydate\default\font.css" />
     <Content Include="Content\lib\layui\css\modules\laydate\default\laydate.css" />
     <Content Include="Content\lib\layui\css\modules\layer\default\icon-ext.png" />
     <Content Include="Content\lib\layui\css\modules\layer\default\icon.png" />
@@ -240,8 +242,9 @@
     <Content Include="Content\lib\layui\images\face\71.gif" />
     <Content Include="Content\lib\layui\images\face\8.gif" />
     <Content Include="Content\lib\layui\images\face\9.gif" />
-    <Content Include="Content\lib\layui\layui.all.js" />
     <Content Include="Content\lib\layui\layui.js" />
+    <Content Include="Content\lib\layui\lay\all-mobile.js" />
+    <Content Include="Content\lib\layui\lay\all.js" />
     <Content Include="Content\lib\layui\lay\modules\carousel.js" />
     <Content Include="Content\lib\layui\lay\modules\code.js" />
     <Content Include="Content\lib\layui\lay\modules\element.js" />
@@ -254,6 +257,11 @@
     <Content Include="Content\lib\layui\lay\modules\laypage.js" />
     <Content Include="Content\lib\layui\lay\modules\laytpl.js" />
     <Content Include="Content\lib\layui\lay\modules\mobile.js" />
+    <Content Include="Content\lib\layui\lay\modules\mobile\layer-mobile.js" />
+    <Content Include="Content\lib\layui\lay\modules\mobile\layim-mobile-open.js" />
+    <Content Include="Content\lib\layui\lay\modules\mobile\upload-mobile.js" />
+    <Content Include="Content\lib\layui\lay\modules\mobile\zepto.js" />
+    <Content Include="Content\lib\layui\lay\modules\myvalidation.js" />
     <Content Include="Content\lib\layui\lay\modules\table.js" />
     <Content Include="Content\lib\layui\lay\modules\tree.js" />
     <Content Include="Content\lib\layui\lay\modules\upload.js" />
@@ -266,6 +274,7 @@
     <Content Include="Content\Scripts\common\rasall.js" />
     <Content Include="Content\Scripts\jquery-1.10.1.min.js" />
     <Content Include="Content\Scripts\common\jquery.extend.js" />
+    <Content Include="Content\Styles\admin.css" />
     <Content Include="Content\Styles\font-awesome.min.css" />
     <Content Include="Content\Styles\index.css" />
     <Content Include="Content\Styles\public.css" />
@@ -275,14 +284,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AccountConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\PublicConstConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\SystemManage\Controllers\DepartmentController.cs" />
+    <Compile Include="Areas\SystemManage\Controllers\SysMenuController.cs" />
+    <Compile Include="Areas\SystemManage\Controllers\SysNavbarController.cs" />
+    <Compile Include="Areas\SystemManage\Controllers\UserInfoController.cs" />
+    <Compile Include="Areas\SystemManage\Controllers\UserRoleController.cs" />
+    <Compile Include="Areas\SystemManage\SystemManageAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\SysMenuController.cs" />
-    <Compile Include="Controllers\SysNavbarController.cs" />
     <Compile Include="Exception\BaseException.cs" />
     <Compile Include="Exception\LoginException.cs" />
     <Compile Include="Exception\PermissionException.cs" />
@@ -334,12 +349,17 @@
     <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\SystemManage\Views\web.config" />
+    <Content Include="Areas\SystemManage\Views\SysMenu\Index.cshtml" />
+    <Content Include="Areas\SystemManage\Views\SysNavbar\Index.cshtml" />
+    <Content Include="Areas\SystemManage\Views\UserRole\Index.cshtml" />
+    <Content Include="Areas\SystemManage\Views\UserInfo\Index.cshtml" />
+    <Content Include="Areas\SystemManage\Views\Department\Index.cshtml" />
     <None Include="Properties\PublishProfiles\发布Local.pubxml" />
     <Content Include="Views\Home\SystemNavbar.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Page.cshtml" />
-    <Content Include="Views\SysNavbar\Index.cshtml" />
-    <Content Include="Views\SysMenu\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -348,7 +368,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Base\" />
+    <Folder Include="Areas\SystemManage\Models\" />
+    <Folder Include="Areas\SystemManage\Views\Shared\" />
     <Folder Include="Views\Common\" />
   </ItemGroup>
   <ItemGroup>

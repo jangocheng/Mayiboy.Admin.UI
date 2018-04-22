@@ -164,9 +164,10 @@ namespace Mayiboy.DataAccess.Interface
         /// <param name="pageIndex">页面索引</param>
         /// <param name="pageSize">页面大小</param>
         /// <param name="totalNumber">合计</param>
+        /// <param name="orderbytype">排序类型</param>
         /// <returns></returns>
         List<T> FindPage<T>(Expression<Func<T, bool>> expression, Expression<Func<T, object>> orderexpression,
-            int pageIndex, int pageSize, ref int totalNumber) where T : class, new();
+            int pageIndex, int pageSize, ref int totalNumber, OrderByType orderbytype = OrderByType.Asc) where T : class, new();
 
 
         #endregion
@@ -195,18 +196,18 @@ namespace Mayiboy.DataAccess.Interface
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="entity"></param>
-        /// <param name="expression">更新指定列</param>
+        /// <param name="columns">更新指定列</param>
         /// <returns></returns>
-        int UpdateColumns<T>(T entity, Expression<Func<T, bool>> expression) where T : class, new();
+        int UpdateColumns<T>(T entity, Expression<Func<T, object>> columns) where T : class, new();
 
         /// <summary>
         /// 更新指定列除外的所有列
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="entity"></param>
-        /// <param name="expression">不更新的列</param>
+        /// <param name="columns">不更新的列</param>
         /// <returns></returns>
-        int UpdateIgnoreColumns<T>(T entity, Expression<Func<T, object>> expression) where T : class, new();
+        int UpdateIgnoreColumns<T>(T entity, Expression<Func<T, object>> columns) where T : class, new();
 
         /// <summary>
         /// 批量更新(主键要有值，主键是更新条件)

@@ -235,10 +235,11 @@ namespace Mayiboy.DataAccess.Repository
         /// <param name="pageIndex">页面索引</param>
         /// <param name="pageSize">页面大小</param>
         /// <param name="totalNumber">合计</param>
+        /// <param name="orderbytype">排序类型</param>
         /// <returns></returns>
-        public List<T> FindPage<T>(Expression<Func<T, bool>> expression, Expression<Func<T, object>> orderexpression, int pageIndex, int pageSize, ref int totalNumber) where T : class, new()
+        public List<T> FindPage<T>(Expression<Func<T, bool>> expression, Expression<Func<T, object>> orderexpression, int pageIndex, int pageSize, ref int totalNumber, OrderByType orderbytype = OrderByType.Asc) where T : class, new()
         {
-            return CurrentDbContext.Queryable<T>().With(SqlWith.NoLock).Where(expression).OrderBy(orderexpression).ToPageList(pageIndex, pageSize, ref totalNumber);
+            return CurrentDbContext.Queryable<T>().With(SqlWith.NoLock).Where(expression).OrderBy(orderexpression, orderbytype).ToPageList(pageIndex, pageSize, ref totalNumber);
         }
 
         #endregion
@@ -273,11 +274,12 @@ namespace Mayiboy.DataAccess.Repository
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="entity"></param>
-        /// <param name="expression">更新指定列</param>
+        /// <param name="columns">更新指定列</param>
         /// <returns></returns>
-        public int UpdateColumns<T>(T entity, Expression<Func<T, bool>> expression) where T : class, new()
+        public int UpdateColumns<T>(T entity, Expression<Func<T, object>> columns) where T : class, new()
         {
-            return CurrentDbContext.Updateable(entity).UpdateColumns(expression).ExecuteCommand();
+
+            return CurrentDbContext.Updateable(entity).UpdateColumns(columns).ExecuteCommand();
         }
 
         /// <summary>
@@ -285,11 +287,11 @@ namespace Mayiboy.DataAccess.Repository
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="entity"></param>
-        /// <param name="expression">不更新的列</param>
+        /// <param name="columns">不更新的列</param>
         /// <returns></returns>
-        public int UpdateIgnoreColumns<T>(T entity, Expression<Func<T, object>> expression) where T : class, new()
+        public int UpdateIgnoreColumns<T>(T entity, Expression<Func<T, object>> columns) where T : class, new()
         {
-            return CurrentDbContext.Updateable(entity).IgnoreColumns(expression).ExecuteCommand();
+            return CurrentDbContext.Updateable(entity).IgnoreColumns(columns).ExecuteCommand();
         }
 
         /// <summary>

@@ -59,7 +59,7 @@ namespace Mayiboy.UI
         /// <param name="filterContext"></param>
         protected virtual void ViewHandler(ExceptionContext filterContext)
         {
-            filterContext.HttpContext.Response.Redirect(PublicConst.Url.SystemException);
+            filterContext.HttpContext.Response.Redirect(PublicConstConfig.Url.SystemException);
         }
 
         /// <summary>
