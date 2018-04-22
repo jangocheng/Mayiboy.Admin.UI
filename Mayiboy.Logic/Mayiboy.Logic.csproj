@@ -97,6 +97,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\EntityLogger.cs" />
     <Compile Include="Impl\Base\BaseService.cs" />
     <Compile Include="Impl\SystemMenu\SystemMenuService.cs" />
     <Compile Include="Impl\SystemNavbar\SystemNavbarService.cs" />

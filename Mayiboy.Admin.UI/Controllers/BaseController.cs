@@ -8,6 +8,7 @@ using Framework.Mayiboy.Utility;
 using Mayiboy.ConstDefine;
 using Mayiboy.Contract;
 using Mayiboy.Logic.Impl;
+using Mayiboy.Model.Dto;
 using Mayiboy.Model.Model;
 using Mayiboy.Utils;
 
@@ -16,10 +17,12 @@ namespace Mayiboy.Admin.UI.Controllers
     public class BaseController : Controller
     {
         private readonly IUserInfoService _iuserinfoservice;
+        private readonly ISystemNavbarService _systemNavbarService;
 
         public BaseController()
         {
             _iuserinfoservice = ServiceLocater.GetService<IUserInfoService>();
+            _systemNavbarService = ServiceLocater.GetService<ISystemNavbarService>();
         }
 
         #region 错误返回
@@ -58,6 +61,33 @@ namespace Mayiboy.Admin.UI.Controllers
         public JsonResult ToFatalJsonResult(string msg, string buginfo = "")
         {
             return Json(new { status = -1, msg = msg, buginfo = buginfo }, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+
+        #region 获取全部栏目
+        /// <summary>
+        /// 获取全部栏目
+        /// </summary>
+        /// <returns></returns>
+        public List<SystemNavbarModel> QueryAllSystemNavbar()
+        {
+            var list = new List<SystemNavbarModel>();
+
+            try
+            {
+                var response = _systemNavbarService.QueryAll(new QueryAllNavbarRequest { });
+
+                if (response.IsSuccess)
+                {
+                    list = response.SystemNavbarList.Select(e => e.As<SystemNavbarModel>()).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                LogManager.DefaultLogger.ErrorFormat("获取系统栏目出错：{0}", new { err = ex.ToString() }.ToJson());
+            }
+
+            return list;
         }
         #endregion
     }

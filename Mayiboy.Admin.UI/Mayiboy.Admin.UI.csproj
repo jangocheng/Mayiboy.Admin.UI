@@ -142,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\MayiboyDb.sql" />
+    <Content Include="Areas\SystemManage\Content\js\systemnavbar.js" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\fonts\weathericons-regular-webfont.svg" />

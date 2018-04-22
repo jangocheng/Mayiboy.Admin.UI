@@ -31,6 +31,11 @@ namespace Mayiboy.Model.Dto
         public string Name { get; set; }
 
         /// <summary>
+        /// 性别（-1：全部；0:女；1：男）
+        /// </summary>
+        public int? Sex { get; set; }
+
+        /// <summary>
         /// 头像图片地址
         /// </summary>
         public string HeadimgUrl { get; set; }
@@ -46,9 +51,19 @@ namespace Mayiboy.Model.Dto
         public string MobileMask { get; set; }
 
         /// <summary>
+        /// 创建用户Id
+        /// </summary>
+        public int CreateUserId { get; set; }
+
+        /// <summary>
         /// 创建时间
         /// </summary>
         public DateTime CreateTime { get; set; }
+
+        /// <summary>
+        /// 更新用户Id
+        /// </summary>
+        public int UpdateUserId { get; set; }
 
         /// <summary>
         /// 更新时间

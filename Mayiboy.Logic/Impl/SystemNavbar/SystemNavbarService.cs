@@ -107,8 +107,9 @@ namespace Mayiboy.Logic.Impl
 
             if (request.Entity == null)
             {
+                response.IsSuccess = false;
                 response.MessageCode = "1";
-                response.MessageText = "实体不能为空";
+                response.MessageText = "系统栏目参数不能为空";
                 return response;
             }
 
@@ -119,8 +120,8 @@ namespace Mayiboy.Logic.Impl
                 if (entity.Id == 0)
                 {
                     #region 插入
-                    entity.CreateTime = DateTime.Now;
-                    entity.IsValid = 1;
+
+                    EntityLogger.CreateEntity(entity);
 
                     response.Id = _systemNavbarRepository.InsertReturnIdentity<SystemNavbarPo>(entity);
                     #endregion
@@ -135,7 +136,7 @@ namespace Mayiboy.Logic.Impl
                         throw new Exception("更新系统栏目不存在");
                     }
 
-                    entity.UpdateTime = DateTime.Now;
+                    EntityLogger.UpdateEntity(entity);
 
                     _systemNavbarRepository.UpdateIgnoreColumns(entity, e => new { e.IsValid, e.CreateTime, e.CreateUserId });
                     #endregion
@@ -164,9 +165,10 @@ namespace Mayiboy.Logic.Impl
                 {
                     throw new Exception("删除系统栏目出错");
                 }
+                
+                EntityLogger.UpdateEntity(entity);
 
                 entity.IsValid = 0;
-                entity.UpdateTime = DateTime.Now;
 
                 _systemNavbarRepository.UpdateColumns<SystemNavbarPo>(entity, (e) => new { e.IsValid, e.UpdateTime, e.UpdateUserId });
             }

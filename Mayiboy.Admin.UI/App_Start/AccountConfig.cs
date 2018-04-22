@@ -44,9 +44,8 @@ namespace Mayiboy.Admin.UI
         {
             get
             {
-                var identityvalue = IdentityCacheKey;
 
-                if (identityvalue.IsNullOrEmpty()) return null;
+                if (IdentityCacheKey.IsNullOrEmpty()) return null;
 
                 var entity = CacheManager.Get<AccountModel>(IdentityCacheKey, 2);
 

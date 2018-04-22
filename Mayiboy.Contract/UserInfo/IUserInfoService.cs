@@ -12,7 +12,21 @@ namespace Mayiboy.Contract
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        InsertResponse Insert(InsertRequest request);
+        SaveUserInfoResponse SaveUserInfo(SaveUserInfoRequest request);
+
+        /// <summary>
+        /// 查询用户信息
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        QueryUserInfoResponse QueryUserInfo(QueryUserInfoRequest request);
+
+        /// <summary>
+        /// 删除用户信息
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        DelUserInfoResponse Del(DelUserInfoRequest request);
 
         /// <summary>
         /// 查询
