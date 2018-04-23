@@ -9,7 +9,7 @@ namespace Mayiboy.Model.Po
         /// <summary>
         /// 主键Id
         /// </summary>
-        [SugarColumn(IsIdentity = true)]
+        [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
         public int Id { get; set; }
 
         /// <summary>
@@ -43,14 +43,9 @@ namespace Mayiboy.Model.Po
         public int? Sex { get; set; }
 
         /// <summary>
-        /// 密文手机号
+        /// 手机号
         /// </summary>
-        public string MobileX { get; set; }
-
-        /// <summary>
-        /// 掩码手机号
-        /// </summary>
-        public string MobileMask { get; set; }
+        public string Mobile { get; set; }
 
         /// <summary>
         /// 创建人Id

@@ -44,14 +44,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\SystemAppSettingsDto.cs" />
     <Compile Include="Dto\SystemMenuDto.cs" />
     <Compile Include="Dto\SystemNavbarDto.cs" />
+    <Compile Include="Dto\SystemOperationLogDto.cs" />
     <Compile Include="Dto\UserInfoDto.cs" />
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Model\SystemMenuModel.cs" />
     <Compile Include="Model\SystemNavbarModel.cs" />
+    <Compile Include="Po\SystemAppSettingsPo.cs" />
     <Compile Include="Po\SystemMenuPo.cs" />
     <Compile Include="Po\SystemNavbarPo.cs" />
+    <Compile Include="Po\SystemOperationLogPo.cs" />
     <Compile Include="Po\UserInfoPo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -33,7 +33,7 @@ namespace Mayiboy.Admin.UI
 
                     if (list.Any())
                     {
-                        var v = string.Join("\r", list.Select(e => e.ErrorMessage));
+                        var v = string.Join("\n", list.Select(e => e.ErrorMessage));
 
                         throw new ViewModelException(v);
                     }

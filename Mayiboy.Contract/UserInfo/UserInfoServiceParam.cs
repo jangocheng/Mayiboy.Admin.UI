@@ -63,7 +63,7 @@ namespace Mayiboy.Contract
         /// <summary>
         /// 用户名
         /// </summary>
-        public string Name { get; set; }
+        public string Account { get; set; }
 
         /// <summary>
         /// 性别（-1：全部；0:女；1：男）

@@ -149,6 +149,7 @@
     <Content Include="Content\Images\ajax-loader.gif" />
     <Content Include="Content\Images\close.png" />
     <Content Include="Content\Images\code.jpg" />
+    <Content Include="Content\Images\defaultimg.jpg" />
     <Content Include="Content\Images\face.jpg" />
     <Content Include="Content\Images\flag.png" />
     <Content Include="Content\Images\headimg.png" />
@@ -294,6 +295,7 @@
     <Compile Include="Areas\SystemManage\Controllers\SysNavbarController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\UserInfoController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\UserRoleController.cs" />
+    <Compile Include="Areas\SystemManage\Models\UserInfoModel.cs" />
     <Compile Include="Areas\SystemManage\SystemManageAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -369,7 +371,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\SystemManage\Models\" />
     <Folder Include="Areas\SystemManage\Views\Shared\" />
     <Folder Include="Views\Common\" />
   </ItemGroup>

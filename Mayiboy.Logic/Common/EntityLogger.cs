@@ -23,17 +23,19 @@ namespace Mayiboy.Logic
 
             foreach (var prop in properties)
             {
-                if (prop.Name.ToLower() == "createuserid")
+                switch (prop.Name.ToLower())
                 {
-                    prop.SetValue(entity, LoginUserId);
-                }
-                else if (prop.Name.ToLower() == "createtime")
-                {
-                    prop.SetValue(entity, DateTime.Now);
-                }
-                else if (prop.Name.ToLower() == "isvalid")
-                {
-                    prop.SetValue(entity, 1);
+                    case "updateuserid":
+                    case "createuserid":
+                        prop.SetValue(entity, LoginUserId);
+                        break;
+                    case "updatetime":
+                    case "createtime":
+                        prop.SetValue(entity, DateTime.Now);
+                        break;
+                    case "isvalid":
+                        prop.SetValue(entity, 1);
+                        break;
                 }
             }
         }
@@ -72,13 +74,14 @@ namespace Mayiboy.Logic
             var properties = entity.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
             foreach (var prop in properties)
             {
-                if (prop.Name.ToLower() == "updateuserid")
+                switch (prop.Name.ToLower())
                 {
-                    prop.SetValue(entity, LoginUserId);
-                }
-                else if (prop.Name.ToLower() == "updatetime")
-                {
-                    prop.SetValue(entity, DateTime.Now);
+                    case "updateuserid":
+                        prop.SetValue(entity, LoginUserId);
+                        break;
+                    case "updatetime":
+                        prop.SetValue(entity, DateTime.Now);
+                        break;
                 }
             }
         }

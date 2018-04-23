@@ -18,11 +18,13 @@ namespace Mayiboy.Admin.UI.Controllers
     {
         private readonly IUserInfoService _iuserinfoservice;
         private readonly ISystemNavbarService _systemNavbarService;
+        private readonly ISystemAppSettingsService _systemAppSettingsService;
 
         public BaseController()
         {
             _iuserinfoservice = ServiceLocater.GetService<IUserInfoService>();
             _systemNavbarService = ServiceLocater.GetService<ISystemNavbarService>();
+            _systemAppSettingsService = ServiceLocater.GetService<ISystemAppSettingsService>();
         }
 
         #region 错误返回
@@ -33,7 +35,7 @@ namespace Mayiboy.Admin.UI.Controllers
         /// <param name="msg">提示消息</param>
         /// <param name="buginfo">错误提示(用于开发错误提示)</param>
         /// <returns></returns>
-        public JsonResult ToErrorJsonResult(long status = 1, string msg = "有错误", string buginfo = "")
+        public JsonResult ToJsonErrorResult(long status = 1, string msg = "有错误", string buginfo = "")
         {
             return Json(new { status = status, msg = msg, buginfo = buginfo }, JsonRequestBehavior.AllowGet);
         }
@@ -43,11 +45,11 @@ namespace Mayiboy.Admin.UI.Controllers
         /// <summary>
         ///成功返回 
         /// </summary>
-        /// <param name="obj">响应数据</param>
+        /// <param name="data">响应数据</param>
         /// <returns></returns>
-        public JsonResult ToJsonResult(object obj = null)
+        public JsonResult ToJsonResult(object data)
         {
-            return Json(new { status = 0, data = obj }, JsonRequestBehavior.AllowGet);
+            return Json(data, JsonRequestBehavior.AllowGet);
         }
         #endregion
 
@@ -58,7 +60,7 @@ namespace Mayiboy.Admin.UI.Controllers
         /// <param name="msg">提示信息</param>
         /// <param name="buginfo">错误提示(用于开发错误提示)</param>
         /// <returns></returns>
-        public JsonResult ToFatalJsonResult(string msg, string buginfo = "")
+        public JsonResult ToJsonFatalResult(string msg, string buginfo = "")
         {
             return Json(new { status = -1, msg = msg, buginfo = buginfo }, JsonRequestBehavior.AllowGet);
         }
@@ -88,6 +90,39 @@ namespace Mayiboy.Admin.UI.Controllers
             }
 
             return list;
+        }
+        #endregion
+
+        #region 获取系统配置
+        /// <summary>
+        /// 获取系统配置
+        /// </summary>
+        /// <param name="key">配置key</param>
+        /// <returns></returns>
+        public string GetSystemAppSetting(string key)
+        {
+            if (key.IsNullOrEmpty()) return null;
+
+            var cachekey = key.AddCachePrefix("systemappsetting");
+
+            var value = CacheManager.Get<string>(cachekey, PublicConst.Time.Minute1);
+
+            if (value.IsNullOrEmpty())
+            {
+                var response = _systemAppSettingsService.GetSysAppSetting(new GetSysAppSettingRequest
+                {
+                    Key = key
+                });
+
+                if (response.IsSuccess && response.KeyValue.IsNotNullOrEmpty())
+                {
+                    value = response.KeyValue;
+
+                    CacheManager.RedisDefault.Set<string>(cachekey, value, PublicConst.Time.Day1);
+                }
+            }
+
+            return value;
         }
         #endregion
     }

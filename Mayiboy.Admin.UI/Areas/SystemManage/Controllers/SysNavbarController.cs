@@ -39,7 +39,7 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
 
                 if (!response.IsSuccess)
                 {
-                    return ToErrorJsonResult(1, response.MessageText);
+                    return ToJsonErrorResult(1, response.MessageText);
                 }
 
                 return Json(new { code = 0, data = response.SystemNavbarList, count = response.TotalCount }, JsonRequestBehavior.AllowGet);
@@ -72,10 +72,10 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
 
                 if (!response.IsSuccess)
                 {
-                    return ToErrorJsonResult(1, "保存出错！");
+                    return ToJsonErrorResult(1, "保存出错！");
                 }
 
-                return ToJsonResult();
+                return ToJsonResult(new { status = 0 });
             }
             catch (Exception ex)
             {
@@ -99,7 +99,7 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
                     return Json(new { status = 1, msg = response.MessageText }, JsonRequestBehavior.AllowGet);
                 }
 
-                return ToJsonResult();
+                return ToJsonResult(new { status = 0 });
             }
             catch (Exception ex)
             {

@@ -41,14 +41,9 @@ namespace Mayiboy.Model.Dto
         public string HeadimgUrl { get; set; }
 
         /// <summary>
-        /// 密文手机号
+        /// 手机号
         /// </summary>
-        public string MobileX { get; set; }
-
-        /// <summary>
-        /// 掩码手机号
-        /// </summary>
-        public string MobileMask { get; set; }
+        public string Mobile { get; set; }
 
         /// <summary>
         /// 创建用户Id

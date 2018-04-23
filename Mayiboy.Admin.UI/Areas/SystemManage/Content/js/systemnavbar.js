@@ -83,34 +83,26 @@
                     url: $("#dttable").data("url"), //数据接口
                     page: true, //开启分页
                     even: true, //各行变色
-                    cols: [
-                    [
-                    { field: 'id', title: '序号', type: "numbers", width: 60 },
-                    { field: 'Name', title: '名称', width: 200 },
-                    { field: 'Url', title: '地址' },
-                    { field: 'Sort', title: '排序', width: 200 },
-                    { field: 'Remark', title: '备注', width: 200 },
-                    {
-                        field: 'CreateTime',
-                        title: '创建时间',
-                        width: 180,
-                        templet: function (row) {
-                            return $.Extend_formatDateTime(row.CreateTime);
-                        }
-                    },
-                {
-                    field: 'look',
-                    title: '操作',
-                    width: 150,
-                    templet: function (row) {
-                        var html = "";
-                        html += '<a href="javascript:;" class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>';
-                        html += '<a href="javascript:;" class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>';
-                        return html;
-                    }
-                }
-                    ]
-                    ],
+                    cols: [[
+                            { field: 'id', title: '序号', type: "numbers", width: 60 },
+                            { field: 'Name', title: '名称', width: 200 },
+                            { field: 'Url', title: '地址' },
+                            { field: 'Sort', title: '排序', width: 200 },
+                            { field: 'Remark', title: '备注', width: 200 },
+                            {
+                                field: 'CreateTime',title: '创建时间',width: 180,templet: function (row) {
+                                    return $.Extend_formatDateTime(row.CreateTime);
+                                }
+                            },
+                            {
+                                field: 'look',title: '操作',width: 150,templet: function (row) {
+                                    var html = "";
+                                    html += '<a href="javascript:;" class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>';
+                                    html += '<a href="javascript:;" class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>';
+                                    return html;
+                                }
+                            }
+                    ]],
                     done: function (res, curr, count) {
 
                     }
@@ -136,24 +128,22 @@
                 });
             });
         },
-        Del:
+        Del:function (row, index) {
+            $.ajax({
+                type: "get",
+                url: $("#dttable").data("delurl"),
+                data: { id: row.Id },
+                success: function (res) {
+                    if (res.status == 0) {
+                        thisPage.Buttons.Table.reload();
+                        layer.close(index);
+                    } else {
+                        layer.alert(res.msg);
+                    }
 
-    function (row, index) {
-        $.ajax({
-            type: "get",
-            url: $("#dttable").data("delurl"),
-            data: { id: row.Id },
-            success: function (res) {
-                if (res.status == 0) {
-                    thisPage.Buttons.Table.reload();
-                    layer.close(index);
-                } else {
-                    layer.alert(res.msg);
                 }
-
-            }
-        });
-    }
+            });
+        }
     }
 
     thisPage.Init();

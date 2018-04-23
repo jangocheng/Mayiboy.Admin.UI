@@ -82,5 +82,52 @@ namespace Mayiboy.Logic.Impl
             }
             return response;
         }
+
+
+        /// <summary>
+        /// 保存系统菜单
+        /// </summary>
+        /// <param name="request">保存系统参数</param>
+        /// <returns></returns>
+        public SaveSystemMenuResponse SaveSystemMenu(SaveSystemMenuRequest request)
+        {
+            var response = new SaveSystemMenuResponse();
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.MessageCode = "-1";
+                response.MessageText = ex.ToString();
+
+                LogManager.LogicLogger.ErrorFormat("保存系统菜单出错：{0}", new { request, err = ex.ToString() }.ToJson());
+            }
+            return response;
+        }
+
+        /// <summary>
+        /// 删除系统菜单
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public DelSystemMenuResponse DelSystemMenu(DelSystemMenuRequest request)
+        {
+            var response = new DelSystemMenuResponse();
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.MessageCode = "-1";
+                response.MessageText = ex.ToString();
+
+                LogManager.LogicLogger.ErrorFormat("删除系统菜单出错：{0}", new { request, err = ex.ToString() }.ToJson());
+            }
+            return response;
+        }
     }
 }

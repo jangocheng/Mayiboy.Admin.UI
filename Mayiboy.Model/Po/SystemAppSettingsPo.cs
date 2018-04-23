@@ -3,8 +3,8 @@ using SqlSugar;
 
 namespace Mayiboy.Model.Po
 {
-    [SugarTable("SystemNavbar")]
-    public class SystemNavbarPo
+    [SugarTable("SystemAppSettings")]
+    public class SystemAppSettingsPo
     {
         /// <summary>
         /// 主键id
@@ -13,24 +13,29 @@ namespace Mayiboy.Model.Po
         public int Id { get; set; }
 
         /// <summary>
-        /// 导航名
+        /// 配置名称
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// 导航地址
+        /// 键
         /// </summary>
-        public string Url { get; set; }
+        public string KeyWord { get; set; }
 
         /// <summary>
-        /// 备注说明
+        /// 值
+        /// </summary>
+        public string KeyValue { get; set; }
+
+        /// <summary>
+        /// 备注
         /// </summary>
         public string Remark { get; set; }
 
         /// <summary>
-        /// 排序字段
+        /// 创建用户
         /// </summary>
-        public int Sort { get; set; }
+        public int CreateUserId { get; set; }
 
         /// <summary>
         /// 创建时间
@@ -38,24 +43,18 @@ namespace Mayiboy.Model.Po
         public DateTime CreateTime { get; set; }
 
         /// <summary>
-        /// 创建用户Id
-        /// </summary>
-        public int? CreateUserId { get; set; }
-
-        /// <summary>
-        /// 更新时间
-        /// </summary>
-        public DateTime? UpdateTime { get; set; }
-
-        /// <summary>
-        /// 更新用户Id
+        /// 修改用户
         /// </summary>
         public int? UpdateUserId { get; set; }
+
+        /// <summary>
+        /// 修改时间
+        /// </summary>
+        public DateTime? UpdateTime { get; set; }
 
         /// <summary>
         /// 是否有效（0：无效；1：有效）
         /// </summary>
         public int IsValid { get; set; }
-
     }
 }

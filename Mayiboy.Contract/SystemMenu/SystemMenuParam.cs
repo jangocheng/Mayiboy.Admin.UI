@@ -46,4 +46,31 @@ namespace Mayiboy.Contract
     {
 
     }
+
+    public class SaveSystemMenuRequest : BaseRequest
+    {
+
+    }
+
+    public class SaveSystemMenuResponse : BaseResponse
+    {
+
+    }
+
+
+
+    public class DelSystemMenuRequest : BaseRequest
+    {
+        /// <summary>
+        /// 主键id
+        /// </summary>
+        public int Id { get; set; }
+    }
+
+
+    public class DelSystemMenuResponse : BaseResponse
+    {
+
+    }
+
 }

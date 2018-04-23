@@ -20,5 +20,19 @@ namespace Mayiboy.Contract
         /// <param name="request">参数</param>
         /// <returns></returns>
         QueryMenuByUserIdResponse QueryMenuByUserId(QueryMenuByUserIdRequest request);
+
+        /// <summary>
+        /// 保存系统菜单
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        SaveSystemMenuResponse SaveSystemMenu(SaveSystemMenuRequest request);
+
+        /// <summary>
+        /// 删除系统菜单
+        /// </summary>
+        /// <param name="request">删除系统菜单出错</param>
+        /// <returns></returns>
+        DelSystemMenuResponse DelSystemMenu(DelSystemMenuRequest request);
     }
 }

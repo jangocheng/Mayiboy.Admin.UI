@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Mayiboy.Utils
@@ -18,8 +19,11 @@ namespace Mayiboy.Utils
         public static T As<T>(this object value)
         {
             return AutoMapper.Mapper.Map<T>(value);
-        } 
+        }
+
         #endregion
+
+
 
         #region 添加缓存前缀
         /// <summary>
@@ -40,7 +44,7 @@ namespace Mayiboy.Utils
             {
                 return AppConfig.CacheKeyPrefix + businessstr + value;
             }
-        } 
+        }
         #endregion
     }
 }

@@ -63,11 +63,11 @@ namespace Mayiboy.Admin.UI.Controllers
                     list = ToTree(res.SystemMenuList);
                 }
 
-                return ToJsonResult(list);
+                return ToJsonResult(new { status = 0, data = list });
             }
             catch (Exception ex)
             {
-                return ToFatalJsonResult("系统出错", ex.ToString());
+                return ToJsonFatalResult("系统出错", ex.ToString());
             }
         }
 

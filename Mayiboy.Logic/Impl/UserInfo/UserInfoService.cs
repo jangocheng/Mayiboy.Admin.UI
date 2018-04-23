@@ -47,9 +47,21 @@ namespace Mayiboy.Logic.Impl
 
                 if (entity.Id == 0)
                 {
+                    #region 新增
+                    if (_userInfoRepository.Any<UserInfoPo>(e => e.LoginName == entity.LoginName))
+                    {
+                        throw new Exception("账号已经存在");
+                    }
+
+                    if (_userInfoRepository.Any<UserInfoPo>(e => e.Email == entity.Email))
+                    {
+                        throw new Exception("邮箱已经存在");
+                    }
+
                     EntityLogger.CreateEntity(entity);
 
                     entity.Id = _userInfoRepository.InsertReturnIdentity(entity);
+                    #endregion
                 }
                 else
                 {
@@ -60,9 +72,10 @@ namespace Mayiboy.Logic.Impl
                     {
                         throw new Exception("更新用户信息不存在");
                     }
+
                     EntityLogger.UpdateEntity(entity);
 
-                    _userInfoRepository.UpdateIgnoreColumns(entity, e => new { e.IsValid, e.CreateTime, e.CreateUserId });
+                    _userInfoRepository.UpdateIgnoreColumns(entity, e => new { e.IsValid, e.CreateTime, e.CreateUserId, e.HeadimgUrl });
                     #endregion
                 }
 
@@ -93,7 +106,8 @@ namespace Mayiboy.Logic.Impl
 
                 var list = _userInfoRepository.FindPage<UserInfoPo>(
                     e => e.IsValid == 1
-                    && (e.Name.Contains(request.Name) || SqlFunc.IsNullOrEmpty(request.Name)),
+                    && (SqlFunc.IsNullOrEmpty(request.Account) || e.LoginName.Contains(request.Account) || e.Email.Contains(request.Account))
+                    && (request.Sex == -1 || e.Sex == request.Sex),
                     o => o.Id,
                     request.PageIndex, request.PageSize, ref total, OrderByType.Desc);
 
@@ -132,7 +146,7 @@ namespace Mayiboy.Logic.Impl
 
                 EntityLogger.UpdateEntity(entity);
 
-                _userInfoRepository.UpdateColumns(entity, (e) => new {e.IsValid, e.UpdateTime, e.UpdateUserId});
+                _userInfoRepository.UpdateColumns(entity, (e) => new { e.IsValid, e.UpdateTime, e.UpdateUserId });
 
             }
             catch (Exception ex)

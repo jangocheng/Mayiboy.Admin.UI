@@ -54,10 +54,14 @@
     <Compile Include="Base\BaseResponse.cs" />
     <Compile Include="IBaseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemAppSettings\ISystemAppSettingsService.cs" />
+    <Compile Include="SystemAppSettings\SystemAppSettingsParam.cs" />
     <Compile Include="SystemMenu\ISystemMenuService.cs" />
     <Compile Include="SystemMenu\SystemMenuParam.cs" />
     <Compile Include="SystemNavbar\ISystemNavbarService.cs" />
     <Compile Include="SystemNavbar\SystemNavbarParam.cs" />
+    <Compile Include="SystemOperationLog\ISystemOperationLogService.cs" />
+    <Compile Include="SystemOperationLog\SystemOperationLogParam.cs" />
     <Compile Include="UserInfo\IUserInfoService.cs" />
     <Compile Include="UserInfo\UserInfoServiceParam.cs" />
   </ItemGroup>
@@ -70,6 +74,7 @@
       <Name>Mayiboy.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
