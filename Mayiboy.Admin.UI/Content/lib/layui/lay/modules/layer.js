@@ -206,7 +206,7 @@ Class.pt.config = {
   area: 'auto',
   closeBtn: 1,
   time: 0, //0表示不自动关闭
-  zIndex: 19891014, 
+  zIndex: 999, 
   maxWidth: 360,
   anim: 0,
   isOutAnim: true,

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Mayiboy.Model.Dto;
+using Mayiboy.Model.Po;
 
 namespace Mayiboy.Contract
 {
@@ -49,12 +50,16 @@ namespace Mayiboy.Contract
 
     public class SaveSystemMenuRequest : BaseRequest
     {
-
+        /// <summary>
+        /// 系统菜单
+        /// </summary>
+        public SystemMenuDto Entity { get; set; }
     }
 
     public class SaveSystemMenuResponse : BaseResponse
     {
 
+        public int Id { get; set; }
     }
 
 

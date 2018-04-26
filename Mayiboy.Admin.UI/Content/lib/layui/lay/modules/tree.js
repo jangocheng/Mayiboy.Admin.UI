@@ -38,8 +38,8 @@ layui.define('jquery', function(exports){
   };
   
   //树节点解析
-  Tree.prototype.tree = function(elem, children){
-    var that = this, options = that.options
+  Tree.prototype.tree = function(elem, children) {
+      var that = this, options = that.options;
     var nodes = children || options.nodes;
     
     layui.each(nodes, function(index, item){
@@ -103,7 +103,7 @@ layui.define('jquery', function(exports){
     var that = this, options = that.options;
     elem.children('a').on('click', function(e){
       layui.stope(e);
-      options.click(item)
+        options.click(item);
     });
   };
   
@@ -115,8 +115,8 @@ layui.define('jquery', function(exports){
     
     //执行伸展
     var open = function(){
-      if(elem.data('spread')){
-        elem.data('spread', null)
+      if(elem.data('spread')) {
+          elem.data('spread', null);
         ul.removeClass('layui-show');
         arrow.html(icon.arrow[0]);
         a.find('.layui-icon').html(icon.branch[0]);
@@ -141,8 +141,8 @@ layui.define('jquery', function(exports){
     var dragStr = 'layui-tree-drag';
     
     //屏蔽选中文字
-    elem.find('i').on('selectstart', function(e){
-      return false
+    elem.find('i').on('selectstart', function(e) {
+        return false;
     });
     
     //拖拽
@@ -155,10 +155,10 @@ layui.define('jquery', function(exports){
           $('.' + dragStr)[0] || $('body').append(treeMove);
           var dragElem = $('.' + dragStr)[0] ? $('.' + dragStr) : treeMove;
           (dragElem).addClass('layui-show').html(move.from.elem.children('a').html());
-          dragElem.css({
-            left: e.pageX + 10
-            ,top: e.pageY + 10
-          })
+            dragElem.css({
+                left: e.pageX + 10,
+                top: e.pageY + 10
+            });
         }
       }).on('mouseup', function(){
         var move = that.move;
@@ -186,8 +186,8 @@ layui.define('jquery', function(exports){
         othis.addClass(enterSkin);
       }
     };
-    a.on('mousedown', function(){
-      var move = that.move
+    a.on('mousedown', function() {
+        var move = that.move;
       move.from = {
         item: item
         ,elem: elem

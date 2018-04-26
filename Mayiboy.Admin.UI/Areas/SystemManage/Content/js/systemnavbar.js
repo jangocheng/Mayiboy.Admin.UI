@@ -11,6 +11,8 @@
             });
         },
         ShowEditPage: function (data) {
+
+            var title = "";
             if (data == null) {
                 //初始化编辑页
                 $("#txtid").val("0");
@@ -18,6 +20,7 @@
                 $("#txturl").val("");
                 $("#txtsort").val("0");
                 $("#txtremark").val("");
+                title = "新增系统栏目";
             } else {
                 //初始化编辑页
                 $("#txtid").val(data.Id);
@@ -25,11 +28,13 @@
                 $("#txturl").val(data.Url);
                 $("#txtsort").val(data.Sort);
                 $("#txtremark").val(data.Remark);
+                title = "修改系统栏目";
             }
 
 
             editsysnavbarnum = layer.open({
-                title: "新增系统栏目",
+                title: title,
+                resize: false,
                 type: 1,
                 area: ['500px', '415px'],
                 offset: '20px',

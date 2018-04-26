@@ -83,7 +83,6 @@ namespace Mayiboy.Logic.Impl
             return response;
         }
 
-
         /// <summary>
         /// 保存系统菜单
         /// </summary>
@@ -92,9 +91,46 @@ namespace Mayiboy.Logic.Impl
         public SaveSystemMenuResponse SaveSystemMenu(SaveSystemMenuRequest request)
         {
             var response = new SaveSystemMenuResponse();
+
+            if (request.Entity == null)
+            {
+                response.IsSuccess = false;
+                response.MessageCode = "-1";
+                response.MessageText = "系统菜单参数不能为空";
+            }
+
             try
             {
+                var entity = request.Entity.As<SystemMenuPo>();
 
+                if (entity.Id == 0)
+                {
+                    #region 新增
+                    EntityLogger.CreateEntity(entity);
+
+                    response.Id = _systemMenuRepository.InsertReturnIdentity<SystemMenuPo>(entity);
+                    #endregion
+                }
+                else
+                {
+                    #region 更新
+                    var entitytemp = _systemMenuRepository.FindSingle<SystemMenuPo>(entity.Id);
+
+                    if (entitytemp == null)
+                    {
+                        throw new Exception("更新系统菜单不存在");
+                    }
+
+                    EntityLogger.UpdateEntity(entity);
+
+                    _systemMenuRepository.UpdateIgnoreColumns(entity, e => new
+                    {
+                        e.IsValid,
+                        e.CreateTime,
+                        e.CreateUserId
+                    });
+                    #endregion
+                }
             }
             catch (Exception ex)
             {
@@ -117,6 +153,26 @@ namespace Mayiboy.Logic.Impl
             var response = new DelSystemMenuResponse();
             try
             {
+                var entity = _systemMenuRepository.FindSingle<SystemMenuPo>(request.Id);
+
+                if (entity == null)
+                {
+                    throw new Exception("删除系统菜单不存在");
+                }
+
+                //TODO:查询是否含有子菜单一起删除
+
+
+                EntityLogger.UpdateEntity(entity);
+
+                entity.IsValid = 0;
+
+                _systemMenuRepository.UpdateColumns(entity, e => new
+                {
+                    e.IsValid,
+                    e.UpdateTime,
+                    e.UpdateUserId
+                });
 
             }
             catch (Exception ex)

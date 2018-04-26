@@ -3,12 +3,13 @@ using SqlSugar;
 
 namespace Mayiboy.Model.Po
 {
-    [SugarTable("UserInfo")]
+    [SugarTable("SystemMenu")]
     public class SystemMenuPo
     {
         /// <summary>
         /// 主键id
         /// </summary>
+        [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
         public int Id { get; set; }
 
         /// <summary>

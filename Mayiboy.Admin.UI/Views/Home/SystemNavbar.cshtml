@@ -9,7 +9,7 @@
         @foreach (var item in list)
         {
             
-            <li class="dropdown messages-menu @(num==0?"selectnav":"")" data-navid="@item.Id" data-url="@(string.IsNullOrEmpty(item.Url)?"":item.Url)">
+            <li class="dropdown messages-menu @(num==0?"selectnav":"")" data-navid="@item.Id" data-menutype="@item" data-url="@(string.IsNullOrEmpty(item.Url)?"":item.Url)">
                 <a href='javascript:;' class="dropdown-toggle apptxt" data-toggle="dropdown">
                     @item.Name
                 </a>

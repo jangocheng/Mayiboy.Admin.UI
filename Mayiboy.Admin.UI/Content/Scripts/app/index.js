@@ -114,11 +114,20 @@
                 //top.$.cookie('nfine_currentmoduleid', dataId, { path: "/" });
             }
             var dataUrl = $(this).data('href');
+            var menutype = $(this).data('menutype');
             var menuName = $.trim($(this).text());
             var flag = true;
             if (dataUrl == undefined || $.trim(dataUrl).length == 0) {
                 return false;
             }
+
+            //判断菜单类型
+            if (menutype == 1) {
+                window.open(dataUrl);
+                return false;
+            }
+
+
             $('.menuTab').each(function () {
                 if ($(this).data('id') == dataUrl) {
                     if (!$(this).hasClass('active')) {
@@ -452,7 +461,7 @@
                 if (row.UrlAddress == null || row.UrlAddress.length == 0 || row.ChildNodes != null) {
                     html += '<a href="javascript:;">';
                 } else {
-                    html += '<a class="menuItem" data-id="' + row.Id + '" data-href="' + row.UrlAddress + '" href="javascript:;">';
+                    html += '<a class="menuItem" data-id="' + row.Id + '" data-menutype="' + row.MenuType + '" data-href="' + row.UrlAddress + '" href="javascript:;">';
                 }
 
                 html += '<i class="' + row.Icon + '"></i><span>' + row.Name + '</span>';

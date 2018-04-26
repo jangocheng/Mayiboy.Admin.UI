@@ -108,6 +108,7 @@
     <script type="text/javascript">
         $(function() {
             var edituserinfonum;
+            var form;
             var thisPage = {
                 Buttons: {
                     UserInfoTable: null
@@ -121,6 +122,11 @@
 
                     $("#btnquery").click(function() {
                         thisPage.QueryUserInfo();
+                    });
+
+                    //Layui坑
+                    layui.use(["table", "form"], function () {
+                        form = layui.form;
                     });
                 },
                 InitUserInfoTable: function() {
@@ -205,7 +211,8 @@
                         }
                     });
                 },
-                ShowEditPage: function(data) {
+                ShowEditPage: function (data) {
+                    var title = "";
                     if (data == null) {
                         $("#txtid").val("0");
                         $("#txtloginname").val("");
@@ -214,6 +221,7 @@
                         $("#selectsex").val("0");
                         $("#txtmobile").val("");
                         $("#txtremark").val("");
+                        title = "新增用户";
                     } else {
                         $("#txtid").val(data.Id);
                         $("#txtloginname").val(data.LoginName);
@@ -222,11 +230,14 @@
                         $("#selectsex").val(data.Sex);
                         $("#txtmobile").val(data.Mobile);
                         $("#txtremark").val(data.Remark);
+                        title = "修改用户";
                     }
 
+                    form.render('select');
 
                     edituserinfonum = layer.open({
-                        title: "新增用户",
+                        title: title,
+                        resize: false,
                         type: 1,
                         area: ['500px', '520px'],
                         offset: '20px',

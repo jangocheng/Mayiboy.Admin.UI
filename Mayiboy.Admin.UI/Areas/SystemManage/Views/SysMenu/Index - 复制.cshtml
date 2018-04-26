@@ -1,0 +1,83 @@
+﻿@using Mayiboy.Model.Model
+
+@{
+    ViewBag.Title = "菜单管理";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+
+    var sysnavbar = ViewBag.SystemNavbar as List<SystemNavbarModel>;
+}
+@section head_section{
+    <link href="~/Content/lib/jqueryeasyui/themes/gray/easyui.css" rel="stylesheet" />
+    <link href="~/Content/lib/jqueryeasyui/themes/icon.css" rel="stylesheet" />
+    @*<link rel="stylesheet" type="text/css" href="../demo.css">*@
+    <script src="~/Content/lib/jqueryeasyui/jquery.easyui.min.js"></script>
+}
+
+@*面包屑*@
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb" style="visibility: visible;">
+        <a lay-href="">主页</a><span lay-separator="">/</span>
+        <a><cite>组件</cite></a><span lay-separator="">/</span>
+        <a><cite>数据表格</cite></a><span lay-separator="">/</span>
+        <a><cite>数据表格的重载</cite></a>
+    </div>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div style="width:300px; float: left;">
+                <div class="layui-card">
+                    <div class="layui-card-header">
+                        系统菜单
+                    </div>
+                    <div class="layui-card-body">
+                        <select id="level">
+                            @foreach (var item in sysnavbar)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+            <div style="overflow: hidden;">
+                <div class="layui-card">
+                    <div class="layui-card-header">
+                        菜单属性
+                    </div>
+                    <div class="layui-card-body">
+                        asdf
+                    </div>
+                </div>
+                <div class="layui-card">
+                    <div class="layui-card-header">
+                        菜单权限
+                    </div>
+                    <div class="layui-card-body">
+                        asdf
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section foot_section{
+    <script type="text/javascript">
+        //$(function () {
+        //    var thisPage = {
+        //        Init: function () {
+        //            thisPage.InitSysMenu();
+
+        //        },
+        //        InitSysMenu: function () {
+
+        //        }
+        //    }
+
+        //    thisPage.Init();
+        //})
+    </script>
+}

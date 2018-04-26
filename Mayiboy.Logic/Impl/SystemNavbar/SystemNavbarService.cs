@@ -119,7 +119,7 @@ namespace Mayiboy.Logic.Impl
 
                 if (entity.Id == 0)
                 {
-                    #region 插入
+                    #region 新增
 
                     EntityLogger.CreateEntity(entity);
 
@@ -163,7 +163,7 @@ namespace Mayiboy.Logic.Impl
 
                 if (entity == null)
                 {
-                    throw new Exception("删除系统栏目出错");
+                    throw new Exception("删除系统栏目不存在");
                 }
                 
                 EntityLogger.UpdateEntity(entity);

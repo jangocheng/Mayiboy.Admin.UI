@@ -15,6 +15,11 @@ namespace Mayiboy.Model.Dto
         public int Pid { get; set; }
 
         /// <summary>
+        /// 因为前段需要该字段
+        /// </summary>
+        public int _parentId { get { return Pid; } }
+
+        /// <summary>
         /// 导航id
         /// </summary>
         public int NavbarId { get; set; }
