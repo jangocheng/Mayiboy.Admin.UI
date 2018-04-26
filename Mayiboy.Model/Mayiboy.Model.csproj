@@ -49,6 +49,7 @@
     <Compile Include="Dto\SystemNavbarDto.cs" />
     <Compile Include="Dto\SystemOperationLogDto.cs" />
     <Compile Include="Dto\UserInfoDto.cs" />
+    <Compile Include="Dto\UserRoleDto.cs" />
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Model\SystemMenuModel.cs" />
     <Compile Include="Model\SystemNavbarModel.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Po\SystemNavbarPo.cs" />
     <Compile Include="Po\SystemOperationLogPo.cs" />
     <Compile Include="Po\UserInfoPo.cs" />
+    <Compile Include="Po\UserRolePo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

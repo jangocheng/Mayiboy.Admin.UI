@@ -22,6 +22,7 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         // GET: SystemManage/SysMenu
+        [LoginAuth]
         public ActionResult Index()
         {
             ViewBag.SystemNavbar = QueryAllSystemNavbar();

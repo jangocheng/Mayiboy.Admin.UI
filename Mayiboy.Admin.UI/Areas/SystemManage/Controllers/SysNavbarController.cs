@@ -20,6 +20,7 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         // GET: SystemManage/SysNavbar
+        [LoginAuth]
         public ActionResult Index()
         {
             return View();

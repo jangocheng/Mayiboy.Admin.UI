@@ -104,6 +104,7 @@
     <Compile Include="Impl\SystemNavbar\SystemNavbarService.cs" />
     <Compile Include="Impl\SystemOperationLog\SystemOperationLogService.cs" />
     <Compile Include="Impl\UserInfo\UserInfoService.cs" />
+    <Compile Include="Impl\UserRole\UserRoleService.cs" />
     <Compile Include="Mapper\AutoMapperConfig.cs" />
     <Compile Include="Mapper\MapperProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

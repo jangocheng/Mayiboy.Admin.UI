@@ -64,6 +64,8 @@
     <Compile Include="SystemOperationLog\SystemOperationLogParam.cs" />
     <Compile Include="UserInfo\IUserInfoService.cs" />
     <Compile Include="UserInfo\UserInfoServiceParam.cs" />
+    <Compile Include="UserRole\IUserRoleService.cs" />
+    <Compile Include="UserRole\UserRoleParam.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
