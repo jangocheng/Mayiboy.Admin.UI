@@ -95,7 +95,7 @@ namespace Mayiboy.Admin.UI.Controllers
 
         #region 获取系统配置
         /// <summary>
-        /// 获取系统配置
+        /// 获取系统配置(Run time 1分钟 redis 1天)
         /// </summary>
         /// <param name="key">配置key</param>
         /// <returns></returns>

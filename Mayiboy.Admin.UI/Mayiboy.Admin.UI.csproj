@@ -494,6 +494,7 @@
     <Compile Include="App_Start\PublicConstConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\SystemManage\Controllers\DepartmentController.cs" />
+    <Compile Include="Areas\SystemManage\Controllers\SysDictController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\SysMenuController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\SysNavbarController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\UserInfoController.cs" />
@@ -564,6 +565,7 @@
     <Content Include="Areas\SystemManage\Views\UserInfo\Index.cshtml" />
     <Content Include="Areas\SystemManage\Views\Department\Index.cshtml" />
     <Content Include="Areas\SystemManage\Views\SysMenu\Index - 复制.cshtml" />
+    <Content Include="Areas\SystemManage\Views\SysDict\Index.cshtml" />
     <None Include="Properties\PublishProfiles\发布Local.pubxml" />
     <Content Include="Views\Home\SystemNavbar.cshtml" />
     <Content Include="Views\Home\About.cshtml" />

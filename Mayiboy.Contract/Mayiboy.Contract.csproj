@@ -52,6 +52,8 @@
     <Compile Include="Base\BasePageResponse.cs" />
     <Compile Include="Base\BaseRequest.cs" />
     <Compile Include="Base\BaseResponse.cs" />
+    <Compile Include="Department\DepartmentParam.cs" />
+    <Compile Include="Department\IDepartmentService.cs" />
     <Compile Include="IBaseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemAppSettings\ISystemAppSettingsService.cs" />

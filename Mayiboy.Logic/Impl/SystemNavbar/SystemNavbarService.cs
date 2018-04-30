@@ -138,7 +138,13 @@ namespace Mayiboy.Logic.Impl
 
                     EntityLogger.UpdateEntity(entity);
 
-                    _systemNavbarRepository.UpdateIgnoreColumns(entity, e => new { e.IsValid, e.CreateTime, e.CreateUserId });
+                    _systemNavbarRepository.UpdateIgnoreColumns(entity, e => new
+                    {
+                        e.IsValid,
+                        e.CreateTime,
+                        e.CreateUserId
+                    });
+
                     #endregion
                 }
             }
@@ -165,7 +171,7 @@ namespace Mayiboy.Logic.Impl
                 {
                     throw new Exception("删除系统栏目不存在");
                 }
-                
+
                 EntityLogger.UpdateEntity(entity);
 
                 entity.IsValid = 0;

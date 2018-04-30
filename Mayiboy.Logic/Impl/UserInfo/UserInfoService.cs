@@ -48,12 +48,12 @@ namespace Mayiboy.Logic.Impl
                 if (entity.Id == 0)
                 {
                     #region 新增
-                    if (_userInfoRepository.Any<UserInfoPo>(e => e.LoginName == entity.LoginName))
+                    if (_userInfoRepository.Any<UserInfoPo>(e => e.IsValid == 1 && e.LoginName == entity.LoginName))
                     {
                         throw new Exception("账号已经存在");
                     }
 
-                    if (_userInfoRepository.Any<UserInfoPo>(e => e.Email == entity.Email))
+                    if (_userInfoRepository.Any<UserInfoPo>(e => e.IsValid == 1 && e.Email == entity.Email))
                     {
                         throw new Exception("邮箱已经存在");
                     }

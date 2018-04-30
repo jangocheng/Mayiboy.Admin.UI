@@ -4,6 +4,8 @@ using Mayiboy.Contract;
 using Mayiboy.DataAccess.Interface;
 using Mayiboy.Model.Po;
 using Mayiboy.Utils;
+using System.Linq;
+using Mayiboy.Model.Dto;
 
 namespace Mayiboy.Logic.Impl
 {
@@ -26,7 +28,7 @@ namespace Mayiboy.Logic.Impl
             var response = new GetSysAppSettingResponse();
             try
             {
-                var entity = _systemAppSettingsRepository.Find<SystemAppSettingsPo>(e => e.KeyWord == request.Key);
+                var entity = _systemAppSettingsRepository.Find<SystemAppSettingsPo>(e => e.IsValid == 1 && e.KeyWord == request.Key);
 
                 if (entity != null)
                 {
@@ -54,7 +56,14 @@ namespace Mayiboy.Logic.Impl
             var response = new QuerySysAppSettingResponse();
             try
             {
+                int total = 0;
+                var list = _systemAppSettingsRepository.FindPage<SystemAppSettingsPo>(e => e.IsValid == 1, o => o.Id,
+                    request.PageIndex, request.PageSize, ref total, SqlSugar.OrderByType.Asc);
 
+                if (list != null && list.Count > 0)
+                {
+                    response.EntityList = list.Select(e => e.As<SystemAppSettingsDto>()).ToList();
+                }
             }
             catch (Exception ex)
             {
@@ -75,9 +84,39 @@ namespace Mayiboy.Logic.Impl
         public SaveSysAppSettingResponse SaveSysAppSetting(SaveSysAppSettingReqeust request)
         {
             var response = new SaveSysAppSettingResponse();
+
+            if (request.Entity == null)
+            {
+                response.IsSuccess = false;
+                response.MessageCode = "1";
+                response.MessageText = "系统配置不能为空";
+                return response;
+            }
+
             try
             {
+                var entity = request.Entity.As<SystemAppSettingsPo>();
+                if (entity.Id == 0)
+                {
+                    EntityLogger.CreateEntity(entity);
 
+                    _systemAppSettingsRepository.InsertReturnIdentity(entity);
+                }
+                else
+                {
+                    EntityLogger.UpdateEntity(entity);
+
+                    _systemAppSettingsRepository.UpdateIgnoreColumns(entity, e => new
+                    {
+                        e.IsValid,
+                        e.CreateUserId,
+                        e.CreateTime
+                    });
+                }
+
+                //更新缓存
+                var cachekey = entity.KeyWord.AddCachePrefix("systemappsetting");
+                CacheManager.RedisDefault.Del(cachekey);
             }
             catch (Exception ex)
             {
@@ -106,11 +145,15 @@ namespace Mayiboy.Logic.Impl
                     throw new Exception("删除系统配置不存在");
                 }
 
+                EntityLogger.UpdateEntity(entity);
                 entity.IsValid = 0;
 
-                EntityLogger.UpdateEntity(entity);
-
-                _systemAppSettingsRepository.UpdateIgnoreColumns<SystemAppSettingsPo>(entity, e => new { e.CreateUserId, e.CreateTime });
+                _systemAppSettingsRepository.UpdateColumns(entity, e => new
+                {
+                    e.UpdateUserId,
+                    e.UpdateTime,
+                    e.IsValid
+                });
             }
             catch (Exception ex)
             {

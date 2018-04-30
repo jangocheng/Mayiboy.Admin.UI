@@ -153,27 +153,28 @@ namespace Mayiboy.Logic.Impl
             var response = new DelSystemMenuResponse();
             try
             {
-                var entity = _systemMenuRepository.FindSingle<SystemMenuPo>(request.Id);
+                var list = _systemMenuRepository.UseStoredProcedure<SystemMenuPo>("proc_SystemMenuById_select", new { Id = request.Id });
 
-                if (entity == null)
+                if (list != null && list.Count > 0)
+                {
+                    foreach (var item in list)
+                    {
+                        var entity = item;
+                        EntityLogger.UpdateEntity(entity);
+                        entity.IsValid = 0;
+
+                        _systemMenuRepository.UpdateColumns(entity, e => new
+                        {
+                            e.IsValid,
+                            e.UpdateTime,
+                            e.UpdateUserId
+                        });
+                    }
+                }
+                else
                 {
                     throw new Exception("删除系统菜单不存在");
                 }
-
-                //TODO:查询是否含有子菜单一起删除
-
-
-                EntityLogger.UpdateEntity(entity);
-
-                entity.IsValid = 0;
-
-                _systemMenuRepository.UpdateColumns(entity, e => new
-                {
-                    e.IsValid,
-                    e.UpdateTime,
-                    e.UpdateUserId
-                });
-
             }
             catch (Exception ex)
             {
