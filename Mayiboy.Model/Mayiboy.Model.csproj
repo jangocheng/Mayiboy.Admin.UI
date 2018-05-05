@@ -45,21 +45,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dto\DepartmentDto.cs" />
+    <Compile Include="Dto\PermissionsDto.cs" />
+    <Compile Include="Dto\RolePermissionsJoinDto.cs" />
     <Compile Include="Dto\SystemAppSettingsDto.cs" />
     <Compile Include="Dto\SystemMenuDto.cs" />
     <Compile Include="Dto\SystemNavbarDto.cs" />
     <Compile Include="Dto\SystemOperationLogDto.cs" />
     <Compile Include="Dto\UserInfoDto.cs" />
     <Compile Include="Dto\UserRoleDto.cs" />
+    <Compile Include="Dto\UserRoleJoinDto.cs" />
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Model\SystemMenuModel.cs" />
     <Compile Include="Model\SystemNavbarModel.cs" />
     <Compile Include="Po\DepartmentPo.cs" />
+    <Compile Include="Po\PermissionsPo.cs" />
+    <Compile Include="Po\RolePermissionsJoinPo.cs" />
     <Compile Include="Po\SystemAppSettingsPo.cs" />
     <Compile Include="Po\SystemMenuPo.cs" />
     <Compile Include="Po\SystemNavbarPo.cs" />
     <Compile Include="Po\SystemOperationLogPo.cs" />
     <Compile Include="Po\UserInfoPo.cs" />
+    <Compile Include="Po\UserRoleJoinPo.cs" />
     <Compile Include="Po\UserRolePo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

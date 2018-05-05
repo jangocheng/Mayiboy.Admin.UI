@@ -100,6 +100,7 @@
     <Compile Include="Common\EntityLogger.cs" />
     <Compile Include="Impl\Base\BaseService.cs" />
     <Compile Include="Impl\Department\DepartmentService.cs" />
+    <Compile Include="Impl\Permissions\PermissionsService.cs" />
     <Compile Include="Impl\SystemAppSettings\SystemAppSettingsService.cs" />
     <Compile Include="Impl\SystemMenu\SystemMenuService.cs" />
     <Compile Include="Impl\SystemNavbar\SystemNavbarService.cs" />

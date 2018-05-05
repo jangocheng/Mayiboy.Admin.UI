@@ -142,7 +142,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\MayiboyDb.sql" />
+    <Content Include="Areas\SystemManage\Content\js\department.js" />
+    <Content Include="Areas\SystemManage\Content\js\sysmenu.js" />
     <Content Include="Areas\SystemManage\Content\js\systemnavbar.js" />
+    <Content Include="Areas\SystemManage\Content\js\userinfo.js" />
+    <Content Include="Areas\SystemManage\Content\js\userole.js" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\fonts\weathericons-regular-webfont.svg" />
@@ -499,6 +503,7 @@
     <Compile Include="Areas\SystemManage\Controllers\SysNavbarController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\UserInfoController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\UserRoleController.cs" />
+    <Compile Include="Areas\SystemManage\Models\PermissionsModel.cs" />
     <Compile Include="Areas\SystemManage\Models\SelectSysMenuModel.cs" />
     <Compile Include="Areas\SystemManage\Models\SysMenuModel.cs" />
     <Compile Include="Areas\SystemManage\Models\UserInfoModel.cs" />

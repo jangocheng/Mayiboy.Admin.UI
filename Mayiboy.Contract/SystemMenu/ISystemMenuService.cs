@@ -8,7 +8,14 @@ namespace Mayiboy.Contract
     public interface ISystemMenuService : IBaseService, IDependency
     {
         /// <summary>
-        /// 查询所有菜单
+        /// 查询所有系统菜单
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        QueryAllSystemMenuResponse QueryAllSystemMenu(QueryAllSystemMenuRequest request);
+
+        /// <summary>
+        /// 查询所有菜单（栏目内）
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>

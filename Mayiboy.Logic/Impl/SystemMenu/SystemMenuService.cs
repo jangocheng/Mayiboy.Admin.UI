@@ -29,6 +29,30 @@ namespace Mayiboy.Logic.Impl
         }
 
         /// <summary>
+        /// 查询所有系统菜单
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public QueryAllSystemMenuResponse QueryAllSystemMenu(QueryAllSystemMenuRequest request)
+        {
+            var response = new QueryAllSystemMenuResponse();
+            try
+            {
+                var list = _systemMenuRepository.FindWhere<SystemMenuPo>(e => e.IsValid == 1);
+
+                response.SystemMenuList = list.Select(e => e.As<SystemMenuDto>()).ToList();
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.MessageCode = "-1";
+                response.MessageText = ex.Message;
+                LogManager.LogicLogger.ErrorFormat("查询所有系统菜单：{0}", new { request, err = ex.ToString() }.ToJson());
+            }
+            return response;
+        }
+
+        /// <summary>
         /// 查询所有导航栏下的菜单
         /// </summary>
         /// <param name="request"></param>

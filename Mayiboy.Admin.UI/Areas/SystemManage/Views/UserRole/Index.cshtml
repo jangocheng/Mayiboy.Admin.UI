@@ -1,10 +1,16 @@
-﻿
+﻿@using Mayiboy.Model.Model
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+    var sysnavbar = ViewBag.SystemNavbar as List<SystemNavbarModel>;
 }
 @section head_section{
-
+    <link href="~/Content/lib/jqueryeasyui/themes/gray/easyui.css" rel="stylesheet" />
+    <link href="~/Content/lib/jqueryeasyui/themes/icon.css" rel="stylesheet" />
+    <script src="~/Content/lib/jqueryeasyui/jquery.easyui.min.js"></script>
+    <script src="~/Content/lib/jqueryeasyui/plugins/jquery.treegrid.js"></script>
+<script src="~/Content/lib/jqueryeasyui/plugins/jquery.tree.js"></script>
 }
 @*面包屑*@
 <div class="layui-card layadmin-header">
@@ -51,6 +57,7 @@
     </div>
 </div>
 
+@*编辑用户角色*@
 <div id="edituserrole" title="新增用户角色" style="display: none;" data-url="@Url.Action("Save", "UserRole", new {areas = "SystemManage"})">
     <div class="layui-form" style="padding: 20px;">
         <input id="txtid" type="hidden" value="0" />
@@ -69,183 +76,31 @@
     </div>
 </div>
 
+@*配置角色权限*@
+<div id="setrolep" title="配置角色权限" style="display:none" data-url="@Url.Action("SaveRolePermissions", "UserRole", new {areas = "SystemManage"})">
+    <div class="layui-card" style="margin: 0px;">
+        <div class="layui-card-body" style="padding: 0px;">
+            <div class="layui-btn-container" style="padding: 5px; float: left;">
+                <div class="layui-btn-group">
+                    <label class="mayiboy-lable">系统栏目:</label>
+                    <select id="sysnavbar" class="mayiboy-input" style="width: 100px;">
+                        @foreach (var item in sysnavbar)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 380px; float: left;">
+        <table id="treetable" style="height: 350px; width: 380px;" data-url="@Url.Action("QuerySystemPermissions", "SysMenu", new {areas = "SystemManage"})"></table>
+    </div>
+    <div style="float: right; width: 320px;height: 350px;">
+        <table id="tableaction" data-url="@Url.Action("QueryRolePermissions", "UserRole", new {areas = "SystemManage"})"></table>
+    </div>        
+</div>
 
 @section foot_section{
-    <script type="text/javascript">
-        $(function() {
-            var edituserrolenum;
-
-            var thisPage = {
-                Buttons: {
-                    UserRoleTable: null
-                },
-                Init: function() {
-                    thisPage.InitUserRoleTable();
-
-                    $("#btnadd").click(function() {
-                        thisPage.ShowEditPage();
-                    });
-
-                    $("#btnquery").click(function() {
-                        thisPage.QueryUserRole();
-                    });
-
-                },
-                InitUserRoleTable: function() {
-                    layui.use("table", function() {
-                        var table = layui.table;
-
-                        thisPage.Buttons.UserRoleTable = table.render({
-                            elem: '#dttable',
-                            url: $("#dttable").data("url"), //数据接口
-                            page: true, //开启分页
-                            even: true, //各行变色
-                            cols: [
-                                [
-                                    { field: 'id', title: '序号', type: "numbers", width: 60 },
-                                    { field: 'Name', title: '角色名', width: 150 },
-                                    {
-                                        field: 'CreateTime',
-                                        title: '新增时间',
-                                        width: 180,
-                                        templet: function(row) {
-                                            return $.Extend_formatDateTime(row.CreateTime);
-                                        }
-                                    },
-                                    {
-                                        field: 'UpdateTime',
-                                        title: '更新时间',
-                                        width: 180,
-                                        templet: function(row) {
-                                            return $.Extend_formatDateTime(row.CreateTime);
-                                        }
-                                    },
-                                    { field: 'Remark', title: "备注", width: 200 },
-                                    {
-                                        field: 'look',
-                                        title: '操作',
-                                        width: 150,
-                                        templet: function(row) {
-                                            var html = "";
-                                            html += '<a href="javascript:;" class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>';
-                                            html += '<a href="javascript:;" class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>';
-                                            return html;
-                                        }
-                                    }
-                                ]
-                            ],
-                            done: function(res, curr, count) {
-
-                            }
-                        });
-
-                        //监听工具条
-                        table.on('tool(table-operate)', function(obj) {
-                            var data = obj.data; //获得当前行数据
-                            var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
-                            var tr = obj.tr; //获得当前行 tr 的DOM对象
-
-                            switch (obj.event) {
-                            case "edit":
-                                thisPage.ShowEditPage(data);
-                                break;
-                            case "del":
-                                layer.confirm('真的删除行吗？', function(index) {
-                                    thisPage.Del(data, index);
-                                });
-                                break;
-                            default:
-                            }
-                        });
-                    });
-                },
-                QueryUserRole: function() {
-                    thisPage.Buttons.UserRoleTable.reload({
-                        where: {
-                            name: $("#name").val()
-                        },
-                        page: {
-                            curr: 1 //重新从第 1 页开始
-                        }
-                    });
-                },
-                ShowEditPage: function(data) {
-                    var title = "";
-                    if (data == null) {
-                        title = "新增角色";
-                        $("#txtid").val("0");
-                        $("#txtname").val("");
-                        $("#txtremark").val("");
-
-                    } else {
-                        title = "修改角色";
-                        $("#txtid").val(data.Id);
-                        $("#txtname").val(data.Name);
-                        $("#txtremark").val(data.Remark);
-                    }
-
-                    edituserrolenum = layer.open({
-                        title: title,
-                        resize: false,
-                        type: 1,
-                        area: ['500px', '320px'],
-                        offset: '20px',
-                        content: $('#edituserrole'), //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
-                        btn: ["保存", "取消"],
-                        btn1: function() {
-                            thisPage.SaveUserRole();
-                        },
-                        btn2: function() {
-                            // alert("取消");
-                        },
-                        cancel: function() {
-                            // alert("退出");
-                        }
-                    });
-                },
-                SaveUserRole: function() {
-                    //验证表单
-                    var isb = layer.IsValidation("#edituserinfo");
-
-                    if (isb == null) {
-                        $.ajax({
-                            type: "post",
-                            url: $("#edituserrole").data("url"),
-                            data: {
-                                id: $("#txtid").val(),
-                                name: $("#txtname").val(),
-                                remark: $("#txtremark").val()
-                            },
-                            success: function(res) {
-                                if (res.status == 0) {
-                                    layer.msg("保存成功");
-                                    thisPage.Buttons.UserRoleTable.reload();
-                                    layer.close(edituserrolenum);
-                                } else {
-                                    layer.msg(res.msg);
-                                }
-                            }
-                        });
-                    }
-                },
-                Del: function(row, index) {
-                    $.ajax({
-                        type: "get",
-                        url: $("#dttable").data("delurl"),
-                        data: { id: row.Id },
-                        success: function(res) {
-                            if (res.status == 0) {
-                                thisPage.Buttons.UserRoleTable.reload();
-                                layer.close(index);
-                            } else {
-                                layer.alert(res.msg);
-                            }
-                        }
-                    });
-                }
-            }
-
-            thisPage.Init();
-        })
-    </script>
+    <script src="~/Areas/SystemManage/Content/js/userole.js"></script>
 }

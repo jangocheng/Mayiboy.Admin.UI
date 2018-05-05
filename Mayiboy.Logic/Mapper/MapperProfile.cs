@@ -52,6 +52,10 @@ namespace Mayiboy.Logic.Mapper
             this.CreateMap<UserInfoDto, AccountModel>();
             this.CreateMap<AccountModel, UserInfoDto>();
 
+            //用户角色
+            this.CreateMap<UserRoleJoinPo, UserRoleJoinDto>();
+            this.CreateMap<UserRoleJoinDto, UserRoleJoinPo>();
+
             //系统栏目
             this.CreateMap<SystemNavbarPo, SystemNavbarDto>();
             this.CreateMap<SystemNavbarDto, SystemNavbarPo>();
@@ -72,6 +76,9 @@ namespace Mayiboy.Logic.Mapper
             this.CreateMap<SystemAppSettingsPo, SystemAppSettingsDto>();
             this.CreateMap<SystemAppSettingsDto, SystemAppSettingsPo>();
 
+            //权限配置
+            this.CreateMap<PermissionsPo, PermissionsDto>();
+            this.CreateMap<PermissionsDto, PermissionsPo>();
         }
     }
 }

@@ -15,10 +15,12 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
     public class UserInfoController : BaseController
     {
         private readonly IUserInfoService _userInfoService;
+        private readonly IUserRoleService _userRoleService;
 
-        public UserInfoController(IUserInfoService userInfoService)
+        public UserInfoController(IUserInfoService userInfoService, IUserRoleService userRoleService)
         {
             _userInfoService = userInfoService;
+            _userRoleService = userRoleService;
         }
 
         // GET: SystemManage/UserInfo
@@ -90,6 +92,83 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
                 return Json(new { status = 0, msg = "系统出错" }, JsonRequestBehavior.AllowGet);
             }
 
+        }
+
+        //查询所有用户角色
+        public ActionResult QueryAllUserRole(string userid)
+        {
+            try
+            {
+                var userrolelist = new List<UserRoleDto>();
+                var userrolejoinlist = new List<UserRoleJoinDto>();
+
+                #region 角色列表
+                var response = _userRoleService.QueryUserRole(new QueryUserRoleRequest()
+                {
+                    Name = "",
+                    PageIndex = 1,
+                    PageSize = int.MaxValue
+                });
+
+                if (response.IsSuccess)
+                {
+                    userrolelist = response.List;
+                }
+                #endregion
+
+                #region 用户角色
+                var userrolejoinres = _userRoleService.QueryUserRoleJoin(new QueryUserRoleJoinRequest
+                {
+                    UserId = int.Parse(userid)
+                });
+
+                if (userrolejoinres.IsSuccess)
+                {
+                    userrolejoinlist = userrolejoinres.EntityList;
+                }
+                #endregion
+
+                var list = userrolelist.Select(e => new
+                {
+                    LAY_CHECKED = userrolejoinlist.Any(o => o.RoleId == e.Id),
+                    Id=e.Id,
+                    e.Name,
+                    e.Remark
+                });
+
+                //查询用户角色
+
+                return ToJsonResult(new { code = 0, data = list });
+            }
+            catch (Exception ex)
+            {
+                LogManager.DefaultLogger.ErrorFormat("查询用户角色出错：{0}", new { userid, err = ex.ToString() }.ToJson());
+                return ToJsonFatalResult("查询用户角色出错");
+            }
+        }
+
+        //保存用户角色
+        public ActionResult SaveUserRole(string userid, List<int> roleid)
+        {
+            try
+            {
+                var response = _userRoleService.SaveUserRoleJoin(new SaveUserRoleJoinRequest
+                {
+                    UserId = int.Parse(userid),
+                    RoleIdList = roleid
+                });
+
+                if (!response.IsSuccess)
+                {
+                    return ToJsonErrorResult(1, response.MessageText);
+                }
+
+                return ToJsonResult(new { status = 0 });
+            }
+            catch (Exception ex)
+            {
+                return ToJsonFatalResult(ex.Message);
+            }
         }
 
         //删除用户

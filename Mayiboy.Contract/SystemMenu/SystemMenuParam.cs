@@ -5,6 +5,16 @@ using Mayiboy.Model.Po;
 namespace Mayiboy.Contract
 {
 
+    public class QueryAllSystemMenuRequest : BaseRequest
+    {
+        
+    }
+
+    public class QueryAllSystemMenuResponse : BaseResponse
+    {
+        public List<SystemMenuDto> SystemMenuList { get; set; }
+    }
+
     /// <summary>
     /// 查询所有导航栏下的菜单参数
     /// </summary>

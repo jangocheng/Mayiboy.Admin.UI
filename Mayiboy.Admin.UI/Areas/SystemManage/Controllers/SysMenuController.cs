@@ -14,11 +14,16 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
 {
     public class SysMenuController : BaseController
     {
-        private readonly ISystemMenuService _systemMenuService;
+        private readonly ISystemNavbarService _systemNavbarService;//系统栏目
+        private readonly ISystemMenuService _systemMenuService;//系统菜单
+        private readonly IPermissionsService _permissionsService;//权限
 
-        public SysMenuController(ISystemMenuService systemMenuService)
+
+        public SysMenuController(ISystemMenuService systemMenuService, IPermissionsService permissionsService, ISystemNavbarService systemNavbarService)
         {
             _systemMenuService = systemMenuService;
+            _permissionsService = permissionsService;
+            _systemNavbarService = systemNavbarService;
         }
 
         // GET: SystemManage/SysMenu
@@ -46,7 +51,7 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
                     return ToJsonErrorResult(1, response.MessageText);
                 }
 
-                return ToJsonResult(new { status=0, total = response.SystemMenuList.Count, rows = response.SystemMenuList });
+                return ToJsonResult(new { status = 0, total = response.SystemMenuList.Count, rows = response.SystemMenuList });
             }
             catch (Exception ex)
             {
@@ -151,6 +156,137 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
             }
         }
 
+        //菜单权限
+        public ActionResult QueryMenuPermissions(string id)
+        {
+            try
+            {
+                var response = _permissionsService.QueryPermissions(new QueryPermissionsRequest
+                {
+                    MenuId = int.Parse(id.IsNullOrEmpty() ? "0" : id)
+                });
 
+                if (!response.IsSuccess)
+                {
+                    return ToJsonErrorResult(1, "查询菜单权限出错");
+                }
+
+                return ToJsonResult(new { code = 0, data = response.EntityList });
+            }
+            catch (Exception ex)
+            {
+                LogManager.DefaultLogger.ErrorFormat("查询菜单出错{0}", new { id, err = ex.ToString() }.ToJson());
+                return ToJsonFatalResult("查询菜单权限出错");
+            }
+        }
+
+        //保存菜单权限
+        public ActionResult SaveMenuPermissions(PermissionsModel model)
+        {
+            try
+            {
+                var entity = new PermissionsDto
+                {
+                    Id = model.Id,
+                    MenuId = model.MenuId,
+                    Name = model.Name,
+                    Action = model.Action,
+                    Code = model.Code,
+                    Type = model.Type,
+                    Remark = model.Remark
+                };
+
+                var response = _permissionsService.SavePermissions(new SavePermissionsRequest
+                {
+                    Entity = entity
+                });
+
+                if (!response.IsSuccess)
+                {
+                    return ToJsonErrorResult(1, response.MessageText);
+                }
+
+                return ToJsonResult(new { status = 0 });
+            }
+            catch (Exception ex)
+            {
+                LogManager.DefaultLogger.ErrorFormat("保存菜单权限出错：{0}", new { model, err = ex.ToString() }.ToJson());
+                return ToJsonFatalResult("保存菜单权限出错");
+            }
+        }
+
+        //删除权限
+        public ActionResult DelPermissions(string id)
+        {
+            try
+            {
+                var response = _permissionsService.DelPermissions(new DelPermissionsRequest()
+                {
+                    Id = int.Parse(id.IsNullOrEmpty() ? "0" : id)
+                });
+
+                if (!response.IsSuccess)
+                {
+                    return ToJsonErrorResult(1, response.MessageText);
+                }
+
+                return ToJsonResult(new { status = 0 });
+            }
+            catch (Exception ex)
+            {
+                LogManager.DefaultLogger.ErrorFormat("删除权限出错：{0}", new { id, err = ex.ToString() }.ToJson());
+                return ToJsonFatalResult("删除权限出错！", ex.Message);
+            }
+        }
+
+        //查询系统权限
+        public ActionResult QuerySystemPermissions(string id)
+        {
+            try
+            {
+                var list = new List<object>();
+
+                #region 系统菜单
+                var resallsysmenu = _systemMenuService.QueryAllMenu(new QueryAllMenuRequest
+                {
+                    NavbarId = int.Parse(id)
+                });
+
+                if (resallsysmenu.IsSuccess)
+                {
+                    list.AddRange(resallsysmenu.SystemMenuList.Select(e => new
+                    {
+                        Id = e.Id,
+                        _parentId = e.Pid,
+                        Name = e.Name,
+                        Remark = e.Remark
+                    }));
+                }
+                #endregion
+
+                return ToJsonResult(new { status = 0, total = 100, rows = list });
+
+            }
+            catch (Exception ex)
+            {
+                return ToJsonFatalResult(ex.Message);
+            }
+        }
+
+        //获取权限Code
+        public ActionResult GetPermissionsCode()
+        {
+            try
+            {
+                string code = DateTime.Now.ToString("PyyMMddmmss");
+
+                return ToJsonResult(new { status = 0, code = code });
+            }
+            catch (Exception ex)
+            {
+                LogManager.DefaultLogger.ErrorFormat("获取权限Code出错：{0}", new { err = ex.ToString() }.ToJson());
+                return ToJsonFatalResult("获取权限Code出错");
+            }
+        }
     }
 }
