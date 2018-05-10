@@ -95,7 +95,16 @@ namespace Mayiboy.Logic.Impl
             var response = new QueryMenuByUserIdResponse();
             try
             {
+                var list = _systemMenuRepository.UseStoredProcedure<SystemMenuPo>("proc_SystemMenuByUserIdandNavbarId_select", new
+                {
+                    NavbarId=request.NavbarId,
+                    UserId = request.UserId
+                });
 
+                if (list != null)
+                {
+                    response.EntityList = list.Select(e => e.As<SystemMenuDto>()).ToList();
+                }
             }
             catch (Exception ex)
             {

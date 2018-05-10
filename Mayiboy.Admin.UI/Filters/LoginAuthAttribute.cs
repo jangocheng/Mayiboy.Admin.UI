@@ -30,7 +30,7 @@ namespace Mayiboy.Admin.UI
 
         private bool Unauthorized(HttpContextBase httpContext)
         {
-            var entity = AccountConfig.LoginInfo;
+            var entity = LoginAccount.UserInfo;
 
             if (entity == null || !RequestHelper.CheckFingerprint(entity.Fingerprint))
             {

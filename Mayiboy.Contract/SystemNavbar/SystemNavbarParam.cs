@@ -102,4 +102,20 @@ namespace Mayiboy.Contract
     }
 
 
+    public class QueryMavbarByUserIdRequest : BaseRequest
+    {
+        /// <summary>
+        /// 用户Id
+        /// </summary>
+        public int UserId { get; set; }
+    }
+
+    public class QueryMavbarByUserIdResponse : BaseResponse
+    {
+        /// <summary>
+        /// 系统栏目
+        /// </summary>
+        public List<SystemNavbarDto> EntityList { get; set; }
+    }
+
 }

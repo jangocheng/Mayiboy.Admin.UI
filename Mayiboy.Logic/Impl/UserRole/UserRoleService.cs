@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Framework.Mayiboy.Utility;
 using Mayiboy.Contract;
 using Mayiboy.DataAccess.Interface;
@@ -269,11 +270,11 @@ namespace Mayiboy.Logic.Impl
             var response = new QueryRoleMenuPermissionsResponse();
             try
             {
-               var list=  _rolePermissionsJoinRepository.FindWhere<RolePermissionsJoinPo>(
-                    e =>e.IsValid == 1 
-                    && e.NavbarId == request.NavbarId 
-                    && e.MenuId == request.MenuId 
-                    && e.RoleId == request.RoleId);
+                var list = _rolePermissionsJoinRepository.FindWhere<RolePermissionsJoinPo>(
+                     e => e.IsValid == 1
+                     && e.NavbarId == request.NavbarId
+                     && e.MenuId == request.MenuId
+                     && e.RoleId == request.RoleId);
 
                 response.EntityList = list.Select(e => e.As<RolePermissionsJoinDto>()).ToList();
             }
@@ -295,6 +296,9 @@ namespace Mayiboy.Logic.Impl
         public SaveRolePermissionsResponse SaveRolePermissions(SaveRolePermissionsRequest request)
         {
             var response = new SaveRolePermissionsResponse();
+
+            request.PermissionsIds = request.PermissionsIds ?? new List<int>();
+
             try
             {
                 var oldrolepjoinlist = _rolePermissionsJoinRepository.FindWhere<RolePermissionsJoinPo>(

@@ -21,7 +21,6 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         // GET: SystemManage/Department
-        [LoginAuth]
         public ActionResult Index()
         {
             return View();

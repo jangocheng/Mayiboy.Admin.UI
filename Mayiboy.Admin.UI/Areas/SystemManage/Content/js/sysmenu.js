@@ -27,13 +27,28 @@
             });
 
             $("#refreshcode").click(function () {
-                $.get($("#refreshcode").data("url"), function (res) {
-                    if (res.status == 0) {
-                        $("#txtcode").val(res.code);
-                    } else {
-                        layer.msg(res.msg);
-                    }
-                });
+
+                if ($("#txtcode").val().length > 0) {
+                    layer.confirm("确认要刷新代码", function(index) {
+                        $.get($("#refreshcode").data("url"), function(res) {
+                            if (res.status == 0) {
+                                $("#txtcode").val(res.code);
+                            } else {
+                                layer.msg(res.msg);
+                            }
+                        });
+                        layer.close(index);
+                    });
+                } else {
+                    $.get($("#refreshcode").data("url"), function (res) {
+                        if (res.status == 0) {
+                            $("#txtcode").val(res.code);
+                        } else {
+                            layer.msg(res.msg);
+                        }
+                    });
+                }
+
             });
 
             //Layui坑

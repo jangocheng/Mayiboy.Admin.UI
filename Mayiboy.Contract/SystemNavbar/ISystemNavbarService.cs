@@ -29,6 +29,13 @@ namespace Mayiboy.Contract
         QueryResponse Query(QueryRequest request);
 
         /// <summary>
+        /// 根据用户Id查询系统栏目
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        QueryMavbarByUserIdResponse QueryMavbarByUserId(QueryMavbarByUserIdRequest request);
+
+        /// <summary>
         /// 保存栏目
         /// </summary>
         /// <param name="request"></param>

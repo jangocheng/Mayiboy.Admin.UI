@@ -493,7 +493,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\AccountConfig.cs" />
+    <Compile Include="App_Start\LoginAccount.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\PublicConstConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -516,6 +516,7 @@
     <Compile Include="Exception\LoginException.cs" />
     <Compile Include="Exception\PermissionException.cs" />
     <Compile Include="Exception\ViewModelException.cs" />
+    <Compile Include="Filters\ActionAuthAttribute.cs" />
     <Compile Include="Filters\ClientIpAuthAttribute.cs" />
     <Compile Include="Filters\LoginAuthAttribute.cs" />
     <Compile Include="Filters\ApplicationErrorAttribute.cs" />

@@ -100,7 +100,38 @@ namespace Mayiboy.Logic.Impl
             return response;
         }
 
-        //保存系统栏目
+        /// <summary>
+        /// 根据用户Id查询系统栏目
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public QueryMavbarByUserIdResponse QueryMavbarByUserId(QueryMavbarByUserIdRequest request)
+        {
+            var response = new QueryMavbarByUserIdResponse();
+            try
+            {
+                var list = _systemNavbarRepository.UseStoredProcedure<SystemNavbarPo>("proc_SystemNavbarByUserId_select", new { UserId = request.UserId });
+
+                if (list != null)
+                {
+                    response.EntityList = list.Select(e => e.As<SystemNavbarDto>()).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.MessageText = ex.Message;
+                response.MessageCode = "-1";
+                LogManager.LogicLogger.ErrorFormat("根据用户Id查询系统栏目出错：{0}", new { request, err = ex.ToString() }.ToJson());
+            }
+            return response;
+        }
+
+        /// <summary>
+        /// 保存系统栏目
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public SaveResponse Save(SaveRequest request)
         {
             var response = new SaveResponse();
@@ -159,7 +190,11 @@ namespace Mayiboy.Logic.Impl
             return response;
         }
 
-        //删除系统栏目
+        /// <summary>
+        /// 删除系统栏目
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public DelResponse Del(DelReqeust request)
         {
             var response = new DelResponse();

@@ -22,11 +22,10 @@ namespace Mayiboy.Admin.UI.Controllers
             _systemMenuService = systemMenuService;
         }
 
-        // GET: Home
-        [LoginAuth]
+        //
         public ActionResult Index()
         {
-            ViewBag.LogAccount = AccountConfig.LoginInfo;
+            ViewBag.LogAccount = LoginAccount.UserInfo;
 
             return View();
         }
@@ -37,11 +36,14 @@ namespace Mayiboy.Admin.UI.Controllers
             //获取系统栏目
             var list = new List<SystemNavbarModel>();
 
-            var res = _systemNavbarService.QueryAll(new QueryAllNavbarRequest());
-
-            if (res.IsSuccess && res.SystemNavbarList != null)
+            var res = _systemNavbarService.QueryMavbarByUserId(new QueryMavbarByUserIdRequest
             {
-                list = res.SystemNavbarList.Select(e => e.As<SystemNavbarModel>()).ToList();
+                UserId = LoginAccount.UserInfo.Id
+            });
+
+            if (res.IsSuccess && res.EntityList != null)
+            {
+                list = res.EntityList.Select(e => e.As<SystemNavbarModel>()).ToList();
             }
 
             ViewBag.SysNavbarList = list;
@@ -56,11 +58,15 @@ namespace Mayiboy.Admin.UI.Controllers
             {
                 var list = new List<SystemMenuModel>();
 
-                var res = _systemMenuService.QueryAllMenu(new QueryAllMenuRequest() { NavbarId = int.Parse(id) });
-
-                if (res.IsSuccess && res.SystemMenuList != null)
+                var res = _systemMenuService.QueryMenuByUserId(new QueryMenuByUserIdRequest
                 {
-                    list = ToTree(res.SystemMenuList);
+                    NavbarId = int.Parse(id),
+                    UserId = LoginAccount.UserInfo.Id
+                });
+
+                if (res.IsSuccess && res.EntityList != null)
+                {
+                    list = ToTree(res.EntityList);
                 }
 
                 return ToJsonResult(new { status = 0, data = list });

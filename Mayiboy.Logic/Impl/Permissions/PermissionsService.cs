@@ -73,7 +73,7 @@ namespace Mayiboy.Logic.Impl
         }
 
         /// <summary>
-        /// 查询用户权限
+        /// 根据用户id查询用户权限
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>

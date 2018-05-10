@@ -14,6 +14,7 @@ using Mayiboy.Utils;
 
 namespace Mayiboy.Admin.UI.Controllers
 {
+    [LoginAuth]
     public class BaseController : Controller
     {
         private readonly IUserInfoService _iuserinfoservice;

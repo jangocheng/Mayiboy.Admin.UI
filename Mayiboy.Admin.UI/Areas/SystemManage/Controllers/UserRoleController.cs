@@ -24,7 +24,6 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         // GET: SystemManage/UserRole
-        [LoginAuth]
         public ActionResult Index()
         {
             ViewBag.SystemNavbar = QueryAllSystemNavbar();

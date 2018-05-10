@@ -20,13 +20,13 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         // GET: SystemManage/SysNavbar
-        [LoginAuth]
         public ActionResult Index()
         {
             return View();
         }
 
         //查询栏目
+        [ActionAuth]
         public ActionResult Query(string name, int page = 1, int limit = 20)
         {
             try

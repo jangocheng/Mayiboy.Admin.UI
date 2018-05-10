@@ -55,7 +55,10 @@ namespace Mayiboy.Contract
     /// </summary>
     public class QueryMenuByUserIdResponse : BaseResponse
     {
-
+        /// <summary>
+        /// 系统菜单列表
+        /// </summary>
+        public List<SystemMenuDto> EntityList { get; set; }
     }
 
     public class SaveSystemMenuRequest : BaseRequest
