@@ -499,6 +499,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\SystemManage\Controllers\DepartmentController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\SysDictController.cs" />
+    <Compile Include="Areas\SystemManage\Controllers\SysLogController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\SysMenuController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\SysNavbarController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\UserInfoController.cs" />
@@ -512,6 +513,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Exception\BaseException.cs" />
     <Compile Include="Exception\LoginException.cs" />
     <Compile Include="Exception\PermissionException.cs" />
@@ -520,6 +522,7 @@
     <Compile Include="Filters\ClientIpAuthAttribute.cs" />
     <Compile Include="Filters\LoginAuthAttribute.cs" />
     <Compile Include="Filters\ApplicationErrorAttribute.cs" />
+    <Compile Include="Filters\OperLogAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -572,11 +575,14 @@
     <Content Include="Areas\SystemManage\Views\Department\Index.cshtml" />
     <Content Include="Areas\SystemManage\Views\SysMenu\Index - 复制.cshtml" />
     <Content Include="Areas\SystemManage\Views\SysDict\Index.cshtml" />
+    <Content Include="Areas\SystemManage\Views\SysLog\Index.cshtml" />
     <None Include="Properties\PublishProfiles\发布Local.pubxml" />
     <Content Include="Views\Home\SystemNavbar.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Page.cshtml" />
     <Content Include="Views\Shared\_LayoutIndex.cshtml" />
+    <Content Include="Views\Main\Page403.cshtml" />
+    <Content Include="Views\Main\Page500.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

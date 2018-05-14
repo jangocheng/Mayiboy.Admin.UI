@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using AutoMapper;
-using Mayiboy.Model.Dto;
+using Mayiboy.Contract;
 using Mayiboy.Model.Model;
 using Mayiboy.Model.Po;
 
@@ -79,6 +79,10 @@ namespace Mayiboy.Logic.Mapper
             //权限配置
             this.CreateMap<PermissionsPo, PermissionsDto>();
             this.CreateMap<PermissionsDto, PermissionsPo>();
+
+            //系统日志
+            this.CreateMap<SystemOperationLogPo, SystemOperationLogDto>();
+            this.CreateMap<SystemOperationLogDto, SystemOperationLogPo>();
         }
     }
 }

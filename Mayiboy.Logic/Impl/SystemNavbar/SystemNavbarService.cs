@@ -3,7 +3,6 @@ using System.Linq;
 using Framework.Mayiboy.Utility;
 using Mayiboy.Contract;
 using Mayiboy.DataAccess.Interface;
-using Mayiboy.Model.Dto;
 using Mayiboy.Model.Po;
 using Mayiboy.Utils;
 using SqlSugar;
@@ -200,7 +199,7 @@ namespace Mayiboy.Logic.Impl
             var response = new DelResponse();
             try
             {
-                var entity = _systemNavbarRepository.FindSingle<SystemNavbarPo>(request.Id);
+                var entity = _systemNavbarRepository.Find<SystemNavbarPo>(e => e.IsValid == 1 && e.Id == request.Id);
 
                 if (entity == null)
                 {

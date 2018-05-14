@@ -11,9 +11,9 @@
         public class Url
         {
             /// <summary>
-            /// 系统异常地址
+            /// 主页地址
             /// </summary>
-            public const string SystemException = "";
+            public const string Home = "~/Home/Index";
 
             /// <summary>
             /// 登录Url
@@ -26,14 +26,14 @@
             public const string OutLogin = "~/Account/Out";
 
             /// <summary>
-            /// 主页地址
+            /// 无权限页面地址
             /// </summary>
-            public const string Home = "~/Main/Index";
+            public const string NoPermission = "~/Main/Page403";
 
             /// <summary>
-            /// 无权限
+            /// 系统异常地址
             /// </summary>
-            public const string NoPermission = "~/Main/permission";
+            public const string SystemException = "~/Main/Page500";
         }
     }
 }

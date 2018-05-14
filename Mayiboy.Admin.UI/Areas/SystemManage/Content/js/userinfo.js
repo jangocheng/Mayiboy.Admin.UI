@@ -274,7 +274,7 @@
                         thisPage.Buttons.UserInfoTable.reload();
                         layer.close(index);
                     } else {
-                        layer.alert(res.msg);
+                        layer.msg(res.msg);
                     }
 
                 }

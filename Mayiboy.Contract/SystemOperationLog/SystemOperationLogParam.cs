@@ -1,4 +1,6 @@
-﻿namespace Mayiboy.Contract
+﻿using System.Collections.Generic;
+
+namespace Mayiboy.Contract
 {
 
     public class AddOperationLogRequest : BaseRequest
@@ -20,6 +22,16 @@
         /// 新增主键Id
         /// </summary>
         public int Id { get; set; }
+    }
+
+    public class QueryOperSysLogRequest : BasePageRequest
+    {
+
+    }
+
+    public class QueryOperSysLogResponse : BasePageResponse
+    {
+        public List<SystemOperationLogDto> EntityList { get; set; }
     }
 
 }

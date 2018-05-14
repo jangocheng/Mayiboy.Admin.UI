@@ -281,7 +281,7 @@
                         thisPage.Buttons.UserRoleTable.reload();
                         layer.close(index);
                     } else {
-                        layer.alert(res.msg);
+                        layer.msg(res.msg);
                     }
                 }
             });

@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using Framework.Mayiboy.Utility;
 using Mayiboy.Admin.UI.Controllers;
 using Mayiboy.Contract;
-using Mayiboy.Model.Dto;
 using Mayiboy.Utils;
 
 namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
@@ -56,6 +55,8 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         //保存字典
+        [ActionAuth]
+        [OperLog("保存系统字典")]
         public ActionResult Save(string id, string name, string key, string keyvalue, string remark)
         {
             try
@@ -89,6 +90,8 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         //删除字典
+        [ActionAuth]
+        [OperLog("删除系统字典")]
         public ActionResult Del(string id)
         {
             try

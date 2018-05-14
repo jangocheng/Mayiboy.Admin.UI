@@ -1,36 +1,26 @@
 ﻿using System;
 
-namespace Mayiboy.Model.Dto
+namespace Mayiboy.Contract
 {
-    public class DepartmentDto
+    public class UserRoleJoinDto
     {
         /// <summary>
-        /// 主键id
+        /// 主键Id
         /// </summary>
         public int Id { get; set; }
 
         /// <summary>
-        /// 父级主键Id
+        /// 用户Id
         /// </summary>
-        public int Pid { get; set; }
+        public int UserId { get; set; }
 
         /// <summary>
-        /// 因为前段需要该字段
+        /// 角色Id
         /// </summary>
-        public int _parentId { get { return Pid; } }
+        public int RoleId { get; set; }
 
         /// <summary>
-        /// 部门名称
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// 备注说明
-        /// </summary>
-        public string Remark { get; set; }
-
-        /// <summary>
-        /// 创建人Id
+        /// 创建用户Id
         /// </summary>
         public int CreateUserId { get; set; }
 
@@ -40,7 +30,7 @@ namespace Mayiboy.Model.Dto
         public DateTime CreateTime { get; set; }
 
         /// <summary>
-        /// 修改用户id
+        /// 修改用户Id
         /// </summary>
         public int? UpdateUserId { get; set; }
 
@@ -50,7 +40,7 @@ namespace Mayiboy.Model.Dto
         public DateTime? UpdateTime { get; set; }
 
         /// <summary>
-        /// 是否有效（0：无效；1：有效）
+        /// 是否有效(1:有效；0：无效)
         /// </summary>
         public int IsValid { get; set; }
     }

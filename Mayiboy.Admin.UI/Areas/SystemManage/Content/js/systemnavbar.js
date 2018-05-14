@@ -67,13 +67,13 @@
                         sort: $("#txtsort").val(),
                         remark: $("#txtremark").val()
                     },
-                    success(res) {
+                    success:function(res) {
                         if (res.status == 0) {
                             layer.msg("保存成功");
                             thisPage.Buttons.Table.reload();
                             layer.close(editsysnavbarnum);
                         } else {
-                            layer.msg("保存失败");
+                            layer.msg(res.msg);
                         }
                     }
                 });
@@ -124,7 +124,7 @@
                             thisPage.ShowEditPage(data);
                             break;
                         case "del":
-                            layer.confirm('真的删除行吗？', function (index) {
+                            layer.confirm('真的删除吗？', function (index) {
                                 thisPage.Del(data, index);
                             });
                             break;
@@ -143,7 +143,7 @@
                         thisPage.Buttons.Table.reload();
                         layer.close(index);
                     } else {
-                        layer.alert(res.msg);
+                        layer.msg(res.msg);
                     }
 
                 }

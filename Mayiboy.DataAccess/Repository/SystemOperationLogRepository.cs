@@ -2,7 +2,7 @@
 
 namespace Mayiboy.DataAccess.Repository
 {
-    public class SystemOperationLogRepository : BaseRepository, ISystemNavbarRepository
+    public class SystemOperationLogRepository : BaseRepository, ISystemOperationLogRepository
     {
          
     }

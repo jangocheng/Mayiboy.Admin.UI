@@ -7,7 +7,6 @@ using Framework.Mayiboy.Utility;
 using Framework.Mayiboy.Utility.EncryptionHelper;
 using Mayiboy.ConstDefine;
 using Mayiboy.Contract;
-using Mayiboy.Model.Dto;
 using Mayiboy.Model.Model;
 using Mayiboy.Utils;
 
@@ -16,10 +15,12 @@ namespace Mayiboy.Admin.UI.Controllers
     public class AccountController : Controller
     {
         private readonly IUserInfoService _iuserinfoservice;
+        private readonly ISystemOperationLogService _systemOperationLogService;
 
-        public AccountController(IUserInfoService iuserinfoservice)
+        public AccountController(IUserInfoService iuserinfoservice, ISystemOperationLogService systemOperationLogService)
         {
             _iuserinfoservice = iuserinfoservice;
+            _systemOperationLogService = systemOperationLogService;
         }
 
         // GET: Account
@@ -28,7 +29,7 @@ namespace Mayiboy.Admin.UI.Controllers
             return View();
         }
 
-        #region 登录
+        #region 用户登录
         public ActionResult Login(LoginUserInfoModel model)
         {
             try
@@ -65,6 +66,14 @@ namespace Mayiboy.Admin.UI.Controllers
                 entity.Fingerprint = RequestHelper.Fingerprint;
 
                 CacheManager.RedisDefault.Set(identityValue.AddCachePrefix(PublicConst.IdentityCookieKey), entity, PublicConst.Time.Hour1);
+
+                #region 记录用户操作日志
+                _systemOperationLogService.AddOperationLog(new AddOperationLogRequest
+                {
+                    Content = string.Format("[LoginName:{0}]-[Name:{1}]-[Content:{2}]", entity.LoginName, entity.Name, "用户登录")
+                });
+                #endregion
+
                 #endregion
 
                 return Json(new { status = 0 }, JsonRequestBehavior.AllowGet);
@@ -78,11 +87,21 @@ namespace Mayiboy.Admin.UI.Controllers
         #endregion
 
         #region 注销登录
+        [OperLog("注销登录")]
         public ActionResult Logout()
         {
             SessionHelper.ClearSession();
-            CacheManager.RedisDefault.Del(CookieHelper.Get(PublicConst.IdentityCookieKey).AddCachePrefix(PublicConst.IdentityCookieKey));
+
+            //删除登录信息
+            var keyl = CookieHelper.Get(PublicConst.IdentityCookieKey).AddCachePrefix(PublicConst.IdentityCookieKey);
+            CacheManager.RedisDefault.Del(keyl);
+
             CookieHelper.Remove(PublicConst.IdentityCookieKey);
+
+            //删除权限
+            var keyp = LoginAccount.Identity.AddCachePrefix("userpermission");
+            CacheManager.RedisDefault.Del(keyp);
+
             return Redirect("Index");
         }
         #endregion

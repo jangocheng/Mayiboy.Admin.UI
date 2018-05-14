@@ -30,15 +30,7 @@ namespace Mayiboy.Admin.UI
 
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
-            if (!filterContext.RequestContext.HttpContext.Request.IsAjaxRequest() &&
-                (filterContext.RequestContext.HttpContext.Request.Url != null))
-            {
-                filterContext.Result = new RedirectResult(PublicConstConfig.Url.OnLogin);
-            }
-            else
-            {
-                filterContext.Result = new ContentResult { Content = "没有权限" };
-            }
+            throw new PermissionException(403, "权限不足");
         }
 
         private bool Unauthorized(HttpContextBase httpContext)
@@ -64,7 +56,9 @@ namespace Mayiboy.Admin.UI
                 }
                 else
                 {
-                    return LoginAccount.UserPermissions.Any(e => e.Action.ToLower().Contains(string.Format("{0}/{1}", controllername.ToLower(), actionname.ToLower())));
+
+                    return LoginAccount.UserPermissions.Where(e => !string.IsNullOrEmpty(e.Action))
+                            .Any(e => e.Action.ToLower().Contains(string.Format("{0}/{1}", controllername.ToLower(), actionname.ToLower())));
                 }
             }
             else

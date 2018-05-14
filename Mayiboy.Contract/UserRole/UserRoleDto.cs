@@ -1,23 +1,23 @@
 ﻿using System;
 
-namespace Mayiboy.Model.Dto
+namespace Mayiboy.Contract
 {
-    public class SystemOperationLogDto
+    public class UserRoleDto
     {
         /// <summary>
-        /// 主键Id
+        /// 用户角色主键Id
         /// </summary>
         public int Id { get; set; }
 
         /// <summary>
-        /// 操作内容说明
+        /// 角色名
         /// </summary>
-        public string Content { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
-        /// 类型（1:登录；2：退出；3：其他操作）
+        /// 备注说明
         /// </summary>
-        public int Type { get; set; }
+        public string Remark { get; set; }
 
         /// <summary>
         /// 创建用户Id
@@ -30,7 +30,17 @@ namespace Mayiboy.Model.Dto
         public DateTime CreateTime { get; set; }
 
         /// <summary>
-        /// 是否有效（0：无效；1：有效）
+        /// 修改用户id
+        /// </summary>
+        public int? UpdateUserId { get; set; }
+
+        /// <summary>
+        /// 修改时间
+        /// </summary>
+        public DateTime? UpdateTime { get; set; }
+
+        /// <summary>
+        /// 是否有效（0：无效;1：有效）
         /// </summary>
         public int IsValid { get; set; }
     }

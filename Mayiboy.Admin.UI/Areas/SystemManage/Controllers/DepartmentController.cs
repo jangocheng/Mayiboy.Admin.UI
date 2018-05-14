@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using Framework.Mayiboy.Utility;
 using Mayiboy.Admin.UI.Controllers;
 using Mayiboy.Contract;
-using Mayiboy.Model.Dto;
 using Mayiboy.Utils;
 
 namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
@@ -48,6 +47,8 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         //保存部门信息
+        [ActionAuth]
+        [OperLog("保存部门信息")]
         public ActionResult Save(string id, string pid, string name, string remark)
         {
             try
@@ -80,6 +81,8 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         //删除部门信息
+        [ActionAuth]
+        [OperLog("删除部门信息")]
         public ActionResult Del(string id)
         {
             try

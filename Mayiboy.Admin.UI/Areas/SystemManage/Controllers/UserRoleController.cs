@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using Framework.Mayiboy.Utility;
 using Mayiboy.Admin.UI.Controllers;
 using Mayiboy.Contract;
-using Mayiboy.Model.Dto;
 using Mayiboy.Model.Po;
 using Mayiboy.Utils;
 
@@ -56,6 +55,8 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         //保存用户角色信息
+        [ActionAuth]
+        [OperLog("保存系统角色")]
         public ActionResult Save(string id, string name, string remark)
         {
             try
@@ -90,6 +91,7 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         //查询角色权限
+        [ActionAuth]
         public ActionResult QueryRolePermissions(string id, string navbarid, string menuid, string roleid)
         {
             try
@@ -136,6 +138,8 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         //删除用户角色
+        [ActionAuth]
+        [OperLog("删除系统角色")]
         public ActionResult Del(string id)
         {
             try
@@ -160,6 +164,8 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         //保存角色权限
+        [ActionAuth]
+        [OperLog("保存系统角色权限")]
         public ActionResult SaveRolePermissions(string nvabarid, string menuid, string roleid, List<int> pid)
         {
             try

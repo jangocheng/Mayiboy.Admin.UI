@@ -44,16 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dto\DepartmentDto.cs" />
-    <Compile Include="Dto\PermissionsDto.cs" />
-    <Compile Include="Dto\RolePermissionsJoinDto.cs" />
-    <Compile Include="Dto\SystemAppSettingsDto.cs" />
-    <Compile Include="Dto\SystemMenuDto.cs" />
-    <Compile Include="Dto\SystemNavbarDto.cs" />
-    <Compile Include="Dto\SystemOperationLogDto.cs" />
-    <Compile Include="Dto\UserInfoDto.cs" />
-    <Compile Include="Dto\UserRoleDto.cs" />
-    <Compile Include="Dto\UserRoleJoinDto.cs" />
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Model\SystemMenuModel.cs" />
     <Compile Include="Model\SystemNavbarModel.cs" />
@@ -69,9 +59,7 @@
     <Compile Include="Po\UserRolePo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

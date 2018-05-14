@@ -413,7 +413,7 @@
                         $("#treetable").treegrid('remove', id); //移除当前行
                         //thisPage.InitSysMenu();
                     } else {
-                        layer.alert(res.msg);
+                        layer.msg(res.msg);
                     }
 
                 }

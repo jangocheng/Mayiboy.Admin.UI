@@ -4,7 +4,6 @@ using Framework.Mayiboy.Utility;
 using Mayiboy.Contract;
 using Mayiboy.DataAccess.Interface;
 using Mayiboy.DataAccess.Repository;
-using Mayiboy.Model.Dto;
 using Mayiboy.Model.Po;
 using Mayiboy.Utils;
 using System.Linq;
@@ -135,7 +134,7 @@ namespace Mayiboy.Logic.Impl
             var response = new DelUserInfoResponse();
             try
             {
-                var entity = _userInfoRepository.FindSingle<UserInfoPo>(request.Id);
+                var entity = _userInfoRepository.Find<UserInfoPo>(e => e.IsValid == 1 && e.Id == request.Id);
 
                 if (entity == null)
                 {

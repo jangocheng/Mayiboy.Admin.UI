@@ -13,5 +13,12 @@ namespace Mayiboy.Contract
         /// <param name="request"></param>
         /// <returns></returns>
         AddOperationLogResponse AddOperationLog(AddOperationLogRequest request);
+
+        /// <summary>
+        /// 查询系统日志
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        QueryOperSysLogResponse QueryOperSysLog(QueryOperSysLogRequest request);
     }
 }

@@ -7,7 +7,6 @@ using Framework.Mayiboy.Utility;
 using Mayiboy.Admin.UI.Areas.SystemManage.Models;
 using Mayiboy.Admin.UI.Controllers;
 using Mayiboy.Contract;
-using Mayiboy.Model.Dto;
 using Mayiboy.Utils;
 
 namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
@@ -93,6 +92,8 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         //保存系统菜单
+        [ActionAuth]
+        [OperLog("保存系统菜单")]
         public ActionResult Save(SysMenuModel model)
         {
             try
@@ -132,6 +133,8 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         //删除系统菜单
+        [ActionAuth]
+        [OperLog("删除系统菜单")]
         public ActionResult Del(string id)
         {
             try
@@ -180,6 +183,8 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         //保存菜单权限
+        [ActionAuth]
+        [OperLog("保存系统菜单操作权限")]
         public ActionResult SaveMenuPermissions(PermissionsModel model)
         {
             try
@@ -215,6 +220,8 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         //删除权限
+        [ActionAuth]
+        [OperLog("删除系统菜单操作权限")]
         public ActionResult DelPermissions(string id)
         {
             try

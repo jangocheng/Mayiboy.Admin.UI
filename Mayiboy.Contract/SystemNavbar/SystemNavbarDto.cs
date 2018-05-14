@@ -1,39 +1,33 @@
 ﻿using System;
-using SqlSugar;
 
-namespace Mayiboy.Model.Dto
+namespace Mayiboy.Contract
 {
-    public class RolePermissionsJoinDto
+    public class SystemNavbarDto
     {
         /// <summary>
-        /// 主键Id
+        /// 主键id
         /// </summary>
         public int Id { get; set; }
 
         /// <summary>
-        /// 栏目id
+        /// 导航名
         /// </summary>
-        public int NavbarId { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
-        /// 菜单Id
+        /// 导航地址
         /// </summary>
-        public int MenuId { get; set; }
+        public string Url { get; set; }
 
         /// <summary>
-        /// 角色Id
+        /// 备注说明
         /// </summary>
-        public int RoleId { get; set; }
+        public string Remark { get; set; }
 
         /// <summary>
-        /// 权限Id
+        /// 排序字段
         /// </summary>
-        public int PermissionsId { get; set; }
-
-        /// <summary>
-        /// 创建用户Id
-        /// </summary>
-        public int CreateUserId { get; set; }
+        public int Sort { get; set; }
 
         /// <summary>
         /// 创建时间
@@ -41,14 +35,19 @@ namespace Mayiboy.Model.Dto
         public DateTime CreateTime { get; set; }
 
         /// <summary>
-        /// 更新用户Id
+        /// 创建用户Id
         /// </summary>
-        public int? UpdateUserId { get; set; }
+        public int? CreateUserId { get; set; }
 
         /// <summary>
         /// 更新时间
         /// </summary>
         public DateTime? UpdateTime { get; set; }
+
+        /// <summary>
+        /// 更新用户Id
+        /// </summary>
+        public int? UpdateUserId { get; set; }
 
         /// <summary>
         /// 是否有效（0：无效；1：有效）

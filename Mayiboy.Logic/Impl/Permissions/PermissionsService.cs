@@ -3,7 +3,6 @@ using System.Linq;
 using Framework.Mayiboy.Utility;
 using Mayiboy.Contract;
 using Mayiboy.DataAccess.Interface;
-using Mayiboy.Model.Dto;
 using Mayiboy.Model.Po;
 using Mayiboy.Utils;
 
@@ -170,7 +169,7 @@ namespace Mayiboy.Logic.Impl
             var response = new DelPermissionsResponse();
             try
             {
-                var entity = _permissionsRepository.FindSingle<PermissionsPo>(request.Id);
+                var entity = _permissionsRepository.Find<PermissionsPo>(e => e.IsValid == 1 && e.Id == request.Id);
 
                 if (entity == null)
                 {

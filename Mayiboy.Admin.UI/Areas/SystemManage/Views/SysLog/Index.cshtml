@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "系统操作日志";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+@section head_section{
+
+}
+
+@*面包屑*@
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb" style="visibility: visible;">
+        <a lay-href="">主页</a><span lay-separator="">/</span>
+        <a><cite>组件</cite></a><span lay-separator="">/</span>
+        <a><cite>数据表格</cite></a><span lay-separator="">/</span>
+        <a><cite>数据表格的重载</cite></a>
+    </div>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    系统操作日志
+                </div>
+                <div class="layui-card-body" style="margin: 0px; padding: 0px;">
+                    <div class="layui-card" style="margin: 0px;">
+                        <div class="layui-card-body" style="padding: 0px;">
+                            <div class="layui-btn-container" style="float: left; display: none; padding: 5px;">
+                                <div class="layui-btn-group">
+                                    <label class="mayiboy-lable">角色名:</label>
+                                    <input id="name" class="mayiboy-input" placeholder="角色名" />
+                                </div>
+
+                                <div class="layui-btn-group">
+                                    <button id="btnquery" class="layui-btn">查询</button>
+                                </div>
+                            </div>
+                            <div class="layui-btn-container" style="display: none; float: right; padding: 5px;">
+                                <div class="layui-btn-group">
+                                    <button id="btnadd" class="layui-btn">新增</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table id="dttable" lay-filter="table-operate" data-url="@Url.Action("Query", "SysLog", new {areas = "SystemManage"})"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section foot_section{
+    <script type="text/javascript">
+        $(function() {
+            var thisPage = {
+                Buttons: {
+                    SysLogTable: null
+                },
+                Init: function() {
+                    thisPage.InitSysLogTable();
+                },
+                InitSysLogTable: function () {
+                    layui.use("table", function() {
+                        var table = layui.table;
+                        thisPage.Buttons.SysLogTable = table.render({
+                            elem: '#dttable',
+                            url: $("#dttable").data("url"), //数据接口
+                            page: true, //开启分页
+                            even: true, //各行变色
+                            cols: [
+                                    [
+                                        { field: 'id', title: '序号', type: "numbers", width: 60 },
+                                        { field: 'Content', title: '日志内容' },
+                                        {
+                                            field: 'CreateTime',
+                                            title: '创建时间',
+                                            width: 180,
+                                            templet: function (row) {
+                                                return $.Extend_formatDateTime(row.CreateTime);
+                                            }
+                                        }
+                                    ]
+                            ],
+                            done: function (res, curr, count) {
+
+                            }
+                        });
+
+                    });
+                }
+            }
+
+            thisPage.Init();
+        })
+    </script>
+}

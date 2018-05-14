@@ -7,7 +7,6 @@ using Framework.Mayiboy.Utility;
 using Mayiboy.Admin.UI.Areas.SystemManage.Models;
 using Mayiboy.Admin.UI.Controllers;
 using Mayiboy.Contract;
-using Mayiboy.Model.Dto;
 using Mayiboy.Utils;
 
 namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
@@ -58,6 +57,8 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         //保存用户信息
+        [ActionAuth]
+        [OperLog("保存系统用户信息")]
         public ActionResult Save(UserInfoModel model)
         {
             try
@@ -147,6 +148,7 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         //保存用户角色
+        [ActionAuth]
         public ActionResult SaveUserRole(string userid, List<int> roleid)
         {
             try
@@ -171,6 +173,8 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         //删除用户
+        [ActionAuth]
+        [OperLog("删除系统用户信息")]
         public ActionResult Del(string id)
         {
             try

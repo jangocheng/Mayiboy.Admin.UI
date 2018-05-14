@@ -5,7 +5,6 @@ using Mayiboy.DataAccess.Interface;
 using Mayiboy.Model.Po;
 using Mayiboy.Utils;
 using System.Linq;
-using Mayiboy.Model.Dto;
 
 namespace Mayiboy.Logic.Impl
 {
@@ -98,9 +97,20 @@ namespace Mayiboy.Logic.Impl
                 var entity = request.Entity.As<SystemAppSettingsPo>();
                 if (entity.Id == 0)
                 {
-                    EntityLogger.CreateEntity(entity);
+                    if (!_systemAppSettingsRepository.Any<SystemAppSettingsPo>(e => e.IsValid == 1 && e.KeyWord == entity.KeyWord))
+                    {
+                        EntityLogger.CreateEntity(entity);
 
-                    _systemAppSettingsRepository.InsertReturnIdentity(entity);
+                        _systemAppSettingsRepository.InsertReturnIdentity(entity);
+                    }
+                    else
+                    {
+                        response.IsSuccess = false;
+                        response.MessageCode = "2";
+                        response.MessageText = "Key已经存在";
+
+                        return response;
+                    }
                 }
                 else
                 {
@@ -139,7 +149,8 @@ namespace Mayiboy.Logic.Impl
             var response = new DelSysAppSettingResponse();
             try
             {
-                var entity = _systemAppSettingsRepository.FindSingle<SystemAppSettingsPo>(request.Id);
+                var entity = _systemAppSettingsRepository.Find<SystemAppSettingsPo>(e => e.IsValid == 1 && e.Id == request.Id);
+
                 if (entity == null)
                 {
                     throw new Exception("删除系统配置不存在");

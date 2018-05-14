@@ -1,9 +1,8 @@
 ﻿using System;
-using SqlSugar;
 
-namespace Mayiboy.Model.Dto
+namespace Mayiboy.Contract
 {
-    public class UserInfoDto
+    public class PermissionsDto
     {
         /// <summary>
         /// 主键Id
@@ -11,39 +10,34 @@ namespace Mayiboy.Model.Dto
         public int Id { get; set; }
 
         /// <summary>
-        /// 登录名
+        /// 菜单Id
         /// </summary>
-        public string LoginName { get; set; }
+        public int? MenuId { get; set; }
 
         /// <summary>
-        /// 邮箱地址
-        /// </summary>
-        public string Email { get; set; }
-
-        /// <summary>
-        /// 密码
-        /// </summary>
-        public string Password { get; set; }
-
-        /// <summary>
-        /// 姓名
+        /// 名称
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// 性别（-1：全部；0:女；1：男）
+        /// 操作地址（控制器/操作）
         /// </summary>
-        public int? Sex { get; set; }
+        public string Action { get; set; }
 
         /// <summary>
-        /// 头像图片地址
+        /// 权限代码
         /// </summary>
-        public string HeadimgUrl { get; set; }
+        public string Code { get; set; }
 
         /// <summary>
-        /// 手机号
+        /// 类型
         /// </summary>
-        public string Mobile { get; set; }
+        public int Type { get; set; }
+
+        /// <summary>
+        /// 备注说明
+        /// </summary>
+        public string Remark { get; set; }
 
         /// <summary>
         /// 创建用户Id
@@ -56,19 +50,14 @@ namespace Mayiboy.Model.Dto
         public DateTime CreateTime { get; set; }
 
         /// <summary>
-        /// 更新用户Id
+        /// 更新用户id
         /// </summary>
-        public int UpdateUserId { get; set; }
+        public int? UpdateUserId { get; set; }
 
         /// <summary>
         /// 更新时间
         /// </summary>
-        public DateTime UpdateTime { get; set; }
-
-        /// <summary>
-        /// 备注
-        /// </summary>
-        public string Remark { get; set; }
+        public DateTime? UpdateTime { get; set; }
 
         /// <summary>
         /// 是否有效

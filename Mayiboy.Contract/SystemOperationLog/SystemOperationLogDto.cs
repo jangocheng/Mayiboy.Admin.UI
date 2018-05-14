@@ -1,24 +1,23 @@
 ﻿using System;
-using SqlSugar;
 
-namespace Mayiboy.Model.Dto
+namespace Mayiboy.Contract
 {
-    public class UserRoleDto
+    public class SystemOperationLogDto
     {
         /// <summary>
-        /// 用户角色主键Id
+        /// 主键Id
         /// </summary>
         public int Id { get; set; }
 
         /// <summary>
-        /// 角色名
+        /// 操作内容说明
         /// </summary>
-        public string Name { get; set; }
+        public string Content { get; set; }
 
         /// <summary>
-        /// 备注说明
+        /// 类型（1:登录；2：退出；3：其他操作）
         /// </summary>
-        public string Remark { get; set; }
+        public int Type { get; set; }
 
         /// <summary>
         /// 创建用户Id
@@ -31,17 +30,7 @@ namespace Mayiboy.Model.Dto
         public DateTime CreateTime { get; set; }
 
         /// <summary>
-        /// 修改用户id
-        /// </summary>
-        public int? UpdateUserId { get; set; }
-
-        /// <summary>
-        /// 修改时间
-        /// </summary>
-        public DateTime? UpdateTime { get; set; }
-
-        /// <summary>
-        /// 是否有效（0：无效;1：有效）
+        /// 是否有效（0：无效；1：有效）
         /// </summary>
         public int IsValid { get; set; }
     }

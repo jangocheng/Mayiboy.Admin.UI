@@ -53,13 +53,15 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         //保存栏目
+        [ActionAuth]
+        [OperLog("保存系统栏目")]
         public ActionResult Save(string name, string url, string remark, int sort = 0, int id = 0)
         {
             try
             {
                 var request = new SaveRequest
                 {
-                    Entity = new Model.Dto.SystemNavbarDto
+                    Entity = new SystemNavbarDto
                     {
                         Id = id,
                         Name = name,
@@ -86,6 +88,8 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         //删除栏目
+        [ActionAuth]
+        [OperLog("删除系统栏目")]
         public ActionResult Del(string id)
         {
             try

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Mayiboy.Model.Dto;
 using Mayiboy.Model.Po;
 
 namespace Mayiboy.Contract

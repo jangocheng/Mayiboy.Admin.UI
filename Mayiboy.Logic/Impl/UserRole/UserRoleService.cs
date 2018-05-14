@@ -6,7 +6,6 @@ using Mayiboy.DataAccess.Interface;
 using Mayiboy.Model.Po;
 using Mayiboy.Utils;
 using System.Linq;
-using Mayiboy.Model.Dto;
 using SqlSugar;
 
 namespace Mayiboy.Logic.Impl
@@ -17,7 +16,9 @@ namespace Mayiboy.Logic.Impl
         private readonly IUserRoleJoinRepository _userRoleJoinRepository;//用户角色关联
         private readonly IRolePermissionsJoinRepository _rolePermissionsJoinRepository;//角色权限关联
 
-        public UserRoleService(IUserRoleRepository userRoleRepository, IUserRoleJoinRepository userRoleJoinRepository, IRolePermissionsJoinRepository rolePermissionsJoinRepository)
+        public UserRoleService(IUserRoleRepository userRoleRepository, 
+            IUserRoleJoinRepository userRoleJoinRepository,
+            IRolePermissionsJoinRepository rolePermissionsJoinRepository)
         {
             _userRoleRepository = userRoleRepository;
             _userRoleJoinRepository = userRoleJoinRepository;
@@ -234,7 +235,7 @@ namespace Mayiboy.Logic.Impl
             var response = new DelUserRoleJoinResponse();
             try
             {
-                var entity = _userRoleJoinRepository.FindSingle<UserRoleJoinPo>(request.Id);
+                var entity = _userRoleJoinRepository.Find<UserRoleJoinPo>(e => e.IsValid == 1 && e.Id == request.Id);
 
                 if (entity == null)
                 {

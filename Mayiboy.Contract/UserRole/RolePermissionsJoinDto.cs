@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Mayiboy.Model.Dto
+namespace Mayiboy.Contract
 {
-    public class UserRoleJoinDto
+    public class RolePermissionsJoinDto
     {
         /// <summary>
         /// 主键Id
@@ -10,14 +10,24 @@ namespace Mayiboy.Model.Dto
         public int Id { get; set; }
 
         /// <summary>
-        /// 用户Id
+        /// 栏目id
         /// </summary>
-        public int UserId { get; set; }
+        public int NavbarId { get; set; }
+
+        /// <summary>
+        /// 菜单Id
+        /// </summary>
+        public int MenuId { get; set; }
 
         /// <summary>
         /// 角色Id
         /// </summary>
         public int RoleId { get; set; }
+
+        /// <summary>
+        /// 权限Id
+        /// </summary>
+        public int PermissionsId { get; set; }
 
         /// <summary>
         /// 创建用户Id
@@ -30,17 +40,17 @@ namespace Mayiboy.Model.Dto
         public DateTime CreateTime { get; set; }
 
         /// <summary>
-        /// 修改用户Id
+        /// 更新用户Id
         /// </summary>
         public int? UpdateUserId { get; set; }
 
         /// <summary>
-        /// 修改时间
+        /// 更新时间
         /// </summary>
         public DateTime? UpdateTime { get; set; }
 
         /// <summary>
-        /// 是否有效(1:有效；0：无效)
+        /// 是否有效（0：无效；1：有效）
         /// </summary>
         public int IsValid { get; set; }
     }

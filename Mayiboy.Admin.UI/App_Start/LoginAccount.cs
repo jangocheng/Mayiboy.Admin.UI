@@ -3,7 +3,6 @@ using Framework.Mayiboy.Ioc;
 using Framework.Mayiboy.Utility;
 using Mayiboy.ConstDefine;
 using Mayiboy.Contract;
-using Mayiboy.Model.Dto;
 using Mayiboy.Model.Model;
 using Mayiboy.Utils;
 
@@ -87,6 +86,7 @@ namespace Mayiboy.Admin.UI
                     if (res.IsSuccess)
                     {
                         entitylist = res.EntityList;
+                        CacheManager.RedisDefault.Set(key, res.EntityList, PublicConst.Time.Hour2);
                     }
                     else
                     {

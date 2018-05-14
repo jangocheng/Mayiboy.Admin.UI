@@ -1,56 +1,51 @@
 ﻿using System;
 
-namespace Mayiboy.Model.Dto
+namespace Mayiboy.Contract
 {
-    public class SystemMenuDto
+    public class UserInfoDto
     {
         /// <summary>
-        /// 主键id
+        /// 主键Id
         /// </summary>
         public int Id { get; set; }
 
         /// <summary>
-        /// 父级Id
+        /// 登录名
         /// </summary>
-        public int Pid { get; set; }
+        public string LoginName { get; set; }
 
         /// <summary>
-        /// 因为前段需要该字段
+        /// 邮箱地址
         /// </summary>
-        public int _parentId { get { return Pid; } }
+        public string Email { get; set; }
 
         /// <summary>
-        /// 导航id
+        /// 密码
         /// </summary>
-        public int NavbarId { get; set; }
+        public string Password { get; set; }
 
         /// <summary>
-        /// 菜单名称
+        /// 姓名
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// Url地址
+        /// 性别（-1：全部；0:女；1：男）
         /// </summary>
-        public string UrlAddress { get; set; }
+        public int? Sex { get; set; }
 
         /// <summary>
-        /// 菜单类型
+        /// 头像图片地址
         /// </summary>
-        public int MenuType { get; set; }
+        public string HeadimgUrl { get; set; }
 
         /// <summary>
-        /// 图标
+        /// 手机号
         /// </summary>
-        public string Icon { get; set; }
+        public string Mobile { get; set; }
 
         /// <summary>
-        /// 排序字段
-        /// </summary>
-        public int Sort { get; set; }
-
-        /// <summary>
-        /// 创建人Id
+        /// 创建用户Id
         /// </summary>
         public int CreateUserId { get; set; }
 
@@ -60,22 +55,22 @@ namespace Mayiboy.Model.Dto
         public DateTime CreateTime { get; set; }
 
         /// <summary>
-        /// 修改人id
+        /// 更新用户Id
         /// </summary>
-        public int? UpdateUserId { get; set; }
+        public int UpdateUserId { get; set; }
 
         /// <summary>
-        /// 修改时间
+        /// 更新时间
         /// </summary>
-        public DateTime? UpdateTime { get; set; }
+        public DateTime UpdateTime { get; set; }
 
         /// <summary>
-        /// 备注说明
+        /// 备注
         /// </summary>
         public string Remark { get; set; }
 
         /// <summary>
-        /// 是否有效（0：无效；1：有效）
+        /// 是否有效
         /// </summary>
         public int IsValid { get; set; }
     }
