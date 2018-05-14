@@ -65,7 +65,9 @@ namespace Mayiboy.Admin.UI.Controllers
 
                 entity.Fingerprint = RequestHelper.Fingerprint;
 
-                CacheManager.RedisDefault.Set(identityValue.AddCachePrefix(PublicConst.IdentityCookieKey), entity, PublicConst.Time.Hour1);
+                var key = identityValue.AddCachePrefix(PublicConst.IdentityCookieKey);
+
+                CacheManager.RedisDefault.Set(key, entity, PublicConst.Time.Hour1);
 
                 #region 记录用户操作日志
                 _systemOperationLogService.AddOperationLog(new AddOperationLogRequest

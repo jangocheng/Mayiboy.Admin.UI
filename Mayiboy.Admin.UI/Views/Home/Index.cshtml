@@ -20,7 +20,7 @@
     <div id="ajax-loader" style="cursor: progress; position: fixed; top: -50%; left: -50%; width: 200%; height: 200%; background: #fff; z-index: 10000; overflow: hidden;">
         <img src="~/Content/Images/ajax-loader.gif" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto;" />
     </div>
-    <div class="wrapper">
+    <div id="wrapper" class="wrapper" data-loginstatus="@Url.Action("LoginStatus","Common")">
         <!--头部信息-->
         <header class="main-header">
             <a href="javascript:;" target="_blank" class="logo">
@@ -130,6 +130,6 @@
     </div>
     <script src="~/Content/lib/jquery/jQuery-2.2.0.min.js"></script>
     <script src="~/Content/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="~/Content/Scripts/app/index.js"></script>
+    <script src="~/Content/Scripts/app/index.js?v=2"></script>
 </body>
 </html>

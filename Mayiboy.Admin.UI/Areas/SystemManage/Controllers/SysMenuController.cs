@@ -18,7 +18,9 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         private readonly IPermissionsService _permissionsService;//权限
 
 
-        public SysMenuController(ISystemMenuService systemMenuService, IPermissionsService permissionsService, ISystemNavbarService systemNavbarService)
+        public SysMenuController(ISystemMenuService systemMenuService,
+            IPermissionsService permissionsService,
+            ISystemNavbarService systemNavbarService)
         {
             _systemMenuService = systemMenuService;
             _permissionsService = permissionsService;

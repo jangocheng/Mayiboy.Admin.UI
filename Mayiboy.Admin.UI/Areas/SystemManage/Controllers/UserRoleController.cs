@@ -91,7 +91,7 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         }
 
         //查询角色权限
-        [ActionAuth]
+        //[ActionAuth]
         public ActionResult QueryRolePermissions(string id, string navbarid, string menuid, string roleid)
         {
             try

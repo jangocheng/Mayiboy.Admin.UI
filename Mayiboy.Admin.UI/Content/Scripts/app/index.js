@@ -292,6 +292,9 @@
             });
 
             $.mainindex.loadMenu();
+
+            //检查用户登录状态
+            $.mainindex.EventUserLoginStatus();
         },
         load: function () {
             $("body").removeClass("hold-transition");
@@ -537,6 +540,15 @@
                 html += '</li>';
             });
             return html;
+        },
+        EventUserLoginStatus: function() {
+            setInterval(function () {
+                $.get($("#wrapper").data("loginstatus"), function (res) {
+                    if (res.status != 0) {
+                        location.reload();
+                    }
+                });
+            }, 1000 * 60 * 5);
         }
     };
 

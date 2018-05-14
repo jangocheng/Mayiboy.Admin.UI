@@ -86,8 +86,8 @@ namespace Mayiboy.Admin.UI
             {
                 RsaCryption.JsPublicKey(PublicConst.XmlPrivateKey, out exponent, out modulus);
 
-                CacheManager.RunTimeCache.Set("exponent", exponent, PublicConst.Time.Hour4);
-                CacheManager.RunTimeCache.Set("modulus", modulus, PublicConst.Time.Hour4);
+                CacheManager.RunTimeCache.Set("exponent", exponent, PublicConst.Time.Day1);
+                CacheManager.RunTimeCache.Set("modulus", modulus, PublicConst.Time.Day1);
             }
 
             CookieHelper.Set("exponent", exponent);

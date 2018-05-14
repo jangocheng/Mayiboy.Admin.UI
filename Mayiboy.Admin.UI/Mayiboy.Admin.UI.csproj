@@ -481,7 +481,6 @@
     <Content Include="Content\Scripts\common\jquery.form.js" />
     <Content Include="Content\Scripts\common\rasall.js" />
     <Content Include="Content\Scripts\common\wg_listToTree1.1.js" />
-    <Content Include="Content\Scripts\jquery-1.10.1.min.js" />
     <Content Include="Content\Scripts\common\jquery.extend.js" />
     <Content Include="Content\Styles\admin.css" />
     <Content Include="Content\Styles\font-awesome.min.css" />
