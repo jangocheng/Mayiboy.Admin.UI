@@ -244,12 +244,20 @@
             });
             return width;
         },
+        contextmenuTab: function () {
+            $("#yjmenu").show().offset({ left: $(this).offset().left });
+            return false;
+        },
         init: function () {
             $('.menuTabs').on('click', '.menuTab i', $.maintab.closeTab);
             $('.menuTabs').on('click', '.menuTab', $.maintab.activeTab);
+            $('.menuTabs').on('contextmenu', '.active', $.maintab.contextmenuTab);
             $('.tabLeft').on('click', $.maintab.scrollTabLeft);
             $('.tabRight').on('click', $.maintab.scrollTabRight);
             $('.tabReload').on('click', $.maintab.refreshTab);
+            $(".content-tabs,#yjmenu,.main-header,.main-sidebar").on('click', function () {
+                $("#yjmenu").hide();
+            });
             $('.tabCloseCurrent').on('click', function () {
                 $('.page-tabs-content').find('.active i').trigger("click");
             });
@@ -274,7 +282,43 @@
                     $.maintab.exitFullscreen();
                 }
             });
+            $("#changepassword").on('click', function () {
+               var opennum= layer.open({
+                    title: "修改密码",
+                    resize: false,
+                    type: 1,
+                    area: ['400px', '250px'],
+                    offset: '100px',
+                    content: $('#changepasswordpage'),
+                    btn: ["保存", "取消"],
+                    btn1: function () {
 
+                        var isb = layer.IsValidation("#changepasswordpage");
+
+                        if (isb == null) {
+                            $.ajax({
+                                type: 'get',
+                                url: $("#changepasswordpage").data("url"),
+                                data: { oldpwd: $('#txtoldpwd').val(), newpwd: $("#txtnewpwd").val() },
+                                success: function (res) {
+                                    if (res.status == 0) {
+                                        layer.msg("修改成功");
+                                        layer.close(opennum);
+                                    } else {
+                                        layer.msg(res.msg);
+                                    }
+                                }
+                            });
+                        }
+                    },
+                    btn2: function () {
+                        // alert("取消");
+                    },
+                    cancel: function () {
+                        // alert("退出");
+                    }
+                });
+            });
         }
     };
 
@@ -553,6 +597,8 @@
     };
 
     $(function () {
+        layui.use(["layer", "myvalidation"], function () { });
+
         $.mainindex.Init();
         $.mainindex.load();
         $.maintab.init();

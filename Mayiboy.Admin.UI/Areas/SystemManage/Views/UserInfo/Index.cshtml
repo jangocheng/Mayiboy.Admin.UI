@@ -52,7 +52,7 @@
                             </div>
                         </div>
                     </div>
-                    <table id="dttable" lay-filter="table-operate" data-url="@Url.Action("Query", "UserInfo", new {areas = "SystemManage"})" data-delurl="@Url.Action("Del", "UserInfo", new {areas = "SystemManage"})"></table>
+                    <table id="dttable" lay-filter="table-operate" data-url="@Url.Action("Query", "UserInfo", new {areas = "SystemManage"})" data-delurl="@Url.Action("Del", "UserInfo", new {areas = "SystemManage"})" data-resetpwd="@Url.Action("ResetPassword", "UserInfo", new { areas = "SystemManage" })"></table>
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@
 
 @*编辑用户*@
 <div id="edituserinfo" title="新增用户" style="display: none;" data-url="@Url.Action("Save", "UserInfo", new {areas = "SystemManage"})">
-    <div class="layui-form" style="padding: 20px;" data-url="@Url.Action("Save", "UserInfo", new {areas = "SystemManage"})">
+    <div class="layui-form" style="padding: 20px;">
         <input id="txtid" type="hidden" value="0"/>
         <div class="layui-form-item">
             <label class="layui-form-label">账号：</label>
@@ -112,5 +112,5 @@
 </div>
 
 @section foot_section{
-    <script src="~/Areas/SystemManage/Content/js/userinfo.js"></script>
+    <script src="~/Areas/SystemManage/Content/js/userinfo.js?v=2"></script>
 }

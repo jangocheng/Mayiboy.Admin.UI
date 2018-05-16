@@ -73,12 +73,13 @@
                             {
                                 field: 'look',
                                 title: '操作',
-                                width: 200,
+                                width: 300,
                                 align: 'center',
                                 templet: function (row) {
                                     var html = "";
                                     html += '<a href="javascript:;" class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>';
                                     html += '<a href="javascript:;" class="layui-btn layui-btn-xs" lay-event="edituserrole">设置用户角色</a>';
+                                    html += '<a href="javascript:;" class="layui-btn layui-btn-xs" lay-event="resetpassword">重置密码</a>';
                                     html += '<a href="javascript:;" class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>';
                                     return html;
                                 }
@@ -104,6 +105,9 @@
                         case "edituserrole":
                             thisPage.ShowEditUserRolePage(data);
                             break;
+                        case "resetpassword":
+                            thisPage.ResetPassWord(data);
+                            break;
                         case "del":
                             layer.confirm('真的删除行吗？', function (index) {
                                 thisPage.Del(data, index);
@@ -113,6 +117,22 @@
                     }
                 });
 
+            });
+        },
+        ResetPassWord: function(data) {
+            layer.confirm("确认重置密码？", function(index) {
+                $.ajax({
+                    type: "get",
+                    url: $("#dttable").data("resetpwd"),
+                    data: {userid:data.Id},
+                    success:function(res) {
+                        if (res.status == 0) {
+                            layer.msg("重置成功");
+                        } else {
+                            layer.msg(res.msg);
+                        }
+                    }
+                });
             });
         },
         QueryUserInfo: function () {

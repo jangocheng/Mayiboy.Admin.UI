@@ -105,7 +105,7 @@ namespace Mayiboy.Admin.UI.Controllers
 
             var cachekey = key.AddCachePrefix("systemappsetting");
 
-            var value = CacheManager.Get<string>(cachekey, PublicConst.Time.Minute1);
+            var value = CacheManager.Get<string>(cachekey, 5);
 
             if (value.IsNullOrEmpty())
             {

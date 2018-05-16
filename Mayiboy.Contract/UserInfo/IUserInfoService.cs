@@ -34,5 +34,19 @@ namespace Mayiboy.Contract
         /// <param name="request"></param>
         /// <returns></returns>
         LoginQueryResponse LoginQuery(LoginQueryRequest request);
+
+        /// <summary>
+        /// 重置用户密码
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        ResetPasswordResponse ResetPassword(ResetPasswordRequest request);
+
+        /// <summary>
+        /// 更改密码
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        ChangePasswordResponse ChangePassword(ChangePasswordRequest request);
     }
 }

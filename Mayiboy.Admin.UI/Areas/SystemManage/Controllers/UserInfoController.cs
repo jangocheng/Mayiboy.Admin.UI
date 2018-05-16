@@ -94,6 +94,33 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
 
         }
 
+        //重置用户密码
+        [ActionAuth]
+        [OperLog("重置用户密码")]
+        public ActionResult ResetPassword(string userid)
+        {
+            try
+            {
+                var response = _userInfoService.ResetPassword(new ResetPasswordRequest
+                {
+                    UserId = int.Parse(userid),
+                    NewPassword = GetSystemAppSetting("SystemDefaultPassword")
+                });
+
+                if (!response.IsSuccess)
+                {
+                    return ToJsonErrorResult(2, response.MessageText);
+                }
+
+                return ToJsonResult(new { status = 0 });
+            }
+            catch (Exception ex)
+            {
+                LogManager.DefaultLogger.ErrorFormat("重置用户密码出错：{0}", new { userid, err = ex.ToString() }.ToJson());
+                return ToJsonFatalResult("重置密码出错！");
+            }
+        }
+
         //查询所有用户角色
         public ActionResult QueryAllUserRole(string userid)
         {
@@ -131,7 +158,7 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
                 var list = userrolelist.Select(e => new
                 {
                     LAY_CHECKED = userrolejoinlist.Any(o => o.RoleId == e.Id),
-                    Id=e.Id,
+                    Id = e.Id,
                     e.Name,
                     e.Remark
                 });

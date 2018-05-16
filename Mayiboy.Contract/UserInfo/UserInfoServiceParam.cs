@@ -97,4 +97,45 @@ namespace Mayiboy.Contract
         /// </summary>
         public UserInfoDto Entity { get; set; }
     }
+
+    public class ResetPasswordRequest : BaseRequest
+    {
+        /// <summary>
+        /// 用户Id
+        /// </summary>
+        public int UserId { get; set; }
+
+        /// <summary>
+        /// 新密码（明文）
+        /// </summary>
+        public string NewPassword { get; set; }
+    }
+
+    public class ResetPasswordResponse : BaseResponse
+    {
+        
+    }
+
+    public class ChangePasswordRequest : BaseRequest
+    {
+        /// <summary>
+        /// 用户Id
+        /// </summary>
+        public int UserId { get; set; }
+
+        /// <summary>
+        /// 旧密码（明文）
+        /// </summary>
+        public string OldPassword { get; set; }
+
+        /// <summary>
+        /// 新密码（明文）
+        /// </summary>
+        public string NewPassword { get; set; }
+    }
+
+    public class ChangePasswordResponse : BaseResponse
+    {
+        
+    }
 }

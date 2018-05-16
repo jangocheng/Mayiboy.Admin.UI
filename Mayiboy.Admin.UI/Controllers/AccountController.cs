@@ -89,6 +89,7 @@ namespace Mayiboy.Admin.UI.Controllers
         #endregion
 
         #region 注销登录
+        [LoginAuth]
         [OperLog("注销登录")]
         public ActionResult Logout()
         {
@@ -107,6 +108,38 @@ namespace Mayiboy.Admin.UI.Controllers
             return Redirect("Index");
         }
         #endregion
+
+        /// <summary>
+        /// 修改用户密码
+        /// </summary>
+        /// <returns></returns>
+        [LoginAuth]
+        [OperLog("修改用户密码")]
+        public ActionResult ChangePassword(string oldpwd, string newpwd)
+        {
+            try
+            {
+                var response = _iuserinfoservice.ChangePassword(new ChangePasswordRequest
+                {
+                    UserId = LoginAccount.UserInfo.Id,
+                    OldPassword = oldpwd,
+                    NewPassword = newpwd
+                });
+
+                if (!response.IsSuccess)
+                {
+                    return Json(new { status = 1, msg = response.MessageText }, JsonRequestBehavior.AllowGet);
+                }
+
+                return Json(new { status = 0 }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                LogManager.DefaultLogger.ErrorFormat("修改用户密码出错{0}", new { oldpwd, newpwd, err = ex.ToString() }.ToJson());
+                return Json(new { status = -1, msg = "系统出错！" }, JsonRequestBehavior.AllowGet);
+            }
+
+        }
 
         #region 验证码
         /// <summary>

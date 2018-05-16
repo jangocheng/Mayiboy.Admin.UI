@@ -184,5 +184,112 @@ namespace Mayiboy.Logic.Impl
             }
             return response;
         }
+
+        /// <summary>
+        /// 重置密码
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public ResetPasswordResponse ResetPassword(ResetPasswordRequest request)
+        {
+            var response = new ResetPasswordResponse();
+            try
+            {
+                var entity = _userInfoRepository.Find<UserInfoPo>(e => e.IsValid == 1 && e.Id == request.UserId);
+
+                if (entity == null)
+                {
+                    response.IsSuccess = false;
+                    response.MessageCode = "2";
+                    response.MessageText = "用户不存在";
+                    return response;
+                }
+
+                entity.Password = request.NewPassword.GetMd5();
+
+                EntityLogger.UpdateEntity(entity);
+
+                _userInfoRepository.UpdateColumns(entity, e => new
+                {
+                    e.Password,
+                    e.UpdateUserId,
+                    e.UpdateTime
+                });
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.MessageCode = "-1";
+                response.MessageText = ex.Message;
+                LogManager.LogicLogger.ErrorFormat("重置密码出错：{0}", new { request, err = ex.ToString() }.ToJson());
+            }
+            return response;
+        }
+
+        /// <summary>
+        /// 更改密码
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public ChangePasswordResponse ChangePassword(ChangePasswordRequest request)
+        {
+            var response = new ChangePasswordResponse();
+
+            if (request.OldPassword.IsNullOrEmpty())
+            {
+                response.IsSuccess = false;
+                response.MessageCode = "1";
+                response.MessageText = "旧密码不能为空";
+                return response;
+            }
+
+            if (request.NewPassword.IsNullOrEmpty())
+            {
+                response.IsSuccess = false;
+                response.MessageCode = "2";
+                response.MessageText = "新密码不能为空";
+                return response;
+            }
+
+            try
+            {
+                var entity = _userInfoRepository.Find<UserInfoPo>(e => e.IsValid == 1 && e.Id == request.UserId);
+
+                if (entity == null)
+                {
+                    response.IsSuccess = false;
+                    response.MessageCode = "2";
+                    response.MessageText = "用户不存在";
+                    return response;
+                }
+
+                if (entity.Password != request.OldPassword.GetMd5())
+                {
+                    response.IsSuccess = false;
+                    response.MessageCode = "3";
+                    response.MessageText = "旧密码有误";
+                    return response;
+                }
+
+                entity.Password = request.NewPassword.GetMd5();
+
+                EntityLogger.UpdateEntity(entity);
+
+                _userInfoRepository.UpdateColumns(entity, e => new
+                {
+                    e.Password,
+                    e.UpdateUserId,
+                    e.UpdateTime
+                });
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.MessageCode = "-1";
+                response.MessageText = ex.Message;
+                LogManager.LogicLogger.ErrorFormat("更改密码出错：{0}", new { request, err = ex.ToString() }.ToJson());
+            }
+            return response;
+        }
     }
 }
