@@ -11,10 +11,13 @@ namespace Mayiboy.Logic.Impl
     public class DepartmentService : BaseService, IDepartmentService
     {
         private readonly IDepartmentRepository _departmentRepository;
+        private readonly IUserDepartmentJoinRepository _userDepartmentJoinRepository;
 
-        public DepartmentService(IDepartmentRepository departmentRepository)
+        public DepartmentService(IDepartmentRepository departmentRepository,
+            IUserDepartmentJoinRepository userDepartmentJoinRepository)
         {
             _departmentRepository = departmentRepository;
+            _userDepartmentJoinRepository = userDepartmentJoinRepository;
         }
 
         /// <summary>
@@ -103,6 +106,63 @@ namespace Mayiboy.Logic.Impl
                 response.MessageCode = "-1";
                 response.MessageText = ex.ToString();
                 LogManager.LogicLogger.ErrorFormat("保存部门出错:{0}", new { request, err = ex.ToString() }.ToJson());
+            }
+            return response;
+        }
+
+        /// <summary>
+        /// 保存用户部门
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public SaveUserDepartmentResponse SaveUserDepartment(SaveUserDepartmentRequest request)
+        {
+            var response = new SaveUserDepartmentResponse();
+            try
+            {
+                var list = _userDepartmentJoinRepository.FindWhere<UserDepartmentJoinPo>(e => e.IsValid == 1 && e.UserId == request.UserId);
+
+
+                if (list != null && list.Count > 0)
+                {
+                    var templist = list.Where(e => e.DepartmentId != request.DepartmentId);
+
+                    foreach (var item in templist)
+                    {
+                        item.IsValid = 0;
+                        EntityLogger.UpdateEntity(item);
+
+                        _userDepartmentJoinRepository.UpdateColumns(item, e => new
+                        {
+                            e.IsValid,
+                            e.UpdateUserId,
+                            e.UpdateTime
+                        });
+                    }
+
+                    if (request.DepartmentId == 0 || list.Any(e => e.DepartmentId == request.DepartmentId))
+                    {
+                        return response;
+                    }
+                }
+
+                //新增用户部门关系
+                var entity = new UserDepartmentJoinPo
+                {
+                    UserId = request.UserId,
+                    DepartmentId = request.DepartmentId
+                };
+
+                EntityLogger.CreateEntity(entity);
+                _userDepartmentJoinRepository.InsertReturnIdentity(entity);
+
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.MessageCode = "-1";
+                response.MessageText = ex.Message;
+                LogManager.LogicLogger.ErrorFormat("保存用户部门出错：{0}", new { request, err = ex.ToString() }.ToJson());
             }
             return response;
         }

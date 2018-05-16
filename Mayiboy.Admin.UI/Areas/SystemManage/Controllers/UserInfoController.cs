@@ -15,11 +15,14 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
     {
         private readonly IUserInfoService _userInfoService;
         private readonly IUserRoleService _userRoleService;
+        private readonly IDepartmentService _departmentService;
 
-        public UserInfoController(IUserInfoService userInfoService, IUserRoleService userRoleService)
+        public UserInfoController(IUserInfoService userInfoService, IUserRoleService userRoleService,
+            IDepartmentService departmentService)
         {
             _userInfoService = userInfoService;
             _userRoleService = userRoleService;
+            _departmentService = departmentService;
         }
 
         // GET: SystemManage/UserInfo
@@ -37,6 +40,7 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
                 {
                     Account = account,
                     Sex = int.Parse(sex.IsNullOrEmpty() ? "-1" : sex),
+                    DepartmentId = int.Parse(departmentid.IsNullOrEmpty() ? "0" : departmentid),
                     PageIndex = page,
                     PageSize = limit
                 });
@@ -76,12 +80,21 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
                     HeadimgUrl = GetSystemAppSetting("SystemDefaultHeadimg")
                 };
 
-
                 var response = _userInfoService.SaveUserInfo(new SaveUserInfoRequest { UserInfoEntity = entity });
 
                 if (!response.IsSuccess)
                 {
                     return ToJsonErrorResult(1, response.MessageText);
+                }
+                else
+                {
+                    #region 保存用户部门信息
+                    _departmentService.SaveUserDepartment(new SaveUserDepartmentRequest
+                    {
+                        UserId = response.UserInfoEntity.Id,
+                        DepartmentId = model.DepartmentId
+                    });
+                    #endregion
                 }
 
                 return ToJsonResult(new { status = 0 });

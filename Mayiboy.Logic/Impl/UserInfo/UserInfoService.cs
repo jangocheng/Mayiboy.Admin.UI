@@ -103,14 +103,17 @@ namespace Mayiboy.Logic.Impl
             {
                 int total = 0;
 
-                var list = _userInfoRepository.FindPage<UserInfoPo>(
-                    e => e.IsValid == 1
-                    && (SqlFunc.IsNullOrEmpty(request.Account) || e.LoginName.Contains(request.Account) || e.Email.Contains(request.Account))
-                    && (request.Sex == -1 || e.Sex == request.Sex),
-                    o => o.Id,
-                    request.PageIndex, request.PageSize, ref total, OrderByType.Desc);
+                //var list = _userInfoRepository.FindPage<UserInfoPo>(
+                //    e => e.IsValid == 1
+                //    && (SqlFunc.IsNullOrEmpty(request.Account) || e.LoginName.Contains(request.Account) || e.Email.Contains(request.Account))
+                //    && (request.Sex == -1 || e.Sex == request.Sex),
+                //    o => o.Id,
+                //    request.PageIndex, request.PageSize, ref total, OrderByType.Desc);
 
-                response.EntityList = list.Select(e => e.As<UserInfoDto>()).ToList();
+                //response.EntityList = list.Select(e => e.As<UserInfoDto>()).ToList();
+
+                response.EntityList = _userInfoRepository.QueryUserInfo(request.Account, request.Sex, request.DepartmentId, request.PageIndex, request.PageSize,
+                    ref total);
 
                 response.TotalCount = total;
             }

@@ -31,4 +31,22 @@ namespace Mayiboy.Contract
     {
         public List<DepartmentDto> List { get; set; }
     }
+
+    public class SaveUserDepartmentRequest : BaseRequest
+    {
+        /// <summary>
+        /// 用户Id
+        /// </summary>
+        public int UserId { get; set; }
+
+        /// <summary>
+        /// 部门Id
+        /// </summary>
+        public int DepartmentId { get; set; }
+    }
+
+    public class SaveUserDepartmentResponse : BaseResponse
+    {
+        
+    }
 }

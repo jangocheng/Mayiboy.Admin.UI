@@ -45,5 +45,10 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Models
         /// </summary>
         public string Remark { get; set; }
 
+        /// <summary>
+        /// 部门Id
+        /// </summary>
+        public int DepartmentId { get; set; }
+
     }
 }

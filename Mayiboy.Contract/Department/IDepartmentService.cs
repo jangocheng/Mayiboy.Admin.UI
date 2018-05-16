@@ -22,6 +22,13 @@ namespace Mayiboy.Contract
         SaveDepartmentResponse SaveDeparment(SaveDepartmentRequest request);
 
         /// <summary>
+        /// 保存用户部门
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        SaveUserDepartmentResponse SaveUserDepartment(SaveUserDepartmentRequest request);
+
+        /// <summary>
         /// 删除部门
         /// </summary>
         /// <param name="request"></param>

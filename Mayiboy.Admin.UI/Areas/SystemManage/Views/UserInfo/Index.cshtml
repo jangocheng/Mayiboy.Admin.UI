@@ -5,7 +5,9 @@
 }
 
 @section head_section{
-
+<link href="~/Content/lib/jqueryeasyui/themes/gray/easyui.css" rel="stylesheet" />
+<link href="~/Content/lib/jqueryeasyui/themes/icon.css" rel="stylesheet" />
+<script src="~/Content/lib/jqueryeasyui/jquery.easyui.min.js"></script>
 }
 @*面包屑*@
 <div class="layui-card layadmin-header">
@@ -31,6 +33,10 @@
                                 <div class="layui-btn-group">
                                     <label class="mayiboy-lable">账号:</label>
                                     <input id="account" class="mayiboy-input" placeholder="账号、邮箱"/>
+                                </div>
+                                <div class="layui-btn-group">
+                                    <label class="mayiboy-lable">部门:</label>
+                                    <input id="queryselectdepartment" class="easyui-combotree" data-options="" style="width: 200px; height: 30px;" data-url="@Url.Action("Query", "Department", new {areas = "SystemManage"})">
                                 </div>
                                 <div class="layui-btn-group">
                                     <label class="mayiboy-lable">性别:</label>
@@ -97,6 +103,12 @@
             </div>
         </div>
         <div class="layui-form-item">
+            <label class="layui-form-label">所属部门：</label>
+            <div class="layui-input-block" style="width:300px;">
+                <input id="selectdepartment" class="easyui-combotree" data-options="" style="width: 300px; height: 30px;" data-url="@Url.Action("Query", "Department", new {areas = "SystemManage"})">
+            </div>
+        </div>
+        <div class="layui-form-item">
             <label class="layui-form-label">备注：</label>
             <div class="layui-input-block">
                 <textarea id="txtremark" placeholder="请输入内容" class="layui-textarea" style="width: 300px; height: 30px; resize: none"></textarea>
@@ -112,5 +124,5 @@
 </div>
 
 @section foot_section{
-    <script src="~/Areas/SystemManage/Content/js/userinfo.js?v=2"></script>
+    <script src="~/Areas/SystemManage/Content/js/userinfo.js?v=5"></script>
 }

@@ -73,5 +73,15 @@ namespace Mayiboy.Contract
         /// 是否有效
         /// </summary>
         public int IsValid { get; set; }
+
+        /// <summary>
+        /// 部门Id
+        /// </summary>
+        public int? DepartmentId { get; set; }
+
+        /// <summary>
+        /// 部门名称
+        /// </summary>
+        public string DepartementName { get; set; }
     }
 }

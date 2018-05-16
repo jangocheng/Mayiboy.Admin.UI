@@ -68,6 +68,11 @@ namespace Mayiboy.Contract
         /// 性别（-1：全部；0:女；1：男）
         /// </summary>
         public int? Sex { get; set; }
+
+        /// <summary>
+        /// 部门Id
+        /// </summary>
+        public int DepartmentId { get; set; }
     }
 
     /// <summary>

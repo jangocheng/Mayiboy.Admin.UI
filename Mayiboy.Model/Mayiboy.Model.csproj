@@ -54,6 +54,7 @@
     <Compile Include="Po\SystemMenuPo.cs" />
     <Compile Include="Po\SystemNavbarPo.cs" />
     <Compile Include="Po\SystemOperationLogPo.cs" />
+    <Compile Include="Po\UserDepartmentJoinPo.cs" />
     <Compile Include="Po\UserInfoPo.cs" />
     <Compile Include="Po\UserRoleJoinPo.cs" />
     <Compile Include="Po\UserRolePo.cs" />

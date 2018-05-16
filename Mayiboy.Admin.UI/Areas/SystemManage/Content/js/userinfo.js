@@ -10,6 +10,7 @@
         },
         Init: function () {
             thisPage.InitUserInfoTable();
+            thisPage.InitSelectDepartment();
 
             $("#btnadd").click(function () {
                 thisPage.ShowEditPage();
@@ -42,7 +43,7 @@
                             {
                                 field: 'Sex',
                                 title: '性别',
-                                width: 200,
+                                width: 60,
                                 templet: function (row) {
                                     switch (row.Sex) {
                                         case 0:
@@ -54,7 +55,8 @@
                                     }
                                 }
                             },
-                            { field: 'Mobile', title: "手机号", width: 200 },
+                            { field: 'Mobile', title: "手机号", width: 150 },
+                            { field: 'DepartementName', title: "部门", width: 150 },
                             {
                                 field: 'CreateTime',
                                 title: '创建时间',
@@ -139,7 +141,8 @@
             thisPage.Buttons.UserInfoTable.reload({
                 where: {
                     account: $("#account").val(),
-                    sex: $("#dbdsex").val()
+                    sex: $("#dbdsex").val(),
+                    departmentid: $('#queryselectdepartment').combotree('getValue')
                 },
                 page: {
                     curr: 1 //重新从第 1 页开始
@@ -156,6 +159,7 @@
                 $("#selectsex").val("0");
                 $("#txtmobile").val("");
                 $("#txtremark").val("");
+                $('#selectdepartment').combotree('setValue', 0);
                 title = "新增用户";
             } else {
                 $("#txtid").val(data.Id);
@@ -165,6 +169,7 @@
                 $("#selectsex").val(data.Sex);
                 $("#txtmobile").val(data.Mobile);
                 $("#txtremark").val(data.Remark);
+                $('#selectdepartment').combotree('setValue', (data.DepartmentId == null ? 0 : data.DepartmentId));
                 title = "修改用户";
             }
 
@@ -174,12 +179,12 @@
                 title: title,
                 resize: false,
                 type: 1,
-                area: ['500px', '520px'],
+                area: ['500px', '575px'],
                 offset: '20px',
                 content: $('#edituserinfo'), //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
                 btn: ["保存", "取消"],
                 btn1: function () {
-                    thisPage.SaveSysNavbar();
+                    thisPage.SaveUserInfo();
                 },
                 btn2: function () {
                     // alert("取消");
@@ -255,7 +260,7 @@
                 }
             });
         },
-        SaveSysNavbar: function () {
+        SaveUserInfo: function () {
             //验证表单
             var isb = layer.IsValidation("#edituserinfo");
 
@@ -270,7 +275,8 @@
                         Name: $("#txtname").val(),
                         Sex: $("#selectsex").val(),
                         Mobile: $("#txtmobile").val(),
-                        Remark: $("#txtremark").val()
+                        Remark: $("#txtremark").val(),
+                        DepartmentId: $("#selectdepartment").combotree('getValue')
                     },
                     success(res) {
                         if (res.status == 0) {
@@ -299,6 +305,50 @@
 
                 }
             });
+        },
+        InitSelectDepartment: function() {
+            $.ajax({
+                url: $("#selectdepartment").data("url"),
+                data: {},
+                success: function (res) {
+                    if (res.status == 0) {
+
+                        var newrows = jQuery.extend(true, [], res.rows);
+
+                        res.rows.push({ Id: 0, Pid: -1, Name: "未选择" });
+
+                        var treelist = thisPage.ConvertListToTree(res.rows, -1);
+
+                        $("#selectdepartment").combotree('loadData', treelist);
+
+                        //查询选择部门
+                        newrows.push({ Id: 0, Pid: -1, Name: "全部" });
+
+                        var newtreelist = thisPage.ConvertListToTree(newrows, -1);
+
+                        $("#queryselectdepartment").combotree('loadData', newtreelist);
+                    } else {
+                        console.log(res.msg);
+                    }
+                }
+            });
+        },
+        ConvertListToTree: function (list, parentId) {
+            var itemArr = [];
+
+            for (var i = 0; i < list.length; i++) {
+                var node = list[i];
+                if (node.Pid == parentId) {
+                    var newNode = {
+                        id: node.Id,
+                        text: node.Name,
+                        parentId: node.Pid,
+                        children: thisPage.ConvertListToTree(list, node.Id)
+                    };
+                    itemArr.push(newNode);
+                }
+            }
+            return itemArr;
         }
     }
 
