@@ -50,6 +50,10 @@
       <HintPath>..\packages\Framework.Mayiboy.Logging.1.0.0\lib\Framework.Mayiboy.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Framework.Mayiboy.Soa.Agent, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Framework.Mayiboy.Soa.Agent.1.0.1\lib\Framework.Mayiboy.Soa.Agent.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Framework.Mayiboy.Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Framework.Mayiboy.Utility.1.0.1\lib\Framework.Mayiboy.Utility.dll</HintPath>
       <Private>True</Private>
@@ -98,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\EntityLogger.cs" />
+    <Compile Include="Impl\AppIdAuth\AppIdAuthService.cs" />
     <Compile Include="Impl\Base\BaseService.cs" />
     <Compile Include="Impl\Department\DepartmentService.cs" />
     <Compile Include="Impl\Permissions\PermissionsService.cs" />

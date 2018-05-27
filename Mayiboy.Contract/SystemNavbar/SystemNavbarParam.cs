@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
+using Framework.Mayiboy.Soa.Agent;
 
 namespace Mayiboy.Contract
 {
 
-    public class GetRequest : BaseRequest
+    public class GetRequest : Request
     {
         public int Id { get; set; }
     }
 
-    public class GetResponse : BaseResponse
+    public class GetResponse : Response
     {
         public SystemNavbarDto Entity { get; set; }
     }
@@ -16,7 +17,7 @@ namespace Mayiboy.Contract
     /// <summary>
     /// 查询所系统所有导航栏参数
     /// </summary>
-    public class QueryAllNavbarRequest : BaseRequest
+    public class QueryAllNavbarRequest : Request
     {
 
     }
@@ -24,7 +25,7 @@ namespace Mayiboy.Contract
     /// <summary>
     /// 查询所系统所有导航栏响应
     /// </summary>
-    public class QueryAllNavbarResponse : BaseResponse
+    public class QueryAllNavbarResponse : Response
     {
         /// <summary>
         /// 系统导航栏列表
@@ -35,7 +36,7 @@ namespace Mayiboy.Contract
     /// <summary>
     /// 根据用户名Id查询系统导航栏列表参数
     /// </summary>
-    public class QueryNavbarRequest : BaseRequest
+    public class QueryNavbarRequest : Request
     {
         public int UserId { get; set; }
     }
@@ -43,7 +44,7 @@ namespace Mayiboy.Contract
     /// <summary>
     /// 根据用户名Id查询系统导航栏列表响应
     /// </summary>
-    public class QueryNavbarResponse : BaseResponse
+    public class QueryNavbarResponse : Response
     {
         /// <summary>
         /// 系统导航栏列表
@@ -53,7 +54,7 @@ namespace Mayiboy.Contract
 
 
 
-    public class QueryRequest : BasePageRequest
+    public class QueryRequest : PageRequest
     {
         /// <summary>
         /// 栏目名
@@ -61,7 +62,7 @@ namespace Mayiboy.Contract
         public string Name { get; set; }
     }
 
-    public class QueryResponse : BasePageResponse
+    public class QueryResponse : PageResponse
     {
         /// <summary>
         /// 系统栏目列表
@@ -71,7 +72,7 @@ namespace Mayiboy.Contract
 
 
 
-    public class SaveRequest : BaseRequest
+    public class SaveRequest : Request
     {
         /// <summary>
         /// 系统栏目实例
@@ -79,7 +80,7 @@ namespace Mayiboy.Contract
         public SystemNavbarDto Entity { get; set; }
     }
 
-    public class SaveResponse : BaseResponse
+    public class SaveResponse : Response
     {
         /// <summary>
         /// 主键Id
@@ -87,7 +88,7 @@ namespace Mayiboy.Contract
         public int Id { get; set; }
     }
 
-    public class DelReqeust : BaseRequest
+    public class DelReqeust : Request
     {
         /// <summary>
         /// 栏目Id
@@ -95,13 +96,13 @@ namespace Mayiboy.Contract
         public int Id { get; set; }
     }
 
-    public class DelResponse : BaseResponse
+    public class DelResponse : Response
     {
 
     }
 
 
-    public class QueryMavbarByUserIdRequest : BaseRequest
+    public class QueryMavbarByUserIdRequest : Request
     {
         /// <summary>
         /// 用户Id
@@ -109,7 +110,7 @@ namespace Mayiboy.Contract
         public int UserId { get; set; }
     }
 
-    public class QueryMavbarByUserIdResponse : BaseResponse
+    public class QueryMavbarByUserIdResponse : Response
     {
         /// <summary>
         /// 系统栏目

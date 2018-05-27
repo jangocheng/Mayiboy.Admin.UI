@@ -56,7 +56,8 @@ namespace Mayiboy.Admin.UI
             ContainerBuilder builder = new ContainerBuilder();
 
             //注册mvc容器的实现
-            builder.RegisterControllers(Assembly.GetExecutingAssembly());//没有为该对象定义无参数的构造函数。(mvc控制器构造函数注入)
+            //没有为该对象定义无参数的构造函数。(mvc控制器构造函数注入)
+            builder.RegisterControllers(Assembly.GetExecutingAssembly());
 
             TypeFinder typeFinder = new TypeFinder();
 

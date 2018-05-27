@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
+using Framework.Mayiboy.Soa.Agent;
 using Mayiboy.Model.Po;
 
 namespace Mayiboy.Contract
 {
 
-    public class QueryAllSystemMenuRequest : BaseRequest
+    public class QueryAllSystemMenuRequest : Request
     {
-        
+
     }
 
-    public class QueryAllSystemMenuResponse : BaseResponse
+    public class QueryAllSystemMenuResponse : Response
     {
         public List<SystemMenuDto> SystemMenuList { get; set; }
     }
@@ -17,7 +18,7 @@ namespace Mayiboy.Contract
     /// <summary>
     /// 查询所有导航栏下的菜单参数
     /// </summary>
-    public class QueryAllMenuRequest : BaseRequest
+    public class QueryAllMenuRequest : Request
     {
         /// <summary>
         /// 导航栏Id
@@ -28,7 +29,7 @@ namespace Mayiboy.Contract
     /// <summary>
     /// 查询所有导航栏下的菜单参数
     /// </summary>
-    public class QueryAllMenuResponse : BaseResponse
+    public class QueryAllMenuResponse : Response
     {
         public List<SystemMenuDto> SystemMenuList { get; set; }
     }
@@ -36,7 +37,7 @@ namespace Mayiboy.Contract
     /// <summary>
     /// 根据用户名Id查询导航栏下的所有菜单参数
     /// </summary>
-    public class QueryMenuByUserIdRequest : BaseRequest
+    public class QueryMenuByUserIdRequest : Request
     {
         /// <summary>
         /// 导航栏Id
@@ -52,7 +53,7 @@ namespace Mayiboy.Contract
     /// <summary>
     /// 根据用户名Id查询导航栏下的所有菜单响应
     /// </summary>
-    public class QueryMenuByUserIdResponse : BaseResponse
+    public class QueryMenuByUserIdResponse : Response
     {
         /// <summary>
         /// 系统菜单列表
@@ -60,7 +61,7 @@ namespace Mayiboy.Contract
         public List<SystemMenuDto> EntityList { get; set; }
     }
 
-    public class SaveSystemMenuRequest : BaseRequest
+    public class SaveSystemMenuRequest : Request
     {
         /// <summary>
         /// 系统菜单
@@ -68,7 +69,7 @@ namespace Mayiboy.Contract
         public SystemMenuDto Entity { get; set; }
     }
 
-    public class SaveSystemMenuResponse : BaseResponse
+    public class SaveSystemMenuResponse : Response
     {
 
         public int Id { get; set; }
@@ -76,7 +77,7 @@ namespace Mayiboy.Contract
 
 
 
-    public class DelSystemMenuRequest : BaseRequest
+    public class DelSystemMenuRequest : Request
     {
         /// <summary>
         /// 主键id
@@ -85,7 +86,7 @@ namespace Mayiboy.Contract
     }
 
 
-    public class DelSystemMenuResponse : BaseResponse
+    public class DelSystemMenuResponse : Response
     {
 
     }

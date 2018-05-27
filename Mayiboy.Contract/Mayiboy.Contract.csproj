@@ -38,6 +38,14 @@
       <HintPath>..\packages\Framework.Mayiboy.Ioc.1.0.0\lib\Framework.Mayiboy.Ioc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Framework.Mayiboy.Soa.Agent, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Framework.Mayiboy.Soa.Agent.1.0.1\lib\Framework.Mayiboy.Soa.Agent.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,10 +56,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\BasePageRequest.cs" />
-    <Compile Include="Base\BasePageResponse.cs" />
-    <Compile Include="Base\BaseRequest.cs" />
-    <Compile Include="Base\BaseResponse.cs" />
+    <Compile Include="AppIdAuth\AppIdAuthDto.cs" />
+    <Compile Include="AppIdAuth\AppIdAuthParam.cs" />
+    <Compile Include="AppIdAuth\IAppIdAuthService.cs" />
+    <Compile Include="Contracts\GetUserInfoContract.cs" />
     <Compile Include="Department\DepartmentDto.cs" />
     <Compile Include="Department\DepartmentParam.cs" />
     <Compile Include="Department\IDepartmentService.cs" />
@@ -90,7 +98,9 @@
       <Name>Mayiboy.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Base\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

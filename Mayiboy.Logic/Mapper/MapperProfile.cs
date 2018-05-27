@@ -83,6 +83,10 @@ namespace Mayiboy.Logic.Mapper
             //系统日志
             this.CreateMap<SystemOperationLogPo, SystemOperationLogDto>();
             this.CreateMap<SystemOperationLogDto, SystemOperationLogPo>();
+
+            //应用授权
+            this.CreateMap<AppIdAuthPo, AppIdAuthDto>();
+            this.CreateMap<AppIdAuthDto, AppIdAuthPo>();
         }
     }
 }

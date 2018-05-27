@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using Framework.Mayiboy.Soa.Agent;
 using Mayiboy.Model.Po;
 
 namespace Mayiboy.Contract
 {
-    public class SaveUserRoleRequest : BaseRequest
+    public class SaveUserRoleRequest : Request
     {
         /// <summary>
         /// 角色实体
@@ -11,33 +12,33 @@ namespace Mayiboy.Contract
         public UserRolePo Entity { get; set; }
     }
 
-    public class SaveUserRoleResponse : BaseResponse
+    public class SaveUserRoleResponse : Response
     {
         public int Id { get; set; }
     }
 
 
-    public class DelUserRoleRequest : BaseRequest
+    public class DelUserRoleRequest : Request
     {
         public int Id { get; set; }
     }
 
-    public class DelUserRoleResponse : BaseResponse
+    public class DelUserRoleResponse : Response
     {
         public int Id { get; set; }
     }
 
-    public class QueryUserRoleRequest : BasePageRequest
+    public class QueryUserRoleRequest : PageRequest
     {
         public string Name { get; set; }
     }
 
-    public class QueryUserRoleResponse : BasePageResponse
+    public class QueryUserRoleResponse : PageResponse
     {
         public List<UserRoleDto> List { get; set; }
     }
 
-    public class SaveUserRoleJoinRequest : BaseRequest
+    public class SaveUserRoleJoinRequest : Request
     {
         /// <summary>
         /// 用户Id
@@ -50,32 +51,32 @@ namespace Mayiboy.Contract
         public List<int> RoleIdList { get; set; }
     }
 
-    public class SaveUserRoleJoinResponse : BaseResponse
+    public class SaveUserRoleJoinResponse : Response
     {
         public int Id { get; set; }
     }
 
-    public class DelUserRoleJoinRequest : BaseRequest
+    public class DelUserRoleJoinRequest : Request
     {
         public int Id { get; set; }
     }
 
-    public class DelUserRoleJoinResponse : BaseResponse
+    public class DelUserRoleJoinResponse : Response
     {
 
     }
 
-    public class QueryUserRoleJoinRequest : BaseRequest
+    public class QueryUserRoleJoinRequest : Request
     {
         public int UserId { get; set; }
     }
 
-    public class QueryUserRoleJoinResponse : BaseResponse
+    public class QueryUserRoleJoinResponse : Response
     {
         public List<UserRoleJoinDto> EntityList { get; set; }
     }
 
-    public class SaveRolePermissionsRequest : BaseRequest
+    public class SaveRolePermissionsRequest : Request
     {
         /// <summary>
         /// 栏目id
@@ -98,12 +99,12 @@ namespace Mayiboy.Contract
         public List<int> PermissionsIds { get; set; }
     }
 
-    public class SaveRolePermissionsResponse : BaseResponse
+    public class SaveRolePermissionsResponse : Response
     {
 
     }
 
-    public class QueryRoleMenuPermissionsRequest : BaseRequest
+    public class QueryRoleMenuPermissionsRequest : Request
     {
         /// <summary>
         /// 栏目id
@@ -121,7 +122,7 @@ namespace Mayiboy.Contract
         public int RoleId { get; set; }
     }
 
-    public class QueryRoleMenuPermissionsResponse : BaseResponse
+    public class QueryRoleMenuPermissionsResponse : Response
     {
         public List<RolePermissionsJoinDto> EntityList { get; set; }
     }

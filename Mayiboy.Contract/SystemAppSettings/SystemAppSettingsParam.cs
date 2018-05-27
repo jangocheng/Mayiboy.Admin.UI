@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
+using Framework.Mayiboy.Soa.Agent;
 
 namespace Mayiboy.Contract
 {
-    public class GetSysAppSettingRequest : BaseRequest
+    public class GetSysAppSettingRequest : Request
     {
         public string Key { get; set; }
     }
 
-    public class GetSysAppSettingResponse : BaseResponse
+    public class GetSysAppSettingResponse : Response
     {
         /// <summary>
         /// 内容
@@ -15,7 +16,7 @@ namespace Mayiboy.Contract
         public string KeyValue { get; set; }
     }
 
-    public class DelSysAppSettingRequest : BaseRequest
+    public class DelSysAppSettingRequest : Request
     {
         /// <summary>
         /// 主键id
@@ -23,14 +24,14 @@ namespace Mayiboy.Contract
         public int Id { get; set; }
     }
 
-    public class DelSysAppSettingResponse : BaseResponse
+    public class DelSysAppSettingResponse : Response
     {
 
     }
 
 
 
-    public class SaveSysAppSettingReqeust : BaseRequest
+    public class SaveSysAppSettingReqeust : Request
     {
         /// <summary>
         /// 系统配置
@@ -38,12 +39,12 @@ namespace Mayiboy.Contract
         public SystemAppSettingsDto Entity { get; set; }
     }
 
-    public class SaveSysAppSettingResponse : BaseResponse
+    public class SaveSysAppSettingResponse : Response
     {
 
     }
 
-    public class QuerySysAppSettingRequest : BasePageRequest
+    public class QuerySysAppSettingRequest : PageRequest
     {
         /// <summary>
         /// 字典名
@@ -66,7 +67,7 @@ namespace Mayiboy.Contract
         public string Remark { get; set; }
     }
 
-    public class QuerySysAppSettingResponse : BasePageResponse
+    public class QuerySysAppSettingResponse : PageResponse
     {
         /// <summary>
         /// 系统配置列表

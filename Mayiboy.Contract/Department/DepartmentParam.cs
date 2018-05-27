@@ -1,38 +1,39 @@
 ﻿using System.Collections.Generic;
+using Framework.Mayiboy.Soa.Agent;
 
 namespace Mayiboy.Contract
 {
-    public class SaveDepartmentRequest : BaseRequest
+    public class SaveDepartmentRequest : Request
     {
         public DepartmentDto Entity { get; set; }
     }
 
-    public class SaveDepartmentResponse : BaseResponse
+    public class SaveDepartmentResponse : Response
     {
         public int Id { get; set; }
     }
 
-    public class DelDepartamentRequest : BaseRequest
+    public class DelDepartamentRequest : Request
     {
         public int Id { get; set; }
     }
 
-    public class DelDepartmentResponse : BaseResponse
+    public class DelDepartmentResponse : Response
     {
 
     }
 
-    public class QueryAllDepartmentRequest :BaseRequest
+    public class QueryAllDepartmentRequest :Request
     {
 
     }
 
-    public class QueryAllDepartmentResponse : BaseResponse
+    public class QueryAllDepartmentResponse : Response
     {
         public List<DepartmentDto> List { get; set; }
     }
 
-    public class SaveUserDepartmentRequest : BaseRequest
+    public class SaveUserDepartmentRequest : Request
     {
         /// <summary>
         /// 用户Id
@@ -45,7 +46,7 @@ namespace Mayiboy.Contract
         public int DepartmentId { get; set; }
     }
 
-    public class SaveUserDepartmentResponse : BaseResponse
+    public class SaveUserDepartmentResponse : Response
     {
         
     }

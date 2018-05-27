@@ -63,6 +63,10 @@
       <HintPath>..\packages\Framework.Mayiboy.Logging.1.0.0\lib\Framework.Mayiboy.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Framework.Mayiboy.Soa.Agent, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Framework.Mayiboy.Soa.Agent.1.0.1\lib\Framework.Mayiboy.Soa.Agent.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Framework.Mayiboy.Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Framework.Mayiboy.Utility.1.0.1\lib\Framework.Mayiboy.Utility.dll</HintPath>
       <Private>True</Private>
@@ -496,6 +500,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\PublicConstConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\SystemManage\Controllers\AppIdAuthController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\DepartmentController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\SysDictController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\SysLogController.cs" />
@@ -575,6 +580,7 @@
     <Content Include="Areas\SystemManage\Views\SysMenu\Index - 复制.cshtml" />
     <Content Include="Areas\SystemManage\Views\SysDict\Index.cshtml" />
     <Content Include="Areas\SystemManage\Views\SysLog\Index.cshtml" />
+    <Content Include="Areas\SystemManage\Views\AppIdAuth\Index.cshtml" />
     <None Include="Properties\PublishProfiles\发布Local.pubxml" />
     <Content Include="Views\Home\SystemNavbar.cshtml" />
     <Content Include="Views\Home\About.cshtml" />

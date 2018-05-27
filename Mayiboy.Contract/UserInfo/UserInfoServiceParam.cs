@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Framework.Mayiboy.Soa.Agent;
 
 namespace Mayiboy.Contract
 {
@@ -6,7 +7,7 @@ namespace Mayiboy.Contract
     /// <summary>
     /// 插入用户信息参数
     /// </summary>
-    public class SaveUserInfoRequest : BaseRequest
+    public class SaveUserInfoRequest : Request
     {
         /// <summary>
         /// 用户信息
@@ -17,7 +18,7 @@ namespace Mayiboy.Contract
     /// <summary>
     /// 插入用户信息响应参数
     /// </summary>
-    public class SaveUserInfoResponse : BaseResponse
+    public class SaveUserInfoResponse : Response
     {
         /// <summary>
         /// 用户信息
@@ -30,7 +31,7 @@ namespace Mayiboy.Contract
     /// <summary>
     /// 登录用户查询参数
     /// </summary>
-    public class LoginQueryRequest : BaseRequest
+    public class LoginQueryRequest : Request
     {
         /// <summary>
         /// 登录名
@@ -46,7 +47,7 @@ namespace Mayiboy.Contract
     /// <summary>
     /// 登录用户查询响应
     /// </summary>
-    public class LoginQueryResponse : BaseResponse
+    public class LoginQueryResponse : Response
     {
         /// <summary>
         /// 用户信息
@@ -57,7 +58,7 @@ namespace Mayiboy.Contract
     /// <summary>
     /// 查询用户信息参数
     /// </summary>
-    public class QueryUserInfoRequest : BasePageRequest
+    public class QueryUserInfoRequest : PageRequest
     {
         /// <summary>
         /// 用户名
@@ -78,7 +79,7 @@ namespace Mayiboy.Contract
     /// <summary>
     /// 查询用户信息响应
     /// </summary>
-    public class QueryUserInfoResponse : BasePageResponse
+    public class QueryUserInfoResponse : PageResponse
     {
         /// <summary>
         /// 用户列表
@@ -87,7 +88,7 @@ namespace Mayiboy.Contract
     }
 
 
-    public class DelUserInfoRequest : BaseRequest
+    public class DelUserInfoRequest : Request
     {
         /// <summary>
         /// 主键id
@@ -95,7 +96,7 @@ namespace Mayiboy.Contract
         public int Id { get; set; }
     }
 
-    public class DelUserInfoResponse : BaseResponse
+    public class DelUserInfoResponse : Response
     {
         /// <summary>
         /// 删除的用户信息
@@ -103,7 +104,7 @@ namespace Mayiboy.Contract
         public UserInfoDto Entity { get; set; }
     }
 
-    public class ResetPasswordRequest : BaseRequest
+    public class ResetPasswordRequest : Request
     {
         /// <summary>
         /// 用户Id
@@ -116,12 +117,12 @@ namespace Mayiboy.Contract
         public string NewPassword { get; set; }
     }
 
-    public class ResetPasswordResponse : BaseResponse
+    public class ResetPasswordResponse : Response
     {
         
     }
 
-    public class ChangePasswordRequest : BaseRequest
+    public class ChangePasswordRequest : Request
     {
         /// <summary>
         /// 用户Id
@@ -139,7 +140,7 @@ namespace Mayiboy.Contract
         public string NewPassword { get; set; }
     }
 
-    public class ChangePasswordResponse : BaseResponse
+    public class ChangePasswordResponse : Response
     {
         
     }

@@ -1,56 +1,57 @@
 ﻿using System.Collections.Generic;
+using Framework.Mayiboy.Soa.Agent;
 using Mayiboy.Model.Po;
 
 namespace Mayiboy.Contract
 {
 
-    public class QueryAllPermissionsRequest : BaseRequest
+    public class QueryAllPermissionsRequest : Request
     {
         
     }
 
-    public class QueryAllPermissionsResponse : BaseResponse
+    public class QueryAllPermissionsResponse : Response
     {
         public List<PermissionsDto> EntityList { get; set; }
     }
 
-    public class QueryPermissionsRequest : BaseRequest
+    public class QueryPermissionsRequest : Request
     {
         public int MenuId { get; set; }
     }
 
-    public class QueryPermissionsResponse : BaseResponse
+    public class QueryPermissionsResponse : Response
     {
         public List<PermissionsDto> EntityList { get; set; }
     }
 
-    public class QueryPermissionsByUserIdRequest : BaseRequest
+    public class QueryPermissionsByUserIdRequest : Request
     {
         public int UserId { get; set; }
     }
 
-    public class QueryPermissionsByUserIdResponse : BaseResponse
+    public class QueryPermissionsByUserIdResponse : Response
     {
         public List<PermissionsDto> EntityList { get; set; }
     }
 
-    public class SavePermissionsRequest : BaseRequest
+    public class SavePermissionsRequest : Request
     {
         public PermissionsDto Entity { get; set; }
     }
 
-    public class SavePermissionsResponse : BaseResponse
+    public class SavePermissionsResponse : Response
     {
         public int Id { get; set; }
     }
 
 
-    public class DelPermissionsRequest : BaseRequest
+    public class DelPermissionsRequest : Request
     {
         public int Id { get; set; }
     }
 
-    public class DelPermissionsResponse : BaseResponse
+    public class DelPermissionsResponse : Response
     {
 
     }

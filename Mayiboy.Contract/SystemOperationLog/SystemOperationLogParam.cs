@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using Framework.Mayiboy.Soa.Agent;
 
 namespace Mayiboy.Contract
 {
 
-    public class AddOperationLogRequest : BaseRequest
+    public class AddOperationLogRequest : Request
     {
         /// <summary>
         /// 操作内容
@@ -16,7 +17,7 @@ namespace Mayiboy.Contract
         public int Type { get; set; }
     }
 
-    public class AddOperationLogResponse : BaseResponse
+    public class AddOperationLogResponse : Response
     {
         /// <summary>
         /// 新增主键Id
@@ -24,12 +25,12 @@ namespace Mayiboy.Contract
         public int Id { get; set; }
     }
 
-    public class QueryOperSysLogRequest : BasePageRequest
+    public class QueryOperSysLogRequest : PageRequest
     {
 
     }
 
-    public class QueryOperSysLogResponse : BasePageResponse
+    public class QueryOperSysLogResponse : PageResponse
     {
         public List<SystemOperationLogDto> EntityList { get; set; }
     }

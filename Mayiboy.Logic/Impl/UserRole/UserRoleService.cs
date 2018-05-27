@@ -16,7 +16,7 @@ namespace Mayiboy.Logic.Impl
         private readonly IUserRoleJoinRepository _userRoleJoinRepository;//用户角色关联
         private readonly IRolePermissionsJoinRepository _rolePermissionsJoinRepository;//角色权限关联
 
-        public UserRoleService(IUserRoleRepository userRoleRepository, 
+        public UserRoleService(IUserRoleRepository userRoleRepository,
             IUserRoleJoinRepository userRoleJoinRepository,
             IRolePermissionsJoinRepository rolePermissionsJoinRepository)
         {
@@ -82,7 +82,7 @@ namespace Mayiboy.Logic.Impl
                     {
                         response.IsSuccess = false;
                         response.MessageCode = "-1";
-                        response.MessageText = "用户角色不能为空";
+                        response.MessageText = "用户角色不能重复";
                         return response;
                     }
 
@@ -99,7 +99,7 @@ namespace Mayiboy.Logic.Impl
                     }
 
                     EntityLogger.UpdateEntity(entity);
-                    _userRoleRepository.UpdateIgnoreColumns(entity, e => new { e.IsValid, e.CreateTime, e.CreateUserId, });
+                    _userRoleRepository.UpdateIgnoreColumns(entity, e => new {e.IsValid, e.CreateTime, e.CreateUserId,});
                 }
 
             }
