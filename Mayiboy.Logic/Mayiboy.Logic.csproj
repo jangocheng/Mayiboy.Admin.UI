@@ -51,7 +51,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Framework.Mayiboy.Soa.Agent, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Soa.Agent.1.0.1\lib\Framework.Mayiboy.Soa.Agent.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Soa.Agent.1.0.2\lib\Framework.Mayiboy.Soa.Agent.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Framework.Mayiboy.Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
