@@ -32,7 +32,7 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
             {
                 var response = _appIdAuthService.QueryAppIdAuth(new QueryAppIdAuthRequest
                 {
-                    AppId = appid,
+                    ServiceAppId = appid,
                     AuthToken = authtoken,
                     PageIndex = page,
                     PageSize = limit
@@ -117,6 +117,9 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
             }
         }
 
+        //删除应用授权
+        [ActionAuth]
+        [OperLog("更新应用标识状态")]
         public ActionResult UpdateStatus(string id, string status)
         {
             try
@@ -141,5 +144,21 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
             }
         }
 
+
+        //获取授权Token
+        public ActionResult GetAuthToken()
+        {
+            try
+            {
+                string authtoken = Guid.NewGuid().ToString("N");
+
+                return ToJsonResult(new { status = 0, content = authtoken });
+            }
+            catch (Exception ex)
+            {
+                LogManager.DefaultLogger.ErrorFormat("获取授权Token出错：{0}", new { err = ex.ToString() }.ToJson());
+                return ToJsonFatalResult("获取授权Token");
+            }
+        }
     }
 }

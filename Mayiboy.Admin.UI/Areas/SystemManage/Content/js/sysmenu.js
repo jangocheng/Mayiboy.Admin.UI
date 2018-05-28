@@ -27,26 +27,17 @@
             });
 
             $("#refreshcode").click(function () {
+                var thisDate = new Date();
+
+                var pcode = thisDate.format("PyyMMddmmss");
 
                 if ($("#txtcode").val().length > 0) {
                     layer.confirm("确认要刷新代码", function(index) {
-                        $.get($("#refreshcode").data("url"), function(res) {
-                            if (res.status == 0) {
-                                $("#txtcode").val(res.code);
-                            } else {
-                                layer.msg(res.msg);
-                            }
-                        });
+                      $("#txtcode").val(pcode);
                         layer.close(index);
                     });
                 } else {
-                    $.get($("#refreshcode").data("url"), function (res) {
-                        if (res.status == 0) {
-                            $("#txtcode").val(res.code);
-                        } else {
-                            layer.msg(res.msg);
-                        }
-                    });
+                    $("#txtcode").val(pcode);
                 }
 
             });

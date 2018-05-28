@@ -288,7 +288,7 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
             {
                 string code = DateTime.Now.ToString("PyyMMddmmss");
 
-                return ToJsonResult(new { status = 0, code = code });
+                return ToJsonResult(new { status = 0, content = code });
             }
             catch (Exception ex)
             {

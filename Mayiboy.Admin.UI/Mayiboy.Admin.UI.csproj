@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\MayiboyDb.sql" />
+    <Content Include="Areas\SystemManage\Content\js\appidauth.js" />
     <Content Include="Areas\SystemManage\Content\js\department.js" />
     <Content Include="Areas\SystemManage\Content\js\sysmenu.js" />
     <Content Include="Areas\SystemManage\Content\js\systemnavbar.js" />

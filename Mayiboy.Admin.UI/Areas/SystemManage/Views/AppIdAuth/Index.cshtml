@@ -28,11 +28,11 @@
                             <div class="layui-btn-container" style="float: left; padding: 5px;">
                                 <div class="layui-btn-group">
                                     <label class="mayiboy-lable">应用Id:</label>
-                                    <input id="appid" class="mayiboy-input" placeholder="应用Id"/>
+                                    <input id="appid" class="mayiboy-input" placeholder="应用Id" />
                                 </div>
                                 <div class="layui-btn-group">
                                     <label class="mayiboy-lable">Token:</label>
-                                    <input id="authtoken" class="mayiboy-input" placeholder="Token"/>
+                                    <input id="authtoken" class="mayiboy-input" placeholder="Token" />
                                 </div>
 
                                 <div class="layui-btn-group">
@@ -47,7 +47,13 @@
                             </div>
                         </div>
                     </div>
-                    <table id="dttable" lay-filter="table-operate" data-url="@Url.Action("Query", "AppIdAuth", new {areas = "SystemManage"})" data-delurl="@Url.Action("Del", "AppIdAuth", new {areas = "SystemManage"})"></table>
+                    <table id="dttable" lay-filter="table-operate"
+                           data-url="@Url.Action("Query", "AppIdAuth", new {areas = "SystemManage"})"
+                           data-delurl="@Url.Action("Del", "AppIdAuth", new {areas = "SystemManage"})"
+                           data-updatestatusurl="@Url.Action("UpdateStatus", "AppIdAuth", new {areas = "SystemManage"})"
+                           >
+                        
+                    </table>
                 </div>
             </div>
         </div>
@@ -57,23 +63,24 @@
 @*编辑应用授权*@
 <div id="editappidauth" title="应用授权编辑" style="display: none;" data-url="@Url.Action("Save", "AppIdAuth", new {areas = "SystemManage"})">
     <div class="layui-form" style="padding: 20px;">
-        <input id="txtid" type="hidden" value="0"/>
+        <input id="txtid" type="hidden" value="0" />
         <div class="layui-form-item">
-            <label class="layui-form-label">AppId：</label>
+            <label class="layui-form-label">应用标识：</label>
             <div class="layui-input-block">
                 <input id="txtappid" type="text" required lay-verify="required" placeholder="AppId" style="width: 300px;" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">Token：</label>
+            <label class="layui-form-label">应用授权：</label>
             <div class="layui-input-block">
                 <input id="txtauthtoken" type="text" required lay-verify="required" placeholder="Token" style="width: 300px;" autocomplete="off" class="layui-input">
+                <a id="refauthtoken" href="javascript:;" data-url="@Url.Action("GetAuthToken", "AppIdAuth", new {areas = "SystemManage"})" style="top: 10px;position: absolute;margin-right: 0px;right: 60px;color:#1E9FFF">刷新</a>
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">状态：</label>
             <div class="layui-input-block">
-                <textarea id="txtstatus" placeholder="状态" class="layui-textarea" style="width: 300px; height: 30px; resize: none"></textarea>
+                <input id="status" type="checkbox" checked="checked" name="like[status]" title="启用">
             </div>
         </div>
         <div class="layui-form-item">
@@ -85,15 +92,5 @@
     </div>
 </div>
 @section foot_section{
-    <script type="text/javascript">
-        $(function() {
-            var thisPage = {
-                Init: function() {
-                    
-                }
-            }
-
-            thisPage.Init();
-        })
-    </script>
+    <script src="~/Areas/SystemManage/Content/js/appidauth.js?v=2"></script>
 }
