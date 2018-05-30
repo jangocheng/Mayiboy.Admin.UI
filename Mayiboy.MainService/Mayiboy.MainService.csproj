@@ -41,7 +41,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Framework.Mayiboy.Ioc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Ioc.1.0.0\lib\Framework.Mayiboy.Ioc.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Ioc.1.0.1\lib\Framework.Mayiboy.Ioc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Framework.Mayiboy.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -130,12 +130,39 @@
     <None Include="Config\uat\Framework.Mayiboy.Caching.config" />
     <None Include="Config\uat\Framework.Mayiboy.Logging.config" />
     <None Include="Config\uat\Framework.Mayiboy.Task.config" />
-    <None Include="Framework.Mayiboy.Caching.config" />
-    <None Include="Framework.Mayiboy.Logging.config" />
-    <None Include="Framework.Mayiboy.Task.config" />
+    <None Include="Framework.Mayiboy.Caching.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Framework.Mayiboy.Logging.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Framework.Mayiboy.Task.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Mayiboy.ConstDefine\Mayiboy.ConstDefine.csproj">
+      <Project>{abe5cd6d-0e4e-41e2-8186-70aa1fa08440}</Project>
+      <Name>Mayiboy.ConstDefine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mayiboy.Contract\Mayiboy.Contract.csproj">
+      <Project>{dbee97cb-bb92-4c5c-940f-c9949117501a}</Project>
+      <Name>Mayiboy.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mayiboy.Logic\Mayiboy.Logic.csproj">
+      <Project>{cd19e415-ee3b-41f2-9ddc-3ba534a1180d}</Project>
+      <Name>Mayiboy.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mayiboy.Model\Mayiboy.Model.csproj">
+      <Project>{36972fa3-7a3f-41f9-8263-e30309054c20}</Project>
+      <Name>Mayiboy.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mayiboy.Utils\Mayiboy.Utils.csproj">
+      <Project>{421410f1-b7d5-44d0-aa46-e6d2ac11e6cb}</Project>
+      <Name>Mayiboy.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

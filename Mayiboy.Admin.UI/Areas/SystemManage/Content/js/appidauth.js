@@ -66,7 +66,7 @@
                                 width: 150,
                                 templet: function (row) {
                                     var html = "";
-                                    html += '<input type="checkbox" name="lock" value=' + row.Id + ' style="height:20px" title="启用" lay-filter="appidstatus" ' + (row.Status == 1 ? "checked" : "") + ' >';
+                                    html += '<input type="checkbox" name="open" value=' + row.Id + ' style="height:20px" title="启用" lay-skin="switch" lay-text="启用|禁用"  lay-filter="appidstatus" ' + (row.Status == 1 ? "checked" : "") + ' >';
                                     return html;
                                 }
                             },
@@ -118,7 +118,7 @@
 
                 //监听状态操作
                 layui.use(["form"], function () {
-                    layui.form.on('checkbox(appidstatus)', function (obj) {
+                    layui.form.on('switch(appidstatus)', function (obj) {
                         $.ajax({
                             type: "get",
                             url: $("#dttable").data("updatestatusurl"),

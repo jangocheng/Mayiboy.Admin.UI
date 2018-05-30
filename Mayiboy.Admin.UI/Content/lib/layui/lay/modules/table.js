@@ -423,6 +423,7 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'myvalidation'], function (e
         ,url: options.url
         ,contentType: options.contentType
         ,data: data
+        ,cache:false
         ,dataType: 'json'
         ,headers: options.headers || {}
         ,success: function(res){

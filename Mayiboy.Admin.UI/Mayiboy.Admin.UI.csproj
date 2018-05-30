@@ -56,7 +56,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Framework.Mayiboy.Ioc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Ioc.1.0.0\lib\Framework.Mayiboy.Ioc.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Ioc.1.0.1\lib\Framework.Mayiboy.Ioc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Framework.Mayiboy.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

@@ -18,6 +18,11 @@ namespace Mayiboy.Utils
         public static readonly Logger LogicLogger;
 
         /// <summary>
+        /// 任务组件日志记录器
+        /// </summary>
+        public static readonly Logger TaskLoger;
+
+        /// <summary>
         /// 执行Sql脚本出错
         /// </summary>
         public static readonly Logger DataAccessLogger;
@@ -27,6 +32,7 @@ namespace Mayiboy.Utils
             DefaultLogger = LoggerFactory.GetLogger("DefaultLogger");
             LogicLogger = LoggerFactory.GetLogger("LogicLogger");
             DataAccessLogger = LoggerFactory.GetLogger("DataAccessLogger");
+            TaskLoger= LoggerFactory.GetLogger("TaskLogger");
         }
     }
 }

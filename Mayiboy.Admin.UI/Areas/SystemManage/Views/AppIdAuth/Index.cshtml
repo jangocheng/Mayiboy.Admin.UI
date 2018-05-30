@@ -80,7 +80,8 @@
         <div class="layui-form-item">
             <label class="layui-form-label">状态：</label>
             <div class="layui-input-block">
-                <input id="status" type="checkbox" checked="checked" name="like[status]" title="启用">
+                @*<input id="status" type="checkbox" checked="checked" name="like[status]" title="启用">*@
+                <input id="status" type="checkbox" checked="" name="open" lay-skin="switch" lay-filter="like[status]" lay-text="启用|禁用">
             </div>
         </div>
         <div class="layui-form-item">
@@ -92,5 +93,5 @@
     </div>
 </div>
 @section foot_section{
-    <script src="~/Areas/SystemManage/Content/js/appidauth.js?v=2"></script>
+    <script src="~/Areas/SystemManage/Content/js/appidauth.js?v=4"></script>
 }

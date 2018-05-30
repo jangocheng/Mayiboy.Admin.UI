@@ -62,6 +62,7 @@ namespace Mayiboy.Logic.Impl
                 if (list != null && list.Count > 0)
                 {
                     response.EntityList = list.Select(e => e.As<SystemAppSettingsDto>()).ToList();
+                    response.TotalCount = total;
                 }
             }
             catch (Exception ex)

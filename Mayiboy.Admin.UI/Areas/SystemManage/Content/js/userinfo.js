@@ -9,6 +9,11 @@
             UserRoleTable: null
         },
         Init: function () {
+            //Layui坑
+            layui.use(["table", "form"], function () {
+                form = layui.form;
+            });
+
             thisPage.InitUserInfoTable();
             thisPage.InitSelectDepartment();
 
@@ -18,11 +23,6 @@
 
             $("#btnquery").click(function () {
                 thisPage.QueryUserInfo();
-            });
-
-            //Layui坑
-            layui.use(["table", "form"], function () {
-                form = layui.form;
             });
         },
         InitUserInfoTable: function () {
@@ -121,13 +121,13 @@
 
             });
         },
-        ResetPassWord: function(data) {
-            layer.confirm("确认重置密码？", function(index) {
+        ResetPassWord: function (data) {
+            layer.confirm("确认重置密码？", function (index) {
                 $.ajax({
                     type: "get",
                     url: $("#dttable").data("resetpwd"),
-                    data: {userid:data.Id},
-                    success:function(res) {
+                    data: { userid: data.Id },
+                    success: function (res) {
                         if (res.status == 0) {
                             layer.msg("重置成功");
                         } else {
@@ -156,7 +156,9 @@
                 $("#txtloginname").val("");
                 $("#txtemail").val("");
                 $("#txtname").val("");
-                $("#selectsex").val("0");
+
+                $("#selectsex [value='1']").prop("checked", true);
+
                 $("#txtmobile").val("");
                 $("#txtremark").val("");
                 $('#selectdepartment').combotree('setValue', 0);
@@ -166,14 +168,20 @@
                 $("#txtloginname").val(data.LoginName);
                 $("#txtemail").val(data.Email);
                 $("#txtname").val(data.Name);
-                $("#selectsex").val(data.Sex);
+
+                if (data.Sex == 0) {
+                    $("#selectsex [value='0']").prop("checked", true);
+                } else {
+                    $("#selectsex [value='1']").prop("checked", true);
+                }
+
                 $("#txtmobile").val(data.Mobile);
                 $("#txtremark").val(data.Remark);
                 $('#selectdepartment').combotree('setValue', (data.DepartmentId == null ? 0 : data.DepartmentId));
                 title = "修改用户";
             }
 
-            form.render('select');
+            form.render();
 
             edituserinfonum = layer.open({
                 title: title,
@@ -201,14 +209,14 @@
                 elem: '#tbtableuserrole',
                 url: $("#tbtableuserrole").data("url"),
                 where: {
-                    userid:data.Id
+                    userid: data.Id
                 },
                 page: false,
                 even: true,
                 cols: [[
-                    { type:'checkbox'},
-                    { field: 'Name', title: "角色名",width:200 },
-                    { field: 'Remark', title: "备注",width:500 }
+                    { type: 'checkbox' },
+                    { field: 'Name', title: "角色名", width: 200 },
+                    { field: 'Remark', title: "备注", width: 500 }
                 ]],
                 done: function (res, curr, count) {
                     var a = res;
@@ -240,7 +248,7 @@
             var selectdata = layui.table.checkStatus("tbtableuserrole").data;
 
             var roleid = [];
-            $.each(selectdata, function(i,v) {
+            $.each(selectdata, function (i, v) {
                 roleid.push(v.Id);
             });
 
@@ -251,7 +259,7 @@
                     userid: edituserid,
                     roleid: roleid
                 },
-                success:function(res) {
+                success: function (res) {
                     if (res.status == 0) {
                         layer.close(edituserorlenum);
                     } else {
@@ -261,6 +269,10 @@
             });
         },
         SaveUserInfo: function () {
+
+            //alert($("input[name='sex']:checked").val());
+            //return false;
+
             //验证表单
             var isb = layer.IsValidation("#edituserinfo");
 
@@ -273,12 +285,12 @@
                         LoginName: $("#txtloginname").val(),
                         Email: $("#txtemail").val(),
                         Name: $("#txtname").val(),
-                        Sex: $("#selectsex").val(),
+                        Sex: $("input[name='sex']:checked").val(),
                         Mobile: $("#txtmobile").val(),
                         Remark: $("#txtremark").val(),
                         DepartmentId: $("#selectdepartment").combotree('getValue')
                     },
-                    success(res) {
+                    success:function(res) {
                         if (res.status == 0) {
                             layer.msg("保存成功");
                             thisPage.Buttons.UserInfoTable.reload();
@@ -306,7 +318,7 @@
                 }
             });
         },
-        InitSelectDepartment: function() {
+        InitSelectDepartment: function () {
             $.ajax({
                 url: $("#selectdepartment").data("url"),
                 data: {},
