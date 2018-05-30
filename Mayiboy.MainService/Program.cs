@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Autofac;
 using Framework.Mayiboy.Ioc;
 using Framework.Mayiboy.Logging;
+using Mayiboy.Logic.Mapper;
 
 namespace Mayiboy.MainService
 {
@@ -20,9 +21,9 @@ namespace Mayiboy.MainService
         static void Main()
         {
             LoggerGlobal.GlobalInit();
+            RegisterAndResolverIoc();//注册服务
+            AutoMapperConfig.Configure();
 
-            //注册服务
-            RegisterAndResolverIoc();
             //ServiceBase[] ServicesToRun;
             //ServicesToRun = new ServiceBase[]
             //{
