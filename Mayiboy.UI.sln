@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-WinForm", "3-WinForm", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mayiboy.MainService", "Mayiboy.MainService\Mayiboy.MainService.csproj", "{5CD89BF2-DE21-4043-8497-7CAC5A844674}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mayiboy.WebHost", "Mayiboy.WebHost\Mayiboy.WebHost.csproj", "{2B061A52-B0A7-4506-A719-244CC7C48AD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{5CD89BF2-DE21-4043-8497-7CAC5A844674}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CD89BF2-DE21-4043-8497-7CAC5A844674}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CD89BF2-DE21-4043-8497-7CAC5A844674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B061A52-B0A7-4506-A719-244CC7C48AD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B061A52-B0A7-4506-A719-244CC7C48AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B061A52-B0A7-4506-A719-244CC7C48AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B061A52-B0A7-4506-A719-244CC7C48AD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,5 +90,6 @@ Global
 		{B34CBE7E-DE23-4075-883C-AB7CA7B972A2} = {99F2AB74-EE0B-4474-A2AF-264E861DF076}
 		{45B785FF-4AA0-43E3-ADC3-2C2DEEAAE08F} = {F311E77F-C669-4EE5-A808-BBAA30E65F4E}
 		{5CD89BF2-DE21-4043-8497-7CAC5A844674} = {64F21939-2ACC-491D-BF6A-F534402126C8}
+		{2B061A52-B0A7-4506-A719-244CC7C48AD7} = {F311E77F-C669-4EE5-A808-BBAA30E65F4E}
 	EndGlobalSection
 EndGlobal
