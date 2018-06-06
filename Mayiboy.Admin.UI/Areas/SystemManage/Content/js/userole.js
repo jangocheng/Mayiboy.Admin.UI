@@ -31,6 +31,7 @@
                     elem: '#dttable',
                     url: $("#dttable").data("url"), //数据接口
                     page: true, //开启分页
+                    limit:20,
                     even: true, //各行变色
                     cols: [
                         [

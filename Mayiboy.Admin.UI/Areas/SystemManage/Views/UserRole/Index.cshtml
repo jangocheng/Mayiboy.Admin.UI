@@ -10,7 +10,7 @@
     <link href="~/Content/lib/jqueryeasyui/themes/icon.css" rel="stylesheet" />
     <script src="~/Content/lib/jqueryeasyui/jquery.easyui.min.js"></script>
     <script src="~/Content/lib/jqueryeasyui/plugins/jquery.treegrid.js"></script>
-<script src="~/Content/lib/jqueryeasyui/plugins/jquery.tree.js"></script>
+    <script src="~/Content/lib/jqueryeasyui/plugins/jquery.tree.js"></script>
 }
 @*面包屑*@
 <div class="layui-card layadmin-header">
@@ -35,7 +35,7 @@
                             <div class="layui-btn-container" style="float: left; padding: 5px;">
                                 <div class="layui-btn-group">
                                     <label class="mayiboy-lable">角色名:</label>
-                                    <input id="name" class="mayiboy-input" placeholder="角色名"/>
+                                    <input id="name" class="mayiboy-input" placeholder="角色名" />
                                 </div>
 
                                 <div class="layui-btn-group">
@@ -67,7 +67,7 @@
                 <input id="txtname" type="text" required lay-verify="required" placeholder="角色名" style="width: 300px;" autocomplete="off" class="layui-input">
             </div>
         </div>
-       <div class="layui-form-item">
+        <div class="layui-form-item">
             <label class="layui-form-label">备注：</label>
             <div class="layui-input-block">
                 <textarea id="txtremark" placeholder="请输入内容" class="layui-textarea" style="width: 300px; height: 30px; resize: none"></textarea>
@@ -98,9 +98,9 @@
     </div>
     <div style="float: right; width: 320px;height: 350px;">
         <table id="tableaction" data-url="@Url.Action("QueryRolePermissions", "UserRole", new {areas = "SystemManage"})"></table>
-    </div>        
+    </div>
 </div>
 
 @section foot_section{
-    <script src="~/Areas/SystemManage/Content/js/userole.js"></script>
+    <script src="~/Areas/SystemManage/Content/js/userole.js?v=1"></script>
 }

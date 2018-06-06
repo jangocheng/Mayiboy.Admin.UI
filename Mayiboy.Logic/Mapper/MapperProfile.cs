@@ -24,7 +24,7 @@ namespace Mayiboy.Logic.Mapper
             {
                 if (!e.HasValue) return string.Empty;
 
-                return e.Value.ToString("yyyy-MM-dd HH:mm:ss:fff");
+                return e.Value.ToString("yyyy-MM-dd HH:mm:ss.fff");
             });
 
 

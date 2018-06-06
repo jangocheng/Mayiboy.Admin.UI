@@ -86,6 +86,7 @@
                 thisPage.Buttons.Table = table.render({
                     elem: '#dttable',
                     url: $("#dttable").data("url"), //数据接口
+                    limit:20,
                     page: true, //开启分页
                     even: true, //各行变色
                     cols: [[

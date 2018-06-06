@@ -109,6 +109,7 @@ namespace Mayiboy.Admin.UI.Controllers
         }
         #endregion
 
+        #region 修改用户密码
         /// <summary>
         /// 修改用户密码
         /// </summary>
@@ -140,6 +141,7 @@ namespace Mayiboy.Admin.UI.Controllers
             }
 
         }
+        #endregion
 
         #region 验证码
         /// <summary>
@@ -155,6 +157,19 @@ namespace Mayiboy.Admin.UI.Controllers
             return File(CaptchaHelper.DrawImage(vcode), @"image/jpeg");
         }
         #endregion
+
+        //用户信息页面
+        public ActionResult UserInfoPage()
+        {
+            return View();
+        }
+
+
+        //保存用户基本信息
+        public ActionResult SaveUserInfo()
+        {
+            return Json(new { }, JsonRequestBehavior.AllowGet);
+        }
 
     }
 }

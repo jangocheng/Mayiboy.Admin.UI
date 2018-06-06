@@ -319,6 +319,8 @@
                     }
                 });
             });
+
+            $("#userinfo").on("click", $.maintab.addTab);
         }
     };
 
