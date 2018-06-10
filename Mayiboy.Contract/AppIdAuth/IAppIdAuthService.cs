@@ -7,12 +7,27 @@ namespace Mayiboy.Contract
     /// </summary>
     public interface IAppIdAuthService : IBaseService, IDependency
     {
+
+        /// <summary>
+        /// 根据Id获取应用授权
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        GetAppIdAuthResponse GetAppIdAuth(GetAppIdAuthRequest request);
+
         /// <summary>
         /// 保存应用授权Token
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         SaveAppIdAuthResponse SaveAppIdAuthToken(SaveAppIdAuthRequest request);
+
+        /// <summary>
+        /// 保存秘钥
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        SaveSecretKeyResponse SaveSecretKey(SaveSecretKeyRequest request);
 
         /// <summary>
         /// 查询应用授权列表

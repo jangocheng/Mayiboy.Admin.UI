@@ -84,7 +84,10 @@ namespace Mayiboy.Host
                .GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
                .FirstOrDefault(b => b.ReturnType == contractType.BaseType.GenericTypeArguments[1] && b.Name == contractType.Name.Substring(0, contractType.Name.Length - 8));
 
-            if (action == null) { throw new ArgumentOutOfRangeException(string.Format("can't found action for contract of \"{0}\" in controller \"{1}\"", contractType, controllerType)); }
+            if (action == null)
+            {
+                throw new ArgumentOutOfRangeException(string.Format("can't found action for contract of \"{0}\" in controller \"{1}\"", contractType, controllerType));
+            }
 
             _hashRoute.Add(contractType.FullName, new Tuple<string, string>(controllerType.Name.Substring(0, controllerType.Name.Length - 10), action.Name));
         }

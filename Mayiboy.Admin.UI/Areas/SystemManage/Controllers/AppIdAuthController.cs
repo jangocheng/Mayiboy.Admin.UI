@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Framework.Mayiboy.Utility;
+using Framework.Mayiboy.Utility.EncryptionHelper;
+using Mayiboy.Admin.UI.Areas.SystemManage.Models;
 using Mayiboy.Admin.UI.Controllers;
 using Mayiboy.Contract;
 using Mayiboy.Utils;
@@ -53,29 +55,20 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         //保存应用授权配置
         [ActionAuth]
         [OperLog("保存应用授权配置")]
-        public ActionResult Save(string id, string appid, string authtoken, string status, string remark)
+        public ActionResult Save(AppIdAuthModel model)
         {
             try
             {
-                if (appid.IsNullOrEmpty())
-                {
-                    return ToJsonErrorResult(1, "应用标识不能为空");
-                }
-
-                if (authtoken.IsNullOrEmpty())
-                {
-                    return ToJsonErrorResult(2, "授权Token不能为空");
-                }
-
                 var response = _appIdAuthService.SaveAppIdAuthToken(new SaveAppIdAuthRequest
                 {
                     Entity = new AppIdAuthDto
                     {
-                        Id = int.Parse(id),
-                        AppId = appid,
-                        AuthToken = authtoken,
-                        Status = int.Parse(status),
-                        Remark = remark
+                        Id = model.Id,
+                        AppId = model.Appid,
+                        AuthToken = model.Authtoken,
+                        EncryptionType = model.EncryptionType,
+                        Status = model.Status,
+                        Remark = model.Remark
                     }
                 });
 
@@ -85,8 +78,9 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
                 }
                 return ToJsonResult(new { status = 0 });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                LogManager.DefaultLogger.ErrorFormat("保存应用授权出错：{0}", new { model, err = ex.ToString() }.ToJson());
                 return ToJsonFatalResult("保存应用授权出错");
             }
         }
@@ -144,6 +138,90 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
             }
         }
 
+        //保存秘钥
+        [ActionAuth]
+        [OperLog("保存秘钥")]
+        public ActionResult SaveSecretKey(string id, string secretKey, string privateKey, string publicKey)
+        {
+            try
+            {
+                var entity = new AppIdAuthDto
+                {
+                    Id = int.Parse(id),
+                    SecretKey = secretKey,
+                    PrivateKey = privateKey,
+                    PublicKey = publicKey
+                };
+
+                var response = _appIdAuthService.SaveSecretKey(new SaveSecretKeyRequest
+                {
+                    Entity = entity
+                });
+
+                if (!response.IsSuccess)
+                {
+                    return ToJsonResult(new { status = 1, msg = "保存秘钥出错" });
+                }
+
+                return ToJsonResult(new { status = 0 });
+            }
+            catch (Exception ex)
+            {
+                LogManager.DefaultLogger.ErrorFormat("保存秘钥出错：{0}", new { err = ex.ToString() }.ToJson());
+                return ToJsonFatalResult("保存秘钥出错");
+            }
+        }
+
+        //获取秘钥
+        public ActionResult GetSecretKey(string id)
+        {
+            try
+            {
+                var secretKey = "";
+                var privateKey = "";
+                var publicKey = "";
+
+                var response = _appIdAuthService.GetAppIdAuth(new GetAppIdAuthRequest
+                {
+                    Id = int.Parse(id)
+                });
+
+                if (!response.IsSuccess)
+                {
+                    return ToJsonResult(new { status = 1, msg = "应用不存在" });
+                }
+
+                #region 根据加密类型获取加密字符串
+                switch (response.Entity.EncryptionType)
+                {
+                    case 0:
+                        break;
+                    case 1://对称加密（DES）
+                        secretKey = Guid.NewGuid().ToString("N").Substring(0, 32);
+                        break;
+                    case 2://对称加密（AES）
+                        secretKey = Guid.NewGuid().ToString("N").Substring(0, 32);
+                        break;
+                    case 3://非对称加密
+                        RsaCryption.RsaKey(out privateKey, out publicKey);
+                        break;
+                }
+                #endregion
+
+                return ToJsonResult(new
+                {
+                    status = 0,
+                    SecretKey = secretKey,
+                    PrivateKey = privateKey,
+                    PublicKey = publicKey
+                });
+            }
+            catch (Exception ex)
+            {
+                LogManager.DefaultLogger.ErrorFormat("获取秘钥不存在：{0}", new { err = ex.ToString() }.ToJson());
+                return ToJsonFatalResult("获取秘钥出错");
+            }
+        }
 
         //获取授权Token
         public ActionResult GetAuthToken()

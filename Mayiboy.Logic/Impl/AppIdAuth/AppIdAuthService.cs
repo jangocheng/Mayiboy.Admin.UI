@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Framework.Mayiboy.Utility;
+using Framework.Mayiboy.Utility.EncryptionHelper;
 using Mayiboy.Contract;
 using Mayiboy.DataAccess.Interface;
 using Mayiboy.Model.Po;
@@ -16,6 +17,35 @@ namespace Mayiboy.Logic.Impl
         public AppIdAuthService(IAppIdAuthRepository appIdAuthTokenRepository)
         {
             _appIdAuthTokenRepository = appIdAuthTokenRepository;
+        }
+
+        /// <summary>
+        /// 获取应用授权
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public GetAppIdAuthResponse GetAppIdAuth(GetAppIdAuthRequest request)
+        {
+            var response = new GetAppIdAuthResponse();
+            try
+            {
+                var entity = _appIdAuthTokenRepository.Find<AppIdAuthPo>(e => e.IsValid == 1 && e.Id == request.Id);
+
+                if (entity == null)
+                {
+                    return response;
+                }
+
+                response.Entity = entity.As<AppIdAuthDto>();
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.MessageCode = "-1";
+                response.MessageText = ex.Message;
+                LogManager.LogicLogger.ErrorFormat("根据Id获取应用授权配置出错{0}", new { request, err = ex.ToString() }.ToJson());
+            }
+            return response;
         }
 
         /// <summary>
@@ -64,6 +94,9 @@ namespace Mayiboy.Logic.Impl
                         e.IsValid,
                         e.CreateTime,
                         e.CreateUserId,
+                        e.SecretKey,
+                        e.PrivateKey,
+                        e.PublicKey
                     });
                 }
 
@@ -74,6 +107,100 @@ namespace Mayiboy.Logic.Impl
                 response.MessageCode = "-1";
                 response.MessageText = ex.Message;
                 LogManager.LogicLogger.ErrorFormat("保存应用授权信息出错：{0}", new { request, err = ex.ToString() }.ToJson());
+            }
+            return response;
+        }
+
+        /// <summary>
+        /// 保存秘钥
+        /// </summary>
+        /// <param name="request">参数</param>
+        /// <returns></returns>
+        public SaveSecretKeyResponse SaveSecretKey(SaveSecretKeyRequest request)
+        {
+            var response = new SaveSecretKeyResponse();
+            try
+            {
+                if (request.Entity == null || request.Entity.Id == 0)
+                {
+                    response.IsSuccess = false;
+                    response.MessageCode = "1";
+                    response.MessageText = "参数不能为空";
+                    return response;
+                }
+
+                var entitytemp = _appIdAuthTokenRepository.FindSingle<AppIdAuthPo>(request.Entity.Id);
+
+                if (entitytemp == null)
+                {
+                    response.IsSuccess = false;
+                    response.MessageCode = "2";
+                    response.MessageText = "修改不存在";
+                    return response;
+                }
+
+                entitytemp.SecretKey = request.Entity.SecretKey;
+                entitytemp.PrivateKey = request.Entity.PrivateKey;
+                entitytemp.PublicKey = request.Entity.PublicKey;
+
+                EntityLogger.UpdateEntity(entitytemp);
+
+                if (entitytemp.EncryptionType == 3)
+                {
+                    #region 检查秘钥是否合法
+                    var testtxt = "mayiboy";
+
+                    if (RsaCryption.Decrypt(request.Entity.PrivateKey, RsaCryption.Encrypt(request.Entity.PublicKey, testtxt)) != testtxt)
+                    {
+                        response.IsSuccess = false;
+                        response.MessageCode = "4";
+                        response.MessageText = "非对称加密有误";
+                        return response;
+                    } 
+                    #endregion
+
+                    _appIdAuthTokenRepository.UpdateColumns(entitytemp, e => new
+                    {
+                        e.UpdateUserId,
+                        e.UpdateTime,
+                        e.PrivateKey,
+                        e.PublicKey
+                    });
+                }
+                else
+                {
+
+                    #region 检查秘钥是否合法
+                    if (entitytemp.EncryptionType == 1 && entitytemp.SecretKey.Length < 8)
+                    {
+                        response.IsSuccess = false;
+                        response.MessageCode = "3";
+                        response.MessageText = "秘钥长度不能小于8";
+                        return response;
+                    }
+                    else if (entitytemp.EncryptionType == 2 && entitytemp.SecretKey.Length < 32)
+                    {
+                        response.IsSuccess = false;
+                        response.MessageCode = "4";
+                        response.MessageText = "秘钥长度不能小于32";
+                        return response;
+                    }
+                    #endregion
+
+                    _appIdAuthTokenRepository.UpdateColumns(entitytemp, e => new
+                    {
+                        e.UpdateUserId,
+                        e.UpdateTime,
+                        e.SecretKey,
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.MessageCode = "-1";
+                response.MessageText = ex.Message;
+                LogManager.LogicLogger.ErrorFormat("保存秘钥出错：{0}", new { request, err = ex.ToString() }.ToJson());
             }
             return response;
         }

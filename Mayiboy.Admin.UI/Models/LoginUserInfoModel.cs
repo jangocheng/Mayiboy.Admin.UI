@@ -21,7 +21,7 @@ namespace Mayiboy.Admin.UI
             get { return _username; }
             set
             {
-                _username = value.IsNotNullOrEmpty() ? RsaCryption.RsaDecrypt(PublicConst.XmlPrivateKey, value) : value;
+                _username = value.IsNotNullOrEmpty() ? RsaCryption.Decrypt(PublicConst.XmlPrivateKey, value) : value;
             }
         }
 
@@ -36,7 +36,7 @@ namespace Mayiboy.Admin.UI
             get { return _passWord; }
             set
             {
-                _passWord = value.IsNotNullOrEmpty() ? RsaCryption.RsaDecrypt(PublicConst.XmlPrivateKey, value) : value;
+                _passWord = value.IsNotNullOrEmpty() ? RsaCryption.Decrypt(PublicConst.XmlPrivateKey, value) : value;
             }
         }
 

@@ -55,6 +55,9 @@ namespace Mayiboy.Contract
 
     public class QueryByAppIdRequest : Request
     {
+        /// <summary>
+        /// 应用授权标识
+        /// </summary>
         public string ServiceAppId { get; set; }
     }
 
@@ -62,5 +65,27 @@ namespace Mayiboy.Contract
     {
         public AppIdAuthDto Entity { get; set; }
     }
+
+
+    public class SaveSecretKeyRequest : Request
+    {
+        public AppIdAuthDto Entity { get; set; }
+    }
+
+    public class SaveSecretKeyResponse : Response
+    {
+
+    }
+
+    public class GetAppIdAuthRequest : Request
+    {
+        public int Id { get; set; }
+    }
+
+    public class GetAppIdAuthResponse : Response
+    {
+        public AppIdAuthDto Entity { get; set; }
+    }
+
 
 }

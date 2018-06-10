@@ -40,7 +40,7 @@ namespace Mayiboy.Admin.UI.Controllers
                 {
                     return Json(new { status = 1, msg = "验证码错误" });
                 }
-                SessionHelper.RemoveSession("vcode");
+                SessionHelper.Remove("vcode");
                 #endregion
 
                 var request = new LoginQueryRequest
@@ -93,7 +93,7 @@ namespace Mayiboy.Admin.UI.Controllers
         [OperLog("注销登录")]
         public ActionResult Logout()
         {
-            SessionHelper.ClearSession();
+            SessionHelper.Clear();
 
             //删除登录信息
             var keyl = CookieHelper.Get(PublicConst.IdentityCookieKey).AddCachePrefix(PublicConst.IdentityCookieKey);

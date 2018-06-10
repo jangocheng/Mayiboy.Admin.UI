@@ -23,6 +23,26 @@ namespace Mayiboy.Model.Po
         public string AuthToken { get; set; }
 
         /// <summary>
+        /// 接口数据加密类型（0：不加密；1：对称加密（DES）；2：对称加密（AES）；3：非对称加密
+        /// </summary>
+        public int EncryptionType { get; set; }
+
+        /// <summary>
+        /// 对称加密-秘钥
+        /// </summary>
+        public string SecretKey { get; set; }
+
+        /// <summary>
+        /// 非对称加密-私钥
+        /// </summary>
+        public string PrivateKey { get; set; }
+
+        /// <summary>
+        /// 非对称加密-公钥
+        /// </summary>
+        public string PublicKey { get; set; }
+
+        /// <summary>
         /// 是否启用状态（0：未启用；1：已启用）
         /// </summary>
         public int Status { get; set; }

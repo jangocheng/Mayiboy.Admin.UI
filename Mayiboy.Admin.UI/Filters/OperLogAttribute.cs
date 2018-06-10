@@ -7,7 +7,7 @@ using Mayiboy.Utils;
 namespace Mayiboy.Admin.UI
 {
     /// <summary>
-    /// 操作日志记录
+    /// 记录操作日志
     /// </summary>
     public class OperLogAttribute : ActionFilterAttribute
     {

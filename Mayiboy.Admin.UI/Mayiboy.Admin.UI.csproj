@@ -16,7 +16,7 @@
     <RootNamespace>Mayiboy.Admin.UI</RootNamespace>
     <AssemblyName>Mayiboy.Admin.UI</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -55,20 +55,20 @@
       <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.0\lib\Framework.Mayiboy.Caching.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Framework.Mayiboy.Ioc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Ioc.1.0.1\lib\Framework.Mayiboy.Ioc.dll</HintPath>
+    <Reference Include="Framework.Mayiboy.Ioc, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Framework.Mayiboy.Ioc.1.0.2\lib\Framework.Mayiboy.Ioc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Framework.Mayiboy.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Framework.Mayiboy.Logging.1.0.0\lib\Framework.Mayiboy.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Framework.Mayiboy.Soa.Agent, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Soa.Agent.1.0.2\lib\Framework.Mayiboy.Soa.Agent.dll</HintPath>
+    <Reference Include="Framework.Mayiboy.Soa.Agent, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Framework.Mayiboy.Soa.Agent.1.0.3\lib\Framework.Mayiboy.Soa.Agent.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Framework.Mayiboy.Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Utility.1.0.1\lib\Framework.Mayiboy.Utility.dll</HintPath>
+    <Reference Include="Framework.Mayiboy.Utility, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Framework.Mayiboy.Utility.1.0.3\lib\Framework.Mayiboy.Utility.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.84.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
@@ -511,6 +511,7 @@
     <Compile Include="Areas\SystemManage\Controllers\SysNavbarController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\UserInfoController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\UserRoleController.cs" />
+    <Compile Include="Areas\SystemManage\Models\AppIdAuthModel.cs" />
     <Compile Include="Areas\SystemManage\Models\PermissionsModel.cs" />
     <Compile Include="Areas\SystemManage\Models\SelectSysMenuModel.cs" />
     <Compile Include="Areas\SystemManage\Models\SysMenuModel.cs" />
@@ -640,7 +641,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3218</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/Mayiboy.Admin.UI</IISUrl>
+          <IISUrl>http://localhost:3218/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

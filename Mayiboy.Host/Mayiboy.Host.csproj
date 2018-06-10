@@ -16,7 +16,7 @@
     <RootNamespace>Mayiboy.Host</RootNamespace>
     <AssemblyName>Mayiboy.Host</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -55,20 +55,24 @@
       <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.0\lib\Framework.Mayiboy.Caching.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Framework.Mayiboy.Ioc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Ioc.1.0.1\lib\Framework.Mayiboy.Ioc.dll</HintPath>
+    <Reference Include="Framework.Mayiboy.Ioc, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Framework.Mayiboy.Ioc.1.0.2\lib\Framework.Mayiboy.Ioc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Framework.Mayiboy.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Framework.Mayiboy.Logging.1.0.0\lib\Framework.Mayiboy.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Framework.Mayiboy.Soa.Agent, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Soa.Agent.1.0.2\lib\Framework.Mayiboy.Soa.Agent.dll</HintPath>
+    <Reference Include="Framework.Mayiboy.MvcExtensions, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Framework.Mayiboy.MvcExtensions.1.0.1.0\lib\Framework.Mayiboy.MvcExtensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Framework.Mayiboy.Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Utility.1.0.1\lib\Framework.Mayiboy.Utility.dll</HintPath>
+    <Reference Include="Framework.Mayiboy.Soa.Agent, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Framework.Mayiboy.Soa.Agent.1.0.3\lib\Framework.Mayiboy.Soa.Agent.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Framework.Mayiboy.Utility, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Framework.Mayiboy.Utility.1.0.3\lib\Framework.Mayiboy.Utility.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.84.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
@@ -138,8 +142,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\ApiContractRoute.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="App_Start\WebApiContractRoute.cs" />
     <Compile Include="Controllers\UserInfoController.cs" />
     <Compile Include="Exception\AuthorizationHandler.cs" />
     <Compile Include="Global.asax.cs">
@@ -148,9 +152,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Framework.Mayiboy.Caching.config" />
-    <Content Include="Framework.Mayiboy.Logging.config" />
+    <Content Include="Framework.Mayiboy.Logging.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\prd\Framework.Mayiboy.Caching.config" />
     <Content Include="Config\prd\Framework.Mayiboy.Logging.config" />
     <Content Include="Config\prd\Web.config" />
@@ -207,7 +215,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3283</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/Mayiboy.Host</IISUrl>
+          <IISUrl>http://localhost:3283/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

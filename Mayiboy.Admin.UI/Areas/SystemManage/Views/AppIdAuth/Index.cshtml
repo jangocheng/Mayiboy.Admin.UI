@@ -50,10 +50,7 @@
                     <table id="dttable" lay-filter="table-operate"
                            data-url="@Url.Action("Query", "AppIdAuth", new {areas = "SystemManage"})"
                            data-delurl="@Url.Action("Del", "AppIdAuth", new {areas = "SystemManage"})"
-                           data-updatestatusurl="@Url.Action("UpdateStatus", "AppIdAuth", new {areas = "SystemManage"})"
-                           >
-                        
-                    </table>
+                           data-updatestatusurl="@Url.Action("UpdateStatus", "AppIdAuth", new {areas = "SystemManage"})"></table>
                 </div>
             </div>
         </div>
@@ -65,20 +62,31 @@
     <div class="layui-form" style="padding: 20px;">
         <input id="txtid" type="hidden" value="0" />
         <div class="layui-form-item">
-            <label class="layui-form-label">应用标识：</label>
+            <label class="layui-form-label" style="width: 100px; padding-left: 0px; padding-right: 0px;">应用标识：</label>
             <div class="layui-input-block">
-                <input id="txtappid" type="text" required lay-verify="required" placeholder="AppId" style="width: 300px;" autocomplete="off" class="layui-input">
+                <input id="txtappid" type="text" required lay-verify="required" placeholder="AppId" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">应用授权：</label>
+            <label class="layui-form-label" style="width: 100px; padding-left: 0px; padding-right: 0px;">应用授权：</label>
             <div class="layui-input-block">
-                <input id="txtauthtoken" type="text" required lay-verify="required" placeholder="Token" style="width: 300px;" autocomplete="off" class="layui-input">
-                <a id="refauthtoken" href="javascript:;" data-url="@Url.Action("GetAuthToken", "AppIdAuth", new {areas = "SystemManage"})" style="top: 10px;position: absolute;margin-right: 0px;right: 60px;color:#1E9FFF">刷新</a>
+                <input id="txtauthtoken" type="text" required lay-verify="required" placeholder="Token" autocomplete="off" class="layui-input">
+                <a id="refauthtoken" href="javascript:;" data-url="@Url.Action("GetAuthToken", "AppIdAuth", new {areas = "SystemManage"})" style="top: 10px; position: absolute; margin-right: 0px; right: 10px; color: #1E9FFF">刷新</a>
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">状态：</label>
+            <label class="layui-form-label" style="width: 100px; padding-left: 0px; padding-right: 0px;">数据加密类型：</label>
+            <div class="layui-input-block">
+                <select id="encryptiontype">
+                    <option value="0">不加密</option>
+                    <option value="1">DES</option>
+                    <option value="2">AES</option>
+                    <option value="3">RSA</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label" style="width: 100px; padding-left: 0px; padding-right: 0px;">状态：</label>
             <div class="layui-input-block">
                 @*<input id="status" type="checkbox" checked="checked" name="like[status]" title="启用">*@
                 <input id="status" type="checkbox" checked="" name="open" lay-skin="switch" lay-filter="like[status]" lay-text="启用|禁用">
@@ -92,6 +100,36 @@
         </div>
     </div>
 </div>
+
+@*配置秘钥*@
+<div id="editsecretkey" title="配置秘钥" style="display:none;" data-url="@Url.Action("SaveSecretKey", "AppIdAuth", new {areas = "SystemManage"})">
+    <div class="layui-form" style="padding: 20px;">
+        <input id="txtid2" type="hidden" value="0"/>
+        <div id="secretKey" class="layui-form-item">
+            <label class="layui-form-label">秘钥：</label>
+            <div class="layui-input-block" style="margin-top:15px;">
+                <input id="txtsecretKey" type="text" autocomplete="off" class="layui-input">
+            </div>
+            <a id="refauthsecretKey" href="javascript:;" data-url="@Url.Action("GetSecretKey", "AppIdAuth", new {areas = "SystemManage"})" style="top: 10px; position: absolute; margin-right: 0px; right: 22px; color: #1E9FFF">刷新</a>
+        </div>
+
+        <div id="publicKey" class="layui-form-item">
+            <label class="layui-form-label" >公钥：</label>
+            <div class="layui-input-block" style="margin-top: 15px;">
+                <textarea id="txtpublicKey" class="layui-textarea" style="height: 70px; resize: none"></textarea>
+            </div>
+            <a id="refauthpublicKey" href="javascript:;" data-url="@Url.Action("GetSecretKey", "AppIdAuth", new {areas = "SystemManage"})" style="top: 10px; position: absolute; margin-right: 0px; right: 22px; color: #1E9FFF">刷新</a>
+        </div>
+
+        <div id="privateKey" class="layui-form-item">
+            <label class="layui-form-label">私钥：</label>
+            <div class="layui-input-block">
+                <textarea id="txtprivateKey" class="layui-textarea" style="height: 280px; resize: none"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section foot_section{
-    <script src="~/Areas/SystemManage/Content/js/appidauth.js?v=4"></script>
+    <script src="~/Areas/SystemManage/Content/js/appidauth.js?v=6"></script>
 }
