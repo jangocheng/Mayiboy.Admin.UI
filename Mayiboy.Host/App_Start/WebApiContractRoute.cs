@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using Framework.Mayiboy.Ioc;
 using Framework.Mayiboy.MvcExtensions.Routes;
+using Mayiboy.ConstDefine;
 using Mayiboy.Contract;
 using Mayiboy.Contract.Contracts;
 using Mayiboy.Host.Controllers;
@@ -63,6 +64,8 @@ namespace Mayiboy.Host
                             if (response.IsSuccess && response.Entity != null)
                             {
                                 entity = response.Entity;
+
+                                CacheManager.RedisDefault.Set(key, entity, PublicConst.Time.Hour2);
                             }
                         }
                     }

@@ -100,6 +100,10 @@ namespace Mayiboy.Logic.Impl
                     });
                 }
 
+                var key = entity.AppId.AddCachePrefix("AppIdAuth");
+
+                CacheManager.RedisDefault.Del(key);
+
             }
             catch (Exception ex)
             {
@@ -194,6 +198,10 @@ namespace Mayiboy.Logic.Impl
                         e.SecretKey,
                     });
                 }
+
+                var key = entitytemp.AppId.AddCachePrefix("AppIdAuth");
+
+                CacheManager.RedisDefault.Del(key);
             }
             catch (Exception ex)
             {
@@ -259,6 +267,10 @@ namespace Mayiboy.Logic.Impl
                 EntityLogger.UpdateEntity(entity);
 
                 _appIdAuthTokenRepository.UpdateColumns(entity, (e) => new { e.IsValid, e.UpdateTime, e.UpdateUserId });
+
+                var key = entity.AppId.AddCachePrefix("AppIdAuth");
+
+                CacheManager.RedisDefault.Del(key);
             }
             catch (Exception ex)
             {
@@ -291,6 +303,10 @@ namespace Mayiboy.Logic.Impl
                 EntityLogger.UpdateEntity(entity);
 
                 _appIdAuthTokenRepository.UpdateColumns(entity, (e) => new { e.Status, e.UpdateTime, e.UpdateUserId });
+
+                var key = entity.AppId.AddCachePrefix("AppIdAuth");
+
+                CacheManager.RedisDefault.Del(key);
             }
             catch (Exception ex)
             {

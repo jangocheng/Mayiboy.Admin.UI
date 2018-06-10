@@ -76,6 +76,7 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
                 {
                     return ToJsonErrorResult(3, response.MessageText);
                 }
+
                 return ToJsonResult(new { status = 0 });
             }
             catch (Exception ex)
