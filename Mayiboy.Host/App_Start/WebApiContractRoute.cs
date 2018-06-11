@@ -24,7 +24,7 @@ namespace Mayiboy.Host
         {
             var entryRoute = new ApiContractRoute();
 
-            entryRoute.GetDecryptParameter = QueryDecryptParameter;
+            entryRoute.OnDecryptParameter = QueryDecryptParameter;
 
             //用户信息接口
             entryRoute.Bind<UserInfoController>()

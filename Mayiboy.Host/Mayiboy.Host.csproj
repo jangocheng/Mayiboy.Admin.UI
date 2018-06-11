@@ -63,8 +63,8 @@
       <HintPath>..\packages\Framework.Mayiboy.Logging.1.0.0\lib\Framework.Mayiboy.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Framework.Mayiboy.MvcExtensions, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.MvcExtensions.1.0.1.0\lib\Framework.Mayiboy.MvcExtensions.dll</HintPath>
+    <Reference Include="Framework.Mayiboy.MvcExtensions, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Framework.Mayiboy.MvcExtensions.1.0.2.0\lib\Framework.Mayiboy.MvcExtensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Framework.Mayiboy.Soa.Agent, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
