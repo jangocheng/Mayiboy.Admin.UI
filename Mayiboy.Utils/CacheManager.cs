@@ -19,7 +19,7 @@ namespace Mayiboy.Utils
 
         static CacheManager()
         {
-            RunTimeCache = (RunTimeCache)CacheFactory.GetCache("RunTime");
+			RunTimeCache = (RunTimeCache)CacheFactory.GetCache("RunTime");
             RedisDefault = (RedisCache)CacheFactory.GetCache("RedisDefault");
         }
 

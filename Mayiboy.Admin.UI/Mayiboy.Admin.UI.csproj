@@ -541,8 +541,13 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Framework.Mayiboy.Caching.config" />
-    <Content Include="Framework.Mayiboy.Logging.config" />
+    <Content Include="Framework.Mayiboy.Caching.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Framework.Mayiboy.Logging.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Config\prd\Framework.Mayiboy.Caching.config" />
