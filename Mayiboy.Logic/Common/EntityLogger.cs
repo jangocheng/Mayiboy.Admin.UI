@@ -5,6 +5,7 @@ using Framework.Mayiboy.Utility;
 using Mayiboy.ConstDefine;
 using Mayiboy.Model.Model;
 using Mayiboy.Utils;
+using System.Web;
 
 namespace Mayiboy.Logic
 {
@@ -27,9 +28,16 @@ namespace Mayiboy.Logic
                 {
                     case "updateuserid":
                     case "createuserid":
-                        prop.SetValue(entity, LoginUserId);
-                        break;
-                    case "updatetime":
+						{
+							/*当使用多线程执行时需要将用户id传入（因为多线程执行没有上下文，所有获取不到用户信息）
+							 */
+							if ((int)prop.GetValue(entity) == 0)
+							{
+								prop.SetValue(entity, LoginUserId);
+							}
+							break;
+						}
+					case "updatetime":
                     case "createtime":
                         prop.SetValue(entity, DateTime.Now);
                         break;
@@ -77,9 +85,16 @@ namespace Mayiboy.Logic
                 switch (prop.Name.ToLower())
                 {
                     case "updateuserid":
-                        prop.SetValue(entity, LoginUserId);
-                        break;
-                    case "updatetime":
+						{
+							/*当使用多线程执行时需要将用户id传入（因为多线程执行没有上下文，所有获取不到用户信息）
+							 */
+							if ((int)prop.GetValue(entity) == 0)
+							{
+								prop.SetValue(entity, LoginUserId);
+							}
+							break;
+						}
+					case "updatetime":
                         prop.SetValue(entity, DateTime.Now);
                         break;
                 }

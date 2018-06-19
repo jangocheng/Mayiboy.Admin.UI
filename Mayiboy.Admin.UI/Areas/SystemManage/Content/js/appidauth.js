@@ -106,7 +106,7 @@
                         [
                             { field: 'id', title: '序号', type: "numbers", width: 60 },
                             { field: 'AppId', title: '应用标识', width: 100 },
-                            { field: 'AuthToken', title: '应用授权', width: 300 },
+                            { field: 'AuthToken', title: 'Token', width: 300 },
                             {
                                 field: 'EncryptionType', title: '数据加密类型', width: 115, templet: function (row) {
                                     switch (row.EncryptionType) {
