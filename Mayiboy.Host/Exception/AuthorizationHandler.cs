@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Framework.Mayiboy.Ioc;
@@ -19,52 +20,49 @@ namespace Mayiboy.Host.Exception
 
 		protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, System.Threading.CancellationToken cancellationToken)
 		{
-			var headerappid = request.Headers.FirstOrDefault(e => e.Key.ToLower() == "appid");
-			var headertoken = request.Headers.FirstOrDefault(e => e.Key.ToLower() == "authorizationtoken");
-			var headertimestamp = request.Headers.FirstOrDefault(e => e.Key.ToLower() == "timestamp");
-			var headersign = request.Headers.FirstOrDefault(e => e.Key.ToLower() == "sign");
+			var headerappid = GetValue(request.Headers, "appid");
+			var headertoken = GetValue(request.Headers, "authorizationtoken");
+			var headertimestamp = GetValue(request.Headers, "timestamp");
+			var headersign = GetValue(request.Headers, "sign");
+			var headerunauthorized = GetValue(request.Headers, "Unauthorized");
 
-
-			if (string.IsNullOrEmpty(headerappid.Key) || string.IsNullOrEmpty(headertoken.Key))
-			{
-				return Unauthorized();
-			}
-
-			//获取appid token timestamp sign
-			var appid = headerappid.Value.FirstOrDefault();
-			var token = headertoken.Value.FirstOrDefault();
-			var timestamp = headertimestamp.Value.FirstOrDefault();
-			var sign = headersign.Value.FirstOrDefault();
-			var content = request.Content.ReadAsStringAsync().Result;
-
-			//接口必要参数
-			if (string.IsNullOrEmpty(appid) || string.IsNullOrEmpty(token))
+			//验证必要参数
+			if (string.IsNullOrEmpty(headerappid) || string.IsNullOrEmpty(headertoken))
 			{
 				return Unauthorized();
 			}
 
 			//校验授权
-			if (GetAppIdToken(appid) != token)
+			if (GetAppIdToken(headerappid) != headertoken)
 			{
 				return Unauthorized();
 			}
 
 			//校验接口有效期(接口10分钟后无效)
-			if (string.IsNullOrEmpty(timestamp) || long.Parse(timestamp).ToDateTime() < DateTime.Now.AddMinutes(-10))
+			if (string.IsNullOrEmpty(headertimestamp) || long.Parse(headertimestamp).ToDateTime() < DateTime.Now.AddMinutes(-10))
 			{
 				return Unauthorized();
 			}
 
-			//TODO:需要确认content密文or 明文
-
-			//校验sign
-			//var signtemp = GetSign(appid, token, content, timestamp);
-			//if (!string.IsNullOrEmpty(sign) && sign != signtemp)
-			//{
-			//	return Unauthorized();
-			//}
-
 			return base.SendAsync(request, cancellationToken);
+		}
+
+		/// <summary>
+		/// 获取值
+		/// </summary>
+		/// <param name="requestheaders"></param>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		private string GetValue(HttpRequestHeaders requestheaders, string name)
+		{
+			IEnumerable<string> values;
+
+			if (requestheaders.TryGetValues(name, out values))
+			{
+				return values.First();
+			}
+
+			return "";
 		}
 
 		/// <summary>

@@ -25,7 +25,7 @@ namespace Mayiboy.Host
 
             AutoMapperConfig.Configure();
 
-            GlobalConfiguration.Configuration.MessageHandlers.Add(new AuthorizationHandler());
+            //GlobalConfiguration.Configuration.MessageHandlers.Add(new AuthorizationHandler());
 
             RegisterAndResolverIoc();
         }

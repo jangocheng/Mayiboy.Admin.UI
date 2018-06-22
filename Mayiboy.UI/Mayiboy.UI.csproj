@@ -51,8 +51,8 @@
       <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Framework.Mayiboy.Caching, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.0\lib\Framework.Mayiboy.Caching.dll</HintPath>
+    <Reference Include="Framework.Mayiboy.Caching, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.1\lib\Framework.Mayiboy.Caching.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Framework.Mayiboy.Ioc, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -68,11 +68,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.84.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
-      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.0\lib\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.1\lib\ICSharpCode.SharpZipLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Memcached.ClientLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.0\lib\Memcached.ClientLibrary.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.1\lib\Memcached.ClientLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -85,19 +85,19 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="ServiceStack.Common, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.0\lib\ServiceStack.Common.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.1\lib\ServiceStack.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ServiceStack.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.0\lib\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.1\lib\ServiceStack.Interfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ServiceStack.Redis, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.0\lib\ServiceStack.Redis.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.1\lib\ServiceStack.Redis.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ServiceStack.Text, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.0\lib\ServiceStack.Text.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.1\lib\ServiceStack.Text.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
