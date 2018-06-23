@@ -30,10 +30,15 @@ namespace Mayiboy.Model.Model
         /// </summary>
         public string UrlAddress { get; set; }
 
-        /// <summary>
-        /// 菜单类型
-        /// </summary>
-        public int MenuType { get; set; }
+		/// <summary>
+		/// 地址是否鉴权（1：鉴权）
+		/// </summary>
+		public int? AddressAuth { get; set; }
+
+		/// <summary>
+		/// 菜单类型
+		/// </summary>
+		public int MenuType { get; set; }
 
         /// <summary>
         /// 图标

@@ -69,8 +69,21 @@ namespace Mayiboy.Admin.UI.Controllers
 
                 CacheManager.RedisDefault.Set(key, entity, PublicConst.Time.Hour1);
 
-                #region 记录用户操作日志
-                _systemOperationLogService.AddOperationLog(new AddOperationLogRequest
+				#region 只允许一个客户端登录
+				//var k = entity.Id.ToString().AddCachePrefix("LoginBind");
+
+				//var v = CacheManager.RedisDefault.Get(k);
+
+				//if (!string.IsNullOrEmpty(v))
+				//{
+				//	CacheManager.RedisDefault.Remove(v.AddCachePrefix(PublicConst.IdentityCookieKey));
+				//}
+
+				//CacheManager.RedisDefault.Set(k, identityValue, PublicConst.Time.Hour1); 
+				#endregion
+
+				#region 记录用户操作日志
+				_systemOperationLogService.AddOperationLog(new AddOperationLogRequest
                 {
                     Content = string.Format("[LoginName:{0}]-[Name:{1}]-[Content:{2}]", entity.LoginName, entity.Name, "用户登录")
                 });

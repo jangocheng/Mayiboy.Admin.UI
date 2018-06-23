@@ -319,7 +319,6 @@
         ShowEditPage: function (data) {
             var title = "";
             thisPage.InitSelectSysMenu();
-
             if (data == null) {
                 title = "新增系统菜单";
                 $("#txtid").val("0");
@@ -327,6 +326,7 @@
                 $("#txtname").val("");
                 $("#txturl").val("");
                 $("#selectmenutype").val("0");
+                $("#cboxjq").prop("checked", true);
                 $("#txtsort").val("0");
                 $("#txtremark").val("");
             } else {
@@ -336,17 +336,19 @@
                 $("#txtname").val(data.Name);
                 $("#txturl").val(data.UrlAddress);
                 $("#selectmenutype").val(data.MenuType);
+                $("#cboxjq").prop("checked", data.AddressAuth==1);
                 $("#txtsort").val(data.Sort);
                 $("#txtremark").val(data.Remark);
             }
 
             form.render('select');
+            form.render("checkbox");
 
             editsysmenunum = layer.open({
                 title: title,
                 resize: false,
                 type: 1,
-                area: ['500px', '520px'],
+                area: ['500px', '575px'],
                 offset: '20px',
                 content: $('#editsysmenu'), //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
                 btn: ["保存", "取消"],
@@ -375,6 +377,7 @@
                         Pid: $('#selectsysmenu').combotree('getValue'),
                         Name: $("#txtname").val(),
                         UrlAddress: $("#txturl").val(),
+                        AddressAuth: ($("#cboxjq").prop("checked")?"1":"0"),
                         NavbarId: $("#sysnavbar").val(),
                         MenuType: $("#selectmenutype").val(),
                         Sort: $("#txtsort").val(),

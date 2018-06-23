@@ -15,6 +15,11 @@
         /// </summary>
         public const string DataModelValidNotThrough = "";
 
+		/// <summary>
+		/// Url鉴权参数
+		/// </summary>
+	    public const string UrlAuth = "usercookie";
+
         /// <summary>
         /// 用于身份Cookie对应的Key常量
         /// </summary>
