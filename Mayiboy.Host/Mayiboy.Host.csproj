@@ -169,6 +169,7 @@
     <Content Include="Config\uat\Framework.Mayiboy.Caching.config" />
     <Content Include="Config\uat\Framework.Mayiboy.Logging.config" />
     <Content Include="Config\uat\Web.config" />
+    <None Include="Properties\PublishProfiles\发布Local.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -154,6 +154,7 @@
     <Content Include="packages.config" />
     <Content Include="Framework.Mayiboy.Logging.config" />
     <Content Include="Framework.Mayiboy.Caching.config" />
+    <None Include="Properties\PublishProfiles\发布Local.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
