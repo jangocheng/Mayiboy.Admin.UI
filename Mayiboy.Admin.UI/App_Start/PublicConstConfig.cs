@@ -15,10 +15,15 @@
             /// </summary>
             public const string Home = "~/Home/Index";
 
-            /// <summary>
-            /// 登录Url
-            /// </summary>
-            public const string OnLogin = "~/Account/Index";
+			/// <summary>
+			/// 数据验证不通过
+			/// </summary>
+			public const string DataModelValidNotThrough = "";
+
+			/// <summary>
+			/// 登录Url
+			/// </summary>
+			public const string OnLogin = "~/Account/Index";
 
             /// <summary>
             /// 登出Url
