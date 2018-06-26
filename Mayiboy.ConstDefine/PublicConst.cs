@@ -18,7 +18,7 @@
 		/// <summary>
 		/// Url鉴权参数
 		/// </summary>
-	    public const string UrlAuth = "usercookie";
+	    public const string UrlAuth = "ticket";
 
         /// <summary>
         /// 用于身份Cookie对应的Key常量

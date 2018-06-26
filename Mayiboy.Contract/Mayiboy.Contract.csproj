@@ -80,6 +80,9 @@
     <Compile Include="SystemOperationLog\ISystemOperationLogService.cs" />
     <Compile Include="SystemOperationLog\SystemOperationLogDto.cs" />
     <Compile Include="SystemOperationLog\SystemOperationLogParam.cs" />
+    <Compile Include="UserAppIdAuth\IUserAppIdAuthService.cs" />
+    <Compile Include="UserAppIdAuth\UserAppIdAuthServiceParam.cs" />
+    <Compile Include="UserAppIdAuth\UserAppIdAuthDto.cs" />
     <Compile Include="UserInfo\IUserInfoService.cs" />
     <Compile Include="UserInfo\UserInfoDto.cs" />
     <Compile Include="UserInfo\UserInfoServiceParam.cs" />

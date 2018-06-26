@@ -164,7 +164,9 @@
     <Content Include="Content\Images\face.jpg" />
     <Content Include="Content\Images\flag.png" />
     <Content Include="Content\Images\headimg.png" />
+    <Content Include="Content\Images\login-img.png" />
     <Content Include="Content\Images\login_bg.jpg" />
+    <Content Include="Content\Images\login_logo.png" />
     <Content Include="Content\lib\bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\lib\bootstrap\js\bootstrap.min.js" />
@@ -492,6 +494,7 @@
     <Content Include="Content\Styles\admin.css" />
     <Content Include="Content\Styles\font-awesome.min.css" />
     <Content Include="Content\Styles\index.css" />
+    <Content Include="Content\Styles\login.css" />
     <Content Include="Content\Styles\public.css" />
     <Content Include="Content\Styles\skins\_all-skins.css" />
     <Content Include="favicon.ico" />

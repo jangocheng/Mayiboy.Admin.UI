@@ -7,50 +7,87 @@
 
 <html>
 <head>
-    <meta charset="utf-8">
-    <link rel="icon" href="../../favicon.ico">
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <title>统一登录后台管理</title>
-    <link href="~/Content/lib/layui/css/layui.css" rel="stylesheet" />
-    <link href="~/Content/Styles/public.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>统一登录后台</title>
+    <link href="~/Content/Styles/login.css" rel="stylesheet" />
 </head>
 <body class="loginBody">
-    <form class="layui-form">
-        <div class="login_face">
-            <img src="~/Content/Images/face.jpg" class="userAvatar">
+    <div class="login_box">
+        <div class="login_l_img">
+            <img src="~/Content/Images/login-img.png" />
         </div>
-        <div class="layui-form-item input-item">
-            <label for="userName">用户名</label>
-            <input type="text" placeholder="请输入用户名" autocomplete="off" id="userName" class="layui-input" lay-verify="required">
+        <div class="login">
+            <div class="login_logo">
+                <a href="javascript:;">
+                    <img src="~/Content/Images/login-img.png" />
+                </a>
+            </div>
+            <div class="login_name">
+                <p>后台管理系统</p>
+            </div>
+            <form method="post">
+                <input id="username" name="username" type="text" placeholder="用户名">
+                <input id="password" name="password" type="password" placeholder="密码" />
+                <input id="loginbtn" data-url="@Url.Action("Submit","Login")" value="登录" type="button">
+            </form>
         </div>
-        <div class="layui-form-item input-item">
-            <label for="password">密码</label>
-            <input type="password" placeholder="请输入密码" autocomplete="off" id="password" class="layui-input" lay-verify="required">
-        </div>
-        <div class="layui-form-item input-item" id="imgCode">
-            <label for="code">验证码</label>
-            <input type="text" placeholder="请输入验证码" autocomplete="off" id="code" class="layui-input" lay-verify="required">
-            <img id="vcode" src="@Url.Action("VerifyCode","Account")" onclick="this.src='@Url.Action("VerifyCode","Account")?'+Math.random()" title="点击更新验证码">
-        </div>
-        <div class="layui-form-item">
-            <button class="layui-btn layui-block" id="loginbtn" lay-filter="login" data-url="@Url.Action("Login","Account")" data-tourl="@Url.Action("Index","Home")" lay-submit>登录</button>
-        </div>
-        <div class="layui-form-item layui-row">
-            <a href="javascript:;" class="seraph icon-qq layui-col-xs4 layui-col-sm4 layui-col-md4 layui-col-lg4"></a>
-            <a href="javascript:;" class="seraph icon-wechat layui-col-xs4 layui-col-sm4 layui-col-md4 layui-col-lg4"></a>
-            <a href="javascript:;" class="seraph icon-sina layui-col-xs4 layui-col-sm4 layui-col-md4 layui-col-lg4"></a>
-        </div>
-    </form>
-
+        <div class="copyright">某某有限公司 版权所有©2016-2018 技术支持电话：000-00000000</div>
+    </div>
     <script src="~/Content/lib/jquery/jQuery-2.2.0.min.js"></script>
     <script type="text/javascript" src="~/Content/Scripts/common/rasall.js"></script>
     <script type="text/javascript" src="~/Content/Scripts/common/jquery.cookie.js"></script>
     <script type="text/javascript" src="~/Content/Scripts/common/jquery.extend.js"></script>
     <script type="text/javascript" src="~/Content/lib/layui/layui.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            var thisPage = {
+                Init: function () {
+
+                    $("#username").focus();
+                    //回车
+                    $("body").bind("keydown", function (e) {
+                        var theEvent = e || window.event;
+                        var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
+                        if (code == 13) {
+                            //回车执行查询
+                            $("#loginbtn").click();
+                        }
+                    });
+
+                    $("#loginbtn").click(function () {
+                        var username = $("#username").val();
+                        var pwd = $("#password").val();
+
+                        if (username.length == 0 || pwd.length == 0) {
+                            alert("请正确输入用户名、密码！");
+                            return false;
+                        }
+
+                        $.ajax({
+                            type: "post",
+                            url: $("#loginbtn").data("url"),
+                            data: {
+                                username: $.Encrypt(username),
+                                password: $.Encrypt(pwd)
+                            },
+                            success: function (res) {
+                                if (res.status == 0) {
+                                    location.href = res.fromurl;
+                                } else {
+                                    alert(res.msg);
+                                }
+                            }
+                        });
+                    });
+                }
+            }
+
+            thisPage.Init();
+        })
+    </script>
 </body>
 </html>

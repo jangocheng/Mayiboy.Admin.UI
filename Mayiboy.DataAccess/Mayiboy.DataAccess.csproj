@@ -101,6 +101,7 @@
     <Compile Include="Interface\ISystemMenuRepository.cs" />
     <Compile Include="Interface\ISystemNavbarRepository.cs" />
     <Compile Include="Interface\ISystemOperationLogRepository.cs" />
+    <Compile Include="Interface\IUserAppIdAuthRepository.cs" />
     <Compile Include="Interface\IUserDepartmentJoinRepository.cs" />
     <Compile Include="Interface\IUserInfoRepository.cs" />
     <Compile Include="Interface\ISystemAppSettingsRepository.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Repository\SystemMenuRepository.cs" />
     <Compile Include="Repository\SystemNavbarRepository.cs" />
     <Compile Include="Repository\SystemOperationLogRepository.cs" />
+    <Compile Include="Repository\UserAppIdAuthRepository.cs" />
     <Compile Include="Repository\UserDepartmentJoinRepository.cs" />
     <Compile Include="Repository\UserInfoRepository.cs" />
     <Compile Include="Repository\UserRoleJoinRepository.cs" />

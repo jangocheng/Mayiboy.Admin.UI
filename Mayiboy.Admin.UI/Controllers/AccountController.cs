@@ -54,27 +54,35 @@ namespace Mayiboy.Admin.UI.Controllers
 				SessionHelper.Remove("vcode");
 				#endregion
 
+				#region 验证用户名密码
 				var request = new LoginQueryRequest
 				{
 					LoginName = model.UserName,
 					Password = model.PassWord.GetMd5()
 				};
 
-				var loginqueryresponse = _iuserinfoservice.LoginQuery(request);
+				var response = _iuserinfoservice.LoginQuery(request);
 
-				if (loginqueryresponse.UserInfoEntity == null)
+				if (!response.IsSuccess)
+				{
+					return Json(new { status = 4, msg = "登录出错！" }, JsonRequestBehavior.AllowGet);
+				}
+
+				if (response.UserInfoEntity == null)
 				{
 					//记录ip地址、用户名登陆次数
 					CacheManager.RunTimeCache.Set(loginkey, (loginnum + 1).ToString(), PublicConst.Time.Day1);
 					return Json(new { status = 2, msg = "密码错误" }, JsonRequestBehavior.AllowGet);
 				}
+				CacheManager.RunTimeCache.Remove(loginkey);
+				#endregion
 
 				#region 保存用户登录状态
 				string identityValue = Guid.NewGuid().ToString("N");
 
 				CookieHelper.Set(PublicConst.IdentityCookieKey, identityValue, true);
 
-				var entity = loginqueryresponse.UserInfoEntity.As<AccountModel>();
+				var entity = response.UserInfoEntity.As<AccountModel>();
 
 				entity.Fingerprint = RequestHelper.Fingerprint;
 
