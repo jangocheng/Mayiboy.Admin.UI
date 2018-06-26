@@ -11,19 +11,29 @@ namespace Mayiboy.Admin.UI.Controllers
 	/// </summary>
 	public class LoginController : Controller
 	{
-		public ActionResult Index(string frommurl, string fromappid)
+		//统一登陆页面
+		public ActionResult Index(string fromurl, string fromappid)
 		{
-			if (string.IsNullOrEmpty(frommurl) || string.IsNullOrEmpty(fromappid))
+			if (string.IsNullOrEmpty(fromurl) || string.IsNullOrEmpty(fromappid))
 			{
 				return Content("参数有误");
 			}
 
-			ViewBag.FormUrl = frommurl;
+			ViewBag.FormUrl = fromurl;
 
 			return View();
 		}
 
+		//登陆
 		public ActionResult Submit(string fromappid, string username, string password, string code)
+		{
+			//如果重定向回调地址
+
+			return Content("");
+		}
+
+		//验证凭证是否正确
+		public ActionResult ValidateClientTicket()
 		{
 			return Content("");
 		}
