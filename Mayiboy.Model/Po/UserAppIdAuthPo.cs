@@ -4,11 +4,12 @@ using SqlSugar;
 namespace Mayiboy.Model.Po
 {
 	[SugarTable("UserAppIdAuth")]
-	public class UserAppIdAuthPo
+	public class  UserAppIdAuthPo
 	{
 		/// <summary>
 		/// 主键Id
 		/// </summary>
+		[SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
 		public int Id { get; set; }
 
 		/// <summary>

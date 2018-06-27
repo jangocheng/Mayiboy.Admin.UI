@@ -17,9 +17,9 @@ namespace Mayiboy.Admin.UI.Controllers
 	public class LoginController : Controller
 	{
 		private readonly IUserInfoService _iuserinfoservice;
-		private readonly IUserApIdAuthService _userApIdAuthService;
+		private readonly IUserAppIdAuthService _userApIdAuthService;
 
-		public LoginController(IUserInfoService iuserinfoservice, IUserApIdAuthService userApIdAuthService)
+		public LoginController(IUserInfoService iuserinfoservice, IUserAppIdAuthService userApIdAuthService)
 		{
 			_iuserinfoservice = iuserinfoservice;
 			_userApIdAuthService = userApIdAuthService;
@@ -98,7 +98,7 @@ namespace Mayiboy.Admin.UI.Controllers
 				#endregion
 
 				#region 验证fromId
-				var userappidauthresponse = _userApIdAuthService.QueryUserAppId(new QueryUserAppIdRequest
+				var userappidauthresponse = _userApIdAuthService.QueryByUserAppId(new QueryByUserAppIdRequest
 				{
 					UserId = response.UserInfoEntity.Id,
 					UserAppId = fromappid,

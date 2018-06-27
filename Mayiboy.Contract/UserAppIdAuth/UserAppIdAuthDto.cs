@@ -15,6 +15,16 @@ namespace Mayiboy.Contract
 		public int UserId { get; set; }
 
 		/// <summary>
+		/// 用户名
+		/// </summary>
+		public string LoginName { get; set; }
+
+		/// <summary>
+		/// 姓名
+		/// </summary>
+		public string Name { get; set; }
+
+		/// <summary>
 		/// 应用Id
 		/// </summary>
 		public string AppId { get; set; }

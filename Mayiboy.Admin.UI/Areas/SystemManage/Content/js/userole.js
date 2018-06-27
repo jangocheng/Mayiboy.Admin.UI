@@ -56,6 +56,7 @@
                             { field: 'Remark', title: "备注", width: 250 },
                             {
                                 field: 'look',
+                                fixed: 'right',
                                 title: '操作',
                                 width: 200,
                                 templet: function (row) {

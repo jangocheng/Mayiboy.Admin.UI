@@ -1,0 +1,281 @@
+﻿@using Mayiboy.Model.Model
+
+@{
+    ViewBag.Title = "登录授权";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+@section head_section{
+    <link href="~/Content/lib/jqueryeasyui/themes/gray/easyui.css" rel="stylesheet" />
+    <link href="~/Content/lib/jqueryeasyui/themes/icon.css" rel="stylesheet" />
+    <script src="~/Content/lib/jqueryeasyui/jquery.easyui.min.js"></script>
+    <script src="~/Content/lib/jqueryeasyui/plugins/jquery.treegrid.js"></script>
+    <script src="~/Content/lib/jqueryeasyui/plugins/jquery.tree.js"></script>
+}
+@*面包屑*@
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb" style="visibility: visible;">
+        <a lay-href="">主页</a><span lay-separator="">/</span>
+        <a><cite>组件</cite></a><span lay-separator="">/</span>
+        <a><cite>数据表格</cite></a><span lay-separator="">/</span>
+        <a><cite>数据表格的重载</cite></a>
+    </div>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    登录授权管理
+                </div>
+                <div class="layui-card-body" style="margin: 0px; padding: 0px;">
+                    <div class="layui-card" style="margin: 0px;">
+                        <div class="layui-card-body" style="padding: 0px;">
+                            <div class="layui-btn-container" style="float: left; padding: 5px;">
+                                <div class="layui-btn-group">
+                                    <label class="mayiboy-lable">用户名:</label>
+                                    <input id="name" class="mayiboy-input" placeholder="用户名" />
+                                </div>
+                                <div class="layui-btn-group">
+                                    <label class="mayiboy-lable">AppId:</label>
+                                    <input id="appid" class="mayiboy-input" placeholder="AppId" />
+                                </div>
+                                <div class="layui-btn-group">
+                                    <button id="btnquery" class="layui-btn">查询</button>
+                                </div>
+                            </div>
+
+                            <div class="layui-btn-container" style="padding: 5px; float: right;">
+                                <div class="layui-btn-group">
+                                    <button id="btnadd" class="layui-btn">新增</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table id="dttable" lay-filter="table-operate" data-url="@Url.Action("Query", "UserAppIdAuth", new {areas = "SystemManage"})" data-delurl="@Url.Action("Del", "UserAppIdAuth", new {areas = "SystemManage"})"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*编辑用户角色*@
+<div id="edituserappid" title="用户授权编辑" style="display: none;" data-url="@Url.Action("Save", "UserAppIdAuth", new {areas = "SystemManage"})">
+    <div class="layui-form" style="padding: 20px;">
+        <input id="txtid" type="hidden" value="0" />
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户名：</label>
+            <div class="layui-input-block" style="width:300px;">
+                <select id="username" lay-verify="required" lay-search style="max-height:200px;height:200px;">
+                    <option value="1">layer</option>
+                    <option value="2">simon</option>
+                    <option value="3">simon.cai</option>
+                    <option value="4">caishangmeng</option>
+                    <option value="4">caishangmeng</option>
+                    <option value="4">caishangmeng</option>
+                    <option value="4">caishangmeng</option>
+                    <option value="4">caishangmeng</option>
+                    <option value="4">caishangmeng</option>
+                    <option value="4">caishangmeng</option>
+                    <option value="4">caishangmeng</option>
+                    <option value="4">caishangmeng</option>
+                    <option value="4">caishangmeng</option>
+                    <option value="4">caishangmeng</option>
+                    <option value="4">caishangmeng</option>
+                    <option value="4">caishangmeng</option>
+                    <option value="4">caishangmeng</option>
+                    <option value="4">caishangmeng</option>
+                    <option value="4">caishangmeng</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">AppId：</label>
+            <div class="layui-input-block">
+                <input id="txtappid" type="text" required lay-verify="required" placeholder="AppId" style="width: 300px;" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">备注：</label>
+            <div class="layui-input-block">
+                <textarea id="txtremark" placeholder="请输入内容" class="layui-textarea" style="width: 300px; height: 30px; resize: none"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section foot_section{
+    <script type="text/javascript">
+        $(function() {
+
+            var edituserappidenum;
+
+            var thisPage = {
+                Buttons: {
+                    UserApIdTable: null
+                },
+                Init: function() {
+                    thisPage.InitUserApIdTable();
+
+                    $("#btnquery").click(function() {
+                        thisPage.QueryUserAppId();
+                    });
+
+                    $("#btnadd").click(function () {
+                        thisPage.ShowEditPage();
+                    });
+                },
+                InitUserApIdTable: function() {
+                    layui.use("table", function() {
+
+                        var table = layui.table;
+
+                        thisPage.Buttons.UserApIdTable = table.render({
+                            elem: '#dttable',
+                            url: $("#dttable").data("url"), //数据接口
+                            page: true, //开启分页
+                            limit: 20,
+                            even: true, //各行变色
+                            cols: [
+                                [
+                                    { field: 'id', title: '序号', type: "numbers", width: 60 },
+                                    { field: 'LoginName', title: '用户名', width: 200 },
+                                    { field: 'AppId', title: 'AppId', width: 150 },
+                                    {
+                                        field: 'CreateTime',
+                                        title: '新增时间',
+                                        width: 180,
+                                        templet: function(row) {
+                                            return $.Extend_formatDateTime(row.CreateTime);
+                                        }
+                                    },
+                                    {
+                                        field: 'UpdateTime',
+                                        title: '更新时间',
+                                        width: 180,
+                                        templet: function(row) {
+                                            return $.Extend_formatDateTime(row.CreateTime);
+                                        }
+                                    },
+                                    { field: 'Remark', title: "备注", width: 250 },
+                                    {
+                                        field: 'look',
+                                        fixed: 'right',
+                                        title: '操作',
+                                        width: 200,
+                                        templet: function(row) {
+                                            var html = "";
+                                            html += '<a href="javascript:;" class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>';
+                                            html += '<a href="javascript:;" class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>';
+                                            return html;
+                                        }
+                                    }
+                                ]
+                            ],
+                            done: function(res, curr, count) {
+
+                            }
+                        });
+
+                        //监听工具条
+                        table.on('tool(table-operate)', function(obj) {
+                            var data = obj.data; //获得当前行数据
+                            var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+                            var tr = obj.tr; //获得当前行 tr 的DOM对象
+
+                            switch (obj.event) {
+                            case "edit":
+                                thisPage.ShowEditPage(data);
+                                break;
+                            case "del":
+                                layer.confirm('真的删除行吗？', function(index) {
+                                    thisPage.Del(data, index);
+                                });
+                                break;
+                            default:
+                            }
+                        });
+                    });
+                },
+                QueryUserAppId: function() {
+                    thisPage.Buttons.UserApIdTable.reload({
+                        where: {
+                            username: $("#name").val(),
+                            appid: $("#appid").val()
+                        },
+                        page: {
+                            curr: 1 //重新从第 1 页开始
+                        }
+                    });
+                },
+                ShowEditPage: function(data) {
+                    var title = "";
+                    if (data == null) {
+                        title = "新增登录授权";
+                    } else {
+                        title = "编辑登录授权";
+                    }
+
+                    edituserappidenum = layer.open({
+                        title: title,
+                        resize: false,
+                        type: 1,
+                        area: ['500px', '380px'],
+                        offset: '20px',
+                        content: $('#edituserappid'), //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+                        btn: ["保存", "取消"],
+                        btn1: function() {
+                            thisPage.SaveUserAppId();
+                        },
+                        btn2: function() {
+                            // alert("取消");
+                        },
+                        cancel: function() {
+                            // alert("退出");
+                        }
+                    });
+
+                },
+                SaveUserAppId: function() {
+                    var isb = layer.IsValidation("#edituserappid");
+
+                    if (isb == null) {
+                        $.ajax({
+                            type: "post",
+                            url: $("#").data("url"),
+                            data: {
+
+                            },
+                            success: function(res) {
+                                if (res.status == 0) {
+                                    layer.msg("保存成功");
+                                    thisPage.Buttons.UserApIdTable.reload();
+                                    layer.close(edituserappidenum);
+                                } else {
+                                    layer.msg(res.msg);
+                                }
+                            }
+                        });
+                    }
+                },
+                Del: function(row, index) {
+                    $.ajax({
+                        type: "get",
+                        url: $("#dttable").data("delurl"),
+                        data: {id:row.Id},
+                        success:function(res) {
+                            if (res.status == 0) {
+                                thisPage.Buttons.UserApIdTable.reload();
+                                layer.close(index);
+                            } else {
+                                layer.msg(res.msg);
+                            }
+                        }
+                    });
+                }
+            }
+
+            thisPage.Init();
+        })
+    </script>
+}

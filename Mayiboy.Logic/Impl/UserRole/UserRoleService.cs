@@ -99,7 +99,7 @@ namespace Mayiboy.Logic.Impl
                     }
 
                     EntityLogger.UpdateEntity(entity);
-                    _userRoleRepository.UpdateIgnoreColumns(entity, e => new {e.IsValid, e.CreateTime, e.CreateUserId,});
+	                _userRoleRepository.UpdateIgnoreColumns(entity, e => new {e.IsValid, e.CreateTime, e.CreateUserId,});
                 }
 
             }
