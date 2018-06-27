@@ -97,7 +97,7 @@ namespace Mayiboy.Admin.UI.Controllers
 				CacheManager.RunTimeCache.Remove(loginkey);
 				#endregion
 
-				#region 验证fromId
+				#region 验证fromappId
 				var userappidauthresponse = _userApIdAuthService.QueryUserAppId(new QueryUserAppIdRequest
 				{
 					UserId = response.UserInfoEntity.Id,
