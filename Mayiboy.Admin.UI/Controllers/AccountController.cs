@@ -7,7 +7,7 @@ using Framework.Mayiboy.Utility;
 using Framework.Mayiboy.Utility.EncryptionHelper;
 using Mayiboy.ConstDefine;
 using Mayiboy.Contract;
-using Mayiboy.Model.Model;
+using Mayiboy.Model;
 using Mayiboy.Utils;
 
 namespace Mayiboy.Admin.UI.Controllers

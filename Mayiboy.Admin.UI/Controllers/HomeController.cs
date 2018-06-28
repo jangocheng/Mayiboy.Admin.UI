@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Mayiboy.ConstDefine;
 using Mayiboy.Contract;
-using Mayiboy.Model.Model;
+using Mayiboy.Model;
 using Mayiboy.Utils;
 
 namespace Mayiboy.Admin.UI.Controllers

@@ -21,12 +21,19 @@ namespace Mayiboy.Contract
         /// <returns></returns>
         QueryUserInfoResponse QueryUserInfo(QueryUserInfoRequest request);
 
-        /// <summary>
-        /// 删除用户信息
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        DelUserInfoResponse Del(DelUserInfoRequest request);
+		/// <summary>
+		/// 根据用户名查询用户列表
+		/// </summary>
+		/// <param name="request"></param>
+		/// <returns></returns>
+	    QueryUserInfoByNameResponse QueryUserInfoByName(QueryUserInfoByNameRequest request);
+
+		/// <summary>
+		/// 删除用户信息
+		/// </summary>
+		/// <param name="request"></param>
+		/// <returns></returns>
+		DelUserInfoResponse Del(DelUserInfoRequest request);
 
         /// <summary>
         /// 查询

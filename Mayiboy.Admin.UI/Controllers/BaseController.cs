@@ -8,7 +8,7 @@ using Framework.Mayiboy.Utility;
 using Mayiboy.ConstDefine;
 using Mayiboy.Contract;
 using Mayiboy.Logic.Impl;
-using Mayiboy.Model.Model;
+using Mayiboy.Model;
 using Mayiboy.Utils;
 
 namespace Mayiboy.Admin.UI.Controllers

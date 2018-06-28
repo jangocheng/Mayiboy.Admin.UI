@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mayiboy.Model.Model
+namespace Mayiboy.Model
 {
     public class AccountModel
     {
@@ -39,10 +39,20 @@ namespace Mayiboy.Model.Model
         /// </summary>
         public string Mobile { get; set; }
 
-        /// <summary>
-        /// 创建时间
-        /// </summary>
-        public DateTime CreateTime { get; set; }
+		/// <summary>
+		/// 家庭住址
+		/// </summary>
+		public string HomeAddress { get; set; }
+
+		/// <summary>
+		/// 部门Id
+		/// </summary>
+		public int? DepartmentId { get; set; }
+
+		/// <summary>
+		/// 创建时间
+		/// </summary>
+		public DateTime CreateTime { get; set; }
 
         /// <summary>
         /// 更新时间

@@ -37,11 +37,13 @@ namespace Mayiboy.DataAccess.Repository
 				CreateTime = t1.CreateTime,
 				CreateUserId = t1.CreateUserId,
 				IsValid = t1.IsValid,
+				Remark=t1.Remark,
 				UpdateTime = t1.UpdateTime,
 				UpdateUserId = t1.UpdateUserId,
 				UserId = t1.UserId,
 				LoginName = t2.LoginName,
-				Name=t2.Name
+				Name = t2.Name,
+				Email = t2.Email
 			}).ToPageList(pageindex, pagesize, ref total);
 
 			return list;

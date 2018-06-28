@@ -3,7 +3,7 @@ using Framework.Mayiboy.Ioc;
 using Framework.Mayiboy.Utility;
 using Mayiboy.ConstDefine;
 using Mayiboy.Contract;
-using Mayiboy.Model.Model;
+using Mayiboy.Model;
 using Mayiboy.Utils;
 
 namespace Mayiboy.Admin.UI

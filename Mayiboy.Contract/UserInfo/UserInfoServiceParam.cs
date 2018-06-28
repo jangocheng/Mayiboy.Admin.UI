@@ -145,4 +145,21 @@ namespace Mayiboy.Contract
 
 	}
 
+
+	public class QueryUserInfoByNameRequest : Request
+	{
+		/// <summary>
+		/// 用户名
+		/// </summary>
+		public string Name { get; set; }
+	}
+
+	public class QueryUserInfoByNameResponse : Response
+	{
+		/// <summary>
+		/// 用户列表
+		/// </summary>
+		public List<UserInfoDto> EntityList { get; set; }
+	}
+
 }

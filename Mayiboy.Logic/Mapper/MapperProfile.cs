@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using AutoMapper;
 using Mayiboy.Contract;
-using Mayiboy.Model.Model;
+using Mayiboy.Model;
 using Mayiboy.Model.Po;
 
 namespace Mayiboy.Logic.Mapper

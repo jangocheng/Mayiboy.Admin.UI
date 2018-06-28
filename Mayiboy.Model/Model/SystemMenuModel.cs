@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Mayiboy.Model.Model
+namespace Mayiboy.Model
 {
     public class SystemMenuModel
     {

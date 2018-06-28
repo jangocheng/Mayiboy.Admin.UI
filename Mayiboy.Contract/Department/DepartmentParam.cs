@@ -50,4 +50,20 @@ namespace Mayiboy.Contract
     {
         
     }
+
+	/// <summary>
+	/// 查询组织架构参数
+	/// </summary>
+	public class QueryOrganizationRequest : Request
+	{
+		/// <summary>
+		/// 部门Id
+		/// </summary>
+		public int DepartmentId { get; set; }
+	}
+
+	public class QueryOrganizationResponse : Response
+	{
+		
+	}
 }

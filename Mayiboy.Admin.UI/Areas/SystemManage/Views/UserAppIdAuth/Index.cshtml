@@ -1,8 +1,11 @@
-﻿@using Mayiboy.Model.Model
+﻿@using Mayiboy.Contract
+@using Mayiboy.Model
 
 @{
     ViewBag.Title = "登录授权";
     Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+
+    var UserInfoList = ViewBag.UserInfoList as List<UserInfoDto>;
 }
 @section head_section{
     <link href="~/Content/lib/jqueryeasyui/themes/gray/easyui.css" rel="stylesheet" />
@@ -66,26 +69,15 @@
         <div class="layui-form-item">
             <label class="layui-form-label">用户名：</label>
             <div class="layui-input-block" style="width:300px;">
-                <select id="username" lay-verify="required" lay-search style="max-height:200px;height:200px;">
-                    <option value="1">layer</option>
-                    <option value="2">simon</option>
-                    <option value="3">simon.cai</option>
-                    <option value="4">caishangmeng</option>
-                    <option value="4">caishangmeng</option>
-                    <option value="4">caishangmeng</option>
-                    <option value="4">caishangmeng</option>
-                    <option value="4">caishangmeng</option>
-                    <option value="4">caishangmeng</option>
-                    <option value="4">caishangmeng</option>
-                    <option value="4">caishangmeng</option>
-                    <option value="4">caishangmeng</option>
-                    <option value="4">caishangmeng</option>
-                    <option value="4">caishangmeng</option>
-                    <option value="4">caishangmeng</option>
-                    <option value="4">caishangmeng</option>
-                    <option value="4">caishangmeng</option>
-                    <option value="4">caishangmeng</option>
-                    <option value="4">caishangmeng</option>
+                <select id="selectusername" lay-verify="required" lay-search style="max-height: 200px; height: 200px;">
+                    @if (UserInfoList != null)
+                    {
+                        <option value="=0">输入查询用户</option>
+                        foreach (var item in UserInfoList)
+                         {
+                             <option value="@item.Id">@item.Email</option>    
+                         }
+                    }
                 </select>
             </div>
         </div>
@@ -106,27 +98,32 @@
 
 @section foot_section{
     <script type="text/javascript">
-        $(function() {
+        $(function () {
 
             var edituserappidenum;
+            var form;
 
             var thisPage = {
                 Buttons: {
                     UserApIdTable: null
                 },
-                Init: function() {
+                Init: function () {
                     thisPage.InitUserApIdTable();
 
-                    $("#btnquery").click(function() {
+                    $("#btnquery").click(function () {
                         thisPage.QueryUserAppId();
                     });
 
                     $("#btnadd").click(function () {
                         thisPage.ShowEditPage();
                     });
+
+                    layui.use(["table", "form"], function () {
+                        form = layui.form;
+                    });
                 },
-                InitUserApIdTable: function() {
-                    layui.use("table", function() {
+                InitUserApIdTable: function () {
+                    layui.use("table", function () {
 
                         var table = layui.table;
 
@@ -140,12 +137,13 @@
                                 [
                                     { field: 'id', title: '序号', type: "numbers", width: 60 },
                                     { field: 'LoginName', title: '用户名', width: 200 },
+                                    { field: 'Email', title: '邮箱', width: 200 },
                                     { field: 'AppId', title: 'AppId', width: 150 },
                                     {
                                         field: 'CreateTime',
                                         title: '新增时间',
                                         width: 180,
-                                        templet: function(row) {
+                                        templet: function (row) {
                                             return $.Extend_formatDateTime(row.CreateTime);
                                         }
                                     },
@@ -153,7 +151,7 @@
                                         field: 'UpdateTime',
                                         title: '更新时间',
                                         width: 180,
-                                        templet: function(row) {
+                                        templet: function (row) {
                                             return $.Extend_formatDateTime(row.CreateTime);
                                         }
                                     },
@@ -163,7 +161,7 @@
                                         fixed: 'right',
                                         title: '操作',
                                         width: 200,
-                                        templet: function(row) {
+                                        templet: function (row) {
                                             var html = "";
                                             html += '<a href="javascript:;" class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>';
                                             html += '<a href="javascript:;" class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>';
@@ -172,32 +170,32 @@
                                     }
                                 ]
                             ],
-                            done: function(res, curr, count) {
+                            done: function (res, curr, count) {
 
                             }
                         });
 
                         //监听工具条
-                        table.on('tool(table-operate)', function(obj) {
+                        table.on('tool(table-operate)', function (obj) {
                             var data = obj.data; //获得当前行数据
                             var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
                             var tr = obj.tr; //获得当前行 tr 的DOM对象
 
                             switch (obj.event) {
-                            case "edit":
-                                thisPage.ShowEditPage(data);
-                                break;
-                            case "del":
-                                layer.confirm('真的删除行吗？', function(index) {
-                                    thisPage.Del(data, index);
-                                });
-                                break;
-                            default:
+                                case "edit":
+                                    thisPage.ShowEditPage(data);
+                                    break;
+                                case "del":
+                                    layer.confirm('真的删除行吗？', function (index) {
+                                        thisPage.Del(data, index);
+                                    });
+                                    break;
+                                default:
                             }
                         });
                     });
                 },
-                QueryUserAppId: function() {
+                QueryUserAppId: function () {
                     thisPage.Buttons.UserApIdTable.reload({
                         where: {
                             username: $("#name").val(),
@@ -208,13 +206,23 @@
                         }
                     });
                 },
-                ShowEditPage: function(data) {
+                ShowEditPage: function (data) {
                     var title = "";
                     if (data == null) {
                         title = "新增登录授权";
+                        $("#txtid").val("0");
+                        $("#selectusername").val("0");
+                        $("#txtappid").val("");
+                        $("#txtremark").val("");
                     } else {
                         title = "编辑登录授权";
+                        $("#txtid").val(data.Id);
+                        $("#selectusername").val(data.UserId);
+                        $("#txtappid").val(data.AppId);
+                        $("#txtremark").val(data.Remark);
                     }
+                    
+                    form.render("select");
 
                     edituserappidenum = layer.open({
                         title: title,
@@ -224,29 +232,32 @@
                         offset: '20px',
                         content: $('#edituserappid'), //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
                         btn: ["保存", "取消"],
-                        btn1: function() {
+                        btn1: function () {
                             thisPage.SaveUserAppId();
                         },
-                        btn2: function() {
+                        btn2: function () {
                             // alert("取消");
                         },
-                        cancel: function() {
+                        cancel: function () {
                             // alert("退出");
                         }
                     });
 
                 },
-                SaveUserAppId: function() {
+                SaveUserAppId: function () {
                     var isb = layer.IsValidation("#edituserappid");
 
                     if (isb == null) {
                         $.ajax({
                             type: "post",
-                            url: $("#").data("url"),
+                            url: $("#edituserappid").data("url"),
                             data: {
-
+                                id: $("#txtid").val(),
+                                userId: $("#selectusername").val(),
+                                appid: $("#txtappid").val(),
+                                remark: $("#txtremark").val()
                             },
-                            success: function(res) {
+                            success: function (res) {
                                 if (res.status == 0) {
                                     layer.msg("保存成功");
                                     thisPage.Buttons.UserApIdTable.reload();
@@ -258,12 +269,12 @@
                         });
                     }
                 },
-                Del: function(row, index) {
+                Del: function (row, index) {
                     $.ajax({
                         type: "get",
                         url: $("#dttable").data("delurl"),
-                        data: {id:row.Id},
-                        success:function(res) {
+                        data: { id: row.Id },
+                        success: function (res) {
                             if (res.status == 0) {
                                 thisPage.Buttons.UserApIdTable.reload();
                                 layer.close(index);

@@ -20,6 +20,11 @@ namespace Mayiboy.Contract
 		public string LoginName { get; set; }
 
 		/// <summary>
+		/// 邮箱地址
+		/// </summary>
+		public string Email { get; set; }
+
+		/// <summary>
 		/// 姓名
 		/// </summary>
 		public string Name { get; set; }
@@ -28,6 +33,8 @@ namespace Mayiboy.Contract
 		/// 应用Id
 		/// </summary>
 		public string AppId { get; set; }
+
+		public string Remark { get; set; }
 
 		/// <summary>
 		/// 创建用户Id

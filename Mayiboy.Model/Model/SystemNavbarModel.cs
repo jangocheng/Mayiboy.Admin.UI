@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mayiboy.Model.Model
+namespace Mayiboy.Model
 {
     public class SystemNavbarModel
     {

@@ -13,15 +13,28 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
 	public class UserAppIdAuthController : BaseController
 	{
 		private readonly IUserAppIdAuthService _userAppIdAuthService;
+		private readonly IUserInfoService _userInfoService;
 
-		public UserAppIdAuthController(IUserAppIdAuthService userRoleService)
+		public UserAppIdAuthController(IUserAppIdAuthService userRoleService, IUserInfoService userInfoService)
 		{
 			_userAppIdAuthService = userRoleService;
+			_userInfoService = userInfoService;
 		}
 
 
 		public ActionResult Index()
 		{
+			var list = new List<UserInfoDto>();
+
+			var response = _userInfoService.QueryUserInfoByName(new QueryUserInfoByNameRequest { });
+
+			if (response.IsSuccess && response.EntityList != null)
+			{
+				list = response.EntityList;
+			}
+
+			ViewBag.UserInfoList = list;
+
 			return View();
 		}
 
@@ -55,7 +68,7 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
 
 		[ActionAuth]
 		[OperLog("保存用户授权AppId")]
-		public ActionResult Save(string id, string userId, string appid)
+		public ActionResult Save(string id, string userId, string appid, string remark)
 		{
 			try
 			{
@@ -68,8 +81,10 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
 				{
 					Entity = new UserAppIdAuthDto
 					{
+						Id = int.Parse(id),
 						UserId = int.Parse(userId),
-						AppId = appid
+						AppId = appid,
+						Remark = remark
 					}
 				});
 

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Reflection;
 using Framework.Mayiboy.Utility;
 using Mayiboy.ConstDefine;
-using Mayiboy.Model.Model;
+using Mayiboy.Model;
 using Mayiboy.Utils;
 using System.Web;
 

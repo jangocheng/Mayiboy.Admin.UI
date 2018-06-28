@@ -47,10 +47,20 @@ namespace Mayiboy.Model.Po
         /// </summary>
         public string Mobile { get; set; }
 
-        /// <summary>
-        /// 创建人Id
-        /// </summary>
-        public int CreateUserId { get; set; }
+		/// <summary>
+		/// 家庭住址
+		/// </summary>
+	    public string HomeAddress { get; set; }
+
+	    /// <summary>
+		/// 部门Id
+		/// </summary>
+	    public int? DepartmentId { get; set; }
+
+	    /// <summary>
+		/// 创建人Id
+		/// </summary>
+		public int CreateUserId { get; set; }
 
         /// <summary>
         /// 创建时间

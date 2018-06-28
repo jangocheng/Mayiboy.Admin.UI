@@ -23,6 +23,11 @@ namespace Mayiboy.Model.Po
 		public string AppId { get; set; }
 
 		/// <summary>
+		/// 备注
+		/// </summary>
+		public string Remark { get; set; }
+
+		/// <summary>
 		/// 创建用户Id
 		/// </summary>
 		public int CreateUserId { get; set; }
