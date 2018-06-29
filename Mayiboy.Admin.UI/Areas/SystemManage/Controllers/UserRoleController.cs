@@ -133,6 +133,7 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
 			}
 			catch (Exception ex)
 			{
+				LogManager.DefaultLogger.ErrorFormat("查询角色出错：{0}", new { err = ex.ToString() }.ToJson());
 				return ToJsonFatalResult("系统出错");
 			}
 		}

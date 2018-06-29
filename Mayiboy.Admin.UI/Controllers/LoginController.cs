@@ -77,7 +77,7 @@ namespace Mayiboy.Admin.UI.Controllers
 
 				#region 验证用户名密码
 
-				
+
 				var response = _iuserinfoservice.LoginQuery(new LoginQueryRequest
 				{
 					LoginName = username,
@@ -117,6 +117,7 @@ namespace Mayiboy.Admin.UI.Controllers
 
 				var ticket = Guid.NewGuid().ToString("N");
 
+				CacheManager.RunTimeCache.Set(fromappid, ticket, 60 * 5);
 				CacheManager.RunTimeCache.Set(ticket, response.UserInfoEntity, 60 * 5);
 
 				fromurl = string.Concat(fromurl, (fromurl.Contains("?") ? "&" : "?"), PublicConst.UrlAuth, "=", ticket);
@@ -132,21 +133,31 @@ namespace Mayiboy.Admin.UI.Controllers
 
 		//验证凭证
 		[HttpPost]
-		public ActionResult ValidateClientTicket(string ticket)
+		public ActionResult ValidateClientTicket(string appid, string ticket)
 		{
-			if (string.IsNullOrEmpty(ticket))
+			#region 验证参数的有效性
+			if (string.IsNullOrEmpty(ticket) || string.IsNullOrEmpty(appid))
 			{
 				return Json(new { status = 1, msg = "参数有误" }, JsonRequestBehavior.AllowGet);
 			}
 
-			var entity = CacheManager.RunTimeCache.Get<UserInfoDto>(ticket);
+			var cacheticket = CacheManager.RunTimeCache.Get(appid);
 
-			if (ticket.IsNullOrEmpty())
+			if (cacheticket.IsNullOrEmpty())
 			{
-				return Json(new { status = 2, msg = "参数无效" }, JsonRequestBehavior.AllowGet);
+				return Json(new { status = 2, msg = "参数有误" }, JsonRequestBehavior.AllowGet);
 			}
 
+			if (cacheticket != ticket)
+			{
+				return Json(new { status = 3, msg = "参数有误" }, JsonRequestBehavior.AllowGet);
+			}
+			#endregion
+
+			var entity = CacheManager.RunTimeCache.Get<UserInfoDto>(ticket);
+
 			CacheManager.RunTimeCache.Remove(ticket);
+			CacheManager.RunTimeCache.Remove(appid);
 
 			return Json(new { status = 0, entity }, JsonRequestBehavior.AllowGet);
 		}
