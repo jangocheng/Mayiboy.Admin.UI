@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Framework.Mayiboy.Utility;
@@ -132,11 +133,10 @@ namespace Mayiboy.Admin.UI.Controllers
 		}
 
 		//验证凭证
-		[HttpPost]
-		public ActionResult ValidateClientTicket(string appid, string ticket)
+		public ActionResult ValidateClientTicket(string appid, string ticket, string encrypt)
 		{
 			#region 验证参数的有效性
-			if (string.IsNullOrEmpty(ticket) || string.IsNullOrEmpty(appid))
+			if (string.IsNullOrEmpty(ticket) || string.IsNullOrEmpty(appid) || encrypt.IsNullOrEmpty())
 			{
 				return Json(new { status = 1, msg = "参数有误" }, JsonRequestBehavior.AllowGet);
 			}
@@ -152,14 +152,41 @@ namespace Mayiboy.Admin.UI.Controllers
 			{
 				return Json(new { status = 3, msg = "参数有误" }, JsonRequestBehavior.AllowGet);
 			}
+
+			if (!ValidateEncrypt(ticket, encrypt))
+			{
+				return Json(new { status = 4, msg = "非法访问" });
+			}
+
 			#endregion
 
 			var entity = CacheManager.RunTimeCache.Get<UserInfoDto>(ticket);
 
-			CacheManager.RunTimeCache.Remove(ticket);
-			CacheManager.RunTimeCache.Remove(appid);
-
 			return Json(new { status = 0, entity }, JsonRequestBehavior.AllowGet);
+		}
+
+		/// <summary>
+		/// 验证Encrypt
+		/// </summary>
+		/// <param name="encrypt"></param>
+		/// <returns></returns>
+		public bool ValidateEncrypt(string ticket, string encrypt)
+		{
+			var list = Request.QueryString.AllKeys.Where(e => e != "encrypt").Select(e => string.Format("{0}={1}", e, Request.QueryString.Get(e))).ToList();
+
+			var secretKey = ConfigHelper.GetString("ValidateTicket.SecretKey");
+
+			list.Sort();
+
+			StringBuilder stringBuilder = new StringBuilder();
+			foreach (string current in list)
+			{
+				stringBuilder.Append(current);
+			}
+
+			string password = stringBuilder.ToString() + secretKey;
+
+			return password.GetMd5() == encrypt;
 		}
 	}
 }
