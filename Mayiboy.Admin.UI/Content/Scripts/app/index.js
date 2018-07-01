@@ -283,11 +283,14 @@
                 }
             });
             $("#changepassword").on('click', function () {
+
+                $('#txtoldpwd,#txtnewpwd,#txtconfirmpwd').val("");
+
                var opennum= layer.open({
                     title: "修改密码",
                     resize: false,
                     type: 1,
-                    area: ['400px', '250px'],
+                    area: ['400px', '300px'],
                     offset: '100px',
                     content: $('#changepasswordpage'),
                     btn: ["保存", "取消"],
@@ -295,11 +298,20 @@
 
                         var isb = layer.IsValidation("#changepasswordpage");
 
+                        //验证两次输入是否相同
+                        if ($("#txtnewpwd").val() != $("#txtconfirmpwd").val()) {
+                            layer.msg("两次密码输入不同", { icon: 5, shift: 6 });
+                            return false;
+                        }
+
                         if (isb == null) {
                             $.ajax({
                                 type: 'get',
                                 url: $("#changepasswordpage").data("url"),
-                                data: { oldpwd: $('#txtoldpwd').val(), newpwd: $("#txtnewpwd").val() },
+                                data: {
+                                    oldpwd: $('#txtoldpwd').val(),
+                                    newpwd: $("#txtnewpwd").val()
+                                },
                                 success: function (res) {
                                     if (res.status == 0) {
                                         layer.msg("修改成功");
