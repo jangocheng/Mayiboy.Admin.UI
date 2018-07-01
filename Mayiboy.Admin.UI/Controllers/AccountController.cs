@@ -153,6 +153,19 @@ namespace Mayiboy.Admin.UI.Controllers
 		{
 			try
 			{
+				if (oldpwd.IsNullOrEmpty() || newpwd.IsNullOrEmpty())
+				{
+					return Json(new { status = 1, msg = "参数不能为空" }, JsonRequestBehavior.AllowGet);
+				}
+
+				oldpwd = RsaCryption.Decrypt(PublicConst.XmlPrivateKey, oldpwd);
+				newpwd = RsaCryption.Decrypt(PublicConst.XmlPrivateKey, newpwd);
+
+				if (oldpwd == newpwd)
+				{
+					return Json(new { status = 2, msg = "修改密码和原密码相同" }, JsonRequestBehavior.AllowGet);
+				}
+
 				var response = _iuserinfoservice.ChangePassword(new ChangePasswordRequest
 				{
 					UserId = LoginAccount.UserInfo.Id,

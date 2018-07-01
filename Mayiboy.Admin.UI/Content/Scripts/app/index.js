@@ -309,8 +309,8 @@
                                 type: 'get',
                                 url: $("#changepasswordpage").data("url"),
                                 data: {
-                                    oldpwd: $('#txtoldpwd').val(),
-                                    newpwd: $("#txtnewpwd").val()
+                                    oldpwd: $.Encrypt($('#txtoldpwd').val()),
+                                    newpwd: $.Encrypt($("#txtnewpwd").val())
                                 },
                                 success: function (res) {
                                     if (res.status == 0) {
