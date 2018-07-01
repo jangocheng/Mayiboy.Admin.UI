@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Framework.Mayiboy.Soa.Agent;
-using Mayiboy.Model.Po;
 
 namespace Mayiboy.Contract
 {
@@ -9,7 +8,7 @@ namespace Mayiboy.Contract
         /// <summary>
         /// 角色实体
         /// </summary>
-        public UserRolePo Entity { get; set; }
+        public UserRoleDto Entity { get; set; }
     }
 
     public class SaveUserRoleResponse : Response

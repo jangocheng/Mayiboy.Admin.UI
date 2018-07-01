@@ -27,7 +27,7 @@ namespace Mayiboy.UI
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            AutoMapperConfig.Configure();
+            AutoMapperConfig.Initialize();
 
             RegisterAndResolverIoc();
         }

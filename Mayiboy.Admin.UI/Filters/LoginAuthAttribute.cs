@@ -2,7 +2,6 @@
 using System.Web.Mvc;
 using Framework.Mayiboy.Utility;
 using Mayiboy.ConstDefine;
-using Mayiboy.Model;
 using Mayiboy.Utils;
 
 namespace Mayiboy.Admin.UI

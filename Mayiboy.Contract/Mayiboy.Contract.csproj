@@ -96,12 +96,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mayiboy.Model\Mayiboy.Model.csproj">
-      <Project>{36972fa3-7a3f-41f9-8263-e30309054c20}</Project>
-      <Name>Mayiboy.Model</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Base\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

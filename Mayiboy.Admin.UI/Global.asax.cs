@@ -27,7 +27,7 @@ namespace Mayiboy.Admin.UI
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 
 			LoggerGlobal.GlobalInit();
-			AutoMapperConfig.Configure();
+			AutoMapperConfig.Initialize();
 
 			RegisterAndResolverIoc();
 		}

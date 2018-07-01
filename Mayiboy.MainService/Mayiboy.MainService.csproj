@@ -36,8 +36,12 @@
       <HintPath>..\packages\Autofac.4.6.1\lib\net45\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Framework.Mayiboy.Caching, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.1\lib\Framework.Mayiboy.Caching.dll</HintPath>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Framework.Mayiboy.Caching, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.2\lib\Framework.Mayiboy.Caching.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Framework.Mayiboy.Ioc, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -56,16 +60,16 @@
       <HintPath>..\packages\Framework.Mayiboy.Task.1.0.0\lib\Framework.Mayiboy.Task.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Framework.Mayiboy.Utility, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Utility.1.0.3\lib\Framework.Mayiboy.Utility.dll</HintPath>
+    <Reference Include="Framework.Mayiboy.Utility, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Framework.Mayiboy.Utility.1.0.5\lib\Framework.Mayiboy.Utility.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.84.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
-      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.1\lib\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.2\lib\ICSharpCode.SharpZipLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Memcached.ClientLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.1\lib\Memcached.ClientLibrary.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.2\lib\Memcached.ClientLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -73,24 +77,25 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="ServiceStack.Common, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.1\lib\ServiceStack.Common.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.2\lib\ServiceStack.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ServiceStack.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.1\lib\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.2\lib\ServiceStack.Interfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ServiceStack.Redis, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.1\lib\ServiceStack.Redis.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.2\lib\ServiceStack.Redis.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ServiceStack.Text, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.1\lib\ServiceStack.Text.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.2\lib\ServiceStack.Text.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -101,6 +106,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoMapperConfig.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,10 +159,6 @@
     <ProjectReference Include="..\Mayiboy.Logic\Mayiboy.Logic.csproj">
       <Project>{cd19e415-ee3b-41f2-9ddc-3ba534a1180d}</Project>
       <Name>Mayiboy.Logic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mayiboy.Model\Mayiboy.Model.csproj">
-      <Project>{36972fa3-7a3f-41f9-8263-e30309054c20}</Project>
-      <Name>Mayiboy.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mayiboy.Utils\Mayiboy.Utils.csproj">
       <Project>{421410f1-b7d5-44d0-aa46-e6d2ac11e6cb}</Project>

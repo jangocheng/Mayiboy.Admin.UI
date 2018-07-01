@@ -23,7 +23,7 @@ namespace Mayiboy.Host
 
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
-            AutoMapperConfig.Configure();
+            AutoMapperConfig.Initialize();
 
             //GlobalConfiguration.Configuration.MessageHandlers.Add(new AuthorizationHandler());
 

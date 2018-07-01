@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using Framework.Mayiboy.Utility;
 using Mayiboy.Admin.UI.Controllers;
 using Mayiboy.Contract;
-using Mayiboy.Model.Po;
 using Mayiboy.Utils;
 
 namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
@@ -68,7 +67,7 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
 
 				var response = _userRoleService.SaveUserRole(new SaveUserRoleRequest
 				{
-					Entity = new UserRolePo
+					Entity = new UserRoleDto
 					{
 						Id = int.Parse(id),
 						Name = name,

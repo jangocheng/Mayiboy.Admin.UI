@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Framework.Mayiboy.Soa.Agent;
-using Mayiboy.Model.Po;
 
 namespace Mayiboy.Contract
 {

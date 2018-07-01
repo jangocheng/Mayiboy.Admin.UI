@@ -45,8 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\AccountModel.cs" />
-    <Compile Include="Model\SystemMenuModel.cs" />
-    <Compile Include="Model\SystemNavbarModel.cs" />
     <Compile Include="Po\AppIdAuthPo.cs" />
     <Compile Include="Po\DepartmentPo.cs" />
     <Compile Include="Po\PermissionsPo.cs" />

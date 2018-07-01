@@ -22,7 +22,7 @@ namespace Mayiboy.MainService
         {
             LoggerGlobal.GlobalInit();
             RegisterAndResolverIoc();//注册服务
-            AutoMapperConfig.Configure();
+            AutoMapperConfig.Initialize();
 
             //ServiceBase[] ServicesToRun;
             //ServicesToRun = new ServiceBase[]

@@ -7,7 +7,6 @@ using Framework.Mayiboy.Utility;
 using Framework.Mayiboy.Utility.EncryptionHelper;
 using Mayiboy.ConstDefine;
 using Mayiboy.Contract;
-using Mayiboy.Model;
 using Mayiboy.Utils;
 
 namespace Mayiboy.Admin.UI.Controllers
@@ -46,7 +45,7 @@ namespace Mayiboy.Admin.UI.Controllers
 				#endregion
 
 				#region 验证验证码
-				var vcode = SessionHelper.Get<string>("vcode");
+				var vcode = SessionHelper.Get("vcode").IsNullToString();
 				if (vcode.IsNullOrEmpty() || vcode != model.Code)
 				{
 					return Json(new { status = 1, msg = "验证码错误" });

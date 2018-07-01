@@ -182,7 +182,9 @@ namespace Mayiboy.Logic.Impl
         public SaveUserRoleJoinResponse SaveUserRoleJoin(SaveUserRoleJoinRequest request)
         {
             var response = new SaveUserRoleJoinResponse();
-            try
+
+			request.RoleIdList = request.RoleIdList ?? new List<int>();
+			try
             {
                 var olduserrolejoinlist = _userRoleJoinRepository.FindWhere<UserRoleJoinPo>(e => e.IsValid == 1 && e.UserId == request.UserId);
 
