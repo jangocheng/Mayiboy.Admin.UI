@@ -44,7 +44,7 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
 				{
 					return ToJsonErrorResult(1, "查询出错", response.MessageText);
 				}
-				return Json(new { code = 0, data = response.List, count = response.TotalCount }, JsonRequestBehavior.AllowGet);
+				return Json(new { code = 0, data = response.EntityList, count = response.TotalCount }, JsonRequestBehavior.AllowGet);
 			}
 			catch (Exception ex)
 			{

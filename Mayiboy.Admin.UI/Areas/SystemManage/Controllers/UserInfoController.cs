@@ -143,7 +143,7 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
 
 				if (response.IsSuccess)
 				{
-					userrolelist = response.List;
+					userrolelist = response.EntityList;
 				}
 				#endregion
 

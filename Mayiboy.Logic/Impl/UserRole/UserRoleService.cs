@@ -41,7 +41,7 @@ namespace Mayiboy.Logic.Impl
 					e => e.IsValid == 1 && (SqlFunc.IsNullOrEmpty(request.Name) || e.Name.Contains(request.Name)),
 					o => o.Id, request.PageIndex, request.PageSize, ref total, OrderByType.Desc);
 
-				response.List = list.Select(e => e.As<UserRoleDto>()).ToList();
+				response.EntityList = list.Select(e => e.As<UserRoleDto>()).ToList();
 
 				response.TotalCount = total;
 			}

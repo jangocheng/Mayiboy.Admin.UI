@@ -34,7 +34,7 @@ namespace Mayiboy.Contract
 
     public class QueryUserRoleResponse : PageResponse
     {
-        public List<UserRoleDto> List { get; set; }
+        public List<UserRoleDto> EntityList { get; set; }
     }
 
     public class SaveUserRoleJoinRequest : Request
