@@ -25,10 +25,15 @@
         /// </summary>
         public const string IdentityCookieKey = "mayiboy.Identity";
 
-        /// <summary>
-        /// 时间
-        /// </summary>
-        public class Time
+		/// <summary>
+		/// 当前登录Id Key
+		/// </summary>
+		public const string LoginUserIdKey = "mayiboy.loginuserid";
+
+		/// <summary>
+		/// 时间
+		/// </summary>
+		public class Time
         {
             /// <summary>
             /// 1分钟（60秒）

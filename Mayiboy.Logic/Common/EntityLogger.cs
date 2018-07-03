@@ -135,23 +135,41 @@ namespace Mayiboy.Logic
 		{
 			get
 			{
+				var loginuserid = 0;
+
 				var identityvalue = CookieHelper.Get(PublicConst.IdentityCookieKey);
 
 				if (identityvalue.IsNullOrEmpty())
 				{
-					return 0;
+					return loginuserid;
 				}
 
 				var cachekey = identityvalue.AddCachePrefix(PublicConst.IdentityCookieKey);
+				var loginuserIdkey = identityvalue.AddCachePrefix(PublicConst.LoginUserIdKey);
 
-				var entity = CacheManager.Get<AccountModel>(cachekey, 2);
+				var value = CacheManager.RunTimeCache.Get<string>(loginuserIdkey);
 
-				if (entity == null)
+				if (value.IsNullOrEmpty())
 				{
-					return 0;
+
+					#region 从Redis中获取用户信息
+					var entity = CacheManager.RedisDefault.Get<AccountModel>(cachekey);
+
+					if (entity != null)
+					{
+						loginuserid = entity.Id;
+
+						CacheManager.RunTimeCache.Set(loginuserIdkey, loginuserid.ToString(), PublicConst.Time.Hour1);
+					}
+					#endregion
+				}
+				else
+				{
+					loginuserid = int.Parse(value);
 				}
 
-				return entity.Id;
+
+				return loginuserid;
 			}
 		}
 	}
