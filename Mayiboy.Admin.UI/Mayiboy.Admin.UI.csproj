@@ -513,6 +513,7 @@
     <Compile Include="App_Start\PublicConstConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\SystemManage\Controllers\AppIdAuthController.cs" />
+    <Compile Include="Areas\SystemManage\Controllers\AppProjectController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\DepartmentController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\SysDictController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\SysLogController.cs" />
@@ -607,6 +608,7 @@
     <Content Include="Areas\SystemManage\Views\SysLog\Index.cshtml" />
     <Content Include="Areas\SystemManage\Views\AppIdAuth\Index.cshtml" />
     <Content Include="Areas\SystemManage\Views\UserAppIdAuth\Index.cshtml" />
+    <Content Include="Areas\SystemManage\Views\AppProject\Index.cshtml" />
     <None Include="Properties\PublishProfiles\发布Local.pubxml" />
     <Content Include="Views\Home\SystemNavbar.cshtml" />
     <Content Include="Views\Home\About.cshtml" />

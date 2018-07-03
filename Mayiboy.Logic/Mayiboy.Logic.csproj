@@ -103,6 +103,7 @@
   <ItemGroup>
     <Compile Include="Common\EntityLogger.cs" />
     <Compile Include="Impl\AppIdAuth\AppIdAuthService.cs" />
+    <Compile Include="Impl\AppProject\AppProjectService.cs" />
     <Compile Include="Impl\Base\BaseService.cs" />
     <Compile Include="Impl\Department\DepartmentService.cs" />
     <Compile Include="Impl\Permissions\PermissionsService.cs" />

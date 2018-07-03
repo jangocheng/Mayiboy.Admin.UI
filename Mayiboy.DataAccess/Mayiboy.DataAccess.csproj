@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interface\IAppIdAuthRepository.cs" />
+    <Compile Include="Interface\IAppProjectRepository.cs" />
     <Compile Include="Interface\IBaseRepository.cs" />
     <Compile Include="Interface\IDepartmentRepository.cs" />
     <Compile Include="Interface\IPermissionsRepository.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Interface\IUserRoleRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AppIdAuthRepository.cs" />
+    <Compile Include="Repository\AppProjectRepository.cs" />
     <Compile Include="Repository\BaseRepository.cs" />
     <Compile Include="Repository\DepartmentRepository.cs" />
     <Compile Include="Repository\PermissionsRepository.cs" />

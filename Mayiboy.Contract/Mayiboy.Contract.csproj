@@ -59,6 +59,9 @@
     <Compile Include="AppIdAuth\AppIdAuthDto.cs" />
     <Compile Include="AppIdAuth\AppIdAuthParam.cs" />
     <Compile Include="AppIdAuth\IAppIdAuthService.cs" />
+    <Compile Include="AppProject\AppProjectDto.cs" />
+    <Compile Include="AppProject\AppProjectParam.cs" />
+    <Compile Include="AppProject\IAppProjectService.cs" />
     <Compile Include="Contracts\GetUserInfoContract.cs" />
     <Compile Include="Department\DepartmentDto.cs" />
     <Compile Include="Department\DepartmentParam.cs" />

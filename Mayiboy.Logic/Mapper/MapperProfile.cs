@@ -85,6 +85,10 @@ namespace Mayiboy.Logic.Mapper
 			//用户授权AppId
 	        this.CreateMap<UserAppIdAuthPo, UserAppIdAuthDto>();
 	        this.CreateMap<UserAppIdAuthDto, UserAppIdAuthPo>();
+
+			//应用项目管理
+	        this.CreateMap<AppProjectPo, AppProjectDto>();
+	        this.CreateMap<AppProjectDto, AppProjectPo>();
         }
     }
 }

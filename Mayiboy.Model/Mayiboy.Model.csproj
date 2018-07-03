@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Po\AppIdAuthPo.cs" />
+    <Compile Include="Po\AppProjectPo.cs" />
     <Compile Include="Po\DepartmentPo.cs" />
     <Compile Include="Po\PermissionsPo.cs" />
     <Compile Include="Po\RolePermissionsJoinPo.cs" />
