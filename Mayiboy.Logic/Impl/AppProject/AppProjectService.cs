@@ -31,7 +31,9 @@ namespace Mayiboy.Logic.Impl
 				int total = 0;
 
 				var list = _appProjectRepository.FindPage<AppProjectPo>(
-					e => e.IsValid == 1 && (SqlFunc.IsNullOrEmpty(request) || e.ProjectName.Contains(request.ProjectName)),
+					e => e.IsValid == 1
+					&& (SqlFunc.IsNullOrEmpty(request.ProjectName) || e.ProjectName.Contains(request.ProjectName))
+					&& (SqlFunc.IsNullOrEmpty(request.ApplicationId) || e.ApplicationId.Contains(request.ApplicationId)),
 					o => o.Id, request.PageIndex, request.PageSize, ref total, OrderByType.Desc);
 
 				if (list != null)

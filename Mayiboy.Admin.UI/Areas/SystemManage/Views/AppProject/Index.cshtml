@@ -3,6 +3,87 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutIndex.cshtml";
 }
+@section head_section{
+    <link href="~/Content/lib/jqueryeasyui/themes/gray/easyui.css" rel="stylesheet" />
+    <link href="~/Content/lib/jqueryeasyui/themes/icon.css" rel="stylesheet" />
+    <script src="~/Content/lib/jqueryeasyui/jquery.easyui.min.js"></script>
+    <script src="~/Content/lib/jqueryeasyui/plugins/jquery.treegrid.js"></script>
+    <script src="~/Content/lib/jqueryeasyui/plugins/jquery.tree.js"></script>
+}
+@*面包屑*@
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb" style="visibility: visible;">
+        <a lay-href="">主页</a><span lay-separator="">/</span>
+        <a><cite>组件</cite></a><span lay-separator="">/</span>
+        <a><cite>数据表格</cite></a><span lay-separator="">/</span>
+        <a><cite>数据表格的重载</cite></a>
+    </div>
+</div>
 
-<h2>Index</h2>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    项目管理
+                </div>
+                <div class="layui-card-body" style="margin: 0px; padding: 0px;">
+                    <div class="layui-card" style="margin: 0px;">
+                        <div class="layui-card-body" style="padding: 0px;">
+                            <div class="layui-btn-container" style="float: left; padding: 5px;">
+                                <div class="layui-btn-group">
+                                    <label class="mayiboy-lable">项目名称:</label>
+                                    <input id="name" class="mayiboy-input" placeholder="项目名称" />
+                                </div>
+                                <div class="layui-btn-group">
+                                    <label class="mayiboy-lable">AppId:</label>
+                                    <input id="appid" class="mayiboy-input" placeholder="AppId" />
+                                </div>
 
+                                <div class="layui-btn-group">
+                                    <button id="btnquery" class="layui-btn">查询</button>
+                                </div>
+                            </div>
+
+                            <div class="layui-btn-container" style="padding: 5px; float: right;">
+                                <div class="layui-btn-group">
+                                    <button id="btnadd" class="layui-btn">新增</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table id="dttable" lay-filter="table-operate" data-url="@Url.Action("Query", "AppProject", new {areas = "SystemManage"})" data-delurl="@Url.Action("Del", "AppProject", new {areas = "SystemManage"})"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*编辑用户角色*@
+<div id="editappproject" title="项目编辑" style="display: none;" data-url="@Url.Action("Save", "AppProject", new {areas = "SystemManage"})">
+    <div class="layui-form" style="padding: 20px;">
+        <input id="txtid" type="hidden" value="0" />
+        <div class="layui-form-item">
+            <label class="layui-form-label">项目名称：</label>
+            <div class="layui-input-block">
+                <input id="txtname" type="text" required lay-verify="required" placeholder="项目名称" style="width: 300px;" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">应用Id：</label>
+            <div class="layui-input-block">
+                <input id="txtappid" type="text" required lay-verify="required" placeholder="应用Id" style="width: 300px;" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">备注：</label>
+            <div class="layui-input-block">
+                <textarea id="txtremark" placeholder="请输入内容" class="layui-textarea" style="width: 300px; height: 30px; resize: none"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section foot_section{
+    <script src="~/Areas/SystemManage/Content/js/appproject.js?v=6"></script>
+}

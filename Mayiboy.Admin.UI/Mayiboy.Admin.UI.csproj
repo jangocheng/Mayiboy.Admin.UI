@@ -158,6 +158,7 @@
     <Content Include="Areas\SystemManage\Content\js\systemnavbar.js" />
     <Content Include="Areas\SystemManage\Content\js\userinfo.js" />
     <Content Include="Areas\SystemManage\Content\js\syslog.js" />
+    <Content Include="Areas\SystemManage\Content\js\appproject.js" />
     <Content Include="Areas\SystemManage\Content\js\userole.js" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
