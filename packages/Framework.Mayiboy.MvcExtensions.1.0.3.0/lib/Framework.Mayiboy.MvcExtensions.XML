@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Framework.Mayiboy.MvcExtensions</name>
+    </assembly>
+    <members>
+        <member name="M:Framework.Mayiboy.MvcExtensions.ExtHelper.GetValue(System.Net.Http.Headers.HttpRequestHeaders,System.String)">
+            <summary>
+            获取值
+            </summary>
+            <param name="requestheaders"></param>
+            <param name="name">name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.Helper.ToDateTime(System.String,System.Int32)">
+            <summary>
+            将时间戳转换为C#类型
+            </summary>
+            <param name="timestamp">时间戳值</param>
+            <param name="limitedLength">固定长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.Helper.GetMd5(System.String,System.String)">
+            <summary>
+            获取Md5签名
+            </summary>
+            <param name="encypStr"></param>
+            <param name="charset"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.MvcExtensions.AesEncrypt">
+            <summary>
+            AES加密/解密类。
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.AesEncrypt.Encrypt(System.String,System.String)">
+            <summary>
+            加密数据
+            </summary>
+            <param name="plaintext">明文</param>
+            <param name="key">秘钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.AesEncrypt.Decrypt(System.String,System.String)">
+            <summary>
+            解密数据
+            </summary>
+            <param name="ciphertext">密文</param>
+            <param name="key">秘钥</param>
+            <returns>明文</returns>
+        </member>
+        <member name="T:Framework.Mayiboy.MvcExtensions.DesEncrypt">
+            <summary>
+            DES加密/解密类。
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.DesEncrypt.Encrypt(System.String,System.String)">
+            <summary> 
+            加密数据 
+            </summary> 
+            <param name="plaintext">明文</param> 
+            <param name="keyStr">秘钥</param> 
+            <returns>密文</returns> 
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.DesEncrypt.Decrypt(System.String,System.String)">
+            <summary> 
+            解密数据 
+            </summary> 
+            <param name="ciphertext">密文</param> 
+            <param name="keyStr">秘钥</param> 
+            <returns>明文</returns> 
+        </member>
+        <member name="T:Framework.Mayiboy.MvcExtensions.RsaCryption">
+            <summary>
+            RSA加密解密
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.RsaCryption.Encrypt(System.String,System.String)">
+            <summary>
+            RSA的加密函数  string
+            </summary>
+            <param name="publicKey">公钥</param>
+            <param name="plaintext">明文</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.RsaCryption.Decrypt(System.String,System.String)">
+            <summary>
+            RSA的解密函数  byte
+            </summary>
+            <param name="privateKey">私钥</param>
+            <param name="ciphertext">密文字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.MvcExtensions.PublicControllers.CommonController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.PublicControllers.CommonController.GetJsonp">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.MvcExtensions.PublicControllers.JsonpResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.PublicControllers.JsonpResult.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.PublicControllers.JsonpResult.#ctor(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.PublicControllers.JsonpResult.ExecuteResult(System.Web.Mvc.ControllerContext)">
+            <summary>
+            
+            </summary>
+            <param name="controllerContext"></param>
+        </member>
+        <member name="T:Framework.Mayiboy.MvcExtensions.UnauthorizedController">
+            <summary>
+            非法访问
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.MvcExtensions.Routes.GetDecryptParameterEventHandler">
+            <summary>
+            获取解密参数
+            </summary>
+            <param name="appid">应用标识</param>
+            <param name="authToken">授权Token</param>
+            <param name="encryptionType">接口数据加密类型（0：不加密；1：对称加密（DES）；2：对称加密（AES）；3：非对称加密</param>
+            <param name="secretKey">秘钥</param>
+        </member>
+        <member name="T:Framework.Mayiboy.MvcExtensions.Routes.JiaoyanSign">
+            <summary>
+            校验sign
+            </summary>
+            <param name="appid"></param>
+        </member>
+        <member name="T:Framework.Mayiboy.MvcExtensions.Routes.DecryptDataEventHandler">
+            <summary>
+            解密数据
+            </summary>
+            <param name="appid">应用标识</param>
+            <param name="input">密文</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute">
+            <summary>
+            API 契约 路由
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute._encryptionType">
+            <summary>
+            接口数据加密类型（0：不加密；1：对称加密（DES）；2：对称加密（AES）；3：非对称加密
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute._secretKey">
+            <summary>
+            秘钥
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute._authToken">
+            <summary>
+            授权Token
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.OnDecryptParameter">
+            <summary>
+            获取解密参数
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.OnDecryptData">
+            <summary>
+            解密数据
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.#ctor(System.Boolean)">
+            <summary>
+            构建APIContractRoutes新的实例
+            </summary>
+            <param name="traceRoutes">是否在运行时输出路由信息至输出面板中</param>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.#ctor(Framework.Mayiboy.MvcExtensions.Routes.GetDecryptParameterEventHandler,System.Boolean)">
+            <summary>
+            构建APIContractRoutes新的实例
+            </summary>
+            <param name="getDecryptParameter">获取解密参数委托</param>
+            <param name="traceRoutes">是否在运行时输出路由信息至输出面板中</param>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.Bind``1">
+            <summary>
+            绑定控制器
+            </summary>
+            <typeparam name="TController">Api控制器</typeparam>
+            <returns>Api契约路由</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.With``1">
+            <summary>
+            注册契约到通过Bind选择的控制器上
+            </summary>
+            <typeparam name="TContract">契约</typeparam>
+            <returns>Api契约路由</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.BindAction(System.Type,System.Type)">
+            <summary>
+            执行注册契约到通过Bind选择的控制器上
+            </summary>
+            <param name="contractType">契约类型</param>
+            <param name="controllerType">Api控制器</param>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.GetRouteData(System.String,System.Net.Http.HttpRequestMessage)">
+            <summary>
+            获取路由信息
+            </summary>
+            <param name="virtualPathRoot">虚拟路径的跟</param>
+            <param name="request">请求消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.Decrypt(System.String,System.String)">
+            <summary>
+            解密数据
+            </summary>
+            <param name="appid">应用标识</param>
+            <param name="input">接口数据</param>
+            <returns>明文</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.IsSignatureValid(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            校验签名
+            </summary>
+            <param name="appid">应用标识</param>
+            <param name="content"></param>
+            <param name="timestamp">时间戳</param>
+            <param name="sign">签名</param>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.GetSign(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取签名
+            </summary>
+            <param name="appId">应用标识</param>
+            <param name="token"></param>
+            <param name="content"></param>
+            <param name="timestamp"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.ExpiresTime">
+            <summary>
+            接口有效时间（单位秒,默认600秒）（非对称加密时需要接口）
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.IsBind">
+            <summary>
+            是否必须绑定
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.Routes.RouteExtensions.MapContract``1(System.Web.Http.HttpRouteCollection)">
+            <summary>
+            映射控制器与契约间的关系
+            </summary>
+            <typeparam name="TController">Api控制器</typeparam>
+            <param name="routes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.Routes.RouteExtensions.GetDefaultRoute(System.Web.Http.HttpRouteCollection)">
+            <summary>
+            
+            </summary>
+            <param name="routes"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.MvcExtensions.Url.UrlExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.Url.UrlExtensions.Resource(System.Web.Mvc.UrlHelper,System.String,System.String,System.String)">
+            <summary>
+            转换资源文件的虚拟路径到绝对路径
+            </summary>
+            <param name="helper"></param>
+            <param name="fileName">文件名</param>
+            <param name="appsettingKey">AppSetting 中键的Key</param>
+            <param name="resourceVersionKey">AppSetting 中版本键的Key</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

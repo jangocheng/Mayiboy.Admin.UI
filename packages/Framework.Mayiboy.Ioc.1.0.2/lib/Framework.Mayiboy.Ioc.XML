@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Framework.Mayiboy.Ioc</name>
+    </assembly>
+    <members>
+        <member name="T:Framework.Mayiboy.Ioc.BaseService">
+            <summary>
+            基础服务
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Ioc.BaseService.InitializeLifetimeService">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Ioc.BaseService.GetIntResult(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="retObj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Ioc.BaseService.GetLongResult(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="retObj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Ioc.BaseService.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Ioc.BaseService.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:Framework.Mayiboy.Ioc.DependencyConfig">
+            <summary>
+            依赖配置
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Ioc.IDependencyConfig">
+            <summary>
+            依赖配置
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Ioc.DependencyConfig.RegisterDependency(Autofac.ContainerBuilder)">
+            <summary>
+            注入依赖项
+            </summary>
+            <param name="builder">容器</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Ioc.DependencyConfig.RegisterDependency(System.Reflection.Assembly,Autofac.ContainerBuilder)">
+            <summary>
+            注册依赖项
+            </summary>
+            <param name="assembly">程序集</param>
+            <param name="builder">容器</param>
+        </member>
+        <member name="T:Framework.Mayiboy.Ioc.DependencyResolver">
+            <summary>
+            依赖性解析器
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Ioc.DependencyResolver._current">
+            <summary>
+            容器
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Ioc.DependencyResolver.SetResolver(Autofac.IContainer)">
+            <summary>
+            
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Ioc.DependencyResolver.Resolve``1">
+            <summary>
+            发现服务
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Ioc.IBaseService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Ioc.IDependency">
+            <summary>
+            依赖基接口
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Ioc.ResultInfo`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Framework.Mayiboy.Ioc.ResultInfo`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Ioc.ResultInfo`1.#ctor(System.Boolean,System.String,System.String,`0)">
+            <summary>
+            
+            </summary>
+            <param name="hasError"></param>
+            <param name="errMessage"></param>
+            <param name="thresult"></param>
+            <param name="objectValue"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Ioc.ResultInfo`1.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Framework.Mayiboy.Ioc.ResultInfo`1.HasError">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Ioc.ResultInfo`1.ErrMessage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Ioc.ResultInfo`1.ObjectValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Ioc.ResultInfo`1.Hresult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Ioc.ServiceLocater">
+            <summary>
+            发现服务
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Ioc.ServiceLocater.GetService``1">
+            <summary>
+            获取服务
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Ioc.TypeFinder">
+            <summary>
+            发现注入类型
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Ioc.TypeFinder.Assemblies">
+            <summary>
+            待注入集合
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Ioc.TypeFinder.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Ioc.TypeFinder.GetAssembliesConfiguration">
+            <summary>
+            获得程序集
+            <remarks>
+            根据配置的部分程序集名
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Ioc.TypeFinder.FindClassesOfType``1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Ioc.TypeFinder.DoesTypeImplementOpenGeneric(System.Type,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="openGeneric"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

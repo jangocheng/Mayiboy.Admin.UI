@@ -119,7 +119,12 @@ namespace Mayiboy.Admin.UI.Controllers
 				var ticket = Guid.NewGuid().ToString("N");
 
 				CacheManager.RunTimeCache.Set(fromappid, ticket, 60 * 5);
-				CacheManager.RunTimeCache.Set(ticket, response.UserInfoEntity, 60 * 5);
+
+				var entity = response.UserInfoEntity.As<AccountModel>();
+
+				entity.Fingerprint = RequestHelper.Fingerprint;
+
+				CacheManager.RunTimeCache.Set(ticket, entity, 60 * 5);
 
 				fromurl = string.Concat(fromurl, (fromurl.Contains("?") ? "&" : "?"), PublicConst.UrlAuth, "=", ticket);
 
@@ -138,31 +143,31 @@ namespace Mayiboy.Admin.UI.Controllers
 			#region 验证参数的有效性
 			if (string.IsNullOrEmpty(ticket) || string.IsNullOrEmpty(appid) || encrypt.IsNullOrEmpty())
 			{
-				return Json(new { status = 1, msg = "参数有误" }, JsonRequestBehavior.AllowGet);
+				return Json(new { status = 1, data = "参数有误" }, JsonRequestBehavior.AllowGet);
 			}
 
 			var cacheticket = CacheManager.RunTimeCache.Get(appid);
 
 			if (cacheticket.IsNullOrEmpty())
 			{
-				return Json(new { status = 2, msg = "参数有误" }, JsonRequestBehavior.AllowGet);
+				return Json(new { status = 2, data = "参数有误" }, JsonRequestBehavior.AllowGet);
 			}
 
 			if (cacheticket != ticket)
 			{
-				return Json(new { status = 3, msg = "参数有误" }, JsonRequestBehavior.AllowGet);
+				return Json(new { status = 3, data = "参数有误" }, JsonRequestBehavior.AllowGet);
 			}
 
 			if (!ValidateEncrypt(ticket, encrypt))
 			{
-				return Json(new { status = 4, msg = "非法访问" });
+				return Json(new { status = 4, data = "非法访问" });
 			}
 
 			#endregion
 
-			var entity = CacheManager.RunTimeCache.Get<UserInfoDto>(ticket);
+			var entity = CacheManager.RunTimeCache.Get<AccountModel>(ticket);
 
-			return Json(new { status = 0, entity }, JsonRequestBehavior.AllowGet);
+			return Json(new { status = 0, data=entity }, JsonRequestBehavior.AllowGet);
 		}
 
 		/// <summary>

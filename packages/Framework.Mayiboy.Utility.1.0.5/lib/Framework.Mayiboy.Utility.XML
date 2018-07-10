@@ -1,0 +1,3607 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Framework.Mayiboy.Utility</name>
+    </assembly>
+    <members>
+        <member name="T:Framework.Mayiboy.Utility.CaptchaHelper">
+            <summary>  
+            完美随机验证码
+            Description:随机生成设定验证码，并随机旋转一定角度，字体颜色不同  
+            </summary>  
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.CaptchaHelper.CreateRandomCode(System.Int32)">
+            <summary>  
+            生成随机码  
+            </summary>  
+            <param  name="length">随机码个数</param>  
+            <remarks>根据GUID去前几位数字</remarks>
+            <returns></returns>  
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.CaptchaHelper.DrawImage(System.String,System.Single,System.Drawing.Color,System.Drawing.Color)">
+            <summary>  
+            创建随机码图片  
+            </summary>  
+            <param  name="vcode">验证码</param>
+            <param name="fontSize">字体大小</param>
+            <param name="background">背景颜色</param>
+            <param name="border">边框颜色</param>
+            <returns>Gif图片二进制流</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.CaptchaHelper.DrawImage(System.String)">
+            <summary>
+            生成验证码
+            </summary>
+            <param name="vcode">验证码字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.CaptchaHelper.DrawImage(System.String@)">
+            <summary>
+            创建验证码
+            </summary>
+            <param name="vcode">验证码数字</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.DbyteArrayHelper">
+            <summary>
+            buffer帮助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.#ctor(System.Byte[],System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="d"></param>
+            <param name="changeOrder"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.ReadByte">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.WriteByte(System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="d"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.WriteStrByte(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="d"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.ReadStrChar">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.WriteStrChar(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="d"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.ReadChar">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.WriteChar(System.Char)">
+            <summary>
+            
+            </summary>
+            <param name="d"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.ReadShort">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.WriteShort(System.Int16)">
+            <summary>
+            
+            </summary>
+            <param name="d"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.ReadStrShort">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.WriteStrShort(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="d"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.ReadInt">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.WriteInt(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="d"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.ReadInt64">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.WriteInt64(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="d"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.ReadBytes(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="datalen"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.WriteBytes(System.Byte[])">
+            <summary>
+            
+            </summary>
+            <param name="d"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.ReadStrInt(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="declen"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.WriteStrInt(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="d"></param>
+            <param name="declen"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.ReadDouble(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="declen"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.WriteDouble(System.Double,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="d"></param>
+            <param name="declen"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.ReadStrDouble(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="declen"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.WriteStrDouble(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="d"></param>
+            <param name="declen"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.ReadString(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="datalen"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.WriteString(System.String,System.Int32,System.Text.Encoding)">
+            <summary>
+            
+            </summary>
+            <param name="d"></param>
+            <param name="datalen"></param>
+            <param name="encoding"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.ReadStringWithUtf8(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="datalen"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.ReadStringWithGb2312(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="datalen"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.Gotop">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.End">
+            <summary>
+            写数据完毕时清楚多分配的空间
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.Expand(System.Int32)">
+            <summary>
+            扩展分配空间
+            </summary>
+            <param name="addlen">字节数</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.WriteNullBytes(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="len"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.Contact(Framework.Mayiboy.Utility.DbyteArrayHelper)">
+            <summary>
+            
+            </summary>
+            <param name="d2"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.Contact(System.Byte[])">
+            <summary>
+            
+            </summary>
+            <param name="dd2"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.Sub(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <param name="len"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.GetArrayFromBytes(System.IO.Stream,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="ms"></param>
+            <param name="unit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DbyteArrayHelper.GetBytesFromArrary(System.Collections.Generic.List{System.Byte[]})">
+            <summary>
+            
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.DbyteArrayHelper.Len">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.DbyteArrayHelper.Position">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.EncryptionHelper.AesEncrypt">
+            <summary>
+             AES加密/解密类。
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.AesEncrypt.Encrypt(System.String)">
+            <summary>
+            使用缺省秘钥字符串加密
+            </summary>
+            <param name="plaintext">明文</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.AesEncrypt.Encrypt(System.String,System.String)">
+            <summary>
+            加密数据
+            </summary>
+            <param name="plaintext">明文</param>
+            <param name="key">秘钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.AesEncrypt.Encrypt(System.String,System.String,System.String)">
+            <summary>
+            加密数据
+            </summary>
+            <param name="plaintext">明文</param>
+            <param name="key">秘钥</param>
+            <param name="vector">向量</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.AesEncrypt.Decrypt(System.String)">
+            <summary>
+            解密数据
+            </summary>
+            <param name="ciphertext">密文</param>
+            <returns>明文</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.AesEncrypt.Decrypt(System.String,System.String)">
+            <summary>
+            解密数据
+            </summary>
+            <param name="ciphertext">密文</param>
+            <param name="key">秘钥</param>
+            <returns>明文</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.AesEncrypt.Decrypt(System.String,System.String,System.String)">
+            <summary>
+            解密数据
+            </summary>
+            <param name="ciphertext">密文</param>
+            <param name="key">秘钥</param>
+            <param name="vector">向量</param>
+            <returns>明文</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.AesEncrypt.Repair(System.String,System.Int32)">
+            <summary>
+            填充空位（将不够长度的字符串末尾填充00）
+            </summary>
+            <param name="key">秘钥</param>
+            <param name="length">默认长度8</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.EncryptionHelper.Pbkdf2Security">
+            <summary>
+            使用加密服务提供程序 (CSP) 提供的实现来实现加密随机数生成器 (RNG)。
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.Pbkdf2Security.CreateHash(System.String)">
+            <summary>
+            Creates a salted PBKDF2 hash of the password.
+            </summary>
+            <param name="password">The password to hash.</param>
+            <returns>The hash of the password.</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.Pbkdf2Security.ValidatePassword(System.String,System.String)">
+            <summary>
+            Validates a password given a hash of the correct one.
+            </summary>
+            <param name="password">The password to check.</param>
+            <param name="correctHash">A hash of the correct password.</param>
+            <returns>True if the password is correct. False otherwise.</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.Pbkdf2Security.SlowEquals(System.Byte[],System.Byte[])">
+            <summary>
+            Compares two byte arrays in length-constant time. This comparison
+            method is used so that password hashes cannot be extracted from
+            on-line systems using a timing attack and then attacked off-line.
+            </summary>
+            <param name="a">The first byte array.</param>
+            <param name="b">The second byte array.</param>
+            <returns>True if both byte arrays are equal. False otherwise.</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.Pbkdf2Security.Pbkdf2(System.String,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Computes the PBKDF2-SHA1 hash of a password.
+            </summary>
+            <param name="password">The password to hash.</param>
+            <param name="salt">The salt.</param>
+            <param name="iterations">The PBKDF2 iteration count.</param>
+            <param name="outputBytes">The length of the hash to generate, in bytes.</param>
+            <returns>A hash of the password.</returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.BitmapExt">
+            <summary>
+            Bitmap 扩展
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.BitmapExt.LdPic(System.Drawing.Bitmap,System.Int32)">
+            <summary>
+            调整光暗
+            </summary>
+            <param name="mybm">原始图片</param>
+            <param name="val">增加或减少的光暗值（-255----255）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.BitmapExt.RePic(System.Drawing.Bitmap)">
+            <summary>
+            反色处理
+            </summary>
+            <param name="mybm">原始图片</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.BitmapExt.Fd(System.Drawing.Bitmap)">
+            <summary>
+            浮雕处理
+            </summary>
+            <param name="oldBitmap">原始图片</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.BitmapExt.ResizeImage(System.Drawing.Bitmap)">
+            <summary>
+            拉伸图片
+            </summary>
+            <param name="bmp">原始图片</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.BitmapExt.FilPic(System.Drawing.Bitmap)">
+            <summary>
+            滤色处理
+            </summary>
+            <param name="mybm">原始图片</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.BitmapExt.RevPicLr(System.Drawing.Bitmap)">
+            <summary>
+            左右翻转
+            </summary>
+            <param name="mybm">原始图片</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.BitmapExt.RevPicUd(System.Drawing.Bitmap)">
+            <summary>
+            上下翻转
+            </summary>
+            <param name="mybm">原始图片</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.BitmapExt.BwPic(System.Drawing.Bitmap)">
+            <summary>
+            转换为黑白图片
+            </summary>
+            <param name="mybm">要进行处理的图片</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.BitmapExt.MakeThumbnail(System.Drawing.Image,System.Int32,System.Int32,System.String)">
+            <summary>
+            生成缩略图
+            </summary>
+            <param name="originalImage">源图</param>
+            <param name="width">缩略图宽度</param>
+            <param name="height">缩略图高度</param>
+            <param name="mode">生成缩略图的方式
+            <example>
+            HW:指定高宽缩放（可能变形）；
+            W:指定宽，高按比例 ；
+            H:指定高，宽按比例 ；
+            Cut:指定高宽裁减（不变形）；
+            </example>
+            </param>  
+            <returns>缩略图</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.BitmapExt.ImageWatermark(System.Drawing.Image,System.Drawing.Image,System.String)">
+            <summary>
+            图片水印处理方法
+            </summary>
+            <param name="img">需要加载水印的图片</param>
+            <param name="waterimg">水印图片</param>
+            <param name="location">水印位置
+            <example> LT\T\RT\LC\C\RC\LB\B\</example>
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.BitmapExt.GetLocation(System.String,System.Drawing.Image,System.Drawing.Image)">
+            <summary>
+            图片水印位置处理方法
+            </summary>
+            <param name="location">水印位置</param>
+            <param name="img">需要添加水印的图片</param>
+            <param name="waterimg">水印图片</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.BitmapExt.LetterWatermark(System.Drawing.Image,System.Int32,System.String,System.Drawing.Color,System.String)">
+            <summary>
+            文字水印处理方法
+            </summary>
+            <param name="img">需要加水印的图片</param>
+            <param name="size">字体大小</param>
+            <param name="letter">水印文字</param>
+            <param name="color">颜色</param>
+            <param name="location">水印位置
+            <example> LT\T\RT\LC\C\RC\LB\B\</example>
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.BitmapExt.GetLocation(System.String,System.Drawing.Image,System.Int32,System.Int32)">
+            <summary>
+            文字水印位置的方法
+            </summary>
+            <param name="location">位置代码</param>
+            <param name="img">图片对象</param>
+            <param name="width">宽(当水印类型为文字时,传过来的就是字体的大小)</param>
+            <param name="height">高(当水印类型为文字时,传过来的就是字符的长度)</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.BitmapExt.Compress(System.Drawing.Image,System.Int32,System.Int32)">
+            <summary>
+            压缩指定尺寸，如果写的和图片大小一样表示大小不变，只是把图片压缩下一些
+            </summary>
+            <param name="img">原图片</param>
+            <param name="width">长</param>
+            <param name="height">高</param>
+            <returns>新图片</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.BitmapExt.GetFrames(System.Drawing.Image)">
+            <summary>
+            获取GIF图片中的帧
+            </summary>
+            <param name="gif">GIF图片</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.BitmapExt.GetColor(System.Int32)">
+            <summary>
+            获取有效颜色值
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.ByteExt">
+            <summary>
+            Byte扩展方法
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ByteExt.ToHex(System.Byte[])">
+            <summary>
+            转化为16进制
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ByteExt.ToHexIs0X(System.Byte[])">
+            <summary>
+            转化为16进制
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ByteExt.Compress(System.Byte[])">
+            <summary>
+            GZip压缩
+            </summary>
+            <param name="rawData">原始数据</param>
+            <returns>压缩后的数据</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ByteExt.Decompress(System.Byte[])">
+            <summary>
+            GZip解压
+            </summary>
+            <param name="zippedData">压缩数据</param>
+            <returns>解压后的数据</returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.DataTableExt">
+            <summary>
+            DataTable 扩展
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DataTableExt.ToList``1(System.Data.DataTable)">
+            <summary>
+            DataTable转换成list
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dt">查询列表（不能是Excel文件的table）</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.DateTimeExt">
+            <summary>
+            DateTime 扩展
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DateTimeExt.ToChsStr(System.DateTime)">
+            <summary>
+            将DateTime时间换成中文
+            </summary>
+            <param name="dateTime">时间</param>
+            <returns></returns>
+            <example>
+            2012-12-21 12:12:21.012 → 1月前
+            2011-12-21 12:12:21.012 → 1年前
+            </example>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DateTimeExt.ToUnix(System.DateTime)">
+            <summary>
+            将DateTime时间类型转化为时间戳
+            </summary>
+            <param name="dateTime">DateTime 时间格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DateTimeExt.FirstDayOfMonth(System.DateTime)">
+            <summary>
+            取得某月的第一天
+            </summary>
+            <param name="datetime">要取得月份第一天的时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DateTimeExt.LastDayOfMonth(System.DateTime)">
+            <summary>
+            取得某月的最后一天
+            </summary>
+            <param name="datetime">要取得月份最后一天的时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DateTimeExt.Toyyyy_MM_dd(System.DateTime)">
+            <summary>
+            将时间转化为字符串格式【yyyy-MM-dd】
+            </summary>
+            <param name="datetime">by DateTime</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DateTimeExt.Toyyyy_MM_dd_HH_mm_ss(System.DateTime)">
+            <summary>
+            将时间转化为字符串格式【yyyy-MM-dd HH:mm:ss】
+            </summary>
+            <param name="datetime">by DateTime</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.DecimalExt">
+            <summary>
+            Decimal 扩展
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DecimalExt.ToCapitalRmb(System.Decimal)">
+            <summary>
+            转换人民币大小金额 
+            </summary>
+            <param name="num">金额</param>
+            <returns>金额大写</returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.ListExt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ListExt.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            去重复
+            </summary>
+            <param name="source"></param>
+            <param name="keySelector">去重复关键字</param>
+            <typeparam name="TSource">数据类型</typeparam>
+            <typeparam name="TKey"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ListExt.ToDataTable``1(System.Collections.Generic.List{``0})">
+            <summary>
+            List转DataTable
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="list">列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ListExt.ToDataTable``1(System.Collections.Generic.List{``0},System.String[])">
+            <summary>
+            List转DataTable
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="list">数据列表</param>
+            <param name="propertyName">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ListExt.Paging``1(System.Collections.Generic.List{``0},System.Int32)">
+            <summary>
+            List分页拆分成多个List
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="list">待拆分集合</param>
+            <param name="pageSize">拆分大小（页大小）</param>
+            <returns>多个List</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ListExt.JoinString``1(System.Collections.Generic.List{``0},System.String,System.String)">
+            <summary>
+            连接实体泛型里面指定属性的所有值
+            </summary>
+            <typeparam name="T">类型参数</typeparam>
+            <param name="list">实体集合</param>
+            <param name="propertyName">指定属性</param>
+            <param name="seperator">分隔符号</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ListExt.AddToFirst``1(System.Collections.Generic.List{``0},``0)">
+            <summary>
+            将对象添加到 <see cref="T:System.Collections.Generic.List`1" /> 的首位
+            </summary>
+            <typeparam name="T">类型参数</typeparam>
+            <param name="list">集合</param>
+            <param name="t"></param>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.LongExt">
+            <summary>
+            Long 扩展
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.LongExt.ToDateTime(System.Int64,System.Int32)">
+            <summary>
+            将时间戳转换为C#类型
+            </summary>
+            <param name="num">时间戳值</param>
+            <param name="limitedLength">固定长度</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.ObjectExt">
+            <summary>
+            Object扩展
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ObjectExt.IsNull(System.Object)">
+            <summary>
+            对象为Null
+            </summary>
+            <param name="obj">当前对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ObjectExt.IsNotNull(System.Object)">
+            <summary>
+            对象不为Null
+            </summary>
+            <param name="obj">当前对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ObjectExt.IsValid``1(``0,System.Collections.ObjectModel.Collection{System.ComponentModel.DataAnnotations.ValidationResult})">
+            <summary>
+            验证对象是否有效
+            </summary>
+            <param name="obj">要验证的对象</param>
+            <param name="validationResults"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ObjectExt.IsValid``1(``0)">
+            <summary>
+            验证对象是否有效
+            </summary>
+            <param name="obj">要验证的对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ObjectExt.ValidationResult``1(``0)">
+            <summary>
+            验证结果对象
+            </summary>
+            <param name="obj">要验证的对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ObjectExt.GetPropertyValue(System.Object,System.String)">
+            <summary>
+            获取属性值
+            </summary>
+            <param name="obj"></param>
+            <param name="propertyname">属性名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ObjectExt.GetPropertyList(System.Object)">
+            <summary>
+            得到包含对象所有属性的字符串列表
+            </summary>
+            <param name="model">The model.</param>
+            <returns>List&lt;System.String&gt;.</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ObjectExt.ToDictionary(System.Object)">
+            <summary>
+            将Object对象转化为Dictionary
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ObjectExt.JoinStringAll``1(``0,System.String)">
+            <summary>
+            连接实体对象的所有属性值
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="obj">对象</param>
+            <param name="seperator">分隔符</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ObjectExt.Copy``1(``0)">
+            <summary>
+            复制一个model
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="model">The model.</param>
+            <returns>T.</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ObjectExt.ToJson(System.Object)">
+            <summary>
+            将对象转化为Json字符串
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ObjectExt.IsNullToString(System.Object)">
+            <summary>
+            Ojbect 为Null 扩展方法
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ObjectExt.IsIn``1(``0,``0[])">
+            <summary>
+            检查对象是否在集合中
+            </summary>
+            <param name="item">对象</param>
+            <param name="list">集合</param>
+            <typeparam name="T">对象类型</typeparam>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.StreamExt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StreamExt.GetMd5(System.IO.Stream,System.Int32)">
+            <summary>
+            获取流的MD5值
+            </summary>
+            <param name="stream">Stream</param>
+            <param name="code">默认32；code:16 or 32</param>
+            <returns>MD5值</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StreamExt.GetMd5ToBase64(System.IO.Stream)">
+            <summary>
+            获取md5 ToBase64
+            </summary>
+            <param name="stream">Stream</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StreamExt.GetMd5ToBytes(System.IO.Stream)">
+            <summary>
+            获取Md5 To Bytes
+            </summary>
+            <param name="stream">Stream</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StreamExt.ToBytes(System.IO.Stream)">
+            <summary>
+            将数据流转化为字节数组
+            </summary>
+            <param name="stream">数据流</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.StringExt">
+            <summary>
+            String扩展
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.IsNullOrEmpty(System.String)">
+            <summary>
+            判断字符串是否为Null或者为空
+            </summary>
+            <param name="input">要判断的字符串</param>
+            <returns>是否为Null或者为空</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.IsNotNullOrEmpty(System.String)">
+            <summary>
+            判断字符串是否为Null或者为空
+            </summary>
+            <param name="input">要判断的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.IsNullOrWhiteSpace(System.String)">
+            <summary>
+            判断字符串是否为Null或者为空字符组成
+            </summary>
+            <param name="input">要判断的字符串</param>
+            <returns>否为Null或者为空字符组成</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.IsNotNullOrWhiteSpace(System.String)">
+            <summary>
+            判断字符串是否为Null或者为空字符组成
+            </summary>
+            <param name="input">要判断的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.GetMd5(System.String,System.Int32)">
+            <summary>
+            获取字符串的Md5值
+            </summary>
+            <param name="str">字符串</param>
+            <param name="code">默认32；code:16 or 32</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.GetMd5ToBase64(System.String)">
+            <summary>
+            获取md5 ToBase64
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.GetMd5ToBytes(System.String)">
+            <summary>
+            获取Md5 To Bytes
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.GetSha1(System.String)">
+            <summary>
+            获取字符串的哈希码
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.IsDateTime(System.String)">
+            <summary>
+            判断指定字符串是否合法的日期格式
+            </summary>
+            <param name="input">指定字符串</param>
+            <returns>真或假</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.IsInt(System.String)">
+            <summary>
+            判断指定的字符串是否为数字
+            </summary>
+            <param name="str">要确认的字符串</param>
+            <returns>真或假</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.IsUrl(System.String)">
+            <summary>
+            判断指定的字符串是否为Url地址
+            </summary>
+            <param name="str">要确认的字符串</param>
+            <returns>真或假</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.IsEmail(System.String)">
+            <summary>
+            判断指定的字符串是否为合法Email
+            </summary>
+            <param name="str">指定的字符串</param>
+            <returns>真或假</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.HtmlEncode(System.String)">
+            <summary>
+            对字符串进行 HTML 编码并返回已编码的字符串
+            </summary>
+            <param name="content">要编码的文本字符串</param>
+            <returns>HTML 已编码的文本</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.HtmlDecode(System.String)">
+            <summary>
+            对 HTML 编码的字符串进行解码，并返回已解码的字符串
+            </summary>
+            <param name="content">要解码的文本字符串</param>
+            <returns>已解码的字符串</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.UrlEncode(System.String,System.Text.Encoding)">
+            <summary>
+            对 URL 字符串进行编码, 返回 URL 字符串的编码结果
+            </summary>
+            <param name="str">要编码的文本</param>
+            <param name="e">编码</param>
+            <returns>一个已编码的字符串</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.UrlDecode(System.String,System.Text.Encoding)">
+            <summary>
+            对 URL 字符串进行解码, 返回 URL 字符串的解码结果
+            </summary>
+            <param name="str">要解码的文本</param>
+            <param name="e">编码</param>
+            <returns>解码结果</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.TrimHtml(System.String)">
+            <summary>
+            移除Html标记
+            </summary>
+            <param name="html">包括HTML的源码</param>
+            <returns>已经去除后的文字</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.ToDecimal(System.String,System.Decimal)">
+            <summary>
+            String to Decimal(字符串 转换成 数值、十进制)
+            </summary>
+            <param name="s">String</param>
+            <param name="def">Default</param>
+            <returns>Byte</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.ToDouble(System.String,System.Double)">
+            <summary>
+            String to Double(字符串 转换成 数值、浮点)
+            </summary>
+            <param name="s">String</param>
+            <param name="def">Default</param>
+            <returns>Byte</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.ToSingle(System.String,System.Single)">
+            <summary>
+            String to Single(字符串 转换成 数值、浮点)
+            </summary>
+            <param name="s">String</param>
+            <param name="def">Default</param>
+            <returns>Byte</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.ToByte(System.String,System.Byte)">
+            <summary>
+            String to Byte(字符串 转换成 无符号、数值、整数)
+            </summary>
+            <param name="s">String</param>
+            <param name="def">Default</param>
+            <returns>Byte</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.ToBytes(System.String,System.Text.Encoding)">
+            <summary>
+            将指定字符转换成byte[]
+            </summary>
+            <param name="str">要转换的字符串</param>
+            <param name="encoding">字符编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.ToInt32(System.String,System.Int32)">
+            <summary>
+            String to Int32(字符串 转换成 有符号、数值、整数)
+            </summary>
+            <remarks>
+             2014-06-23 16:31 Created By iceStone
+            </remarks>
+            <param name="s">String</param>
+            <param name="def">Default</param>
+            <returns>Byte</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.ToDateTime(System.String,System.DateTime)">
+            <summary>
+            String to DateTime(字符串 转换成 时间)
+            </summary>
+            <param name="s">String</param>
+            <param name="def">Default</param>
+            <returns>Byte</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.Repair(System.String,System.Int32,System.String,System.Boolean)">
+            <summary>
+            字符串填补字符
+            <remarks>
+            例如: 100 可以在前填充两个0 写法 "100".Repair(4) -->"00100"
+            </remarks>
+            </summary>
+            <param name="text">原始字符串</param>
+            <param name="limitedLength">字符串的总长度</param>
+            <param name="str">填充字符</param>
+            <param name="isfirst">前填充</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.ToScale(System.String,System.Int32,System.Int32)">
+            <summary>
+            数字字符串实现各进制数间的转换扩展
+            <remarks>
+            但数字
+            </remarks>
+            </summary>
+            <param name="value">要转换的值,即原值</param>
+            <param name="from">原值的进制,只能是2,8,10,16四个值。</param>
+            <param name="to">要转换到的目标进制，只能是2,8,10,16四个值。</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.ToSbc(System.String)">
+            <summary>
+            转全角的函数(SBC case)
+            </summary>
+            <param name="str">半角字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.ToDbc(System.String)">
+            <summary>
+            转半角的函数(SBC case)
+            </summary>
+            <param name="str">全角字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.ClipString(System.String,System.Int32)">
+            <summary>
+            截取指定长度字符串
+            </summary>
+            <param name="str">原来字符串</param>
+            <param name="len">指定长度</param>
+            <returns>截取的字符串</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.ToJObject(System.String)">
+            <summary>
+            将字符串转化为Json对象类型
+            </summary>
+            <param name="jsonstr">JSON字符串</param>
+            <returns>Json对象</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.ToObject``1(System.String)">
+            <summary>
+            将字符串转化为实体对象
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="jsonstr">JSON字符串</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.JsonStrToDic(System.String)">
+            <summary>
+            json字符串转换成字典
+            </summary>
+            <param name="jsonString">json字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.IsStartWith(System.String,System.String)">
+            <summary>
+            判断字符串前缀
+            </summary>
+            <param name="str">字符串</param>
+            <param name="strStart">前缀</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.IsEndWith(System.String,System.String)">
+            <summary>
+            判断字符串后缀
+            </summary>
+            <param name="str">字符串</param>
+            <param name="strEnd">后缀</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.TrimWrap(System.String)">
+            <summary>
+            移除换行
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.ToMoney(System.String,System.Int32)">
+            <summary>
+            string 转换金钱格式
+            </summary>
+            <param name="str"></param>
+            <param name="dotNum">小数位</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.Replace(System.String,System.Object)">
+            <summary>
+            模板字符串替换,例如{{UserName}}
+            </summary>
+            <param name="oldValue">字符串模板</param>
+            <param name="obj">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.ReplaceDic(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            模板字符串替换,例如{{UserName}}
+            </summary>
+            <param name="oldValue">字符串模板</param>
+            <param name="dic">键值集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.GZipCompressString(System.String)">
+            <summary>
+            以GZip算法压缩字符串，返回Base64编码字符
+            </summary>
+            <param name="rawString">原字符串</param>
+            <returns>压缩后的Base64编码的字符串</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.GZipDecompressString(System.String)">
+            <summary>
+            将压缩后的Base64字符串以GZip算法解压
+            </summary>
+            <param name="zippedString">压缩后的Base64字符串</param>
+            <returns>原始未压缩字符串</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.ToEnum``1(System.String,System.Boolean)">
+            <summary>
+            Converts string to enum value.
+            </summary>
+            <typeparam name="T">Type of enum</typeparam>
+            <param name="value">String value to convert</param>
+            <param name="ignoreCase">Ignore case</param>
+            <returns>Returns enum object</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.StringExt.GetMaskString(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            获取掩码字符串
+            </summary>
+            <param name="value">输入字符串</param>
+            <param name="pl">前缀明码长度</param>
+            <param name="sl">后缀明码长度</param>
+            <remarks>
+            默认输入字符串截取3段，中间掩码
+                设置前/后缀长度，前缀长度小于截取长度，以设置长度为准
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.PinyinHelper">
+            <summary>
+            转化拼音帮助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.PinyinHelper.ConvertCh(System.String)">
+            <summary>
+            汉字转换成全拼的拼音
+            </summary>
+            <param name="chstr">汉字字符串</param>
+            <returns>转换后的拼音字符串</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.PinyinHelper.GetFirstLetter(System.String)">
+            <summary>
+            取汉字拼音的首字母
+            </summary>
+            <param name="unName">词语</param>
+            <returns>首字母</returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.EncryptionHelper.TripleDesEncrypt">
+            <summary>
+            TripleDes加密/ji
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.TripleDesEncrypt.Encrypt(System.String)">
+            <summary>
+            使用缺省密钥字符串加密string
+            </summary>
+            <param name="original">明文</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.TripleDesEncrypt.Decrypt(System.String)">
+            <summary>
+            使用缺省密钥字符串解密string
+            </summary>
+            <param name="original">密文</param>
+            <returns>明文</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.TripleDesEncrypt.Encrypt(System.String,System.String)">
+            <summary>
+            使用给定密钥字符串加密string
+            </summary>
+            <param name="original">原始文字</param>
+            <param name="key">密钥</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.TripleDesEncrypt.Decrypt(System.String,System.String)">
+            <summary>
+            使用给定密钥字符串解密string
+            </summary>
+            <param name="original">密文</param>
+            <param name="key">密钥</param>
+            <returns>明文</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.TripleDesEncrypt.Decrypt(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            使用给定密钥字符串解密string,返回指定编码方式明文
+            </summary>
+            <param name="encrypted">密文</param>
+            <param name="key">密钥</param>
+            <param name="encoding">字符编码方案</param>
+            <returns>明文</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.TripleDesEncrypt.Decrypt(System.Byte[])">
+            <summary>
+            使用缺省密钥字符串解密byte[]
+            </summary>
+            <param name="encrypted">密文</param>
+            <returns>明文</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.TripleDesEncrypt.Encrypt(System.Byte[])">
+            <summary>
+            使用缺省密钥字符串加密
+            </summary>
+            <param name="original">原始数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.TripleDesEncrypt.MakeMd5(System.Byte[])">
+            <summary>
+            生成MD5
+            </summary>
+            <param name="original">数据源</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.TripleDesEncrypt.Encrypt(System.Byte[],System.Byte[])">
+            <summary>
+            使用给定密钥加密
+            </summary>
+            <param name="original">明文</param>
+            <param name="key">密钥</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.TripleDesEncrypt.Decrypt(System.Byte[],System.Byte[])">
+            <summary>
+            使用给定密钥解密数据
+            </summary>
+            <param name="encrypted">密文</param>
+            <param name="key">密钥</param>
+            <returns>明文</returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.ExtensionHelper">
+            <summary>
+            扩展方法的帮助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ExtensionHelper.ToStr(System.Byte[],System.Text.Encoding)">
+            <summary>
+            使用指定字符集将byte[]转换成string
+            </summary>
+            <param name="bytes">要转换的字节数组</param>
+            <param name="encoding">字符编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ExtensionHelper.ToInt32(System.Byte[])">
+            <summary>
+            将byte[]转换成int
+            </summary>
+            <param name="bytes">需要转换成整数的byte数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ExtensionHelper.Value``1(System.Nullable{``0},``0)">
+            <summary>
+            获取可空类型值，如果为null，则为当前类型的的默认值
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="val">可空值</param>
+            <param name="defaultval">默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ExtensionHelper.IsNot(System.Boolean)">
+            <summary>
+            不为真
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.ConfigurationSectionHandler`1">
+            <summary>
+            泛型配置块处理程序
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ConfigurationSectionHandler`1.Create(System.Object,System.Object,System.Xml.XmlNode)">
+            <summary>
+            创建
+            </summary>
+            <param name="parent"></param>
+            <param name="configContext"></param>
+            <param name="section"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ConfigurationSectionHandler`1.Settings">
+            <summary>
+            设置
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.ConfigHelper">
+            <summary>
+            web.config AppSettings操作帮助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ConfigHelper.GetString(System.String)">
+            <summary>
+            得到AppSettings中的所配置字符串信息 (RuntimeCache 缓存1分钟)
+            </summary>
+            <param name="key">AppSettings的Key</param>
+            <returns>AppSettings中的Value</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ConfigHelper.GetBool(System.String)">
+            <summary>
+            得到AppSettings中的配置Bool信息 (RuntimeCache 缓存1分钟)
+            </summary>
+            <param name="key">AppSettings的Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ConfigHelper.GetDecimal(System.String)">
+            <summary>
+            得到AppSettings中的配置Decimal信息 (RuntimeCache 缓存1分钟)
+            </summary>
+            <param name="key">AppSettings的Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ConfigHelper.GetConfigInt(System.String)">
+            <summary>
+            得到AppSettings中的配置int信息 (RuntimeCache 缓存1分钟)
+            </summary>
+            <param name="key">AppSettings的Key</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.RuntimeCacheHelper">
+            <summary>
+            本地缓存帮助类（HttpRuntime.Cache）
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RuntimeCacheHelper.Set(System.String,System.Object)">
+            <summary>
+            设置数据缓存
+            <param name="key">键</param>
+            <param name="obj">值</param>
+            <remarks>
+            默认值(根据系统全局设置)
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RuntimeCacheHelper.Set(System.String,System.Object,System.TimeSpan)">
+            <summary>
+            设置数据缓存
+            <param name="key">键</param>
+            <param name="obj">值</param>
+            <param name="timeout">过期时间(绝对过期)</param>
+            <remarks>
+            绝对过期
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RuntimeCacheHelper.Set(System.String,System.Object,System.Int32)">
+            <summary>
+            设置缓存
+            </summary>
+            <param name="key">键</param>
+            <param name="obj">值</param>
+            <param name="expires">过期时间(分钟)</param>
+            <remarks>
+            滑动过期
+            </remarks>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RuntimeCacheHelper.Set(System.String,System.Object,System.DateTime,System.TimeSpan)">
+            <summary>
+            设置数据缓存
+            <param name="key">键</param>
+            <param name="obj">值</param>
+            <param name="absoluteExpiration">绝对过期时间</param>
+            <param name="slidingExpiration">滑动过期时间</param>
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RuntimeCacheHelper.Set(System.String,System.Object,System.String)">
+            <summary>
+            创建缓存项的文件依赖
+            </summary>
+            <param name="key">键</param>
+            <param name="obj">值</param>
+            <param name="filename">依赖项文件绝对路径</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RuntimeCacheHelper.Get(System.String)">
+            <summary>
+            获取数据缓存
+            </summary>
+            <param name="key">键</param>
+            <returns>缓存数据</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RuntimeCacheHelper.Get``1(System.String)">
+            <summary>
+            获取数据缓存
+            </summary>
+            <typeparam name="T">缓存数据类型</typeparam>
+            <param name="key">键</param>
+            <returns>缓存数据</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RuntimeCacheHelper.Remove(System.String)">
+            <summary>
+            移除指定数据缓存
+            <param name="key">键</param>
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RuntimeCacheHelper.RemoveAll">
+            <summary>
+            移除全部缓存
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.CookieHelper">
+            <summary>
+            Cookie相关帮助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.CookieHelper.Set(System.String,System.String)">
+            <summary>
+            添加一个Cookie  (当前会话有效)
+            </summary>
+            <param name="cookiename">Cookie名</param>
+            <param name="cookievalue">Cookie值</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.CookieHelper.Set(System.String,System.String,System.Int32)">
+            <summary>
+            添加一个Cookie
+            </summary>
+            <param name="cookiename">Cookie名</param>
+            <param name="cookievalue">Cookie值</param>
+            <param name="minute">过期分钟（0表示当前会话有效）</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.CookieHelper.Set(System.String,System.String,System.DateTime)">
+            <summary>
+            添加一个Cookie
+            </summary>
+            <param name="cookiename">cookie名</param>
+            <param name="cookievalue">cookie值</param>
+            <param name="expires">过期时间 DateTime</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.CookieHelper.Set(System.String,System.String,System.Boolean)">
+            <summary>
+            添加一个Cookie（24小时过期）
+            </summary>
+            <param name="cookiename">Cookie名</param>
+            <param name="cookievalue">Cookie值</param>
+            <param name="httpOnly">是否可通过客户端脚本访问。</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.CookieHelper.Set(System.String,System.String,System.DateTime,System.Boolean)">
+            <summary>
+            添加一个Cookie
+            </summary>
+            <param name="cookiename">cookie名</param>
+            <param name="cookievalue">cookie值</param>
+            <param name="expires">过期时间 DateTime</param>
+            <param name="httpOnly">是否可通过客户端脚本访问。</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.CookieHelper.Remove(System.String)">
+            <summary>
+            删除指定Cookie
+            </summary>
+            <param name="cookiename">Cookes名</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.CookieHelper.Get(System.String)">
+            <summary>
+            获取指定Cookie值
+            </summary>
+            <param name="cookiename">cookie名</param>
+            <returns>cookie值</returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.CsvHelper">
+            <summary>
+            CSV文件转换帮助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.CsvHelper.DtToCsv(System.Data.DataTable,System.String,System.String,System.String)">
+            <summary>
+            导出报表为Csv
+            </summary>
+            <param name="dt">DataTable</param>
+            <param name="strFilePath">物理路径</param>
+            <param name="tableheader">表头</param>
+            <param name="columname">字段标题,逗号分隔</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.CsvHelper.CsvToDt(System.String,System.Int32,System.Data.DataTable)">
+            <summary>
+            将Csv读入DataTable
+            </summary>
+            <param name="filePath">csv文件路径</param>
+            <param name="n">表示第n行是字段title,第n+1行是记录开始</param>
+            <param name="dt"></param>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.ChineseCalendarHelper">
+            <summary>
+            中国日历帮助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ChineseCalendarHelper.#ctor(System.DateTime)">
+            <summary>
+            用一个标准的公历日期来初使化
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ChineseCalendarHelper.#ctor(System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            用农历的日期来初使化
+            </summary>
+            <param name="cy">农历年</param>
+            <param name="cm">农历月</param>
+            <param name="cd">农历日</param>
+            <param name="leapMonthFlag">闰月标志</param>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.ChineseCalendarHelper.LunarDateArray">
+             <summary>
+             来源于网上的农历数据
+             </summary>
+             <remarks>
+             数据结构如下，共使用17位数据
+             第17位：表示闰月天数，0表示29天   1表示30天
+             第16位-第5位（共12位）表示12个月，其中第16位表示第一月，如果该月为30天则为1，29天为0
+             第4位-第1位（共4位）表示闰月是哪个月，如果当年没有闰月，则置0
+            </remarks>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ChineseCalendarHelper.GetChineseMonthDays(System.Int32,System.Int32)">
+            <summary>
+            传回农历y年m月的总天数
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ChineseCalendarHelper.GetChineseLeapMonth(System.Int32)">
+            <summary>
+            传回农历 y年闰哪个月 1-12 , 没闰传回 0
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ChineseCalendarHelper.GetChineseLeapMonthDays(System.Int32)">
+            <summary>
+            传回农历y年闰月的天数
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ChineseCalendarHelper.GetChineseYearDays(System.Int32)">
+            <summary>
+            取农历年一年的天数
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ChineseCalendarHelper.GetChineseHour(System.DateTime)">
+            <summary>
+            获得当前时间的时辰
+            </summary> 
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ChineseCalendarHelper.CheckDateLimit(System.DateTime)">
+            <summary>
+            检查公历日期是否符合要求
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ChineseCalendarHelper.CheckChineseDateLimit(System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            检查农历日期是否合理
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ChineseCalendarHelper.ConvertNumToChineseNum(System.Char)">
+            <summary>
+            将0-9转成汉字形式
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ChineseCalendarHelper.BitTest32(System.Int32,System.Int32)">
+            <summary>
+            测试某位是否为真
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ChineseCalendarHelper.ConvertDayOfWeek(System.DayOfWeek)">
+            <summary>
+            将星期几转成数字表示
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ChineseCalendarHelper.CompareWeekDayHoliday(System.DateTime,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            比较当天是不是指定的第周几
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.NewCalendarHoliday">
+            <summary>
+            计算中国农历节日
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.WeekDayHoliday">
+            <summary>
+            按某月第几周第几日计算的节日
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.DateHoliday">
+            <summary>
+            按公历日计算的节日
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.Date">
+            <summary>
+            取对应的公历日期
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.WeekDay">
+            <summary>
+            取星期几
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.WeekDayStr">
+            <summary>
+            周几的字符
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.DateString">
+            <summary>
+            公历日期中文表示法 如一九九七年七月一日
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.IsLeapYear">
+            <summary>
+            当前是否公历闰年
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.ChineseConstellation">
+            <summary>
+            28星宿计算
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.ChineseHour">
+            <summary>
+            时辰
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.IsChineseLeapMonth">
+            <summary>
+            是否闰月
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.IsChineseLeapYear">
+            <summary>
+            当年是否有闰月
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.ChineseDay">
+            <summary>
+            农历日
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.ChineseDayString">
+            <summary>
+            农历日中文表示
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.ChineseMonth">
+            <summary>
+            农历的月份
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.ChineseMonthString">
+            <summary>
+            农历月份字符串
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.ChineseYear">
+            <summary>
+            取农历年份
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.ChineseYearString">
+            <summary>
+            取农历年字符串如，一九九七年
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.ChineseDateString">
+            <summary>
+            取农历日期表示法：农历一九九七年正月初五
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.ChineseTwentyFourDay">
+            <summary>
+            定气法计算二十四节气,二十四节气是按地球公转来计算的，并非是阴历计算的
+            </summary>
+            <remarks>
+            节气的定法有两种。古代历法采用的称为"恒气"，即按时间把一年等分为24份，
+            每一节气平均得15天有余，所以又称"平气"。现代农历采用的称为"定气"，即
+            按地球在轨道上的位置为标准，一周360°，两节气之间相隔15°。由于冬至时地
+            球位于近日点附近，运动速度较快，因而太阳在黄道上移动15°的时间不到15天。
+            夏至前后的情况正好相反，太阳在黄道上移动较慢，一个节气达16天之多。采用
+            定气时可以保证春、秋两分必然在昼夜平分的那两天。
+            </remarks>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.ChineseTwentyFourPrevDay">
+            <summary>
+            当前日期前一个最近节气
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.ChineseTwentyFourNextDay">
+            <summary>
+            当前日期后一个最近节气
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.Constellation">
+            <summary>
+            计算指定日期的星座序号 
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.Animal">
+            <summary>
+            计算属相的索引，注意虽然属相是以农历年来区别的，但是目前在实际使用中是按公历来计算的 鼠年为1,其它类推
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.AnimalString">
+            <summary>
+            取属相字符串
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.GanZhiYearString">
+            <summary>
+            取农历年的干支表示法如 乙丑年
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.GanZhiMonthString">
+            <summary>
+            取干支的月表示字符串，注意农历的闰月不记干支
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.GanZhiDayString">
+            <summary>
+            取干支日表示法
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ChineseCalendarHelper.GanZhiDateString">
+            <summary>
+            取当前日期的干支表示法如 甲子年乙丑月丙庚日
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.ChineseCalendarHelper.SolarHolidayStruct">
+            <summary>
+            阳历
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.ChineseCalendarHelper.LunarHolidayStruct">
+            <summary>
+            农历
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.CnDate">
+            <summary>
+            农历属性
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.CnDate.CnIntYear">
+            <summary>
+            农历年(整型)
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.CnDate.CnIntMonth">
+            <summary>
+            农历月份(整型)
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.CnDate.CnIntDay">
+            <summary>
+            农历天(整型)
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.CnDate.CnStrYear">
+            <summary>
+            农历年(支干)
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.CnDate.CnStrMonth">
+            <summary>
+            农历月份(字符)
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.CnDate.CnStrDay">
+            <summary>
+            农历天(字符)
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.CnDate.CnAnm">
+            <summary>
+            农历属象
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.CnDate.CnSolarTerm">
+            <summary>
+            二十四节气
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.CnDate.CnFtvl">
+            <summary>
+            阴历节日
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.CnDate.CnFtvs">
+            <summary>
+            阳历节日
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.EncryptionHelper.DesEncrypt">
+            <summary>
+            DES加密/解密类。
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.DesEncrypt.Encrypt(System.String)">
+            <summary>
+            使用缺省密钥字符串加密string
+            </summary>
+            <param name="plaintext">明文</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.DesEncrypt.Encrypt(System.String,System.String)">
+            <summary> 
+            加密数据 
+            </summary> 
+            <param name="plaintext">明文</param> 
+            <param name="keyStr">秘钥</param> 
+            <returns>密文</returns> 
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.DesEncrypt.Encrypt(System.String,System.String,System.String)">
+            <summary>
+            加密数据
+            </summary>
+            <param name="plaintext">明文</param>
+            <param name="keyStr">秘钥</param>
+            <param name="vector">向量</param>
+            <remarks>
+            密文经过Base64编码
+            </remarks>
+            <returns>密文</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.DesEncrypt.EncryptFile(System.String,System.String)">
+            <summary>
+            加密文件
+            </summary>
+            <param name="filePath">输入文件路径</param>
+            <param name="savePath">加密后输出文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.DesEncrypt.EncryptFile(System.String,System.String,System.String)">
+            <summary>
+            加密文件
+            </summary>
+            <param name="filePath">输入文件路径</param>
+            <param name="savePath">加密后输出文件路径</param>
+            <param name="keyStr">密码</param>
+            <returns></returns>  
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.DesEncrypt.Decrypt(System.String)">
+            <summary>
+            使用缺省密钥字符串解密string
+            </summary>
+            <param name="ciphertext">密文</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.DesEncrypt.Decrypt(System.String,System.String)">
+            <summary> 
+            解密数据 
+            </summary> 
+            <param name="ciphertext">密文</param> 
+            <param name="keyStr">秘钥</param> 
+            <returns>明文</returns> 
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.DesEncrypt.Decrypt(System.String,System.String,System.String)">
+            <summary>
+            解密数据
+            </summary>
+            <param name="ciphertext">密文</param>
+            <param name="keyStr">秘钥</param>
+            <param name="vector">向量</param>
+            <returns>明文</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.DesEncrypt.DecryptFile(System.String,System.String)">
+            <summary>
+            解密文件
+            </summary>
+            <param name="filePath">输入文件路径</param>
+            <param name="savePath">解密后输出文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.DesEncrypt.DecryptFile(System.String,System.String,System.String)">
+            <summary>
+            解密文件
+            </summary>
+            <param name="filePath">输入文件路径</param>
+            <param name="savePath">解密后输出文件路径</param>
+            <param name="keyStr">密码</param>
+            <returns></returns>    
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.DesEncrypt.Repair(System.String)">
+            <summary>
+            填充空位
+            </summary>
+            <param name="skey"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.EncryptionHelper.HashEncode">
+            <summary>
+            得到随机安全码（哈希加密）。
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.HashEncode.GetSecurity">
+            <summary>
+            得到随机哈希加密字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.HashEncode.GetRandomValue">
+            <summary>
+            得到一个随机数值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.HashEncode.HashEncoding(System.String)">
+            <summary>
+            哈希加密一个字符串
+            </summary>
+            <param name="security">安全码</param>
+            <returns>将二进制流转化为0x...字符串</returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption">
+            <summary> 
+            RSA加密解密及RSA签名和验证
+            </summary> 
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption.RsaKey(System.String@,System.String@)">
+            <summary>
+            RSA 的密钥产生 产生私钥 和公钥 
+            </summary>
+            <param name="privateKey">私钥</param>
+            <param name="publicKey">公钥</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption.JsPublicKey(System.String,System.String@,System.String@)">
+            <summary>
+            根据私钥获取js加密需要的指数和系数
+            </summary>
+            <param name="privatekey">私钥</param>
+            <param name="exponent">指数</param>
+            <param name="modulus">系数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption.Encrypt(System.String,System.String)">
+            <summary>
+            RSA的加密函数  string
+            </summary>
+            <param name="publicKey">公钥</param>
+            <param name="plaintext">明文</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption.Encrypt(System.String,System.Byte[])">
+            <summary>
+            RSA的加密函数  string
+            </summary>
+            <param name="publicKey">公钥</param>
+            <param name="plainbytes">明文字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption.Decrypt(System.String,System.String)">
+            <summary>
+            RSA的解密函数  stirng
+            </summary>
+            <param name="privateKey">私钥</param>
+            <param name="ciphertext">密文字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption.Decrypt(System.String,System.Byte[])">
+            <summary>
+            RSA的解密函数  byte
+            </summary>
+            <param name="privateKey">私钥</param>
+            <param name="cipherbytes">密文字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption.GetHash(System.String,System.Byte[]@)">
+            <summary>
+            获取Hash描述表(md5)
+            </summary>
+            <param name="strSource">待签名的字符串</param>
+            <param name="hashData">Hash描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption.GetHash(System.String,System.String@)">
+            <summary>
+            获取Hash描述表(md5)
+            </summary>
+            <param name="strSource">待签名的字符串</param>
+            <param name="strHashData">Hash描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption.GetHash(System.IO.FileStream,System.Byte[]@)">
+            <summary>
+            获取Hash描述表(md5)
+            </summary>
+            <param name="objFile">待签名的文件</param>
+            <param name="hashData">Hash描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption.GetHash(System.IO.FileStream,System.String@)">
+            <summary>
+            获取Hash描述表(md5)
+            </summary>
+            <param name="objFile">待签名的文件</param>
+            <param name="strHashData">Hash描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption.SignatureFormatter(System.String,System.Byte[],System.Byte[]@)">
+            <summary>
+            RSA签名
+            </summary>
+            <param name="pStrKeyPrivate">秘钥</param>
+            <param name="hashbyteSignature">待签名Hash描述(md5)</param>
+            <param name="encryptedSignatureData">密文签名数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption.SignatureFormatter(System.String,System.Byte[],System.String@)">
+            <summary>
+            RSA签名
+            </summary>
+            <param name="pStrKeyPrivate">私钥</param>
+            <param name="hashbyteSignature">待签名Hash描述(md5)</param>
+            <param name="mStrEncryptedSignatureData">密文签名数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption.SignatureFormatter(System.String,System.String,System.Byte[]@)">
+            <summary>
+            RSA签名 
+            </summary>
+            <param name="pStrKeyPrivate">私钥</param>
+            <param name="mStrHashbyteSignature">待签名Hash描述(md5)</param>
+            <param name="encryptedSignatureData">签名后的结果</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption.SignatureFormatter(System.String,System.String,System.String@)">
+            <summary>
+            RSA签名 
+            </summary>
+            <param name="pStrKeyPrivate">私钥</param>
+            <param name="mStrHashbyteSignature">待签名Hash描述(md5)</param>
+            <param name="mStrEncryptedSignatureData">签名后的结果</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption.SignatureDeformatter(System.String,System.Byte[],System.Byte[])">
+            <summary>
+            RSA签名验证
+            </summary>
+            <param name="pStrKeyPublic">公钥</param>
+            <param name="hashbyteDeformatter">待签名Hash描述(md5)</param>
+            <param name="deformatterData">签名后的结果</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption.SignatureDeformatter(System.String,System.String,System.Byte[])">
+            <summary>
+            RSA签名验证
+            </summary>
+            <param name="pStrKeyPublic">公钥</param>
+            <param name="pStrHashbyteDeformatter">待签名Hash描述(md5)</param>
+            <param name="deformatterData">签名后的结果</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption.SignatureDeformatter(System.String,System.Byte[],System.String)">
+            <summary>
+            RSA签名验证
+            </summary>
+            <param name="pStrKeyPublic">公钥</param>
+            <param name="hashbyteDeformatter">待签名Hash描述(md5)</param>
+            <param name="pStrDeformatterData">签名后的结果</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EncryptionHelper.RsaCryption.SignatureDeformatter(System.String,System.String,System.String)">
+            <summary>
+            RSA签名验证
+            </summary>
+            <param name="pStrKeyPublic">公钥</param>
+            <param name="pStrHashbyteDeformatter">待签名Hash描述(md5)</param>
+            <param name="pStrDeformatterData">签名后的结果</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.DownloadHelper">
+            <summary>
+            文件下载帮助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DownloadHelper.FileNameExtension(System.String)">
+            <summary>
+            参数为虚拟路径
+            <param name="fileName"></param>
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DownloadHelper.MapPathFile(System.String)">
+            <summary>
+            获取物理地址
+            <param name="fileName"></param>
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DownloadHelper.DownLoadold(System.String)">
+            <summary>
+            普通下载
+            </summary>
+            <param name="fileName">文件虚拟路径</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DownloadHelper.DownLoad(System.String)">
+            <summary>
+            分块下载
+            </summary>
+            <param name="fileName">文件虚拟路径</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.DownloadHelper.ResponseFile(System.Web.HttpRequest,System.Web.HttpResponse,System.String,System.String,System.Int64)">
+            <summary>
+             输出硬盘文件，提供下载 支持大文件、续传、速度限制、资源占用小
+            </summary>
+            <param name="request">Page.Request对象</param>
+            <param name="response">Page.Response对象</param>
+            <param name="fileName">下载文件名</param>
+            <param name="fullPath">带文件名下载路径</param>
+            <param name="speed">每秒允许下载的字节数</param>
+            <returns>返回是否成功</returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.SimilarityHelper">
+            <summary>
+            相似度帮助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SimilarityHelper.CalDistance(System.String,System.String)">
+            <summary>
+            计算编辑距离相似度
+            </summary>
+            <param name="str1">字符串1</param>
+            <param name="str2">字符串2</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.HttpHelper">
+            <summary>
+            Http连接操作帮助类Ext
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.HttpHelper.Get(System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <remarks>
+            </remarks>
+            <param name="url">URL地址</param>
+            <param name="data">参数列表</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.HttpHelper.Get``1(System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="url">Url地址</param>
+            <param name="data">参数对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.HttpHelper.Get(System.String,System.Object,System.Text.Encoding)">
+            <summary>
+            
+            </summary>
+            <param name="url">Url地址</param>
+            <param name="data">参数列表</param>
+            <param name="encoding">编码格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.HttpHelper.Get``1(System.String,System.Object,System.Text.Encoding)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="url">Url地址</param>
+            <param name="data">参数列表</param>
+            <param name="encoding">编码格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.HttpHelper.Get(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="url">Url地址</param>
+            <param name="queryString">参数列表</param>
+            <returns>响应资源体</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.HttpHelper.Get(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            
+            </summary>
+            <param name="url">Url地址</param>
+            <param name="queryString">参数列表</param>
+            <param name="encoding">字符编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.HttpHelper.Post(System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="url">Url地址</param>
+            <param name="data">参数列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.HttpHelper.Post``1(System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="url">Url地址</param>
+            <param name="data">参数对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.HttpHelper.Post(System.String,System.Object,System.Text.Encoding)">
+            <summary>
+            
+            </summary>
+            <param name="url">Url地址</param>
+            <param name="data">参数列表</param>
+            <param name="encoding">字符编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.HttpHelper.Post``1(System.String,System.Object,System.Text.Encoding)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="url">Url地址</param>
+            <param name="data">参数对象</param>
+            <param name="encoding">字符编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.HttpHelper.Post(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="url">Url地址</param>
+            <param name="querySting">参数列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.HttpHelper.Post``1(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="url">Url地址</param>
+            <param name="queryString">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.HttpHelper.Post(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            
+            </summary>
+            <param name="url">Url地址</param>
+            <param name="querySting">参数列表</param>
+            <param name="encoding">字符编码</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.HttpHelper.Post``1(System.String,System.Object,System.Collections.Hashtable,System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T">返回数据类型</typeparam>
+            <param name="url">Url地址</param>
+            <param name="hashtable">Handler 默认为null</param>
+            <param name="content">参数对象</param>
+            <param name="mediaType">要用于该内容的媒体。</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.HttpHelper.PostByHc(System.String,System.Object)">
+            <summary>
+            POST方式使用HttpClient类获取页面内容
+            </summary>
+            <param name="url">Url地址</param>
+            <param name="content">参数对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.HttpHelper.GetStream(System.String,System.Object)">
+            <summary>
+            获取远程数据流
+            </summary>
+            <param name="url">Url地址</param>
+            <param name="data">参数列表</param>
+            <returns>数据流</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.HttpHelper.GetStream(System.String,System.String)">
+            <summary>
+            获取远程数据流
+            </summary>
+            <param name="url">Url地址</param>
+            <param name="queryString">参数列表</param>
+            <returns>数据流</returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.RequestHeaderHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RequestHeaderHandler.#ctor(System.Collections.Hashtable)">
+            <summary>
+            
+            </summary>
+            <param name="hashtable"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RequestHeaderHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.RequestHeaderHandler.Hashtable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.MediaHelper.VideoHelper">
+            <summary>
+            视频资源帮助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.MediaHelper.VideoHelper.GetFileName(System.String)">
+            <summary>
+            获取文件的名字
+            <param name="fileName">文件路径</param>
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.MediaHelper.VideoHelper.GetExtension(System.String)">
+            <summary>
+            获取文件扩展名
+            <param name="fileName"></param>
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.MediaHelper.VideoHelper.CheckExtension(System.String)">
+            <summary>
+            获取文件类型
+            <param name="extension"></param>
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.MediaHelper.VideoHelper.ConvertFlv(System.String,System.String)">
+            <summary>
+            视频格式转为Flv
+            </summary>
+            <param name="vFileName">原视频文件地址</param>
+            <param name="exportName">生成后的Flv文件地址</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.MediaHelper.VideoHelper.CatchImg(System.String)">
+            <summary>
+            生成Flv视频的缩略图
+            </summary>
+            <param name="vFileName">视频文件地址</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.MediaHelper.VideoHelper.ChangeFilePhy(System.String,System.String,System.String)">
+            <summary>
+            转换文件并保存在指定文件夹下
+            </summary>
+            <param name="fileName">上传视频文件的路径（原文件）</param>
+            <param name="playFile">转换后的文件的路径（网络播放文件）</param>
+            <param name="imgFile">从视频文件中抓取的图片路径</param>
+            <returns>成功:返回图片虚拟地址;失败:返回空字符串</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.MediaHelper.VideoHelper.CatchImg(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="fileName"></param>
+            <param name="imgFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.MediaHelper.VideoHelper.ChangeFileVir(System.String,System.String,System.String)">
+            <summary>
+            转换文件并保存在指定文件夹下
+            </summary>
+            <param name="fileName">上传视频文件的路径（原文件）</param>
+            <param name="playFile">转换后的文件的路径（网络播放文件）</param>
+            <param name="imgFile">从视频文件中抓取的图片路径</param>
+            <returns>成功:返回图片虚拟地址;失败:返回空字符串</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.MediaHelper.VideoHelper.MChangeFilePhy(System.String,System.String,System.String)">
+            <summary>
+            运行mencoder的视频解码器转换
+            <param name="vFileName"></param>
+            <param name="playFile"></param>
+            <param name="imgFile"></param>
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.RequestHelper">
+            <summary>
+            Request Helper Class
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RequestHelper.GetCityAdressByIp(System.String)">
+            <summary>
+            获取IP地址的归属地<example>从http://www.ip138.com/ips1388.asp 获取Ip归属地</example>
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RequestHelper.CheckFingerprint(System.String)">
+            <summary>
+            检查指纹
+            </summary>
+            <param name="fingerprint">指纹</param>
+            <returns></returns>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.RequestHelper.UserHostAddress">
+            <summary>
+            获取远程客户端的 IP 主机地址。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.RequestHelper.Ip">
+            <summary>
+            Request Client Ip Address
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.RequestHelper.City">
+            <summary>
+            城市
+            <remarks>
+            从http://www.ip138.com/ips1388.asp 获取Ip归属地
+            </remarks>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.RequestHelper.BrowserInfo">
+            <summary>
+            浏览器信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.RequestHelper.Fingerprint">
+            <summary>
+            指纹
+            <remarks>客户端Ip地址+浏览器信息，进行pbkdf</remarks>
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.RequestHelper.IsAjaxRequest">
+            <summary>
+            HTTP 请求是否为 AJAX 请求
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.TimeHelper">
+            <summary>
+            时间操作相关类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.TimeHelper.ReturnDateFormat(System.Int32,System.String@,System.String@)">
+            <summary>
+            返回每月的第一天和最后一天
+            </summary>
+            <param name="month">月份</param>
+            <param name="firstDay">第一天</param>
+            <param name="lastDay">最后一天</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.TimeHelper.SecondToMinute(System.Int32)">
+            <summary>
+            把秒转换成分钟
+            </summary>
+            <param name="second">秒数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.TimeHelper.GetMonthLastDate(System.Int32,System.Int32)">
+            <summary>
+            返回某年某月最后一天
+            </summary>
+            <param name="year">年份</param>
+            <param name="month">月份</param>
+            <returns>日</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.TimeHelper.DateDiff(System.DateTime,System.DateTime)">
+            <summary>
+            日期比较
+            </summary>
+            <param name="dateTime1">开始时间</param>
+            <param name="dateTime2">结束时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.TimeHelper.DateDiff2(System.DateTime,System.DateTime)">
+            <summary>
+            获得两个日期的间隔
+            </summary>
+            <param name="dateTime1">日期一。</param>
+            <param name="dateTime2">日期二。</param>
+            <returns>日期间隔TimeSpan。</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.TimeHelper.GetRandomTime(System.DateTime,System.DateTime)">
+            <summary>
+            得到随机日期
+            </summary>
+            <param name="datetime1">datetime1</param>
+            <param name="datetime2">datetime2</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.FtpClient">
+            <summary>
+            FTP 操作类客户端
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.FtpClient.Obj">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.#ctor">
+            <summary>
+            缺省构造函数
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.#ctor(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.FtpClient._strMsg">
+            <summary>
+            服务器返回的应答信息(包含应答码)
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.FtpClient._strReply">
+            <summary>
+            服务器返回的应答信息(包含应答码)
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.FtpClient._iReplyCode">
+            <summary>
+            服务器返回的应答码
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.FtpClient._socketControl">
+            <summary>
+            进行控制连接的socket
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.FtpClient._trType">
+            <summary>
+            传输模式
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.FtpClient.BLOCK_SIZE">
+            <summary>
+            接收和发送数据的缓冲区
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.FtpClient.ASCII">
+            <summary>
+            编码方式
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.FtpClient.buffer">
+            <summary>
+            字节数组
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.Connect">
+            <summary>
+            建立连接 
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.DisConnect">
+            <summary>
+            关闭连接
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.SetTransferType(Framework.Mayiboy.Utility.FtpClient.TransferType)">
+            <summary>
+            设置传输模式
+            </summary>
+            <param name="ttType">传输模式</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.GetTransferType">
+            <summary>
+            获得传输模式
+            </summary>
+            <returns>传输模式</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.Dir(System.String)">
+            <summary>
+            获得文件列表
+            </summary>
+            <param name="strMask">文件名的匹配字符串</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.NewPutByGuid(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="strFileName"></param>
+            <param name="strGuid"></param>
+            <exception cref="T:System.IO.IOException"></exception>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.GetFileSize(System.String)">
+            <summary>
+            获取文件大小
+            </summary>
+            <param name="strFileName">文件名</param>
+            <returns>文件大小</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.GetFileInfo(System.String)">
+            <summary>
+            获取文件信息
+            </summary>
+            <param name="strFileName">文件名</param>
+            <returns>文件大小</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="strFileName">待删除文件名</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.Rename(System.String,System.String)">
+            <summary>
+            重命名(如果新文件名与已有文件重名,将覆盖已有文件)
+            </summary>
+            <param name="strOldFileName">旧文件名</param>
+            <param name="strNewFileName">新文件名</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.Get(System.String,System.String)">
+            <summary>
+            下载一批文件
+            </summary>
+            <param name="strFileNameMask">文件名的匹配字符串</param>
+            <param name="strFolder">本地目录(不得以\结束)</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.Get(System.String,System.String,System.String)">
+            <summary>
+            下载一个文件
+            </summary>
+            <param name="strRemoteFileName">要下载的文件名</param>
+            <param name="strFolder">本地目录(不得以\结束)</param>
+            <param name="strLocalFileName">保存在本地时的文件名</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.GetNoBinary(System.String,System.String,System.String)">
+            <summary>
+            下载一个文件
+            </summary>
+            <param name="strRemoteFileName">要下载的文件名</param>
+            <param name="strFolder">本地目录(不得以\结束)</param>
+            <param name="strLocalFileName">保存在本地时的文件名</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.Put(System.String,System.String)">
+            <summary>
+            上传一批文件
+            </summary>
+            <param name="strFolder">本地目录(不得以\结束)</param>
+            <param name="strFileNameMask">文件名匹配字符(可以包含*和?)</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.Put(System.String)">
+            <summary>
+            上传一个文件
+            </summary>
+            <param name="strFileName">本地文件名</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.PutByGuid(System.String,System.String)">
+            <summary>
+            上传一个文件
+            </summary>
+            <param name="strFileName">本地文件名</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.MkDir(System.String)">
+            <summary>
+            创建目录
+            </summary>
+            <param name="strDirName">目录名</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.RmDir(System.String)">
+            <summary>
+            删除目录
+            </summary>
+            <param name="strDirName">目录名</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.ChDir(System.String)">
+            <summary>
+            改变目录
+            </summary>
+            <param name="strDirName">新的工作目录名</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.ReadReply">
+            <summary>
+            将一行应答字符串记录在strReply和strMsg,应答码记录在iReplyCode
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.CreateDataSocket">
+            <summary>
+            建立进行数据连接的socket
+            </summary>
+            <returns>数据连接socket</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.CloseSocketConnect">
+            <summary>
+            关闭socket连接(用于登录以前)
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.ReadLine">
+            <summary>
+            读取Socket返回的所有字符串
+            </summary>
+            <returns>包含应答码的字符串行</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.FtpClient.SendCommand(System.String)">
+            <summary>
+            发送命令并获取应答码和最后一行应答字符串
+            </summary>
+            <param name="strCommand">命令</param>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.FtpClient.RemoteHost">
+            <summary>
+            FTP服务器IP地址
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.FtpClient.RemotePort">
+            <summary>
+            FTP服务器端口
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.FtpClient.RemotePath">
+            <summary>
+            当前服务器目录
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.FtpClient.RemoteUser">
+            <summary>
+            登录用户账号
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.FtpClient.RemotePass">
+            <summary>
+            用户登录密码
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.FtpClient.Connected">
+            <summary>
+            是否登录
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.FtpClient.TransferType">
+            <summary>
+            传输模式:二进制类型、ASCII类型
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.FtpClient.TransferType.Binary">
+            <summary>
+            二进制
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.FtpClient.TransferType.Ascii">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.CompressionHelper">
+            <summary>
+            压缩帮助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.CompressionHelper.GZipCompress(System.Object)">
+            <summary>
+            压缩
+            </summary>
+            <param name="logs">带压缩对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.CompressionHelper.GZipDecompress``1(System.IO.Stream)">
+            <summary>
+            解压
+            </summary>
+            <param name="compressedMemoryStream">待解压内存流</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.MailHelper">
+            <summary>
+            邮件操作类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.MailHelper.SendMail(System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="fromEmalUrl">发件人邮箱地址</param>
+            <param name="smtpUrl">发件人服务器地址</param>
+            <param name="pwd">发件人邮箱密码</param>
+            <param name="mailSubjct">邮件主题</param>
+            <param name="emailContent">文件内容</param>
+            <param name="userEmail">收件人邮箱地址</param>
+            <param name="isHtml">邮件正文是否为 Html 格式的值</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.MailHelper.GetEMailLoginUrl(System.String)">
+            <summary>
+            获取Email登陆地址
+            </summary>
+            <param name="email">email地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.MailHelper.SendMail(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="mailSubjct">邮件主题</param>
+            <param name="mailBody">邮件正文</param>
+            <param name="mailFrom">发送者</param>
+            <param name="mailAddress">邮件地址列表</param>
+            <param name="hostIp">主机IP</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.MailHelper.SendMail(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.String,System.String,System.String)">
+            <summary>
+            发送邮件（要求登陆）
+            </summary>
+            <param name="mailSubjct">邮件主题</param>
+            <param name="mailBody">邮件正文</param>
+            <param name="mailFrom">发送者</param>
+            <param name="mailAddress">接收地址列表</param>
+            <param name="hostIp">主机IP</param>
+            <param name="username">用户名</param>
+            <param name="password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.MailHelper.SendMail(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="mailSubjct">邮件主题</param>
+            <param name="mailBody">邮件正文</param>
+            <param name="mailFrom">发送者</param>
+            <param name="mailAddress">接收地址列表</param>
+            <param name="hostIp">主机IP</param>
+            <param name="filename">附件名</param>
+            <param name="username">用户名</param>
+            <param name="password">密码</param>
+            <param name="ssl">加密类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.MailHelper.SendMail(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.String,System.Int32,System.String,System.String,System.Boolean,System.String,System.Boolean@)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="mailSubjct"></param>
+            <param name="mailBody"></param>
+            <param name="mailFrom"></param>
+            <param name="mailAddress"></param>
+            <param name="hostIp"></param>
+            <param name="port"></param>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="ssl"></param>
+            <param name="replyTo"></param>
+            <param name="sendOk"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.RandomHelper">
+            <summary>
+            随机帮助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RandomHelper.NextInt(System.Int32,System.Int32)">
+            <summary>
+            生成一个指定范围的随机整数，该随机数范围包括最小值，但不包括最大值
+            </summary>
+            <param name="minNum">最小值</param>
+            <param name="maxNum">最大值</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RandomHelper.NextDouble">
+            <summary>
+            生成一个0.0到1.0的随机小数
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RandomHelper.ArraySort``1(``0[],System.Int32)">
+            <summary>
+            对一个数组进行随机排序
+            </summary>
+            <typeparam name="T">数组的类型</typeparam>
+            <param name="arr">需要随机排序的数组</param>
+            <param name="count">指定交换次数默认0长度做交换次数</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RandomHelper.NextNumStr(System.Int32)">
+            <summary>
+            随机生成不重复数字字符串  
+            </summary>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RandomHelper.NextString(System.Int32,System.Int32)">
+            <summary>
+            随机生成字符串（数字和字母混和）
+            </summary>
+            <param name="length">长度</param>
+            <param name="modetype">类型（1:数字、大小写字母）（2：数字、小写字母）（3：数字、大写字母）（4、大小写字母）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RandomHelper.NextString(System.Int32,System.String)">
+            <summary>
+            从字符串里随机得到，规定个数的字符串.
+            </summary>
+            <param name="allChar"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.ReflectionHelper.DynamicMethodMemberAccessor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.ReflectionHelper.IMemberAccessor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ReflectionHelper.IMemberAccessor.GetValue(System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="instance"></param>
+            <param name="memberName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ReflectionHelper.IMemberAccessor.SetValue(System.Object,System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="instance"></param>
+            <param name="memberName"></param>
+            <param name="newValue"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ReflectionHelper.DynamicMethodMemberAccessor.GetValue(System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="instance"></param>
+            <param name="memberName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ReflectionHelper.DynamicMethodMemberAccessor.SetValue(System.Object,System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="instance"></param>
+            <param name="memberName"></param>
+            <param name="newValue"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ReflectionHelper.DynamicMethodMemberAccessor.FindClassAccessor(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.ReflectionHelper.DynamicMethod`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.ReflectionHelper.DynamicMethod`1.GetValueDelegate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ReflectionHelper.DynamicMethod`1.GetValue(`0,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="instance"></param>
+            <param name="memberName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ReflectionHelper.DynamicMethod`1.SetValue(`0,System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="instance"></param>
+            <param name="memberName"></param>
+            <param name="newValue"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ReflectionHelper.DynamicMethod`1.GetValue(System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="instance"></param>
+            <param name="memberName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ReflectionHelper.DynamicMethod`1.SetValue(System.Object,System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="instance"></param>
+            <param name="memberName"></param>
+            <param name="newValue"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ReflectionHelper.DynamicMethod`1.#cctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ReflectionHelper.DynamicMethod`1.GenerateGetValue">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ReflectionHelper.DynamicMethod`1.GenerateSetValue">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.RegexHelper">
+            <summary>
+            操作正则表达式的公共帮助类
+            </summary>    
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RegexHelper.IsMatch(System.String,System.String)">
+            <summary>
+            验证输入字符串是否与模式字符串匹配，匹配返回true
+            </summary>
+            <param name="input">输入字符串</param>
+            <param name="pattern">模式字符串</param>        
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RegexHelper.IsMatch(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            验证输入字符串是否与模式字符串匹配，匹配返回true
+            </summary>
+            <param name="input">输入的字符串</param>
+            <param name="pattern">模式字符串</param>
+            <param name="options">筛选条件</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RegexHelper.IsMatch(System.String,Framework.Mayiboy.Utility.EnumRegex)">
+            <summary>
+            匹配默认正则
+            </summary>
+            <param name="input">输入字符串</param>
+            <param name="enumregex">EnumRegex</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.RegexHelper.IsMatch(System.String,Framework.Mayiboy.Utility.EnumRegex,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            验证输入字符串是否与模式字符串匹配
+            </summary>
+            <param name="input">输入的字符串</param>
+            <param name="enumregex">EnumRegex</param>
+            <param name="option">筛选条件</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.EnumRegex">
+            <summary>
+            枚举类型
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.EnumRegex.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.EnumRegex.UrlAddress">
+            <summary>
+            Url地址
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.EnumRegex.Integer">
+            <summary>
+            整数
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.EnumRegex.汉字">
+            <summary>
+            汉子
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.EnumRegex.身份证号">
+            <summary>
+            身份证号
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.EnumRegex.手机号码">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.EnumRegex.Ip地址">
+            <summary>
+            IP
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.SerializeHelper">
+            <summary>
+            序列化帮助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SerializeHelper.Save(System.Object,System.String)">
+            <summary>
+            文件化XML序列化
+            </summary>
+            <param name="obj">对象</param>
+            <param name="filename">文件路径</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SerializeHelper.Load(System.Type,System.String)">
+            <summary>
+            文件化XML反序列化
+            </summary>
+            <param name="type">对象类型</param>
+            <param name="filename">文件路径</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SerializeHelper.Serialize``1(``0)">
+            <summary>
+            序列化为xml文件
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SerializeHelper.Deserialize``1(System.String)">
+            <summary>
+            将xml文件反序列化
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="xml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SerializeHelper.ToSoap``1(``0)">
+            <summary>
+            SoapFormatter序列化
+            </summary>
+            <param name="item">对象</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SerializeHelper.FromSoap``1(System.String)">
+            <summary>
+            SoapFormatter反序列化
+            </summary>
+            <param name="str">字符串序列</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SerializeHelper.ToBinary``1(``0)">
+            <summary>
+            BinaryFormatter序列化
+            </summary>
+            <param name="item">对象</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SerializeHelper.FromBinary``1(System.String)">
+            <summary>
+            BinaryFormatter反序列化
+            </summary>
+            <param name="str">字符串序列</param>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.SessionHelper">
+            <summary>
+            Session 操作类
+            1、GetSession(string name)根据session名获取session对象
+            2、SetSession(string name, object val)设置session
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SessionHelper.Get(System.String,System.Boolean)">
+            <summary>
+            根据session名获取session对象
+            </summary>
+            <param name="key">key</param>
+            <param name="isdel">是否删除</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SessionHelper.GetString(System.String,System.Boolean)">
+            <summary>
+            根据session名获取session对象
+            </summary>
+            <param name="key">key</param>
+            <param name="isdel">是否删除</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SessionHelper.Get``1(System.String,System.Boolean)">
+            <summary>
+            获取Session
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key">key</param>
+            <param name="isdel">是否删除</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SessionHelper.Set(System.String,System.Object)">
+            <summary>
+            设置session
+            </summary>
+            <param name="key">key</param>
+            <param name="val">value</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SessionHelper.Set(System.String,System.String)">
+            <summary>
+            设置session
+            </summary>
+            <param name="key">key</param>
+            <param name="val">value</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SessionHelper.Set``1(System.String,``0)">
+            <summary>
+            设置session
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key">key</param>
+            <param name="val">value</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SessionHelper.Clear">
+            <summary>
+            清空所有的Session
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SessionHelper.Remove(System.String)">
+            <summary>
+            删除一个指定的ession
+            </summary>
+            <param name="key">key</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.EnumHelper">
+            <summary>
+            操作枚举的帮助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EnumHelper.GetDescription(System.Enum)">
+            <summary>
+            枚举类型的描述
+            </summary>
+            <param name="value">枚举</param>
+            <returns>枚举说明</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EnumHelper.ToArrayList(System.Type)">
+            <summary>
+            将枚举转换为ArrayList
+            说明：
+            若不是枚举类型，则返回NULL
+            单元测试-->通过
+            </summary>
+            <param name="type">枚举类型</param>
+            <returns>ArrayList</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EnumHelper.ConvertEnumToTable(System.Type,System.Int32)">
+            <summary>
+            将枚举转成DataTable
+            </summary>
+            <param name="enumType">类型</param>
+            <param name="valuetype"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EnumHelper.GetDescriptionByValue``1(System.String)">
+            <summary>
+            根据EnumValue获取对应的描述信息
+            </summary>
+            <typeparam name="T">枚举类型</typeparam>
+            <param name="value">Value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.EnumHelper.GetEnum``1(System.String)">
+            <summary>
+            根据枚举描述信息获取对于的枚举值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="descriptionValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.ReflectionHelper.AssemblyExtension">
+            <summary>
+            程序集反射扩展类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.ReflectionHelper.AssemblyExtension.CreateInstance``1(System.Reflection.Assembly,System.String,System.Object[])">
+            <summary>
+            创建实例
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="assembly"></param>
+            <param name="typeFullName"></param>
+            <param name="ctorParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.SysHelper">
+            <summary>
+            系统操作相关的公共类
+            </summary>    
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SysHelper.GetPath(System.String)">
+            <summary>
+            获取文件相对路径映射的物理路径
+            </summary>
+            <param name="virtualPath">文件的相对路径</param>        
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.SysHelper.GetMethodName(System.Int32)">
+            <summary>
+            获取指定调用层级的方法名
+            </summary>
+            <param name="level">调用的层数</param>        
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.SysHelper.BaseDirectory">
+            <summary>
+            当前应用程序路径
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.SysHelper.NewLine">
+            <summary>
+            换行字符
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.SysHelper.CurrentAppDomain">
+            <summary>
+            当前应用程序域
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.SysHelper.LocalIpAddress">
+            <summary>
+            本地使用的IP地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.UbbHelper">
+            <summary>
+            UBB代码助手类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.UbbHelper.Decode(System.String,System.Boolean)">
+            <summary>
+            解析Ubb代码为Html代码
+            </summary>
+            <param name="ubbCode">Ubb代码</param>
+            <param name="withNoFollow"></param>
+            <returns>解析得到的Html代码</returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.WebApiHelper">
+            <summary>
+            WebApi帮助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.WebApiHelper.WebApi_Get``1(System.String,System.String,System.Boolean,System.Int32)">
+            <summary>
+            Get获取接口数据
+            </summary>
+            <typeparam name="T">接口数据类型</typeparam>
+            <param name="url">Url地址</param>
+            <param name="encryptKey">秘钥</param>
+            <param name="hasEncrypt">已经加密</param>
+            <param name="timeout">超时时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.WebApiHelper.ApiGate_Get``1(System.String,System.String,System.Boolean,System.Int32)">
+            <summary>
+            Get获取接口数据
+            </summary>
+            <typeparam name="T">接口数据类型</typeparam>
+            <param name="url">Url地址</param>
+            <param name="encryptKey">秘钥</param>
+            <param name="hasEncrypt">已经加密</param>
+            <param name="timeout">超时时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.WebApiHelper.ApiGate_Post``1(System.String,System.Object,System.String,System.Boolean,System.Int32)">
+            <summary>
+            Post获取接口数据
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+            <param name="url">Url地址</param>
+            <param name="requestObj"></param>
+            <param name="encryptKey">秘钥</param>
+            <param name="hasEncrypt">已经加密</param>
+            <param name="timeout">超时时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.WebApiHelper.Get``1(System.String,System.Int32)">
+            <summary>
+            获取接口数据
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="url">Url地址</param>
+            <param name="timeout">超时时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.WebApiHelper.Post``1(System.String,System.Object,System.Int32)">
+            <summary>
+            获取接口数据
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="url">Url地址</param>
+            <param name="requestObj"></param>
+            <param name="timeout">超时时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.WebApiHelper.AppendEncryptToWebApi(System.String,System.String)">
+            <summary>
+            拼接加密字符串到Url
+            </summary>
+            <param name="url">url</param>
+            <param name="encryptKey">秘钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.WebApiHelper.AppendEncryptToApiGate(System.String,System.String)">
+            <summary>
+            拼接加密字符串到Url
+            </summary>
+            <param name="url"></param>
+            <param name="md5Key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.WebApiHelper.AppendEncryptToApiGate(System.String,System.String,System.String)">
+            <summary>
+            拼接加密字符串到Url
+            </summary>
+            <param name="url"></param>
+            <param name="requestBody"></param>
+            <param name="md5Key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.ApiResultInfo`1">
+            <summary>
+            数据结果
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ApiResultInfo`1.HasSuccess">
+            <summary>
+            成功状态
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ApiResultInfo`1.RetMsg">
+            <summary>
+            返回消息
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ApiResultInfo`1.RetCode">
+            <summary>
+            返回状态吗
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ApiResultInfo`1.InfoObj">
+            <summary>
+            结果数据
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.ApiGateResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ApiGateResult.RetCode">
+            <summary>
+            返回码
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ApiGateResult.RetMsg">
+            <summary>
+            返回消息
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ApiGateResult.LastLoadApisTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ApiGateResult.IntervalTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ApiGateResult.ContentType">
+            <summary>
+            文档类型
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Utility.ApiGateResult.Message">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.WebResourceHelper">
+            <summary>
+            静态资源帮助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.WebResourceHelper.Url(System.String,Framework.Mayiboy.Utility.ResourceType,System.Boolean)">
+            <summary>
+            资源路径
+            </summary>
+            <param name="resourcetype">资源类型</param>
+            <param name="filepath">文件路径</param>
+            <param name="isVersion">版本号</param>
+            <remarks>
+            务必配置
+                资源域名[WebResourceNodeName]
+                节点名称[WebResourceDomain]
+                版本号[VersionNo]
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.ResourceType">
+            <summary>
+            资源类型
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.ResourceType.Public">
+            <summary>
+            共有资源
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Utility.ResourceType.This">
+            <summary>
+            站点站点
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Utility.XmlHelper">
+            <summary>
+            Xml的操作公共类
+            </summary>    
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.XmlHelper.XmlSerialize(System.Object,System.Text.Encoding)">
+            <summary>
+            将一个对象序列化为XML字符串
+            </summary>
+            <param name="o">要序列化的对象</param>
+            <param name="encoding">编码方式</param>
+            <returns>序列化产生的XML字符串</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.XmlHelper.XmlDeserialize``1(System.String,System.Text.Encoding)">
+            <summary>
+            从XML字符串中反序列化对象
+            </summary>
+            <typeparam name="T">结果对象类型</typeparam>
+            <param name="s">包含对象的XML字符串</param>
+            <param name="encoding">编码方式</param>
+            <returns>反序列化得到的对象</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.XmlHelper.XmlSerializeToFile(System.Object,System.String,System.Text.Encoding)">
+            <summary>
+            将一个对象按XML序列化的方式写入到一个文件
+            </summary>
+            <param name="o">要序列化的对象</param>
+            <param name="path">保存文件路径</param>
+            <param name="encoding">编码方式</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.XmlHelper.XmlDeserializeFromFile``1(System.String,System.Text.Encoding)">
+            <summary>
+            读入一个文件，并按XML的方式反序列化对象。
+            </summary>
+            <typeparam name="T">结果对象类型</typeparam>
+            <param name="path">文件路径</param>
+            <param name="encoding">编码方式</param>
+            <returns>反序列化得到的对象</returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.XmlHelper.GetNodeAttr(System.Xml.XmlNode,System.String)">
+            <summary>
+            获取节点指定属性值
+            </summary>
+            <param name="node">xml节点</param>
+            <param name="attrName">属性名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.XmlHelper.GetXmlNode(System.Xml.XmlNode,System.String)">
+            <summary>
+            获取节点指定节点
+            </summary>
+            <param name="node">xml节点</param>
+            <param name="nodeName">xml节点名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Utility.XmlHelper.GetXmlNodeFromFile(System.String,System.String)">
+            <summary>
+            读取xml文件的指定节点
+            </summary>
+            <param name="filepath">文件路径</param>
+            <param name="nodeLocalName">节点名称</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

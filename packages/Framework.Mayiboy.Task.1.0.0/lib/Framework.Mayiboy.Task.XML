@@ -1,0 +1,522 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Framework.Mayiboy.Task</name>
+    </assembly>
+    <members>
+        <member name="T:Framework.Mayiboy.Task.ExpressType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Task.InnerLogger">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.InnerLogger.Trace(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="logInfo"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.InnerLogger.Debug(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="logInfo"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.InnerLogger.Info(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="logInfo"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.InnerLogger.Warn(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="logInfo"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.InnerLogger.Error(System.Exception,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ex"></param>
+            <param name="logInfo"></param>
+        </member>
+        <member name="E:Framework.Mayiboy.Task.InnerLogger.OnTrace">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:Framework.Mayiboy.Task.InnerLogger.OnDebug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:Framework.Mayiboy.Task.InnerLogger.OnInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:Framework.Mayiboy.Task.InnerLogger.OnWarn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:Framework.Mayiboy.Task.InnerLogger.OnError">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Task.TaskGlobal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.TaskGlobal.InitTask">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.TaskGlobal.AddTask(Framework.Mayiboy.Task.Task.ITask)">
+            <summary>
+            
+            </summary>
+            <param name="task"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.TaskGlobal.RemoveTask(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="taskName"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.TaskGlobal.ClearTask">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.TaskGlobal.StartAll">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.TaskGlobal.StopAll">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Task.Config.ConfigManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Config.ConfigManager.GetCurrentConfig">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Config.ConfigManager.InitTaskList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Config.ConfigManager.InitLoopTask(System.Xml.XmlNode)">
+            <summary>
+            
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Config.ConfigManager.InitCronTask(System.Xml.XmlNode)">
+            <summary>
+            
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Config.ConfigManager.InitGlobalConfig(System.Xml.XmlNode)">
+            <summary>
+            
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Task.Config.ConfigSectionHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Config.ConfigSectionHandler.Create(System.Object,System.Object,System.Xml.XmlNode)">
+            <summary>
+            
+            </summary>
+            <param name="parent"></param>
+            <param name="configContext"></param>
+            <param name="section"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Task.Config.GlobalConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Config.GlobalConfig.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Config.GlobalConfig.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="isAutoRun"></param>
+            <param name="isRun"></param>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Config.GlobalConfig.IsAutoRun">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Config.GlobalConfig.IsRun">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Task.Task.CronTask">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Task.Task.TaskBase">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Task.Task.TaskBase.SysTimer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Task.Task.TaskBase.LockObj">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Task.Task.TaskBase._IsRunning">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Task.TaskBase.ThreadTimerCallback(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Task.TaskBase.CreateTaskAction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Task.TaskBase.CheckIsNeedDoTask">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.TaskBase.TaskDo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.TaskBase.TaskDoWithParameter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.TaskBase.IsRunning">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.TaskBase.IsRun">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.TaskBase.IsInitSuccess">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.TaskBase.TaskName">
+            <summary>
+            任务名
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.TaskBase.Patch">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.TaskBase.ClassName">
+            <summary>
+            类名
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.TaskBase.MethodName">
+            <summary>
+            方法名
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.TaskBase.IsTaskWithParameter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Task.Task.TaskBase.TaskDoDelegate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Task.Task.TaskBase.TaskDoWithParameterDelegate">
+            <summary>
+            
+            </summary>
+            <param name="patch"></param>
+            <param name="taskName"></param>
+        </member>
+        <member name="T:Framework.Mayiboy.Task.Task.ITask">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Task.ITask.Start">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Task.ITask.Stop">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.ITask.TaskName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Task.CronTask.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Task.CronTask.#ctor(System.String,System.String,System.Boolean,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="taskName"></param>
+            <param name="patch"></param>
+            <param name="isRun"></param>
+            <param name="timeExpress"></param>
+            <param name="className"></param>
+            <param name="methodName"></param>
+            <param name="isTaskWithParameter"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Task.CronTask.InitTimeExpress(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="timeExpress"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Task.CronTask.ParseExpress(System.String,Framework.Mayiboy.Task.ExpressType)">
+            <summary>
+            
+            </summary>
+            <param name="express"></param>
+            <param name="expressType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Task.CronTask.Start">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Task.CronTask.Stop">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Task.CronTask.CheckIsNeedDoTask">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.CronTask.TimeExpress">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.CronTask.SecondList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.CronTask.MinuteList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.CronTask.HourList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.CronTask.DayList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.CronTask.MonthList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.CronTask.WeekDayList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Task.Task.LoopTask">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Task.LoopTask.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Task.LoopTask.#ctor(System.String,System.String,System.Boolean,System.Int64,System.Int64,System.DateTime,System.DateTime,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="taskName"></param>
+            <param name="patch"></param>
+            <param name="isRun"></param>
+            <param name="period"></param>
+            <param name="dueTime"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <param name="className"></param>
+            <param name="methodName"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Task.LoopTask.Start">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Task.LoopTask.Stop">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Task.LoopTask.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.Task.LoopTask.CheckIsNeedDoTask">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.LoopTask.Period">
+            <summary>
+            调用之间的时间间隔 callback, ，以毫秒为单位。 指定 Timeout.Infinite 可以禁用定期终止。
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.LoopTask.DueTime">
+            <summary>
+            在之前的延迟时间量 callback 调用，以毫秒为单位。 指定 Timeout.Infinite 以防止启动计时器。 指定零 (0) 可立即启动计时器。
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.LoopTask.BeginTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Task.Task.LoopTask.EndTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Task.TraceLogEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="T:Framework.Mayiboy.Task.InfoLogEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="T:Framework.Mayiboy.Task.WarnLogEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="T:Framework.Mayiboy.Task.ErrorLogEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="ex"></param>
+            <param name="info"></param>
+        </member>
+        <member name="T:Framework.Mayiboy.Task.DebugLogEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="T:Framework.Mayiboy.Task.XmlHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.XmlHelper.GetNodeAttr(System.Xml.XmlNode,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="node"></param>
+            <param name="attrName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.XmlHelper.GetXmlNode(System.Xml.XmlNode,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="node"></param>
+            <param name="nodeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Task.XmlHelper.GetXmlNodeFromFile(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="fileName"></param>
+            <param name="nodeLocalName"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
