@@ -1,0 +1,507 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Framework.Mayiboy.Soa.Agent</name>
+    </assembly>
+    <members>
+        <member name="T:Framework.Mayiboy.Soa.Agent.AesEncrypt">
+            <summary>
+            AES加密/解密类。
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.AesEncrypt.Encrypt(System.String,System.String)">
+            <summary>
+            加密数据
+            </summary>
+            <param name="plaintext">明文</param>
+            <param name="key">秘钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.AesEncrypt.Decrypt(System.String,System.String)">
+            <summary>
+            解密数据
+            </summary>
+            <param name="ciphertext">密文</param>
+            <param name="key">秘钥</param>
+            <returns>明文</returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Soa.Agent.AgentFactory">
+            <summary>
+            代理工厂
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.AgentFactory.CreateAgent(System.String,System.String)">
+            <summary>
+            创建代理
+            </summary>
+            <param name="svcUrl"></param>
+            <param name="svcType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.AgentFactory.CreateAgent``1(System.String,System.String)">
+            <summary>
+            基于资源实体的泛型工厂
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="svcUrl"></param>
+            <param name="svcType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Soa.Agent.IContract">
+            <summary>
+            契约接口
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Soa.Agent.IContract`2">
+            <summary>
+            泛型契约接口
+            </summary>
+            <typeparam name="TRequest"></typeparam>
+            <typeparam name="TResponse"></typeparam>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.IContract`2.Request">
+            <summary>
+            请求
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.IContract`2.Response">
+            <summary>
+            响应
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Soa.Agent.Contract`2">
+            <summary>
+            泛型契约基类
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.Contract`2.MethodName">
+            <summary>
+            方法名
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.Contract`2.ResourceName">
+            <summary>
+            资源名+Id
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.Contract`2.Request">
+            <summary>
+            请求
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.Contract`2.Response">
+            <summary>
+            响应
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Soa.Agent.IRequest">
+            <summary>
+            请求基类接口
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Soa.Agent.Request">
+            <summary>
+            请求基类
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.Request.AppId">
+            <summary>
+            应用程序代码
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Soa.Agent.IResponse">
+            <summary>
+            响应基类接口
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Soa.Agent.Response">
+            <summary>
+            响应基类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.Response.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.Response.IsSuccess">
+            <summary>
+            请求是否成功
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.Response.MessageCode">
+            <summary>
+            返回Code
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.Response.MessageText">
+            <summary>
+            返回消息
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Soa.Agent.PageRequest">
+            <summary>
+            分页查询基类
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.PageRequest.PageIndex">
+            <summary>
+            页面索引
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.PageRequest.PageSize">
+            <summary>
+            每页显示数量
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Soa.Agent.PageResponse">
+            <summary>
+            分页查询基类
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.PageResponse.PageIndex">
+            <summary>
+            当前页
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.PageResponse.PageSize">
+            <summary>
+            每页显示数量
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.PageResponse.TotalCount">
+            <summary>
+            总数
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.PageResponse.TotalPage">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Soa.Agent.DesEncrypt">
+            <summary>
+            DES加密/解密类。
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.DesEncrypt.Encrypt(System.String,System.String)">
+            <summary> 
+            加密数据 
+            </summary> 
+            <param name="plaintext">明文</param> 
+            <param name="keyStr">秘钥</param> 
+            <returns>密文</returns> 
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.DesEncrypt.Decrypt(System.String,System.String)">
+            <summary> 
+            解密数据 
+            </summary> 
+            <param name="ciphertext">密文</param> 
+            <param name="keyStr">秘钥</param> 
+            <returns>明文</returns> 
+        </member>
+        <member name="T:Framework.Mayiboy.Soa.Agent.RsaCryption">
+            <summary>
+            RSA加密解密
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.RsaCryption.Encrypt(System.String,System.String)">
+            <summary>
+            RSA的加密函数  string
+            </summary>
+            <param name="publicKey">公钥</param>
+            <param name="plaintext">明文</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.RsaCryption.Decrypt(System.String,System.String)">
+            <summary>
+            RSA的解密函数  byte
+            </summary>
+            <param name="privateKey">私钥</param>
+            <param name="ciphertext">密文字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Soa.Agent.RequestHeaderHandler">
+            <summary>
+            请求头处理程序
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.RequestHeaderHandler.#ctor(System.String,System.String,System.String)">
+            <summary>
+            请求头处理程序构造函数
+            </summary>
+            <param name="contractInfo">契约信息</param>
+            <param name="appid">应用程序标识</param>
+            <param name="serviceAccessToken">服务授权token</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.RequestHeaderHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+             <summary>
+            以异步操作发送 HTTP 请求到内部管理器以发送到服务器。
+             </summary>
+             <param name="request">要发送到服务器的 HTTP 请求消息。</param>
+             <param name="cancellationToken">取消操作的取消标记。</param>
+             <returns></returns>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RequestHeaderHandler.ContractInfo">
+            <summary>
+            契约信息
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RequestHeaderHandler.AppId">
+            <summary>
+            应用程序标识
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RequestHeaderHandler.ServiceAccessToken">
+            <summary>
+            授权认证字符串
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Soa.Agent.Helper">
+            <summary>
+            辅助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.Helper.ChangeType``1(System.Object)">
+            <summary>
+            类型转换
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.Helper.ChangeType(System.Object,System.Type)">
+            <summary>
+            类型转换
+            </summary>
+            <param name="obj"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.Helper.Serialize(System.Object)">
+            <summary>
+            序列化
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.Helper.Deserialize``1(System.String)">
+            <summary>
+            反序列化
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.Helper.Deserialize(System.String,System.Type)">
+            <summary>
+            反序列化
+            </summary>
+            <param name="json"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.Helper.DataConverter(System.Object)">
+            <summary>
+            数据转换
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.Helper.GetWsdlUrl(System.String)">
+            <summary>
+            获取Wsdl地址
+            </summary>
+            <param name="esbUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.Helper.GetWsUrl(System.String)">
+            <summary>
+            获取地址
+            </summary>
+            <param name="address"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.Helper.GetClassName(System.String)">
+            <summary>
+            获取类名
+            </summary>
+            <param name="address"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.Helper.GetMethodName(System.String)">
+            <summary>
+            获取方法名
+            </summary>
+            <param name="address"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.Helper.ContractSerialize(System.Object)">
+            <summary>
+            序列化
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Soa.Agent.IAgent">
+            <summary>
+            代理接口
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.IAgent.Request``2(Framework.Mayiboy.Soa.Agent.Contract{``0,``1})">
+            <summary>
+            请求
+            </summary>
+            <param name="contract"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.IAgent.Request``2(Framework.Mayiboy.Soa.Agent.Contract{``0,``1},System.Int32)">
+            <summary>
+            请求
+            </summary>
+            <param name="contract"></param>
+            <param name="timeOut"></param>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.IAgent.Method">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.IAgent.AccessToken">
+            <summary>
+            授权认证字符串
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Soa.Agent.RestWebApiAgent">
+            <summary>
+            .Net Rest Service代理
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="svcUrl"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.Request``2(Framework.Mayiboy.Soa.Agent.Contract{``0,``1})">
+            <summary>
+            
+            </summary>
+            <typeparam name="TRequest"></typeparam>
+            <typeparam name="TResponse"></typeparam>
+            <param name="contract"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.GetUrlString``2(Framework.Mayiboy.Soa.Agent.Contract{``0,``1})">
+            <summary>
+            
+            </summary>
+            <typeparam name="TRequest"></typeparam>
+            <typeparam name="TResponse"></typeparam>
+            <param name="contract"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.Request``2(Framework.Mayiboy.Soa.Agent.Contract{``0,``1},System.Int32)">
+            <summary>
+            
+            </summary>
+            <typeparam name="TRequest"></typeparam>
+            <typeparam name="TResponse"></typeparam>
+            <param name="contract"></param>
+            <param name="timeOut"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.GetResponseByStatus``1(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            根据HttpStatusCode 返回 TResponse
+            </summary>
+            <typeparam name="TResponse"></typeparam>
+            <param name="httpResponseMessage">HttpResponseMessage</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.RequestByMethod(System.Uri,System.Net.Http.StringContent,System.Net.Http.HttpClient)">
+            <summary>
+            
+            </summary>
+            <param name="uri"></param>
+            <param name="httpContent"></param>
+            <param name="client"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.SerilizeRequest(Framework.Mayiboy.Soa.Agent.Request,System.String)">
+            <summary>
+            序列化请求
+            </summary>
+            <param name="request"></param>
+            <param name="requestMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.EncryptData(System.String)">
+            <summary>
+            根据接口数据加密方式加密接口数据
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.Method">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.IsSerialized">
+            <summary>
+            是否已序列化，默认为false
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.AccessToken">
+            <summary>
+            身份认证控制Token
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.EncryptionType">
+            <summary>
+            接口数据加密类型
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.SecretKey">
+            <summary>
+            加密秘钥
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.UrlHasMethod">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Soa.Agent.RestServiceAgent">
+            <summary>
+            .Net Rest Service代理
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.RestServiceAgent.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="svcUrl"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.RestServiceAgent.Request``2(Framework.Mayiboy.Soa.Agent.Contract{``0,``1})">
+            <summary>
+            
+            </summary>
+            <typeparam name="TRequest"></typeparam>
+            <typeparam name="TResponse"></typeparam>
+            <param name="contract"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.RestServiceAgent.Request``2(Framework.Mayiboy.Soa.Agent.Contract{``0,``1},System.Int32)">
+            <summary>
+            
+            </summary>
+            <typeparam name="TRequest"></typeparam>
+            <typeparam name="TResponse"></typeparam>
+            <param name="contract"></param>
+            <param name="timeOut"></param>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RestServiceAgent.Method">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>
