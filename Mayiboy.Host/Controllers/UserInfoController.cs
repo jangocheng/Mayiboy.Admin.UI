@@ -16,7 +16,7 @@ namespace Mayiboy.Host.Controllers
 	/// </summary>
 	public class UserInfoController : ApiController
 	{
-		private readonly IUserInfoService _userinfoService;// = ServiceLocater.GetService<IUserInfoService>();
+		private readonly IUserInfoService _userinfoService;
 
 		public UserInfoController(IUserInfoService userInfoService)
 		{

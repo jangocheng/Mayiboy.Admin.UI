@@ -6,7 +6,17 @@
     <members>
         <member name="T:Framework.Mayiboy.Logging.Config.ConfigManager">
             <summary>
-            管理配置
+            Config Manager
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Config.ConfigManager.CurrentConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Config.ConfigManager.Watcher">
+            <summary>
+            文件监视器
             </summary>
         </member>
         <member name="M:Framework.Mayiboy.Logging.Config.ConfigManager.InitCurrentLogConfig">
@@ -26,16 +36,6 @@
             </summary>
             <param name="source"></param>
             <param name="sender"></param>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Config.ConfigManager.CurrentConfig">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Config.ConfigManager.Watcher">
-            <summary>
-            
-            </summary>
         </member>
         <member name="T:Framework.Mayiboy.Logging.Config.ConfigSectionHandler">
             <summary>
@@ -61,9 +61,23 @@
             
             </summary>
         </member>
+        <member name="M:Framework.Mayiboy.Logging.Config.DefaultConfig.GetFileBaseLogger(System.String)">
+            <summary>
+            获取基础（文件）
+            </summary>
+            <param name="loggerName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Config.DefaultConfig.GetClassicsLogger(System.String)">
+            <summary>
+            获取经典
+            </summary>
+            <param name="loggerName"></param>
+            <returns></returns>
+        </member>
         <member name="M:Framework.Mayiboy.Logging.Config.DefaultConfig.GetFileTarget(System.String,System.String)">
             <summary>
-            获取文件记录器
+            获取默认文件记录器
             </summary>
             <param name="level">等级</param>
             <param name="loggerName">记录器名称</param>
@@ -71,45 +85,20 @@
         </member>
         <member name="M:Framework.Mayiboy.Logging.Config.DefaultConfig.GetEMailTarget(System.String,System.String)">
             <summary>
-            获取邮件记录器
+            获取默认邮件记录器
             </summary>
             <param name="level">等级</param>
             <param name="loggerName">记录器名称</param>
             <returns></returns>
         </member>
-        <member name="M:Framework.Mayiboy.Logging.Config.DefaultConfig.GetFileBaseLogger(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="loggerName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Config.DefaultConfig.GetClassicsLogger(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="loggerName"></param>
-            <returns></returns>
-        </member>
         <member name="T:Framework.Mayiboy.Logging.Config.GlobalConfig">
             <summary>
-            
+            全局配置
             </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Config.GlobalConfig.#ctor">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Config.GlobalConfig.#ctor(System.Xml.XmlNode)">
-            <summary>
-            
-            </summary>
-            <param name="node"></param>
         </member>
         <member name="P:Framework.Mayiboy.Logging.Config.GlobalConfig.ThrowException">
             <summary>
-            
+            抛出异常
             </summary>
         </member>
         <member name="P:Framework.Mayiboy.Logging.Config.GlobalConfig.IsLog">
@@ -129,15 +118,21 @@
         </member>
         <member name="P:Framework.Mayiboy.Logging.Config.GlobalConfig.IsStartDebugConsole">
             <summary>
-            
+            启用调试输出
             </summary>
         </member>
-        <member name="T:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig">
+        <member name="M:Framework.Mayiboy.Logging.Config.GlobalConfig.#ctor">
             <summary>
             
             </summary>
         </member>
-        <member name="F:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.AllTargetXmlNodeList">
+        <member name="M:Framework.Mayiboy.Logging.Config.GlobalConfig.#ctor(System.Xml.XmlNode)">
+            <summary>
+            
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="T:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig">
             <summary>
             
             </summary>
@@ -145,6 +140,26 @@
         <member name="F:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig._globalConfig">
             <summary>
             
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.VariablePool">
+            <summary>
+            Variable Pool
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.AllTargetList">
+            <summary>
+            Target list
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.LoggerPool">
+            <summary>
+            Logger Pool
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.GlobalConfig">
+            <summary>
+            全局配置
             </summary>
         </member>
         <member name="M:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.#ctor">
@@ -165,9 +180,15 @@
             <param name="configNode"></param>
             <param name="configFile"></param>
         </member>
+        <member name="M:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.ConfigureGlobalConfigFromXml(System.Xml.XmlNode)">
+            <summary>
+            初始化全局配置对象
+            </summary>
+            <param name="node"></param>
+        </member>
         <member name="M:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.ConfigureVariableFormDefault">
             <summary>
-            初始化默认常量
+            初始化默认常量(日志路径，日志日期路径)
             </summary>
         </member>
         <member name="M:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.ConfigureVariableFromXml(System.Xml.XmlNodeList)">
@@ -191,235 +212,65 @@
             <summary>
             初始化日志对象
             </summary>
-            <param name="nodeList"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.ConfigureGlobalConfigFromXml(System.Xml.XmlNode)">
-            <summary>
-            初始化全局配置对象
-            </summary>
-            <param name="node"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.ConfigureCountersFromXml(System.Xml.XmlNodeList)">
-            <summary>
-            初始化Counter对象
-            </summary>
-            <param name="nodeList"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.ConfigureQueuesFromXml(System.Xml.XmlNodeList)">
-            <summary>
-            初始化Queue对象
-            </summary>
-            <param name="nodeList"></param>
+            <param name="loggersnodeList"></param>
         </member>
         <member name="M:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.UnLoadLogPoolConfig">
             <summary>
             卸载清除日志池配置
             </summary>
         </member>
-        <member name="P:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.VariablePool">
-            <summary>
-            变量池
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.AllTargetList">
-            <summary>
-            目标池
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.LoggerPool">
-            <summary>
-            记录器池
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.CounterPool">
-            <summary>
-            计数器池
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.QueuePool">
-            <summary>
-            队列池
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Config.XmlLogPoolConfig.GlobalConfig">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:Framework.Mayiboy.Logging.Counter.CollectCountInfo">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Counter.CollectCountInfo.#ctor">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Counter.CollectCountInfo.#ctor(System.String,System.Int32,System.DateTime)">
-            <summary>
-            
-            </summary>
-            <param name="key"></param>
-            <param name="count"></param>
-            <param name="mustUpdateTime"></param>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Counter.CollectCountInfo.Key">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Counter.CollectCountInfo.Count">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Counter.CollectCountInfo.MustUpdateTime">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:Framework.Mayiboy.Logging.Counter.Counter">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Framework.Mayiboy.Logging.Counter.Counter.OnSaveCountInfo">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Counter.Counter.#ctor">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Counter.Counter.#ctor(System.String,System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="name"></param>
-            <param name="collectPeriod"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Counter.Counter.AddCount(System.String,System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="key"></param>
-            <param name="count"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Counter.Counter.DealQueue">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Counter.Counter.ThreadCollectCountInfo">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Counter.Counter.StrongHandDealCountInfo">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Counter.Counter.Name">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Counter.Counter.CollectPeriod">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:Framework.Mayiboy.Logging.Counter.CounterFactory">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Counter.CounterFactory.GetCounter(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="counterName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Counter.CounterFactory.ThreadCollectCountInfo">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Counter.CounterFactory.StrongHandDealCountInfo(System.Object,System.EventArgs)">
-            <summary>
-            
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Counter.CountInfoQueue.#ctor">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Counter.CountInfoQueue.#ctor(System.Int32,System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="minPhore"></param>
-            <param name="maxPhore"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Counter.CountInfoQueue.Enqueue(Framework.Mayiboy.Logging.Counter.CountInfo)">
-            <summary>
-            
-            </summary>
-            <param name="item"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Counter.CountInfoQueue.Dequeue">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Framework.Mayiboy.Logging.Counter.DelegateSaveCountInfo">
-            <summary>
-            
-            </summary>
-            <param name="key"></param>
-            <param name="count"></param>
-        </member>
         <member name="T:Framework.Mayiboy.Logging.Entity.ComplexExEntity">
             <summary>
             
             </summary>
         </member>
-        <member name="T:Framework.Mayiboy.Logging.Entity.ExEntityBase">
+        <member name="P:Framework.Mayiboy.Logging.Entity.ComplexExEntity.CallStack">
             <summary>
-            异常基类
+            调用堆
             </summary>
         </member>
-        <member name="M:Framework.Mayiboy.Logging.Entity.ExEntityBase.#ctor(System.Exception)">
+        <member name="P:Framework.Mayiboy.Logging.Entity.ComplexExEntity.AppDomainName">
+            <summary>
+            应用域名
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Entity.ComplexExEntity.ThreadId">
+            <summary>
+            线程Id
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Entity.ComplexExEntity.ThreadUser">
+            <summary>
+            线程名称
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Entity.ComplexExEntity.#ctor(System.Exception)">
             <summary>
             
             </summary>
             <param name="ex"></param>
         </member>
-        <member name="M:Framework.Mayiboy.Logging.Entity.ExEntityBase.#ctor">
+        <member name="M:Framework.Mayiboy.Logging.Entity.ComplexExEntity.#ctor">
             <summary>
             
             </summary>
         </member>
-        <member name="M:Framework.Mayiboy.Logging.Entity.ExEntityBase.SetException(System.Exception)">
+        <member name="M:Framework.Mayiboy.Logging.Entity.ComplexExEntity.SetException(System.Exception)">
             <summary>
             设置异常
             </summary>
-            <param name="ex">异常</param>
+            <param name="ex"></param>
         </member>
-        <member name="M:Framework.Mayiboy.Logging.Entity.ExEntityBase.ToString">
+        <member name="M:Framework.Mayiboy.Logging.Entity.ComplexExEntity.ToString">
             <summary>
-            转字符串
+            
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Logging.Entity.ExEntityBase">
+            <summary>
+            异常基类
+            </summary>
         </member>
         <member name="P:Framework.Mayiboy.Logging.Entity.ExEntityBase.CatchTime">
             <summary>
@@ -486,60 +337,33 @@
             工作集
             </summary>
         </member>
-        <member name="M:Framework.Mayiboy.Logging.Entity.ComplexExEntity.#ctor(System.Exception)">
+        <member name="M:Framework.Mayiboy.Logging.Entity.ExEntityBase.#ctor(System.Exception)">
             <summary>
             
             </summary>
             <param name="ex"></param>
         </member>
-        <member name="M:Framework.Mayiboy.Logging.Entity.ComplexExEntity.#ctor">
+        <member name="M:Framework.Mayiboy.Logging.Entity.ExEntityBase.#ctor">
             <summary>
             
             </summary>
         </member>
-        <member name="M:Framework.Mayiboy.Logging.Entity.ComplexExEntity.SetException(System.Exception)">
+        <member name="M:Framework.Mayiboy.Logging.Entity.ExEntityBase.SetException(System.Exception)">
             <summary>
             设置异常
             </summary>
-            <param name="ex"></param>
+            <param name="ex">异常</param>
         </member>
-        <member name="M:Framework.Mayiboy.Logging.Entity.ComplexExEntity.ToString">
+        <member name="M:Framework.Mayiboy.Logging.Entity.ExEntityBase.ToString">
             <summary>
-            
+            转字符串
             </summary>
             <returns></returns>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Entity.ComplexExEntity.CallStack">
-            <summary>
-            调用堆
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Entity.ComplexExEntity.AppDomainName">
-            <summary>
-            应用域名
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Entity.ComplexExEntity.ThreadId">
-            <summary>
-            线程Id
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Entity.ComplexExEntity.ThreadUser">
-            <summary>
-            线程名称
-            </summary>
         </member>
         <member name="T:Framework.Mayiboy.Logging.Entity.MsmqProxEntity">
             <summary>
             消息代理基类
             </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Entity.MsmqProxEntity.SetMessage(System.Object,System.String)">
-            <summary>
-            发送消息
-            </summary>
-            <param name="msgObj"></param>
-            <param name="customerInfo"></param>
         </member>
         <member name="P:Framework.Mayiboy.Logging.Entity.MsmqProxEntity.CustomerInfo">
             <summary>
@@ -555,6 +379,13 @@
             <summary>
             消息
             </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Entity.MsmqProxEntity.SetMessage(System.Object,System.String)">
+            <summary>
+            发送消息
+            </summary>
+            <param name="msgObj"></param>
+            <param name="content"></param>
         </member>
         <member name="T:Framework.Mayiboy.Logging.Entity.SimpleExEntity">
             <summary>
@@ -575,6 +406,21 @@
         <member name="T:Framework.Mayiboy.Logging.Entity.WebExEntity">
             <summary>
             
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Entity.WebExEntity.UrlInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Entity.WebExEntity.ClientIp">
+            <summary>
+            客户端ip地址
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Entity.WebExEntity.HostIp">
+            <summary>
+            主键Ip地址
             </summary>
         </member>
         <member name="M:Framework.Mayiboy.Logging.Entity.WebExEntity.#ctor(System.Exception)">
@@ -599,21 +445,6 @@
             转换字符串
             </summary>
             <returns></returns>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Entity.WebExEntity.UrlInfo">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Entity.WebExEntity.ClientIp">
-            <summary>
-            客户端ip地址
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Entity.WebExEntity.HostIp">
-            <summary>
-            主键Ip地址
-            </summary>
         </member>
         <member name="T:Framework.Mayiboy.Logging.Layout.LayoutParser">
             <summary>
@@ -653,17 +484,17 @@
             布局渲染
             </summary>
         </member>
+        <member name="P:Framework.Mayiboy.Logging.Layout.LayoutRenderer.Text">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Framework.Mayiboy.Logging.Layout.LayoutRenderer.#ctor(System.String,System.Boolean)">
             <summary>
             布局渲染
             </summary>
             <param name="txt"></param>
             <param name="wantConvert"></param>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Layout.LayoutRenderer.Text">
-            <summary>
-            
-            </summary>
         </member>
         <member name="T:Framework.Mayiboy.Logging.Layout.SysVariable">
             <summary>
@@ -755,6 +586,11 @@
             记号
             </summary>
         </member>
+        <member name="P:Framework.Mayiboy.Logging.Layout.Token.Position">
+            <summary>
+            位置
+            </summary>
+        </member>
         <member name="M:Framework.Mayiboy.Logging.Layout.Token.#ctor(System.String)">
             <summary>
             
@@ -780,11 +616,6 @@
             <param name="p0"></param>
             <param name="p1"></param>
             <returns></returns>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Layout.Token.Position">
-            <summary>
-            位置
-            </summary>
         </member>
         <member name="T:Framework.Mayiboy.Logging.Layout.VariableConvert">
             <summary>
@@ -813,289 +644,9 @@
             <param name="isSysVar">是否系统变量</param>
             <returns></returns>
         </member>
-        <member name="T:Framework.Mayiboy.Logging.Queue.DelegateQueueCallback">
-            <summary>
-            
-            </summary>
-            <param name="message"></param>
-        </member>
-        <member name="T:Framework.Mayiboy.Logging.Queue.MessageInfo">
-            <summary>
-            消息信息
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Queue.MessageInfo.#ctor(System.String,System.Object,System.String,Framework.Mayiboy.Logging.Queue.DelegateQueueCallback)">
-            <summary>
-            
-            </summary>
-            <param name="message">消息</param>
-            <param name="body">消息体</param>
-            <param name="stringBody">消息体字符串</param>
-            <param name="callback">回调委托</param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Queue.MessageInfo.ToString">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Queue.MessageInfo.Message">
-            <summary>
-            信息
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Queue.MessageInfo.Body">
-            <summary>
-            消息体
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Queue.MessageInfo.StringBody">
-            <summary>
-            消息体字符串
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Queue.MessageInfo.Callback">
-            <summary>
-            回调委托
-            </summary>
-        </member>
-        <member name="T:Framework.Mayiboy.Logging.Queue.MessageQueue">
-            <summary>
-            消息队列
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Queue.MessageQueue.#ctor">
-            <summary>
-            消息队列   处理队列线程数（0，100000）
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Queue.MessageQueue.#ctor(System.Int32,System.Int32)">
-            <summary>
-            处理消息上\下限线程数
-            </summary>
-            <param name="minPhore">最小载体数</param>
-            <param name="maxPhore">最大载体数</param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Queue.MessageQueue.Enqueue(Framework.Mayiboy.Logging.Queue.MessageInfo)">
-            <summary>
-            入队
-            </summary>
-            <param name="item">消息信息</param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Queue.MessageQueue.Dequeue">
-            <summary>
-            出队
-            </summary>
-            <returns>消息信息</returns>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Queue.MessageQueue.ClientCount">
-            <summary>
-            队列长度
-            </summary>
-        </member>
-        <member name="T:Framework.Mayiboy.Logging.Queue.Queue">
-            <summary>
-            队列
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Queue.Queue.#ctor">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Queue.Queue.#ctor(System.String)">
-            <summary>
-            队列
-            </summary>
-            <param name="name">队列</param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Queue.Queue.Enqueue(Framework.Mayiboy.Logging.Queue.MessageInfo)">
-            <summary>
-            入队列
-            </summary>
-            <param name="item">消息信息</param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Queue.Queue.DealQueue">
-            <summary>
-            处理队列
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Queue.Queue.StrongHandDealCountInfo">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Queue.Queue.Name">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:Framework.Mayiboy.Logging.Queue.QueueFactory">
-            <summary>
-            队列工厂
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Queue.QueueFactory.GetQueue(System.String)">
-            <summary>
-            获取队列
-            </summary>
-            <param name="queueName">队列名称</param>
-            <returns></returns>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Queue.QueueFactory.StrongHandDealQueueInfo(System.Object,System.EventArgs)">
-            <summary>
-            
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
         <member name="T:Framework.Mayiboy.Logging.Target.EMailTarget">
             <summary>
             邮件目标（发送邮件）
-            </summary>
-        </member>
-        <member name="T:Framework.Mayiboy.Logging.Target.TargetBase">
-            <summary>
-            目标基类
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Target.TargetBase.InitBaseProperty(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="name">目标名称</param>
-            <param name="isLog"></param>
-            <param name="isAsyn">是否异步</param>
-            <param name="targetType">目标类型</param>
-            <param name="layout">布局</param>
-            <param name="encode"></param>
-            <param name="limitLogSize">日志大小限制</param>
-            <param name="limitLogCount"></param>
-            <param name="limitLogTimeTick"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Target.TargetBase.CheckLogCache(System.String,System.String@)">
-            <summary>
-            检查日志缓存
-            </summary>
-            <param name="logValue"></param>
-            <param name="logContent"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Target.TargetBase.RemoveCache">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.IsLog">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.IsAsyn">
-            <summary>
-            异步
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.Name">
-            <summary>
-            目标名称
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.TargetType">
-            <summary>
-            目标类型
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.Layout">
-            <summary>
-            布局
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.LimitLogSize">
-            <summary>
-            日志大小限制
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.CacheString">
-            <summary>
-            内容容器
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.LimitLogCount">
-            <summary>
-            日志数量限制
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.CacheLogCount">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.LimitLogTimeTick">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.CacheLogTimeTick">
-            <summary>
-            日志时间
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.Encode">
-            <summary>
-            编码
-            </summary>
-        </member>
-        <member name="T:Framework.Mayiboy.Logging.Target.ITarget">
-            <summary>
-            目标接口
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Target.ITarget.WriteTo(System.String,System.String)">
-            <summary>
-            写入
-            </summary>
-            <param name="logValue"></param>
-            <param name="layout"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Target.ITarget.StrongWriteCache">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.ITarget.IsLog">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.ITarget.IsAsyn">
-            <summary>
-            是否异步
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.ITarget.Name">
-            <summary>
-            名称
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.ITarget.TargetType">
-            <summary>
-            目标类型
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.ITarget.LimitLogSize">
-            <summary>
-            日志文件大小
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.ITarget.LimitLogCount">
-            <summary>
-            日志文件数
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.ITarget.LimitLogTimeTick">
-            <summary>
-            日志时间
             </summary>
         </member>
         <member name="F:Framework.Mayiboy.Logging.Target.EMailTarget._targetWriter">
@@ -1106,49 +657,6 @@
         <member name="F:Framework.Mayiboy.Logging.Target.EMailTarget._message">
             <summary>
             邮件消息
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Target.EMailTarget.#ctor(System.Xml.XmlNode)">
-            <summary>
-            邮件目标
-            </summary>
-            <param name="node"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Target.EMailTarget.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            邮件目标
-            </summary>
-            <param name="name"></param>
-            <param name="isLog"></param>
-            <param name="isAsyn"></param>
-            <param name="layout"></param>
-            <param name="encode"></param>
-            <param name="limitLogSize"></param>
-            <param name="limitLogCount"></param>
-            <param name="limitLogTimeTick"></param>
-            <param name="fromMail">发送邮箱</param>
-            <param name="mailServer">邮箱服务器</param>
-            <param name="mailAccount">邮箱账号</param>
-            <param name="mailPassword">邮箱密码</param>
-            <param name="toMail">接收邮件</param>
-            <param name="subject">主题</param>
-            <param name="isBodyHtml">主题是否是html（"true",false）</param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Target.EMailTarget.CreateWriter">
-            <summary>
-            创建写入
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Target.EMailTarget.WriteTo(System.String,System.String)">
-            <summary>
-            写入
-            </summary>
-            <param name="logValue"></param>
-            <param name="layout"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Target.EMailTarget.StrongWriteCache">
-            <summary>
-            
             </summary>
         </member>
         <member name="P:Framework.Mayiboy.Logging.Target.EMailTarget.FromMail">
@@ -1196,6 +704,49 @@
             邮件消息
             </summary>
         </member>
+        <member name="M:Framework.Mayiboy.Logging.Target.EMailTarget.#ctor(System.Xml.XmlNode)">
+            <summary>
+            邮件目标
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Target.EMailTarget.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            邮件目标
+            </summary>
+            <param name="name"></param>
+            <param name="isLog"></param>
+            <param name="isAsyn"></param>
+            <param name="layout"></param>
+            <param name="encode"></param>
+            <param name="limitLogSize"></param>
+            <param name="limitLogCount"></param>
+            <param name="limitLogTimeTick"></param>
+            <param name="fromMail">发送邮箱</param>
+            <param name="mailServer">邮箱服务器</param>
+            <param name="mailAccount">邮箱账号</param>
+            <param name="mailPassword">邮箱密码</param>
+            <param name="toMail">接收邮件</param>
+            <param name="subject">主题</param>
+            <param name="isBodyHtml">主题是否是html（"true",false）</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Target.EMailTarget.CreateWriter">
+            <summary>
+            创建写入
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Target.EMailTarget.WriteTo(System.String,System.String)">
+            <summary>
+            写入
+            </summary>
+            <param name="logValue"></param>
+            <param name="layout"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Target.EMailTarget.StrongWriteCache">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Framework.Mayiboy.Logging.Target.EventTarget">
             <summary>
             事件目标（写入系统日志）
@@ -1204,6 +755,26 @@
         <member name="F:Framework.Mayiboy.Logging.Target.EventTarget._targetWriter">
             <summary>
             Windows 事件日志交互
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.EventTarget.LogName">
+            <summary>
+            日志名称
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.EventTarget.MachineName">
+            <summary>
+            机器名
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.EventTarget.Source">
+            <summary>
+            来源
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.EventTarget.TargetWriter">
+            <summary>
+            目标写入
             </summary>
         </member>
         <member name="M:Framework.Mayiboy.Logging.Target.EventTarget.#ctor(System.Xml.XmlNode)">
@@ -1244,34 +815,34 @@
             强制清除缓存
             </summary>
         </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.EventTarget.LogName">
-            <summary>
-            日志名称
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.EventTarget.MachineName">
-            <summary>
-            机器名
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.EventTarget.Source">
-            <summary>
-            来源
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.EventTarget.TargetWriter">
-            <summary>
-            目标写入
-            </summary>
-        </member>
         <member name="T:Framework.Mayiboy.Logging.Target.FileTarget">
             <summary>
             文件目标（写入文件）
             </summary>
         </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.FileTarget.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.FileTarget.FileMaxSize">
+            <summary>
+            文件大小
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.FileTarget.UseFileName">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="F:Framework.Mayiboy.Logging.Target.FileTarget._targetWriter">
             <summary>
             写入流
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.FileTarget.TargetWriter">
+            <summary>
+            
             </summary>
         </member>
         <member name="M:Framework.Mayiboy.Logging.Target.FileTarget.#ctor(System.Xml.XmlNode)">
@@ -1282,7 +853,7 @@
         </member>
         <member name="M:Framework.Mayiboy.Logging.Target.FileTarget.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
-            文件目标
+            File Target
             </summary>
             <param name="name"></param>
             <param name="isLog"></param>
@@ -1312,29 +883,19 @@
             
             </summary>
         </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.FileTarget.FileName">
-            <summary>
-            文件名
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.FileTarget.FileMaxSize">
-            <summary>
-            文件大小
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.FileTarget.UseFileName">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.FileTarget.TargetWriter">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="T:Framework.Mayiboy.Logging.Target.HttpTarget">
             <summary>
             http目标
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.HttpTarget.HttpUrl">
+            <summary>
+            httpUrl地址
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.HttpTarget.HttpPara">
+            <summary>
+            参数
             </summary>
         </member>
         <member name="M:Framework.Mayiboy.Logging.Target.HttpTarget.#ctor(System.Xml.XmlNode)">
@@ -1376,14 +937,63 @@
             
             </summary>
         </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.HttpTarget.HttpUrl">
+        <member name="T:Framework.Mayiboy.Logging.Target.ITarget">
             <summary>
-            httpUrl地址
+            目标接口
             </summary>
         </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.HttpTarget.HttpPara">
+        <member name="P:Framework.Mayiboy.Logging.Target.ITarget.IsLog">
             <summary>
-            参数
+            是否启用日志
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.ITarget.IsAsyn">
+            <summary>
+            是否异步
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.ITarget.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.ITarget.TargetType">
+            <summary>
+            目标类型[file|mail|eventlog|trace|msmq|udp|http]
+            <value>File:写入文件</value>
+            <value>Mail:发送邮件</value>
+            <value>eventlog:写入系统事件</value>
+            <value>trace：</value>
+            <value>msmq:写入队列</value>
+            <value>udp:发送UDP</value>
+            <value>http:发送http</value>
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.ITarget.LimitLogSize">
+            <summary>
+            文件大小限制
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.ITarget.LimitLogCount">
+            <summary>
+            文件数限制
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.ITarget.LimitLogTimeTick">
+            <summary>
+            时间时间限制
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Target.ITarget.WriteTo(System.String,System.String)">
+            <summary>
+            写入
+            </summary>
+            <param name="logValue">内容</param>
+            <param name="layout">内容布局</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Target.ITarget.StrongWriteCache">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:Framework.Mayiboy.Logging.Target.MsmqTarget">
@@ -1399,6 +1009,41 @@
         <member name="F:Framework.Mayiboy.Logging.Target.MsmqTarget._message">
             <summary>
             
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.MsmqTarget.Path">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.MsmqTarget.QueueName">
+            <summary>
+            队列名称
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.MsmqTarget.UseJournalQueue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.MsmqTarget.MessageFormatter">
+            <summary>
+            消息格式
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.MsmqTarget.IsSendString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.MsmqTarget.TargetWriter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.MsmqTarget.Message">
+            <summary>
+            消息
             </summary>
         </member>
         <member name="M:Framework.Mayiboy.Logging.Target.MsmqTarget.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
@@ -1441,53 +1086,10 @@
             回收
             </summary>
         </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.MsmqTarget.Path">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.MsmqTarget.QueueName">
-            <summary>
-            队列名称
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.MsmqTarget.UseJournalQueue">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.MsmqTarget.MessageFormatter">
-            <summary>
-            消息格式
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.MsmqTarget.IsSendString">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.MsmqTarget.TargetWriter">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.MsmqTarget.Message">
-            <summary>
-            消息
-            </summary>
-        </member>
         <member name="T:Framework.Mayiboy.Logging.Target.TargetAction">
             <summary>
             
             </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Target.TargetAction.#ctor(Framework.Mayiboy.Logging.Target.ITarget,System.String,System.String)">
-            <summary>
-            目标处理
-            </summary>
-            <param name="target">目标</param>
-            <param name="logContent">日志内容</param>
-            <param name="layout">布局</param>
         </member>
         <member name="P:Framework.Mayiboy.Logging.Target.TargetAction.Target">
             <summary>
@@ -1502,6 +1104,106 @@
         <member name="P:Framework.Mayiboy.Logging.Target.TargetAction.Layout">
             <summary>
             布局
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Target.TargetAction.#ctor(Framework.Mayiboy.Logging.Target.ITarget,System.String,System.String)">
+            <summary>
+            目标处理
+            </summary>
+            <param name="target">目标</param>
+            <param name="logContent">日志内容</param>
+            <param name="layout">布局</param>
+        </member>
+        <member name="T:Framework.Mayiboy.Logging.Target.TargetBase">
+            <summary>
+            目标基类
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.IsLog">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.IsAsyn">
+            <summary>
+            异步
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.Name">
+            <summary>
+            目标名称
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.TargetType">
+            <summary>
+            目标类型
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.Layout">
+            <summary>
+            布局
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.LimitLogSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.CacheString">
+            <summary>
+            内容容器
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.LimitLogCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.CacheLogCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.LimitLogTimeTick">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.CacheLogTimeTick">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.TargetBase.Encode">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Target.TargetBase.InitBaseProperty(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            初始化基础属性
+            </summary>
+            <param name="name">目标名称</param>
+            <param name="isLog"></param>
+            <param name="isAsyn">是否异步</param>
+            <param name="targetType">目标类型</param>
+            <param name="layout">布局</param>
+            <param name="encode"></param>
+            <param name="limitLogSize">日志大小限制</param>
+            <param name="limitLogCount"></param>
+            <param name="limitLogTimeTick"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Target.TargetBase.CheckLogCache(System.String,System.String@)">
+            <summary>
+            根据配置检查日志是否需要写入
+            </summary>
+            <param name="logValue"></param>
+            <param name="logContent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Target.TargetBase.RemoveCache">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:Framework.Mayiboy.Logging.Target.TargetConst">
@@ -1551,9 +1253,9 @@
         </member>
         <member name="M:Framework.Mayiboy.Logging.Target.TargetHelper.ConvertXmlToTarget(System.Xml.XmlNode)">
             <summary>
-            初始化日志目标
+            转换配置
             </summary>
-            <param name="xmlNode">Xml目标节点</param>
+            <param name="xmlNode">配置节点</param>
             <returns></returns>
         </member>
         <member name="M:Framework.Mayiboy.Logging.Target.TargetHelper.AddTarget(System.Collections.Generic.List{Framework.Mayiboy.Logging.Target.ITarget},Framework.Mayiboy.Logging.Target.ITarget)">
@@ -1577,10 +1279,10 @@
         </member>
         <member name="F:Framework.Mayiboy.Logging.Target.TargetQueue.phore">
             <summary>
-            
+            计数器
             </summary>
         </member>
-        <member name="F:Framework.Mayiboy.Logging.Target.TargetQueue.thread_DealQueue">
+        <member name="F:Framework.Mayiboy.Logging.Target.TargetQueue._threadDealQueue">
             <summary>
             
             </summary>
@@ -1590,11 +1292,16 @@
             
             </summary>
         </member>
-        <member name="M:Framework.Mayiboy.Logging.Target.TargetQueue.#ctor(System.String)">
+        <member name="P:Framework.Mayiboy.Logging.Target.TargetQueue.ClientCount">
             <summary>
             
             </summary>
-            <param name="name"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Target.TargetQueue.#ctor(System.String)">
+            <summary>
+            构造队列
+            </summary>
+            <param name="name">队列名</param>
         </member>
         <member name="M:Framework.Mayiboy.Logging.Target.TargetQueue.#ctor(System.String,System.Int32,System.Int32)">
             <summary>
@@ -1623,7 +1330,7 @@
         </member>
         <member name="M:Framework.Mayiboy.Logging.Target.TargetQueue.DealQueue">
             <summary>
-            
+            处理队列
             </summary>
         </member>
         <member name="M:Framework.Mayiboy.Logging.Target.TargetQueue.StrongHandDealTargetQueue">
@@ -1631,11 +1338,6 @@
             
             </summary>
             <returns></returns>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.TargetQueue.ClientCount">
-            <summary>
-            
-            </summary>
         </member>
         <member name="T:Framework.Mayiboy.Logging.Target.TraceTarget">
             <summary>
@@ -1679,6 +1381,36 @@
             Udp日志
             </summary>
         </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.UdpTarget.RemoteIp">
+            <summary>
+            远程ip地址
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.UdpTarget.RemotePort">
+            <summary>
+            端口
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.UdpTarget.SBodyEncoding">
+            <summary>
+            编码格式
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.UdpTarget.TargetWriter">
+            <summary>
+            写入目标
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.UdpTarget.RemotePoint">
+            <summary>
+            网络地址
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.Target.UdpTarget.BodyEncoding">
+            <summary>
+            编码格式
+            </summary>
+        </member>
         <member name="M:Framework.Mayiboy.Logging.Target.UdpTarget.#ctor(System.Xml.XmlNode)">
             <summary>
             
@@ -1718,128 +1450,51 @@
             
             </summary>
         </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.UdpTarget.RemoteIp">
+        <member name="T:Framework.Mayiboy.Logging.CatchErrorHttpModule">
             <summary>
-            远程ip地址
+            应用程序异常日志
             </summary>
         </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.UdpTarget.RemotePort">
-            <summary>
-            端口
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.UdpTarget.SBodyEncoding">
-            <summary>
-            编码格式
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.UdpTarget.TargetWriter">
-            <summary>
-            写入目标
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.UdpTarget.RemotePoint">
-            <summary>
-            网络地址
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Target.UdpTarget.BodyEncoding">
-            <summary>
-            编码格式
-            </summary>
-        </member>
-        <member name="T:Framework.Mayiboy.Logging.Tool.CatchErrorHttpModule">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Tool.CatchErrorHttpModule.Dispose">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Tool.CatchErrorHttpModule.Init(System.Web.HttpApplication)">
+        <member name="M:Framework.Mayiboy.Logging.CatchErrorHttpModule.Init(System.Web.HttpApplication)">
             <summary>
             
             </summary>
             <param name="context"></param>
         </member>
-        <member name="M:Framework.Mayiboy.Logging.Tool.CatchErrorHttpModule.LogException(System.Object,System.EventArgs)">
+        <member name="M:Framework.Mayiboy.Logging.CatchErrorHttpModule.LogException(System.Object,System.EventArgs)">
             <summary>
             
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="T:Framework.Mayiboy.Logging.Tool.DebugConsole">
+        <member name="M:Framework.Mayiboy.Logging.CatchErrorHttpModule.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Logging.DebugConsole">
             <summary>
             调试输出
             </summary>
         </member>
-        <member name="M:Framework.Mayiboy.Logging.Tool.DebugConsole.CreateConsole">
+        <member name="P:Framework.Mayiboy.Logging.DebugConsole.Hwnd">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.DebugConsole.CreateConsole">
             <summary>
             创建输出
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Framework.Mayiboy.Logging.Tool.DebugConsole.#ctor">
+        <member name="M:Framework.Mayiboy.Logging.DebugConsole.#ctor">
             <summary>
             
             </summary>
         </member>
-        <member name="M:Framework.Mayiboy.Logging.Tool.DebugConsole.Initialize">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.Tool.DebugConsole.Hwnd">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:Framework.Mayiboy.Logging.Tool.PageTimeHttpModule">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Tool.PageTimeHttpModule.Dispose">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Tool.PageTimeHttpModule.Init(System.Web.HttpApplication)">
-            <summary>
-            
-            </summary>
-            <param name="context"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Tool.PageTimeHttpModule.context_BeginRequest(System.Object,System.EventArgs)">
-            <summary>
-            
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Tool.PageTimeHttpModule.context_EndRequest(System.Object,System.EventArgs)">
-            <summary>
-            
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="T:Framework.Mayiboy.Logging.Tool.SimpleTool">
-            <summary>
-            简单的工具
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Tool.SimpleTool.GetExcuteTime(Framework.Mayiboy.Logging.Action)">
-            <summary>
-            获取执行时间
-            </summary>
-            <param name="doHandle"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Framework.Mayiboy.Logging.Action">
+        <member name="M:Framework.Mayiboy.Logging.DebugConsole.Initialize">
             <summary>
             
             </summary>
@@ -1868,21 +1523,8 @@
         </member>
         <member name="T:Framework.Mayiboy.Logging.EnvironmentHelper">
             <summary>
-            环境帮助
-            </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.EnvironmentHelper.GetSafeEnvironmentVariable(System.String)">
-            <summary>
             
             </summary>
-            <param name="name"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.EnvironmentHelper.GetOsVersion">
-            <summary>
-            获取系统版本
-            </summary>
-            <returns></returns>
         </member>
         <member name="P:Framework.Mayiboy.Logging.EnvironmentHelper.NewLine">
             <summary>
@@ -1899,9 +1541,27 @@
             默认编码
             </summary>
         </member>
+        <member name="M:Framework.Mayiboy.Logging.EnvironmentHelper.GetSafeEnvironmentVariable(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.EnvironmentHelper.GetOsVersion">
+            <summary>
+            获取系统版本
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Framework.Mayiboy.Logging.FileWatcher">
             <summary>
             文件流
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.FileWatcher.Watcher">
+            <summary>
+            
             </summary>
         </member>
         <member name="M:Framework.Mayiboy.Logging.FileWatcher.#ctor(System.String)">
@@ -1943,12 +1603,17 @@
             <param name="source"></param>
             <param name="sender"></param>
         </member>
-        <member name="P:Framework.Mayiboy.Logging.FileWatcher.Watcher">
+        <member name="T:Framework.Mayiboy.Logging.InnerLogger">
+            <summary>
+            内部日志
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Logging.InnerLogger.FileName">
             <summary>
             
             </summary>
         </member>
-        <member name="T:Framework.Mayiboy.Logging.InnerLogger">
+        <member name="P:Framework.Mayiboy.Logging.InnerLogger.Encode">
             <summary>
             
             </summary>
@@ -1964,44 +1629,44 @@
             <summary>
             
             </summary>
-            <param name="customerInfo"></param>
+            <param name="content"></param>
         </member>
         <member name="M:Framework.Mayiboy.Logging.InnerLogger.Debug(System.String)">
             <summary>
             
             </summary>
-            <param name="customerInfo"></param>
+            <param name="content"></param>
         </member>
         <member name="M:Framework.Mayiboy.Logging.InnerLogger.Info(System.String)">
             <summary>
             
             </summary>
-            <param name="customerInfo"></param>
+            <param name="content"></param>
         </member>
         <member name="M:Framework.Mayiboy.Logging.InnerLogger.Error(System.String)">
             <summary>
             
             </summary>
-            <param name="customerInfo"></param>
+            <param name="content"></param>
         </member>
         <member name="M:Framework.Mayiboy.Logging.InnerLogger.Warn(System.String)">
             <summary>
             
             </summary>
-            <param name="customerInfo"></param>
+            <param name="content"></param>
         </member>
         <member name="M:Framework.Mayiboy.Logging.InnerLogger.Fatal(System.String)">
             <summary>
             
             </summary>
-            <param name="customerInfo"></param>
+            <param name="content"></param>
         </member>
         <member name="M:Framework.Mayiboy.Logging.InnerLogger.WriteLog(System.String,System.String)">
             <summary>
             
             </summary>
             <param name="level"></param>
-            <param name="customerInfo"></param>
+            <param name="content"></param>
         </member>
         <member name="M:Framework.Mayiboy.Logging.InnerLogger.ExceptionLog(System.String,System.String)">
             <summary>  
@@ -2009,16 +1674,6 @@
             </summary>  
             <param name="logSource">日志的来源</param>  
             <param name="logContents">日志的详细内容（日志的描述）</param>  
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.InnerLogger.FileName">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Logging.InnerLogger.Encode">
-            <summary>
-            
-            </summary>
         </member>
         <member name="T:Framework.Mayiboy.Logging.LogConvert">
             <summary>
@@ -2058,270 +1713,6 @@
             <summary>
             Logger
             </summary>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.#ctor(System.Xml.XmlNode,System.Collections.Generic.List{Framework.Mayiboy.Logging.Target.ITarget})">
-            <summary>
-            
-            </summary>
-            <param name="loggerNode"></param>
-            <param name="allTargetList"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.#ctor(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="loggerName"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.Trace(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="customerInfo"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.TraceToJson``1(``0)">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="logObject"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.TraceFormat(System.String,System.Object[])">
-            <summary>
-            
-            </summary>
-            <param name="logFormat"></param>
-            <param name="args"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.Trace(System.Object,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="obj"></param>
-            <param name="customerInfo"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.Trace(System.Object,System.String,System.Object[])">
-            <summary>
-            
-            </summary>
-            <param name="obj"></param>
-            <param name="logFormat"></param>
-            <param name="args"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.Debug(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="customerInfo"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.DebugToJson``1(``0)">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="logObject"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.DebugFormat(System.String,System.Object[])">
-            <summary>
-            
-            </summary>
-            <param name="logFormat"></param>
-            <param name="args"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.Debug(System.Object,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="obj"></param>
-            <param name="customerInfo"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.Debug(System.Object,System.String,System.Object[])">
-            <summary>
-            
-            </summary>
-            <param name="obj"></param>
-            <param name="logFormat"></param>
-            <param name="args"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.Info(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="customerInfo"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.InfoToJson``1(``0)">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="logObject"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.InfoFormat(System.String,System.Object[])">
-            <summary>
-            
-            </summary>
-            <param name="logFormat"></param>
-            <param name="args"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.Info(System.Object,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="obj">对象实例</param>
-            <param name="customerInfo">用户信息</param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.Info(System.Object,System.String,System.Object[])">
-            <summary>
-            
-            </summary>
-            <param name="obj"></param>
-            <param name="logFormat"></param>
-            <param name="args"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.Warn(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="customerInfo"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.WarnToJson``1(``0)">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="logObject"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.WarnFormat(System.String,System.Object[])">
-            <summary>
-            
-            </summary>
-            <param name="logFormat"></param>
-            <param name="args"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.Warn(System.Object,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="obj"></param>
-            <param name="customerInfo"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.Warn(System.Object,System.String,System.Object[])">
-            <summary>
-            
-            </summary>
-            <param name="obj"></param>
-            <param name="logFormat"></param>
-            <param name="args"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.Error(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="customerInfo"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.ErrorToJson``1(``0)">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="logObject"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.ErrorFormat(System.String,System.Object[])">
-            <summary>
-            
-            </summary>
-            <param name="logFormat"></param>
-            <param name="args"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.Error(System.Object,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="obj"></param>
-            <param name="customerInfo"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.Error(System.Object,System.String,System.Object[])">
-            <summary>
-            
-            </summary>
-            <param name="obj"></param>
-            <param name="logFormat"></param>
-            <param name="args"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.Fatal(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="customerInfo"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.FatalToJson``1(``0)">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="logObject"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.FatalFormat(System.String,System.Object[])">
-            <summary>
-            
-            </summary>
-            <param name="logFormat"></param>
-            <param name="args"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.Fatal(System.Object,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="obj"></param>
-            <param name="customerInfo"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.Fatal(System.Object,System.String,System.Object[])">
-            <summary>
-            
-            </summary>
-            <param name="obj"></param>
-            <param name="logFormat"></param>
-            <param name="args"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.WriteLog(System.Object,System.String,Framework.Mayiboy.Logging.LoggerLevel)">
-            <summary>
-            
-            </summary>
-            <param name="obj"></param>
-            <param name="customerInfo"></param>
-            <param name="loggerLevel"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.ConfigureLoggerLevelFromXmlNode(System.Xml.XmlNodeList,System.Collections.Generic.List{Framework.Mayiboy.Logging.Target.ITarget})">
-            <summary>
-            
-            </summary>
-            <param name="levelList"></param>
-            <param name="allTargetList"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.ConfigureTargetListFromXmlNode(System.Xml.XmlNode,System.Collections.Generic.List{Framework.Mayiboy.Logging.Target.ITarget})">
-            <summary>
-            
-            </summary>
-            <param name="loggerNode"></param>
-            <param name="allTargetList"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.SetLevelEnabled(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="level"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.AddTarget(Framework.Mayiboy.Logging.Target.ITarget)">
-            <summary>
-            
-            </summary>
-            <param name="target"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Logger.AddLevelTarget(System.String,Framework.Mayiboy.Logging.Target.ITarget)">
-            <summary>
-            
-            </summary>
-            <param name="level"></param>
-            <param name="target"></param>
         </member>
         <member name="P:Framework.Mayiboy.Logging.Logger.IsTraceEnabled">
             <summary>
@@ -2363,6 +1754,13 @@
             
             </summary>
         </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.GetTarget(System.String)">
+            <summary>
+            获取
+            </summary>
+            <param name="targetname"></param>
+            <returns></returns>
+        </member>
         <member name="P:Framework.Mayiboy.Logging.Logger.LoggerName">
             <summary>
             
@@ -2382,6 +1780,264 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.#ctor(System.Xml.XmlNode,System.Collections.Generic.List{Framework.Mayiboy.Logging.Target.ITarget})">
+            <summary>
+            构造Logger对象
+            </summary>
+            <param name="loggerNode"></param>
+            <param name="allTargetList">Target List</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.#ctor(System.String)">
+            <summary>
+            构造一个空的Logger
+            </summary>
+            <param name="loggerName">Logger Name</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.Trace(System.String)">
+            <summary>
+            Trace
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.TraceToJson``1(``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="logObject"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.TraceFormat(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="logFormat"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.Trace(System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.Trace(System.Object,System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="logFormat"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.Debug(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.DebugToJson``1(``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="logObject"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.DebugFormat(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="logFormat"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.Debug(System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.Debug(System.Object,System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="logFormat"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.Info(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.InfoToJson``1(``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="logObject"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.InfoFormat(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="logFormat"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.Info(System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="obj">对象实例</param>
+            <param name="content">用户信息</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.Info(System.Object,System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="logFormat"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.Warn(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.WarnToJson``1(``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="logObject"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.WarnFormat(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="logFormat"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.Warn(System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.Warn(System.Object,System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="logFormat"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.Error(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.ErrorToJson``1(``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="logObject"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.ErrorFormat(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="logFormat"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.Error(System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.Error(System.Object,System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="logFormat"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.Fatal(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.FatalToJson``1(``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="logObject"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.FatalFormat(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="logFormat"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.Fatal(System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.Fatal(System.Object,System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="logFormat"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.WriteLog(System.Object,System.String,Framework.Mayiboy.Logging.LoggerLevel)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="content"></param>
+            <param name="loggerLevel"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.ConfigureLoggerLevelFromXmlNode(System.Xml.XmlNodeList,System.Collections.Generic.List{Framework.Mayiboy.Logging.Target.ITarget})">
+            <summary>
+            
+            </summary>
+            <param name="levelList">Logger > level</param>
+            <param name="allTargetList">Target List</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.ConfigureTargetListFromXmlNode(System.Xml.XmlNode,System.Collections.Generic.List{Framework.Mayiboy.Logging.Target.ITarget})">
+            <summary>
+            
+            </summary>
+            <param name="loggerNode"></param>
+            <param name="allTargetList"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.SetLevelEnabled(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="level"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Logger.AddLevelTarget(System.String,Framework.Mayiboy.Logging.Target.ITarget)">
+            <summary>
+            
+            </summary>
+            <param name="level"></param>
+            <param name="target"></param>
         </member>
         <member name="T:Framework.Mayiboy.Logging.LoggerFactory">
             <summary>
@@ -2407,7 +2063,7 @@
         </member>
         <member name="M:Framework.Mayiboy.Logging.LoggerGlobal.EnqueueTarget(Framework.Mayiboy.Logging.Target.TargetAction)">
             <summary>
-            
+            入队列
             </summary>
             <param name="action"></param>
         </member>
@@ -2428,29 +2084,6 @@
             记录器等级
             </summary>
         </member>
-        <member name="M:Framework.Mayiboy.Logging.LoggerLevel.#ctor(System.Xml.XmlNode,System.Collections.Generic.List{Framework.Mayiboy.Logging.Target.ITarget})">
-            <summary>
-            
-            </summary>
-            <param name="levelNode"></param>
-            <param name="allTargetList"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.LoggerLevel.#ctor(System.String,System.String,System.String,System.String,System.Collections.Generic.List{Framework.Mayiboy.Logging.Target.ITarget})">
-            <summary>
-            
-            </summary>
-            <param name="level"></param>
-            <param name="isLog"></param>
-            <param name="layout"></param>
-            <param name="targets"></param>
-            <param name="allTargetList"></param>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.LoggerLevel.AddTarget(Framework.Mayiboy.Logging.Target.ITarget)">
-            <summary>
-            添加目标
-            </summary>
-            <param name="target"></param>
-        </member>
         <member name="P:Framework.Mayiboy.Logging.LoggerLevel.Level">
             <summary>
             
@@ -2470,6 +2103,23 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.LoggerLevel.#ctor(System.Xml.XmlNode,System.Collections.Generic.List{Framework.Mayiboy.Logging.Target.ITarget})">
+            <summary>
+            
+            </summary>
+            <param name="levelNode">Level Node</param>
+            <param name="allTargetList">Target List</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.LoggerLevel.#ctor(System.String,System.String,System.String,System.String,System.Collections.Generic.List{Framework.Mayiboy.Logging.Target.ITarget})">
+            <summary>
+            
+            </summary>
+            <param name="level"></param>
+            <param name="isLog"></param>
+            <param name="layout"></param>
+            <param name="targets"></param>
+            <param name="allTargetList">Target List</param>
         </member>
         <member name="T:Framework.Mayiboy.Logging.LogLevel">
             <summary>
@@ -2563,18 +2213,6 @@
             监控
             </summary>
         </member>
-        <member name="M:Framework.Mayiboy.Logging.Monitor.GetTotalLogCount">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Framework.Mayiboy.Logging.Monitor.SetCount(System.Object)">
-            <summary>
-            
-            </summary>
-            <param name="target"></param>
-        </member>
         <member name="P:Framework.Mayiboy.Logging.Monitor.FileLogCount">
             <summary>
             
@@ -2610,11 +2248,53 @@
             
             </summary>
         </member>
+        <member name="M:Framework.Mayiboy.Logging.Monitor.GetTotalLogCount">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.Monitor.SetCount(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="target"></param>
+        </member>
         <member name="T:Framework.Mayiboy.Logging.ShowErrMsg">
             <summary>
             
             </summary>
             <param name="errMsg"></param>
+        </member>
+        <member name="T:Framework.Mayiboy.Logging.PageTimeHttpModule">
+            <summary>
+            请求生命周期日志
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.PageTimeHttpModule.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.PageTimeHttpModule.Init(System.Web.HttpApplication)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.PageTimeHttpModule.context_BeginRequest(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Logging.PageTimeHttpModule.context_EndRequest(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="T:Framework.Mayiboy.Logging.Unity">
             <summary>
@@ -2685,7 +2365,7 @@
         </member>
         <member name="M:Framework.Mayiboy.Logging.XmlHelper.GetNodeAttr(System.Xml.XmlNode,System.String)">
             <summary>
-            
+            获取节点属性
             </summary>
             <param name="node"></param>
             <param name="attrName"></param>
@@ -2693,7 +2373,7 @@
         </member>
         <member name="M:Framework.Mayiboy.Logging.XmlHelper.GetXmlNode(System.Xml.XmlNode,System.String)">
             <summary>
-            
+            获取节点内的节点
             </summary>
             <param name="node"></param>
             <param name="nodeName"></param>
@@ -2701,7 +2381,7 @@
         </member>
         <member name="M:Framework.Mayiboy.Logging.XmlHelper.GetXmlNodeFromFile(System.String,System.String)">
             <summary>
-            
+            根据xml文件加载xml文件
             </summary>
             <param name="fileName"></param>
             <param name="nodeLocalName"></param>
