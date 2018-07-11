@@ -61,7 +61,12 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
                     Remark = remark
                 };
 
-                var response = _departmentService.SaveDeparment(new SaveDepartmentRequest
+				if (entity.Id == entity.Pid)
+				{
+					return ToJsonErrorResult(1, "父级菜单不能设置成自己");
+				}
+
+				var response = _departmentService.SaveDeparment(new SaveDepartmentRequest
                 {
                     Entity = entity
                 });

@@ -100,8 +100,13 @@ namespace Mayiboy.Admin.UI.Areas.SystemManage.Controllers
         {
             try
             {
-                #region 赋值实体
-                var entity = new SystemMenuDto
+				if (model.Id == model.Pid)
+				{
+					return ToJsonErrorResult(1, "父级菜单不能设置成自己");
+				}
+
+				#region 赋值实体
+				var entity = new SystemMenuDto
                 {
                     Id = model.Id,
                     Pid = model.Pid,
