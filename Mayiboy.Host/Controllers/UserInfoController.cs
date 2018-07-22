@@ -8,6 +8,7 @@ using Framework.Mayiboy.Ioc;
 using Framework.Mayiboy.Utility;
 using Mayiboy.Contract;
 using Mayiboy.Logic.Impl;
+using Mayiboy.Utils;
 
 namespace Mayiboy.Host.Controllers
 {
@@ -53,6 +54,7 @@ namespace Mayiboy.Host.Controllers
 				response.IsSuccess = false;
 				response.MessageCode = "-1";
 				response.MessageText = "系统出错";
+				LogManager.DefaultLogger.ErrorFormat("登录用户名出错：{0}", new { request, err = ex.ToString() }.ToJson());
 			}
 
 			return response;
