@@ -14,7 +14,7 @@ namespace Mayiboy.Host
 	/// </summary>
 	public class WebApiContractRoute
 	{
-		private static object queryappidauth = new object();
+		private static readonly object Queryappidauth = new object();
 
 		/// <summary>
 		/// 绑定路由
@@ -55,7 +55,7 @@ namespace Mayiboy.Host
 
 				if (entity == null)
 				{
-					lock (queryappidauth)
+					lock (Queryappidauth)
 					{
 						entity = CacheManager.Get<AppIdAuthDto>(key, 60);
 
@@ -75,17 +75,16 @@ namespace Mayiboy.Host
 
 				if (entity != null)
 				{
+					authtoken = entity.AuthToken;
+					encryptionType = entity.EncryptionType;
+
 					switch (entity.EncryptionType)
 					{
 						case 1:
 						case 2:
-							authtoken = entity.AuthToken;
-							encryptionType = entity.EncryptionType;
 							secretKey = entity.SecretKey;
 							break;
 						case 3:
-							authtoken = entity.AuthToken;
-							encryptionType = 3;
 							secretKey = entity.PrivateKey;
 							break;
 					}

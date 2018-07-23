@@ -67,8 +67,8 @@
       <HintPath>..\packages\Framework.Mayiboy.Logging.1.0.3\lib\Framework.Mayiboy.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Framework.Mayiboy.Soa.Agent, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Soa.Agent.1.0.4\lib\Framework.Mayiboy.Soa.Agent.dll</HintPath>
+    <Reference Include="Framework.Mayiboy.Soa.Agent, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Framework.Mayiboy.Soa.Agent.1.0.6\lib\Framework.Mayiboy.Soa.Agent.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Framework.Mayiboy.Utility">

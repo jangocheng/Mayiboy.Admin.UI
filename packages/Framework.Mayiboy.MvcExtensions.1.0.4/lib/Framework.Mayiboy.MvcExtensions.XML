@@ -14,9 +14,9 @@
         </member>
         <member name="M:Framework.Mayiboy.MvcExtensions.Helper.ToDateTime(System.String,System.Int32)">
             <summary>
-            将时间戳转换为C#类型
+            将时间戳转换为DataTime
             </summary>
-            <param name="timestamp">时间戳值</param>
+            <param name="timestamp">时间戳</param>
             <param name="limitedLength">固定长度</param>
             <returns></returns>
         </member>
@@ -26,6 +26,36 @@
             </summary>
             <param name="encypStr"></param>
             <param name="charset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.MvcExtensions.Helper.GetSha1(System.String)">
+            <summary>
+            获取字符串的哈希码
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.MvcExtensions.GetDecryptParameterEventHandler">
+            <summary>
+            获取解密参数
+            </summary>
+            <param name="appid">应用标识</param>
+            <param name="authToken">授权Token</param>
+            <param name="encryptionType">接口数据加密类型（0：不加密；1：对称加密（DES）；2：对称加密（AES）；3：非对称加密</param>
+            <param name="secretKey">秘钥</param>
+        </member>
+        <member name="T:Framework.Mayiboy.MvcExtensions.JiaoyanSign">
+            <summary>
+            校验sign
+            </summary>
+            <param name="appid"></param>
+        </member>
+        <member name="T:Framework.Mayiboy.MvcExtensions.DecryptDataEventHandler">
+            <summary>
+            解密数据
+            </summary>
+            <param name="appid">应用标识</param>
+            <param name="input">密文</param>
             <returns></returns>
         </member>
         <member name="T:Framework.Mayiboy.MvcExtensions.AesEncrypt">
@@ -129,29 +159,6 @@
             非法访问
             </summary>
         </member>
-        <member name="T:Framework.Mayiboy.MvcExtensions.Routes.GetDecryptParameterEventHandler">
-            <summary>
-            获取解密参数
-            </summary>
-            <param name="appid">应用标识</param>
-            <param name="authToken">授权Token</param>
-            <param name="encryptionType">接口数据加密类型（0：不加密；1：对称加密（DES）；2：对称加密（AES）；3：非对称加密</param>
-            <param name="secretKey">秘钥</param>
-        </member>
-        <member name="T:Framework.Mayiboy.MvcExtensions.Routes.JiaoyanSign">
-            <summary>
-            校验sign
-            </summary>
-            <param name="appid"></param>
-        </member>
-        <member name="T:Framework.Mayiboy.MvcExtensions.Routes.DecryptDataEventHandler">
-            <summary>
-            解密数据
-            </summary>
-            <param name="appid">应用标识</param>
-            <param name="input">密文</param>
-            <returns></returns>
-        </member>
         <member name="T:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute">
             <summary>
             API 契约 路由
@@ -172,6 +179,16 @@
             授权Token
             </summary>
         </member>
+        <member name="P:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.ExpiresTime">
+            <summary>
+            接口有效时间（单位秒,默认600秒）（非对称加密时需要接口）
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.IsBind">
+            <summary>
+            是否必须绑定
+            </summary>
+        </member>
         <member name="F:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.OnDecryptParameter">
             <summary>
             获取解密参数
@@ -188,7 +205,7 @@
             </summary>
             <param name="traceRoutes">是否在运行时输出路由信息至输出面板中</param>
         </member>
-        <member name="M:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.#ctor(Framework.Mayiboy.MvcExtensions.Routes.GetDecryptParameterEventHandler,System.Boolean)">
+        <member name="M:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.#ctor(Framework.Mayiboy.MvcExtensions.GetDecryptParameterEventHandler,System.Boolean)">
             <summary>
             构建APIContractRoutes新的实例
             </summary>
@@ -252,16 +269,6 @@
             <param name="content"></param>
             <param name="timestamp"></param>
             <returns></returns>
-        </member>
-        <member name="P:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.ExpiresTime">
-            <summary>
-            接口有效时间（单位秒,默认600秒）（非对称加密时需要接口）
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.MvcExtensions.Routes.ApiContractRoute.IsBind">
-            <summary>
-            是否必须绑定
-            </summary>
         </member>
         <member name="M:Framework.Mayiboy.MvcExtensions.Routes.RouteExtensions.MapContract``1(System.Web.Http.HttpRouteCollection)">
             <summary>

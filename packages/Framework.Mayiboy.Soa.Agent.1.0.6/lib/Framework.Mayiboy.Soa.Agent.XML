@@ -226,13 +226,38 @@
             请求头处理程序
             </summary>
         </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RequestHeaderHandler.ContractInfo">
+            <summary>
+            契约信息
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RequestHeaderHandler.AppId">
+            <summary>
+            应用程序标识
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RequestHeaderHandler.AuthorizationToken">
+            <summary>
+            授权Token
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RequestHeaderHandler.EncryptionType">
+            <summary>
+            接口数据加密类型
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RequestHeaderHandler.Content">
+            <summary>
+            参数内容（密文）
+            </summary>
+        </member>
         <member name="M:Framework.Mayiboy.Soa.Agent.RequestHeaderHandler.#ctor(System.String,System.String,System.String,System.String,System.Int32)">
             <summary>
             请求头处理程序构造函数
             </summary>
             <param name="contractInfo">契约信息</param>
             <param name="appid">应用程序标识</param>
-            <param name="serviceAccessToken">服务授权token</param>
+            <param name="authorizationToken">授权token</param>
             <param name="content">参数内容（密文）</param>
             <param name="encryptionType">加密类型</param>
         </member>
@@ -247,31 +272,6 @@
         <member name="M:Framework.Mayiboy.Soa.Agent.RequestHeaderHandler.RequestHeaderAddSign(System.Net.Http.HttpRequestMessage)">
             <summary>
             请求头加入签名
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Soa.Agent.RequestHeaderHandler.ContractInfo">
-            <summary>
-            契约信息
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Soa.Agent.RequestHeaderHandler.AppId">
-            <summary>
-            应用程序标识
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Soa.Agent.RequestHeaderHandler.ServiceAccessToken">
-            <summary>
-            授权认证字符串
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Soa.Agent.RequestHeaderHandler.EncryptionType">
-            <summary>
-            接口数据加密类型
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Soa.Agent.RequestHeaderHandler.Content">
-            <summary>
-            参数内容（密文）
             </summary>
         </member>
         <member name="T:Framework.Mayiboy.Soa.Agent.Helper">
@@ -367,6 +367,13 @@
             <param name="charset"></param>
             <returns></returns>
         </member>
+        <member name="M:Framework.Mayiboy.Soa.Agent.Helper.GetSha1(System.String)">
+            <summary>
+            获取字符串的哈希码
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
         <member name="T:Framework.Mayiboy.Soa.Agent.IAgent">
             <summary>
             代理接口
@@ -390,9 +397,9 @@
             
             </summary>
         </member>
-        <member name="P:Framework.Mayiboy.Soa.Agent.IAgent.AccessToken">
+        <member name="P:Framework.Mayiboy.Soa.Agent.IAgent.AuthorizationToken">
             <summary>
-            授权认证字符串
+            授权Token
             </summary>
         </member>
         <member name="T:Framework.Mayiboy.Soa.Agent.EncryptDataEventHandler">
@@ -407,6 +414,36 @@
         <member name="T:Framework.Mayiboy.Soa.Agent.RestWebApiAgent">
             <summary>
             .Net Rest Service代理
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.Method">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.IsSerialized">
+            <summary>
+            是否已序列化，默认为false
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.AuthorizationToken">
+            <summary>
+            授权Token
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.EncryptionType">
+            <summary>
+            接口数据加密类型
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.SecretKey">
+            <summary>
+            加密秘钥
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.UrlHasMethod">
+            <summary>
+            Url地址中含有请求地址
             </summary>
         </member>
         <member name="F:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.EncryptMethod">
@@ -478,39 +515,14 @@
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="P:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.Method">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.IsSerialized">
-            <summary>
-            是否已序列化，默认为false
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.AccessToken">
-            <summary>
-            身份认证控制Token
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.EncryptionType">
-            <summary>
-            接口数据加密类型
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.SecretKey">
-            <summary>
-            加密秘钥
-            </summary>
-        </member>
-        <member name="P:Framework.Mayiboy.Soa.Agent.RestWebApiAgent.UrlHasMethod">
-            <summary>
-            Url地址中含有请求地址
-            </summary>
-        </member>
         <member name="T:Framework.Mayiboy.Soa.Agent.RestServiceAgent">
             <summary>
             .Net Rest Service代理
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Soa.Agent.RestServiceAgent.Method">
+            <summary>
+            
             </summary>
         </member>
         <member name="M:Framework.Mayiboy.Soa.Agent.RestServiceAgent.#ctor(System.String)">
@@ -535,11 +547,6 @@
             <typeparam name="TResponse"></typeparam>
             <param name="contract"></param>
             <param name="timeOut"></param>
-        </member>
-        <member name="P:Framework.Mayiboy.Soa.Agent.RestServiceAgent.Method">
-            <summary>
-            
-            </summary>
         </member>
     </members>
 </doc>
