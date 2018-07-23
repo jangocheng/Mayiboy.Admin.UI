@@ -4,10 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Framework.Mayiboy.Ioc;
 using Framework.Mayiboy.Utility;
 using Mayiboy.Contract;
-using Mayiboy.Logic.Impl;
 using Mayiboy.Utils;
 
 namespace Mayiboy.Host.Controllers
@@ -60,11 +58,15 @@ namespace Mayiboy.Host.Controllers
 			return response;
 		}
 
+		/// <summary>
+		/// 根据用户Id查询用户信息
+		/// </summary>
+		/// <param name="request"></param>
+		/// <returns></returns>
 		[HttpPost]
-		public DelUserInfoResponse DelUserInfo(DelUserInfoRequest request)
+		public QueryUserInfoByIdResponse QueryUserInfoById(QueryUserInfoByIdRequest request)
 		{
-			var response = new DelUserInfoResponse();
-			return response;
+			return _userinfoService.QueryUserInfoById(request);
 		}
 	}
 }

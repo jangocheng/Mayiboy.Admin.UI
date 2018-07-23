@@ -13,7 +13,7 @@ namespace Mayiboy.Contract.Contracts
 	/// <summary>
 	/// 查询用户信息
 	/// </summary>
-	public class DelUserInfoContract : Contract<DelUserInfoRequest, DelUserInfoResponse>
+	public class QueryUserInfoByIdContract : Contract<QueryUserInfoByIdRequest, QueryUserInfoByIdResponse>
 	{
 
 	}

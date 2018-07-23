@@ -32,7 +32,7 @@ namespace Mayiboy.Host
 			//用户信息接口
 			entryRoute.Bind<UserInfoController>()
 				.With<LoginQueryContract>()
-				.With<DelUserInfoContract>();
+				.With<QueryUserInfoByIdContract>();
 
 
 			config.Routes.Add("singleEntryRoute", entryRoute);

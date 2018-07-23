@@ -14,5 +14,10 @@ namespace Mayiboy.Host.Controllers
 	    {
 		    return "This Get Request";
 	    }
+
+	    public string Post()
+	    {
+		    return "This Post Request";
+	    }
     }
 }

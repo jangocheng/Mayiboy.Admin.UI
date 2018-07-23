@@ -29,6 +29,13 @@ namespace Mayiboy.Contract
 	    QueryUserInfoByNameResponse QueryUserInfoByName(QueryUserInfoByNameRequest request);
 
 		/// <summary>
+		/// 根据用户Id查询用户信息
+		/// </summary>
+		/// <param name="request">查询参数</param>
+		/// <returns></returns>
+	    QueryUserInfoByIdResponse QueryUserInfoById(QueryUserInfoByIdRequest request);
+
+		/// <summary>
 		/// 删除用户信息
 		/// </summary>
 		/// <param name="request"></param>
