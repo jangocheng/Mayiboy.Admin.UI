@@ -22,13 +22,10 @@ namespace Mayiboy.Admin.UI
 		protected void Application_Start()
 		{
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-
 			AreaRegistration.RegisterAllAreas();
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
-
 			LoggerGlobal.GlobalInit();
 			AutoMapperConfig.Initialize();
-
 			RegisterAndResolverIoc();
 		}
 

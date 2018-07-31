@@ -628,7 +628,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\SystemManage\Views\Shared\" />
-    <Folder Include="Views\Common\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mayiboy.ConstDefine\Mayiboy.ConstDefine.csproj">
