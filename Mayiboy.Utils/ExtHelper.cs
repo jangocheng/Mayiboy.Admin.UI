@@ -7,7 +7,7 @@ namespace Mayiboy.Utils
     /// <summary>
     /// 
     /// </summary>
-    public static class Ext
+    public static class ExtHelper
     {
         #region 转换数据类型
         /// <summary>

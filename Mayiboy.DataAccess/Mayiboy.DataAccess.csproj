@@ -127,7 +127,6 @@
     <Compile Include="SqlServerDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Framework.Mayiboy.Logging.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
