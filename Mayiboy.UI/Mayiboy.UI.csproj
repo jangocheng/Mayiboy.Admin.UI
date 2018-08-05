@@ -165,6 +165,7 @@
     <Compile Include="Exception\ViewModelException.cs" />
     <Compile Include="Filters\ApplicationErrorAttribute.cs" />
     <Compile Include="Filters\ClientIpAuthAttribute.cs" />
+    <Compile Include="Filters\JsonpAttribute.cs" />
     <Compile Include="Filters\LoginAuthAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

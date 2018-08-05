@@ -141,6 +141,7 @@
     </None>
     <None Include="Framework.Mayiboy.Logging.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Framework.Mayiboy.Task.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
