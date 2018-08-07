@@ -52,6 +52,10 @@
       <HintPath>..\packages\Framework.Mayiboy.Logging.1.0.3\lib\Framework.Mayiboy.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Framework.Mayiboy.Queue, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Framework.Mayiboy.Queue.1.0.1\lib\Framework.Mayiboy.Queue.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Framework.Mayiboy.Soa.Agent, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Framework.Mayiboy.Soa.Agent.1.0.6\lib\Framework.Mayiboy.Soa.Agent.dll</HintPath>
       <Private>True</Private>
@@ -77,19 +81,19 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="ServiceStack.Common, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.3\lib\ServiceStack.Common.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Queue.1.0.1\lib\ServiceStack.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ServiceStack.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.3\lib\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Queue.1.0.1\lib\ServiceStack.Interfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ServiceStack.Redis, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.3\lib\ServiceStack.Redis.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Queue.1.0.1\lib\ServiceStack.Redis.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ServiceStack.Text, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Framework.Mayiboy.Caching.1.0.3\lib\ServiceStack.Text.dll</HintPath>
+      <HintPath>..\packages\Framework.Mayiboy.Queue.1.0.1\lib\ServiceStack.Text.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -143,6 +147,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
+    <None Include="Framework.Mayiboy.Queue.config" />
     <None Include="Framework.Mayiboy.Task.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

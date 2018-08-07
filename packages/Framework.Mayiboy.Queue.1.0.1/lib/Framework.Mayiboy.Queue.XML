@@ -1,0 +1,791 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Framework.Mayiboy.Queue</name>
+    </assembly>
+    <members>
+        <member name="T:Framework.Mayiboy.Queue.ConstHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Queue.ConstHelper.RootNodeName">
+            <summary>
+            配置文件根节点
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.ConvertHelper">
+            <summary>
+            转换帮助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.ConvertHelper.StringToBytes(System.String)">
+            <summary>
+            字符串转字节组
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.ConvertHelper.ObjectToBytes(System.Object)">
+            <summary>
+            Object对象转字节组
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.ConvertHelper.BytesToObject(System.Byte[])">
+            <summary>
+            将字节组转Object对象
+            </summary>
+            <param name="bytes">字节组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.ConvertHelper.BytesToString(System.Byte[])">
+            <summary>
+            将字节组转字符串
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.ConvertHelper.BytesToList(System.Byte[][])">
+            <summary>
+            字符串转Base64字节组
+            </summary>
+            <param name="bytes">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.DelegateQueueCallback">
+            <summary>
+            消息回调处理函数
+            </summary>
+            <param name="message">消息</param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.EnvironmentHelper">
+            <summary>
+            环境变量帮助类
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.EnvironmentHelper.NewLine">
+            <summary>
+            换行符
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.EnvironmentHelper.GetSafeEnvironmentVariable(System.String)">
+            <summary>
+            获取系统环境变量
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.EnvironmentHelper.GetOsVersion">
+            <summary>
+            获取系统版本信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.FileWatcher">
+            <summary>
+            文件监控对象
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.FileWatcher.Watcher">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.FileWatcher.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.FileWatcher.Start">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.FileWatcher.OnCreated(System.Object,System.IO.FileSystemEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="source"></param>
+            <param name="sender"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.FileWatcher.OnDeleted(System.Object,System.IO.FileSystemEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="source"></param>
+            <param name="sender"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.FileWatcher.OnChanged(System.Object,System.IO.FileSystemEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="source"></param>
+            <param name="sender"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.FileWatcher.OnRenamed(System.Object,System.IO.RenamedEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="source"></param>
+            <param name="sender"></param>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.InnerLogger">
+            <summary>
+            日志记录器
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Queue.InnerLogger.InnerLogPath">
+            <summary>
+            日志路径
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Queue.InnerLogger.ThrowException">
+            <summary>
+            是否抛出异常
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Queue.InnerLogger.FileName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Queue.InnerLogger.FilePathSplit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.InnerLogger.Trace(System.String)">
+            <summary>
+            Trace日志
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.InnerLogger.Debug(System.String)">
+            <summary>
+            Debug日志
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.InnerLogger.Info(System.String)">
+            <summary>
+            Info日志
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.InnerLogger.Error(System.String)">
+            <summary>
+            Error日志
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.InnerLogger.Warn(System.String)">
+            <summary>
+            Warn日志
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.InnerLogger.Fatal(System.String)">
+            <summary>
+            Fatal日志
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.InnerLogger.WriteLog(System.String,System.String)">
+            <summary>
+            日志写入
+            </summary>
+            <param name="level"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.InnerLogger.ExceptionLog(System.String,System.String)">
+            <summary>  
+            将日志写入到系统“应用程序”的事件日志中  
+            </summary>  
+            <param name="logSource">日志的来源</param>  
+            <param name="logContents">日志的详细内容（日志的描述）</param>  
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.IMemQueue">
+            <summary>
+            IMemQueue Interface
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.IQueue">
+            <summary>
+            队列基类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.IQueue.Enqueue(Framework.Mayiboy.Queue.MessageInfo)">
+            <summary>
+            入队
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.IQueue.Dequeue">
+            <summary>
+            出队
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.IQueue.StrongHandDealQueue">
+            <summary>
+            强制处理完未处理的消息对象
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.IRedisQueue">
+            <summary>
+            Redis队列实现
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.IRedisQueue.EnqueueString(System.String)">
+            <summary>
+            入队字符串
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.IRedisQueue.DequeueString">
+            <summary>
+            出队字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.LogLevel">
+            <summary>
+            日志等级
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.LogLevel.GetLevel(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="level"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.MessageInfo">
+            <summary>
+            消息类型
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.MessageInfo.Message">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.MessageInfo.Body">
+            <summary>
+            消息体
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.MessageInfo.StringBody">
+            <summary>
+            消息体字符串
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.MessageInfo.Callback">
+            <summary>
+            消息回调函数
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.MessageInfo.#ctor(System.String,System.Object,System.String,Framework.Mayiboy.Queue.DelegateQueueCallback)">
+            <summary>
+            构造消息实体
+            </summary>
+            <param name="message">消息</param>
+            <param name="body">消息体</param>
+            <param name="stringBody">消息体字符串</param>
+            <param name="callback">回调函数</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.MessageInfo.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.QueueFactory">
+            <summary>
+            队列工厂
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.QueueFactory.#cctor">
+            <summary>
+            创建队列实现
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.QueueFactory.GetQueue(System.String)">
+            <summary>
+            获取一个队列
+            </summary>
+            <param name="queueName">队列名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.QueueFactory.GlobalStopEvent(System.Object,System.EventArgs)">
+            <summary>
+            处理队列停止
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.ConfigManager">
+            <summary>
+            配置管理
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.ConfigManager.Watcher">
+            <summary>
+            文件监视器
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.ConfigManager.CurrentConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.ConfigManager.InitConfig">
+            <summary>
+            初始化队列配置信息
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.ConfigManager.OnConfigFileChanged(System.Object,System.IO.FileSystemEventArgs)">
+            <summary>
+            监听文件更改，重启缓存配置文件
+            </summary>
+            <param name="source"></param>
+            <param name="sender"></param>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.ConfigSectionHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.GlobalConfig">
+            <summary>
+            全局配置
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.GlobalConfig.IsLog">
+            <summary>
+            是否启用Log
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.GlobalConfig.ThrowException">
+            <summary>
+            是否抛出异常
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.GlobalConfig.InnerLogPath">
+            <summary>
+            日志路径
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.GlobalConfig.#ctor(System.Xml.XmlNode)">
+            <summary>
+            初始化全局配置文件
+            </summary>
+            <param name="node">节点</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.GlobalConfig.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.XmlQueueConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Queue.XmlQueueConfig._queuePool">
+            <summary>
+            队列对象集合
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Queue.XmlQueueConfig._globalConfig">
+            <summary>
+            全局配置
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Queue.XmlQueueConfig.AllQueueXmlNodeList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.XmlQueueConfig.QueuePool">
+            <summary>
+            队列池
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.XmlQueueConfig.GlobalConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.XmlQueueConfig.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.XmlQueueConfig.#ctor(System.Xml.XmlNode)">
+            <summary>
+            根据配置文件构造消息队列具体实现
+            </summary>
+            <param name="configNode"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.XmlQueueConfig.#ctor(System.Xml.XmlNode,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="configNode"></param>
+            <param name="configFile"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.XmlQueueConfig.ConfigureGlobalConfigFromXml(System.Xml.XmlNode)">
+            <summary>
+            
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.XmlQueueConfig.ConfigureQueuesFromXml(System.Xml.XmlNodeList)">
+            <summary>
+            
+            </summary>
+            <param name="nodeList"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.XmlQueueConfig.ConvertXmlToQueue(System.Xml.XmlNode)">
+            <summary>
+            
+            </summary>
+            <param name="xmlNode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.MemQueue">
+            <summary>
+            内存队列
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Queue.MemQueue.phore">
+            <summary>
+            信号计数
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.MemQueue.QueueName">
+            <summary>
+            队列名
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.MemQueue.ClientCount">
+            <summary>
+            队列中的个数
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.MemQueue.#ctor(System.String)">
+            <summary>
+            构造一个内存队列
+            </summary>
+            <param name="queueName">队列名</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.MemQueue.#ctor(System.Int32,System.Int32)">
+            <summary>
+            构造一个内存队列
+            </summary>
+            <param name="initialCount">信号初始值</param>
+            <param name="maxPhore">最大值</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.MemQueue.Enqueue(Framework.Mayiboy.Queue.MessageInfo)">
+            <summary>
+            入队
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.MemQueue.Dequeue">
+            <summary>
+            出队
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.QueueBase">
+            <summary>
+            队列基类
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.QueueBase.MaximumRetry">
+            <summary>
+            最大重试次数
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.QueueBase.QueueName">
+            <summary>
+            队列名
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.QueueBase.#ctor(System.String)">
+            <summary>
+            构造对象
+            </summary>
+            <param name="name">队列名</param>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.RabbitQueue">
+            <summary>
+             Rabbit Queue
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.RedisQueue">
+            <summary>
+            Redis队列
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.RedisQueue.ServerIPsWrite">
+            <summary>
+            写入主机地址
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.RedisQueue.ServerIPsReadOnly">
+            <summary>
+            读取主机地址
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.RedisQueue.QueueId">
+            <summary>
+            队列Id
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.RedisQueue.IsAutoDeal">
+            <summary>
+            是否自动处理
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RedisQueue.#ctor(System.Xml.XmlNode)">
+            <summary>
+            
+            </summary>
+            <param name="xml"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RedisQueue.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">队列名</param>
+            <param name="queueId">队列Id</param>
+            <param name="serverIPsWrite">写入主机地址</param>
+            <param name="serverIPsReadOnly">读取主机地址</param>
+            <param name="isAutoDeal">是否自动处理</param>
+            <param name="defaultDb">defaultDb</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RedisQueue.CreateManager(System.String[],System.String[],System.Int32)">
+            <summary>
+            创建Redis管理
+            </summary>
+            <param name="readWriteHosts">写入主机地址</param>
+            <param name="readOnlyHosts">读取主机地址</param>
+            <param name="defaultDb">defaultDb</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RedisQueue.Enqueue(Framework.Mayiboy.Queue.MessageInfo)">
+            <summary>
+            入队
+            </summary>
+            <param name="item">消息信息</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RedisQueue.EnqueueString(System.String)">
+            <summary>
+            入队
+            </summary>
+            <param name="content"></param>
+            <remarks>
+            入队字符串无法自动处理
+            </remarks>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RedisQueue.Dequeue">
+            <summary>
+            出队
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RedisQueue.DequeueString">
+            <summary>
+            出队
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RedisQueue.DealQueue">
+            <summary>
+            自动处理消息
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RedisQueue.StrongHandDealQueue">
+            <summary>
+            当应用程序异常停止时处理
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.RunTimeQueue">
+            <summary>
+            运行时队列
+            </summary>
+        </member>
+        <member name="P:Framework.Mayiboy.Queue.RunTimeQueue.IsAutoDeal">
+            <summary>
+            是否自动处理
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Queue.RunTimeQueue._mMemQueue">
+            <summary>
+            首次入队列
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Queue.RunTimeQueue._mMemQueueRetry">
+            <summary>
+            第一次异常处理队列
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Queue.RunTimeQueue._mMemQueueRetry2">
+            <summary>
+            第二次异常处理队列
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Queue.RunTimeQueue._threadDealQueue">
+            <summary>
+            自动处理线程
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Queue.RunTimeQueue._threadDealQueueRetry">
+            <summary>
+            第一次异常队列处理线程
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Queue.RunTimeQueue._threadDealQueueRetry2">
+            <summary>
+            第二次异常队列处理线程
+            </summary>
+        </member>
+        <member name="F:Framework.Mayiboy.Queue.RunTimeQueue._lockDealWithQueueRetry">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RunTimeQueue.#ctor(System.Xml.XmlNode)">
+            <summary>
+            
+            </summary>
+            <param name="xml"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RunTimeQueue.#ctor(System.String,System.String,System.String)">
+            <summary>
+            构造运行时队列实现
+            </summary>
+            <param name="name">队列名</param>
+            <param name="isAutoDeal">是否自动处理</param>
+            <param name="maximumRetry">最大重试次数</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RunTimeQueue.Enqueue(Framework.Mayiboy.Queue.MessageInfo)">
+            <summary>
+            入队
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RunTimeQueue.Enqueue(Framework.Mayiboy.Queue.MemQueue,Framework.Mayiboy.Queue.MessageInfo)">
+            <summary>
+            入队
+            </summary>
+            <param name="memQueue">内存队列</param>
+            <param name="item">消息对象</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RunTimeQueue.Dequeue">
+            <summary>
+            出队（会阻塞当前线程）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RunTimeQueue.Dequeue(Framework.Mayiboy.Queue.MemQueue)">
+            <summary>
+            出队（会阻塞当前线程）
+            </summary>
+            <param name="memQueue">内存对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RunTimeQueue.DealQueue">
+            <summary>
+            自动处理队列
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RunTimeQueue.DealQueue_Retry">
+            <summary>
+            第一次尝试处理
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RunTimeQueue.DealQueue_Retry2">
+            <summary>
+            第二次尝试处理
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RunTimeQueue.DealQueue_Retry(Framework.Mayiboy.Queue.MemQueue,System.Int32)">
+            <summary>
+            自动处理
+            </summary>
+            <param name="memQueue">内存队列</param>
+            <param name="retryNum">重试的次数（1：处理失败后会继续入队列，2：处理失败后直接记录异常）</param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.RunTimeQueue.StrongHandDealQueue">
+            <summary>
+            当应用程序异常停止时处理
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.IRabbitQueue">
+            <summary>
+            RebbitQueue Interface
+            </summary>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.Unity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.Unity.CreateException(System.String)">
+            <summary>
+            创建异常
+            </summary>
+            <param name="errMsg"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.Unity.CreateException(System.String,System.Exception)">
+            <summary>
+            创建异常
+            </summary>
+            <param name="errMsg"></param>
+            <param name="innerEx"></param>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.Unity.GetHostIp">
+            <summary>
+            获取客户端Ip地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Framework.Mayiboy.Queue.XmlHelper">
+            <summary>
+            解析Xml帮助类
+            </summary>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.XmlHelper.GetNodeAttr(System.Xml.XmlNode,System.String)">
+            <summary>
+            获取Xml节点属性
+            </summary>
+            <param name="node">节点</param>
+            <param name="attrName">属性名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.XmlHelper.GetXmlNode(System.Xml.XmlNode,System.String)">
+            <summary>
+            获取Xml节点
+            </summary>
+            <param name="node">节点</param>
+            <param name="nodeName">节点名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Framework.Mayiboy.Queue.XmlHelper.GetXmlNodeFromFile(System.String,System.String)">
+            <summary>
+            根据xml文件获取xml节点
+            </summary>
+            <param name="fileName">文件路径</param>
+            <param name="nodeLocalName">节点名称</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
