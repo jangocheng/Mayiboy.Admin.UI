@@ -44,6 +44,7 @@ namespace Mayiboy.Logic.Mapper
 
                 return DateTime.Parse(e);
             });
+
             #endregion
 
             //用户

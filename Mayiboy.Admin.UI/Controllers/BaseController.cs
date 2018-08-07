@@ -15,13 +15,11 @@ namespace Mayiboy.Admin.UI.Controllers
     [LoginAuth]
     public class BaseController : Controller
     {
-        private readonly IUserInfoService _iuserinfoservice;
         private readonly ISystemNavbarService _systemNavbarService;
         private readonly ISystemAppSettingsService _systemAppSettingsService;
 
         public BaseController()
         {
-            _iuserinfoservice = ServiceLocater.GetService<IUserInfoService>();
             _systemNavbarService = ServiceLocater.GetService<ISystemNavbarService>();
             _systemAppSettingsService = ServiceLocater.GetService<ISystemAppSettingsService>();
         }

@@ -119,7 +119,6 @@
     <Compile Include="Task\DemoTask.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Framework.Mayiboy.Logging.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
