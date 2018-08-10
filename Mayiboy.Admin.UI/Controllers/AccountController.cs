@@ -34,6 +34,7 @@ namespace Mayiboy.Admin.UI.Controllers
 		{
 			try
 			{
+				
 				#region 验证验证码登陆错误次数
 				var loginkey = model.UserName + RequestHelper.Ip;
 				var loginnum = int.Parse(CacheManager.RunTimeCache.Get(loginkey) ?? "0");
